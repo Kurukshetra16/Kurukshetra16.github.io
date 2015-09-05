@@ -1,0 +1,181 @@
+<!--put components here -->
+<div class="col-md-12 col-xs-12 col-md-push-2 karCircleBox">
+  <h4 class='col-md-12 col-xs-12 ribbontitle text-center col-xs-pull-1 col-md-pull-2' style="margin-top:50px;font-family:Orbitron;font-size:45px">K!ARNIVAL</h4>
+<ul class="karCircles col-md-12 col-xs-12 clearfix paddingReset">
+  <li class="karCircle col-md-4 col-xs-12"><!--karCircle will contain the image -->
+    <div class="karInnerCircle"><!--animated border-->
+        <video src="media/demo1.webm" /><!--vid clip that plays on hover -->
+          <i class="fa fa-play hidden-lg hidden-md"></i>
+    </div>
+
+  </li>
+<li class="karCircle col-md-4 col-xs-12"><!--karCircle will contain the image -->
+    <div class="karInnerCircle"><!--animated border-->
+        <img src="images/patterns/congruent_pentagon.png" /><!--vid clip that plays on hover -->
+          <i class="fa fa-play hidden-lg hidden-md"></i>
+    </div>
+
+  </li>
+<li class="karCircle col-md-4 col-xs-12"><!--karCircle will contain the image -->
+    <div class="karInnerCircle"><!--animated border-->
+        <img src="images/patterns/congruent_pentagon.png" /><!--vid clip that plays on hover -->
+          <i class="fa fa-play hidden-lg hidden-md"></i>
+    </div>
+
+  </li>
+<li class="karCircle col-md-4 col-xs-12"><!--karCircle will contain the image -->
+    <div class="karInnerCircle"><!--animated border-->
+        <img src="images/patterns/congruent_pentagon.png" /><!--vid clip that plays on hover -->
+          <i class="fa fa-play hidden-lg hidden-md"></i>
+    </div>
+
+  </li>
+<li class="karCircle col-md-4 col-xs-12"><!--karCircle will contain the image -->
+    <div class="karInnerCircle"><!--animated border-->
+        <img src="images/patterns/congruent_pentagon.png" /><!--vid clip that plays on hover -->
+          <i class="fa fa-play hidden-lg hidden-md"></i>
+    </div>
+
+  </li>
+<li class="karCircle col-md-4 col-xs-12"><!--karCircle will contain the image -->
+    <div class="karInnerCircle"><!--animated border-->
+        <img src="images/patterns/congruent_pentagon.png" /><!--vid clip that plays on hover -->
+          <i class="fa fa-play hidden-lg hidden-md"></i>
+    </div>
+
+  </li>
+
+</ul>
+
+
+</div>
+
+<div class="col-md-6 col-md-push-2 col-xs-12 karBox">
+  <div class="bottomPage hidden-xs"></div>
+  <div class="topPage">
+    <i class="fa fa-times closeme fa-2x"></i>
+    <div class="karImCircle">
+      <video src="images/patterns/congruent_pentagon.png" />
+    </div>
+    <div class="karDetails">
+    <h5 class="karName text-center">ARJUN TANK DEMONSTRATION</h5>
+    <h5 class="karVenue text-center">CENTER FIELD</h5>
+    <h5 class="text-center"><span class="karDate">29th August, 2016</span>
+        <span class="karTime">10:00 am </span>
+     </h5>
+   </div>
+    <p>  Experience fun at a whole new level with our action packed game Lasertag! This is an adrenaline-pumping, heart-pounding game in which strategy and luck are joined to defeat your opponents.
+
+           Lasertag is similar to the classic and still well-loved PC games wherein you strategize with your team on how to defeat your opponent. The team missions also require team strategy but on a live battlefield arena. It is the cooler, painless and high-technology version of paint ball games.
+
+           Lasertag is a team or individual activity that involves the use of hand-held infrared-emitting targeting device.First-time players do not need to worry as our professionals will guide you on how you can make laser tag an exciting and fun-filled activity with your friends.
+
+Participants can register for this event on the spot!
+</p>
+  </div>
+</div>
+<!-- <video id="my-video" class="video" autoplay muted loop>
+  <source src="media/demo1.webm" type="video/webm">
+</video>
+-->
+</div>
+
+</div><!-- overlay -->
+
+
+</div>
+
+<!--navbar ends-->
+
+
+<script>
+$(document).ready(function(){
+setClose = 0;
+
+$(".navbar-toggle").click(function(){
+  closeall();
+});
+
+
+$(".karCircle").click(function(){
+
+if( $(window).width() >= 600)
+{
+    popOut();
+    setTimeout(function(){  
+      moveKarsUp();},200*6);
+    $("html,body").animate({'scrollTop':"20px"},300);
+    setClose = 1;
+}
+//mobile effects
+else
+{
+    mpopOut();
+    setTimeout(function(){
+      moveKarsUp();},200*6);
+
+  $("html,body").animate({'scrollTop':"20px"},300);
+    setClose = 1; 
+}
+  });
+
+$(".closeme").click(function(){
+  moveKarsDown();
+  popIn();
+  
+});
+
+  var anims = ['flyLeft','flyBottom','flyRight','flyTop'];
+  var index = 0;
+  function popOut(){
+  $(".karCircle").each(function(i){
+      var ele = $(this);
+      index = (index+1)%4;
+      var currentanim = anims[index];
+      setTimeout(function(){ $(ele).addClass(currentanim).fadeOut(100*i);},200*i);
+  });
+}
+
+//mobile popOut effects -- reduced
+  function mpopOut(){
+  $(".karCircle").each(function(i){
+      var ele = $(this);
+      setTimeout(function(){ $(ele).addClass("flyLeft").fadeOut(100*i);},200*i);
+  });
+}
+function popIn(){
+
+  $(".karCircle").each(function(i){
+      var ele = $(this);
+      setTimeout(function(){ $(ele).removeClass("flyLeft").removeClass("flyRight").removeClass("flyTop").removeClass("flyBottom").fadeIn(i*175);},200*i);
+  });
+}
+
+function closeall(){
+    moveKarsDown();
+    popIn();  
+}
+
+function moveKarsUp(){
+  $(".karBox").addClass("floatUp");
+  $(".bottomPage").addClass("rotateUp");
+  $(".topPage").addClass("zoomIn");
+}
+
+function moveKarsDown(){
+  $(".karBox").removeClass("floatUp");
+  $(".bottomPage").removeClass("rotateUp");
+  $(".topPage").removeClass("zoomIn");
+
+}
+//play video
+$(".karInnerCircle").hover(function(){
+  $(this).children("video")[0].play();
+}, function(){
+$(this).children("video")[0].pause();
+});
+
+});
+
+</script>
+

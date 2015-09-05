@@ -1,0 +1,316 @@
+  <!--navbar-->
+  <div ng-controller="navController">
+    <nav class="navbar" >
+      <div class="container-fluid paddingReset">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <div class="sr-only">Toggle navigation</div>
+            <div class="icon-bar top-bar"></div>
+            <div class="icon-bar middle-bar"></div>
+            <div class="icon-bar bottom-bar"></div>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav" style="width:104% !important">
+           <li>
+            <a class="text" href="#/">HOME</a>
+            <div class="topVane">
+              <i class="fa fa-home"></i>
+            </div>
+           </li>
+            <li id="eventsNav" class="hidden-xs">
+            <a class="text">EVENTS</a>
+            <div class="topVane" id="eVane">
+              <i class="fa fa-hourglass"></i>
+            </div>
+           </li>
+           <li class="eventdrop dropdown hidden-md hidden-lg hidden-sm">
+            <a href="#" class="text dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EVENTS <div class="caret"></div></a>
+            <ul class="dropdown-menu eventsNavElem">
+              <li class="eventCircleNav"><a href="#/events"><i class="fa fa-gear"></i>
+                  <div class="sideText">Engineering</div>
+                  </a>
+                </li>
+              <li class="eventCircleNav"><a href="#"><i class="fa fa-android"></i>
+                              <div class="sideText">Robotics</div>
+                              </a>
+                            </li>
+              <li class="eventCircleNav"><a href="#"><i class="fa fa-laptop"></i>
+                              <div class="sideText">Online</div>
+                              </a>
+                            </li>
+              <li class="eventCircleNav"><a href="#"><i class="fa fa-terminal"></i>
+                              <div class="sideText">Coding</div>
+                              </a>
+                            </li>
+              <li class="eventCircleNav"><a href="#"><i class="fa fa-money"></i>
+                              <div class="sideText">Management</div>
+                              </a>
+                            </li>
+              <li class="eventCircleNav"><a href="#"><i class="fa fa-archive"></i>
+                              <div class="sideText">General</div>
+                              </a>
+                            </li>
+              <li class="eventCircleNav"><a href="#"><i class="fa fa-puzzle-piece"></i>
+                              <div class="sideText">Quizzes</div>
+              </a>
+                            </li>
+            </ul>
+          </li>
+           <li id="wkshopsNav" class='hidden-xs'>
+            <a class="text">WORKSHOPS</a>
+            <div class="topVane" id="wVane">
+              <i class="fa fa-wrench"></i>
+            </div>
+           </li>
+
+           <li class="wkshopdrop dropdown hidden-md hidden-lg hidden-sm">
+            <a href="#" class="text dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">WORKSHOPS <div class="caret"></div></a>
+            <ul class="dropdown-menu eventsNavElem">
+              <li class="eventCircleNav"><a href="#/events"><i class="fa fa-gear"></i>
+                  <div class="sideText">Engineering</div>
+                  </a>
+                </li>
+              <li class="eventCircleNav"><a href="#"><i class="fa fa-android"></i>
+                              <div class="sideText">Robotics</div>
+                              </a>
+                            </li>
+              <li class="eventCircleNav"><a href="#"><i class="fa fa-inr"></i>
+                              <div class="sideText">Management</div>
+                              </a>
+                            </li>
+              <li class="eventCircleNav"><a href="#"><i class="fa fa-archive"></i>
+                              <div class="sideText">General</div>
+                              </a>
+                            </li>
+              <li class="eventCircleNav"><a href="#"><i class="fa fa-university"></i>
+                              <div class="sideText">School</div>
+              </a>
+                            </li>
+            </ul>
+          </li>
+           <li>
+            <a class="text" href="#/xceed">XCEED</a>
+            <div class="topVane">
+              <i class="fa fa-fighter-jet"></i>
+            </div>
+           </li>
+           <li class="">
+            <a class="text" href="#/sponsors">SPONSORS</a>
+            <div class="topVane">
+              <i class="fa fa-inr"></i>
+            </div>
+           </li>
+           <li class="">
+            <a class="text" href="#/gl">GUEST LECTURES</a>
+            <div class="topVane">
+              <i class="fa fa-microphone"></i>
+            </div>
+           </li>
+
+           <li class="">
+            <a href="#/karnival" class="text">K!ARNIVAL</a>
+            <div class="topVane">
+              <i class="fa fa-empire"></i>
+            </div>
+           </li>
+           <li class="">
+            <a href="#/hospi" class="text">HOSPITALITY</a>
+            <div class="topVane">
+              <i class="fa fa-map-o"></i>
+            </div>
+           </li>
+           <li class="">
+            <a href="#/about" class="text">ABOUT US</a>
+            <div class="topVane">
+              <i class="fa fa-angellist"></i>
+            </div>
+           </li>
+           <li class="">
+            <a href="#/contacts" class="text">CONTACT</a>
+            <div class="topVane">
+              <i class="fa fa-comment"></i>
+            </div>
+           </li>
+           <li id="loginNav" class="smalleritem hidden-xs">
+            <a class="text">LOGIN</a>
+            <div class="topVane" id="lVane">
+              <i class="fa fa-key"></i>
+            </div>
+           </li>
+           <li class="logindrop dropdown hidden-md hidden-lg hidden-sm">
+            <a href="#" class="text dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LOGIN <div class="caret"></div></a>
+            <ul class="dropdown-menu loginNavElem">
+              <li class="eventCircleNav"><a href="#"><i class="fa fa-gear"></i>
+                  <div class="sideText">K!</div>
+                  </a>
+                </li>
+              <li class="eventCircleNav"><a href="#"><i class="fa fa-facebook"></i>
+                  <div class="sideText">FACEBOOK</div>
+                  </a>
+                </li>
+              <li class="eventCircleNav"><a href="#"><i class="fa fa-google"></i>
+                  <div class="sideText">Google+</div>
+                  </a>
+                </li>
+           </ul>
+         </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+   <div class="col-md-12 col-xs-12 eventHeader" style="background:url(images/patterns/sativa.png)">
+   <ul class="eventCats col-md-12 col-xs-12 col-md-push-3">
+              <li class="eventCircle"><a href="#/events"><i class="fa fa-gear"></i></a>
+                  <div class="btmText">Engineering</div>
+              </li>
+             <li class="eventCircle"><i class="fa fa-money"></i>
+                <div class="btmText">Management</div>
+              </li>
+              <li class="eventCircle"><i class="fa fa-android"></i>
+                <div class="btmText">Robotics</div>
+              </li>
+              <li class="eventCircle"><i class="fa fa-archive"></i>
+                <div class="btmText">General</div>
+              </li>
+              <li class="eventCircle"><i class="fa fa-laptop"></i>
+                <div class="btmText">Online</div>
+              </li>
+              <li class="eventCircle"><i class="fa fa-terminal"></i>
+                <div class="btmText">Coding</div>
+              </li>
+              <li class="eventCircle"><i class="fa fa-binoculars"></i>
+                <div class="btmText">Quizzes</div>
+              </li>
+            </ul>
+  </div>
+
+   <div class="col-md-12 col-xs-12 wkshopHeader" style="background:url(images/patterns/sativa.png)">
+   <ul class="wkshopCats col-md-12 col-xs-12 col-md-push-4">
+              <li class="eventCircle"><i class="fa fa-gear"></i>
+                  <div class="btmText">Engineering</div>
+              </li>
+              <li class="eventCircle"><i class="fa fa-archive"></i>
+                <div class="btmText">General</div>
+              </li>
+             
+              <li class="eventCircle"><i class="fa fa-android"></i>
+                <div class="btmText">Robotics</div>
+              </li>
+              <li class="eventCircle"><i class="fa fa-money"></i>
+                <div class="btmText">Management</div>
+              </li>
+              <li class="eventCircle"><i class="fa fa-university"></i>
+                <div class="btmText">School</div>
+              </li>
+            </ul>
+  </div>
+
+  <!--login header -->
+  <div class="col-md-12 col-xs-12 loginHeader" >
+   <ul class="eventCats col-md-12 col-xs-12 col-md-push-8">
+              <li class="eventCircle"><a href="slide-section.html"><i class="fa fa-gear"></i></a>
+                  <div class="btmText">K! Login</div>
+              </li>
+             <li class="eventCircle" style="margin-left:25px"><i class="fa fa-facebook"></i>
+                <div class="btmText">Facebook Login</div>
+              </li>
+              <li class="eventCircle"><i class="fa fa-google"></i>
+                <div class="btmText">Google+ Login</div>
+              </li>
+            </ul>
+  </div>
+  </div>
+  <!--navbar script-->
+  <script>
+  $(document).ready(function(){
+  $(".navbar-toggle").click(function(){
+    $(".top-bar").toggleClass("top-bar-anim");
+    $(".middle-bar").toggleClass("middle-bar-anim");
+    $(".bottom-bar").toggleClass("bottom-bar-anim");
+  });
+  if( $(window).width() >= 600)
+  {
+    $(".eventHeader").removeClass("dropDown");
+    $(".loginHeader").removeClass("dropDown");
+
+    $("#eventsNav").hover(function(){
+    $(".eventHeader").addClass("dropDown");
+    $(".container").children().fadeOut();
+    });
+    $("#loginNav").hover(function(){
+    $(".loginHeader").addClass("dropDown");
+    $(".container").children().fadeOut();
+    });
+
+    $(".navbar-nav li").hover(function(){
+      //openOut css animation
+      $(this).find(".topVane").addClass("openOut");
+
+      if($(this).attr("id") != "eventsNav" )
+    {
+    $(".eventHeader").removeClass("dropDown");
+    }
+      if($(this).attr("id") != "wkshopsNav" )
+    {
+    $(".wkshopHeader").removeClass("dropDown");
+    }
+
+      if($(this).attr("id") != "loginNav" )
+    {
+    $(".loginHeader").removeClass("dropDown");
+    }
+    }, function(){
+      $(this).find(".topVane").removeClass("openOut");
+      $(".container").children().fadeIn();
+      
+    });
+
+    $(".eventHeader").hover(function(){
+      $("#eVane").find("i").fadeOut(0);
+      $("#eVane").addClass("openOut");
+    $(".container").children().fadeOut();
+
+    }, function(){
+      $("#eVane").find("i").fadeIn(100);
+      $("#eVane").removeClass("openOut");
+      $(".eventHeader").removeClass("dropDown");
+      $(".container").children().fadeIn();
+    $(".container").children().fadeIn();
+      
+    });
+
+    $(".wkshopHeader").hover(function(){
+      $("#wVane").find("i").fadeOut(0);
+      $("#wVane").addClass("openOut");
+    $(".container").children().fadeOut();
+
+    }, function(){
+     $("#wVane").find("i").fadeIn(100);
+     $("#wVane").removeClass("openOut");
+     $(".wkshopHeader").removeClass("dropDown");
+     $(".container").children().fadeIn();
+
+    });
+
+    $(".loginHeader").hover(function(){
+      $("#lVane").find("i").fadeOut(0);
+      $("#lVane").addClass("openOut");
+    $(".container").children().fadeOut();
+
+    }, function(){
+     $("#lVane").find("i").fadeIn(100);
+     $("#lVane").removeClass("openOut");
+     $(".loginHeader").removeClass("dropDown");
+    $(".container").children().fadeIn();
+    });
+    
+    $(".wkshopHeader").removeClass("dropDown");
+    $("#wkshopsNav").hover(function(){
+      $(".wkshopHeader").addClass("dropDown");
+      $(".container").children().fadeOut();
+    });
+  }
+
+  });
+  </script>

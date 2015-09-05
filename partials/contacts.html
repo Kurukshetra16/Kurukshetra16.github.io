@@ -1,0 +1,194 @@
+<!--put components here -->
+<div class="col-md-12 col-xs-12 topMargin">
+<ul class="container col-md-12 col-xs-12 col-md-push-1 clearfix paddingReset bucketContainer">
+  <li class="bucketBox">
+    <div class="bucketCircle col-md-4 col-xs-12 i1">
+      <h5 class="bucketName">INDUSTRY RELATIONS </h5>
+    </div>
+  </li>
+
+  <li class="bucketBox">
+    <div class="bucketCircle col-md-4 col-xs-12 i2">
+      <h5 class="bucketName">EVENTS</h5>
+    </div>
+  </li>
+
+  <li class="bucketBox">
+    <div class="bucketCircle col-md-4 col-xs-12 i3">
+      <h5 class="bucketName">GUEST LECTURES</h5>
+    </div>
+  </li>
+
+  <li class="bucketBox">
+    <div class="bucketCircle col-md-4 col-xs-12 i4">
+      <h5 class="bucketName">XCEED</h5>
+    </div>
+  </li>
+
+  <li class="bucketBox">
+    <div class="bucketCircle col-md-4 col-xs-12 i5">
+      <h5 class="bucketName">KARNIVAL</h5>
+    </div>
+  </li>
+
+  <li class="bucketBox">
+    <div class="bucketCircle col-md-4 col-xs-12 i6">
+      <h5 class="bucketName">WORKSHOPS</h5>
+    </div>
+  </li>
+
+  <li class="bucketBox">
+    <div class="bucketCircle col-md-4 col-xs-12 i7">
+      <h5 class="bucketName">HOSPITALITY</h5>
+    </div>
+  </li>
+
+  <li class="bucketBox">
+    <div class="bucketCircle col-md-4 col-xs-12 i8">
+      <h5 class="bucketName">LOGISTICS</h5>
+    </div>
+  </li>
+
+  <li class="bucketBox">
+    <div class="bucketCircle col-md-4 col-xs-12 i9">
+      <h5 class="bucketName">MEDIA</h5>
+    </div>
+  </li>
+
+  <li class="bucketBox">
+    <div class="bucketCircle col-md-4 col-xs-12 i10">
+      <h5 class="bucketName">CREATIVITY</h5>
+    </div>
+  </li>
+
+  <li class="bucketBox">
+    <div class="bucketCircle col-md-4 col-xs-12 i11">
+      <h5 class="bucketName">DESIGN</h5>
+    </div>
+  </li>
+
+  <li class="bucketBox">
+    <div class="bucketCircle col-md-4 col-xs-12 i12">
+      <h5 class="bucketName">TECH</h5>
+    </div>
+  </li>
+
+  <li class="bucketBox">
+    <div class="bucketCircle col-md-4 col-xs-12 i13">
+      <h5 class="bucketName">PROJECTS</h5>
+    </div>
+  </li>
+
+  <li class="bucketBox">
+    <div class="bucketCircle col-md-4 col-xs-12 i14">
+      <h5 class="bucketName">HR</h5>
+    </div>
+  </li>
+
+  <li class="bucketBox">
+    <div class="bucketCircle col-md-4 col-xs-12 i15">
+      <h5 class="bucketName">FINANCE</h5>
+    </div>
+  </li>
+</ul>
+</div>
+
+<div class="left col-md-12 col-xs-12" style="background:rgba(0,0,0,0.85); padding-bottom:40px">
+  <div class="desc margin-top-lg">
+      <i class="close fa fa-times fa-2x fa-fw" style="color:#fff;"></i>
+  </div>
+  <h4 class='col-md-12 col-xs-12 ribbontitle text-center' style="font-family:Orbitron;font-size:35px;margin-top:-50px">BUCKET NAME</h4>
+  <h5 class='text-center col-md-12 col-xs-12 ribbontitle' style="font-family:Orbitron;font-size:15px; margin-bottom:15px">BUCKET EMAIL</h5>
+<u
+  <div class="container paddingReset col-md-12 col-md-push-1 col-xs-12">
+        <div class="col-md-3 col-md-push-1 col-xs-push-1 col-xs-12">
+        <div class="ih-item circle colored effect1"><a href="#">
+        <div class="spinner"></div>
+        <div class="img"><img src="images/sudar111.jpg" alt="img"></div>
+        <div class="info">
+          <div class="info-back">
+            <h3>NAME</h3>
+            <p>NUMBER</p>
+          </div>
+        </div></a></div>
+        </div>
+
+        <div class="col-md-3 col-md-push-1 col-xs-push-1 col-xs-12">
+        <div class="ih-item circle colored effect1"><a href="#">
+        <div class="spinner"></div>
+        <div class="img"><img src="images/sudar111.jpg" alt="img"></div>
+        <div class="info">
+          <div class="info-back">
+            <h3>NAME</h3>
+            <p>NUMBER</p>
+          </div>
+        </div></a></div>
+        </div>
+
+        <div class="col-md-3 col-md-push-1 col-xs-12">
+        <div class="ih-item circle colored effect1"><a href="#">
+        <div class="spinner"></div>
+        <div class="img"><img src="images/sudar111.jpg" alt="img"></div>
+        <div class="info">
+          <div class="info-back">
+            <h3>NAME</h3>
+            <p>NUMBER</p>
+          </div>
+        </div></a></div>
+        </div>
+      
+        
+      
+</div>
+
+
+</div>
+
+</div><!-- overlay -->
+
+
+</div>
+
+<!--navbar ends-->
+
+
+<script>
+$(document).ready(function(){
+$(".navbar-toggle").click(function(){
+  closeall();
+  
+});
+
+$(".bucketCircle").click(function(){
+    
+    popOut($(this));
+    $(".left").delay(800).animate({'marginLeft':"0px"},800,'easeOutSine');
+  });
+$(".close").click(function(){
+  closeall();
+});
+
+function popOut(thisele){
+  $(thisele).addClass("popOutFast");
+  $(".bucketCircle").each(function(i){
+      var ele = $(this);
+      setTimeout(function(){ if(!$(ele).hasClass("popOut")) $(ele).addClass("popOut"); }, i*75);
+  });
+$("html,body").delay(800).animate({'scrollTop':"20px"},1000);
+}
+function popIn(){
+
+  $(".bucketCircle").each(function(i){
+      var ele = $(this);
+      setTimeout(function(){ $(ele).removeClass("popOut").removeClass("popOutFast");
+       }, i*70);
+  });
+}
+
+function closeall(){
+    $(".left").animate({'marginLeft':"100%"},1000,'easeOutElastic');
+    popIn();
+}
+
+
+});

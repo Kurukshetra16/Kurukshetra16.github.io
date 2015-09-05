@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="ksite.css" rel="stylesheet">
+<link href="css/contacts/ihover.css" rel="stylesheet">
+<link href="css/contacts/component.css" rel="stylesheet">
+<link rel="stylesheet" href="css/tabs/style.css"> <!-- Resource style -->
+
+<link href="css/animate.css" rel="stylesheet">
+<link href="fontawesome/css/font-awesome.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Orbitron|Raleway' rel='stylesheet' type='text/css'>
+<body ng-app="myApp">
+  <!--navbar--> 
+  <div class="overlay">
+  <div ng-include="'partials/header.html'"></div>
+    <div class="bg">
+      <div ng-include="'partials/navbar.html'"></div>
+      <!--views come here-->
+      <div ng-view></div> 
+    </div>
+  </div>
+</body>
+<!--scripts-->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/tabs/main.js"></script>
+
+<!--angular-->
+ <script type="text/javascript" src="js/angular/angular.min.js"></script>
+ <script src="js/angular-masonry.js"></script>
+ <script src="js/imagesloaded.pkgd.min.js"></script>
+ <script src="js/masonry.pkgd.min.js"></script>
+ <script type="text/javascript" src="js/angular-route/angular-route.js"></script>
+ <script type="text/javascript" src="js/angular-sanitize/angular-sanitize.min.js"></script>
+ <script type="text/javascript" src="js/angular/angular-animate.min.js"></script>
+ <script type="text/javascript" src="appjs/app.js"></script>
+ <script type="text/javascript" src="appjs/controller.js"></script>
+ <script type="text/javascript" src="appjs/services.js"></script>
+ <script type="text/javascript" src="appjs/directives.js"></script>
