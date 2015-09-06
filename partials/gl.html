@@ -1,0 +1,284 @@
+<style>
+.glContainer{
+  margin-top:50px;
+}
+.glCircle{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  /*change in 320px*/
+  margin-left:30px;
+  box-shadow:0px 3px 3px rgba(0,0,0,0.3);
+  border:3px solid transparent;
+  filter:blur(0.05px) grayscale(20%);
+  cursor: pointer;
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  transition:all 0.5s ease;
+}
+.glContainer .glThumbs{
+  margin-top:50px;
+  padding-left:50px;
+  padding-right:50px;
+}
+.glThumbs .glThumb{
+width:100%;
+height:100%;  
+}
+.glCircleName{
+  width:100%;
+  padding:10px;
+  background:rgb(207,32,53);
+  color:#fff;
+  text-shadow:0px 3px 3px #000;
+  margin-bottom:30px;
+  margin-left:25px;
+  position:relative;
+  margin-top: 10px
+}
+.glCircleName::after{
+  content:'';
+  width:0;
+  height:0;
+  border-left:10px solid transparent;
+  border-right:10px solid transparent;
+  border-bottom:10px solid rgb(207,32,53);
+  position:absolute;
+  top:-8px;
+  left:45%;
+}
+.glCircle:hover{
+ box-shadow:0 3px 3px rgba(0,0,0,0.3);
+ filter:blur(0.0px) grayscale(0%);
+}
+/*glcontent*/
+.glbox{
+  width:100%;
+  min-height:400px;
+  max-height:auto;
+  margin-top:100px;
+  padding-bottom:20px;
+  margin-bottom:80px;
+}
+.glbox .glbottom1{
+  width:100%;
+  margin-left:20px;
+  min-height:530px;
+  max-height:auto;
+  background:#bbb;
+  padding-bottom:20px;
+  position:absolute;
+  top:0;
+  transform:skew(-5deg) rotate(5deg);
+}
+.glbox .glbottom2{
+  width:100%;
+  margin-left:-20px;
+  min-height:530px;
+  max-height:auto;
+  background:#bbb;
+  padding-bottom:20px;
+  position:relative;
+  transform:skew(5deg) rotate(-5deg);
+}
+.glpage1{
+  width:100%;
+  min-height:550px;
+  max-height:auto;
+  position:absolute;
+  top:0;
+  padding-bottom:30px;
+  margin-bottom:30px;
+  background:#fff;
+  box-shadow:0px 3px 3px rgba(0,0,0,0.3);
+  -webkit-transition:all 0.65s ease;
+  -moz-transition:all 0.65s ease;
+  transition:all 0.65s ease;
+
+}
+
+.glpage2{
+  width:100%;
+  min-height:550px;
+  max-height:auto;
+  position:absolute;
+  top:0;
+  padding-bottom:30px;
+  margin-bottom:30px;
+  background:#fff;
+  box-shadow:0px 3px 3px rgba(0,0,0,0.3);
+  visibility: hidden;
+  transform:scale(0.5) rotateX(89deg);
+    -webkit-transition:all 0.65s ease;
+  -moz-transition:all 0.65s ease;
+  transition:all 0.65s ease;
+
+}
+.glpage1 img,.glpage2 img{
+  margin-top:20px;
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  box-shadow:0px 3px 3px rgba(0,0,0,0.3);
+}
+.glpage1 .redribbon,.glpage2 .redribbon{
+  position: absolute;
+  top:-2px;
+  width:98px;
+  min-height:100px;
+  max-height:auto;
+  padding:10px;
+  background:rgb(207,32,53);
+  color:#fff;
+  text-shadow:0px 3px 3px #000;
+  text-align: center;
+  box-shadow:0px 3px 3px rgba(0,0,0,0.3);
+
+}
+.redribbon::after{
+  position:absolute;
+  bottom:-48px;
+  left:0;
+  width:0;
+  height:0;
+  content:'';
+  border-left:50px solid transparent;
+  border-right:50px solid transparent;
+  border-top:50px solid rgb(207,32,53);
+}
+.glpage1 .glcontent,.glpage2 .glcontent{
+  position: relative;
+  padding:30px;
+}
+.glcontent p{
+  line-height:1.6;
+  font-size:16px;
+  text-align: center;
+}
+.next, .prev{
+  position:absolute;
+  bottom:0;
+  color:#333;
+  font-weight:600;
+  cursor: pointer;
+  right:0;
+  padding-right:30px;
+}
+.prev{
+  left:0;
+  padding-left:30px;
+}
+.glpageanim1{
+ visibility: hidden;
+  transform:scale(0.5) rotate(89deg); 
+}
+.glpageanim2{
+ visibility: visible;
+  transform:scale(1) rotate(0deg); 
+}
+</style>
+
+     <!--Gl starts here-->
+<h1 class="paddingReset ribbontitle text-center col-md-12 col-xs-12">GUEST LECTURES</h1>
+<div class="container glContainer col-md-12 col-xs-12 paddingReset owl-theme owl-carousel" id = "owl-example">
+      <div class="item paddingReset">
+        <div class="anno scrim">
+          <img class="glCircle" src="images/ceg.jpg"/>
+          <h4 class="glCircleName text-center">EngiNX Hackathon is now open!</h4>
+        </div>
+      </div>
+      <div class="item paddingReset">
+        <div class="anno scrim">
+          <img class="glCircle" src="images/patterns/redkarnival.jpg"/>
+          <h4 class="glCircleName text-center">EngiNX Hackathon is now open!</h4>
+        </div>
+      </div><div class="item paddingReset">
+        <div class="anno scrim">
+          <img class="glCircle" src="images/ceg.jpg"/>
+          <h4 class="glCircleName text-center">EngiNX Hackathon is now open!</h4>
+        </div>
+      </div><div class="item paddingReset">
+        <div class="anno scrim">
+          <img class="glCircle" src="images/ceg.jpg"/>
+          <h4 class="glCircleName text-center">EngiNX Hackathon is now open!</h4>
+        </div>
+      </div><div class="item paddingReset">
+        <div class="anno scrim">
+          <img class="glCircle" src="images/ceg.jpg"/>
+          <h4 class="glCircleName text-center">EngiNX Hackathon is now open!</h4>
+        </div>
+      </div><div class="item paddingReset">
+        <div class="anno scrim">
+          <img class="glCircle" src="images/patterns/redkarnival.jpg"/>
+          <h4 class="glCircleName text-center">EngiNX Hackathon is now open!</h4>
+        </div>
+      </div>
+<!--content-->
+</div>
+<div class="row">
+<div class="container col-md-6 col-md-push-3 col-xs-12">
+  <div class="glbox col-md-12 col-xs-12">
+    <div class="glbottom1"></div>
+    <div class="glbottom2"></div>
+    <div class="glpage1">
+      <div class="col-md-2">
+        <h4 class="redribbon">20.65st December 2015 Turing Hall</h4>
+      </div>
+      <div class="col-md-2 col-md-push-3 col-xs-6 col-xs-push-3">
+          <img src="images/ceg.jpg"/>
+      </div>
+      <div class="glcontent col-md-12 col-xs-12">
+      <p>Page 1 Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...</p>
+      <p>Lorem ipsum stuff about our speaker...
+        Lorem ipsum stuff about our speaker...
+        Lorem ipsum stuff about our speaker...
+      </p>
+            <p>Page 1 Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...</p>
+      <p>Lorem ipsum stuff about our speaker...
+        Lorem ipsum stuff about our speaker...
+        Lorem ipsum stuff about our speaker...
+      </p>
+
+      <div class="next"><i class="fa fa-angle-right"></i> The Talk</div>
+    </div>
+    </div>
+<div class="glpage2">
+      <div class="col-md-2">
+        <h4 class="redribbon">20.65st December 2015 Turing Hall</h4>
+      </div>
+      <div class="col-md-2 col-md-push-3 col-xs-6 col-xs-push-3">
+          <img src="images/ceg.jpg"/>
+      </div>
+      <div class="glcontent col-md-12 col-xs-12">
+      <p>page 2 Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...</p>
+      <p>Lorem ipsum stuff about our speaker...
+        Lorem ipsum stuff about our speaker...
+        Lorem ipsum stuff about our speaker...
+      </p>
+      <div class="prev"><i class="fa fa-angle-left"></i> The Speaker</div>
+    </div>
+    </div>
+
+  </div>
+</div>
+</div>
+<script>
+$(document).ready(function() {
+    $("#owl-example").owlCarousel({
+        items:4,
+        autoPlay:true,
+        autoplayHoverPause:true,
+        navigation:false
+    });
+    $(".next").click(function(){
+      $(".glpage1").addClass("glpageanim1");
+      $(".glpage2").addClass("glpageanim2");
+    });
+
+    $(".prev").click(function(){
+      $(".glpage1").removeClass("glpageanim1").addClass("glpageanim2");
+      $(".glpage2").removeClass("glpageanim2").addClass("glpageanim1");
+    });
+});
+
+</script>

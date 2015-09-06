@@ -11,7 +11,7 @@ html,body{
 -moz-animation: AnimationName 100s ease infinite;
 animation: AnimationName 100s ease infinite;
 }
-@-webkit-keyframes AnimationName {
+/*@-webkit-keyframes AnimationName {
     0%{background-position:0% 52%}
     50%{background-position:100% 49%}
     100%{background-position:0% 52%}
@@ -24,7 +24,7 @@ animation: AnimationName 100s ease infinite;
 
 	0%{ background-position: -10000px -10000px;}
 	100%{ position: -4000px -3000px;}
-}
+}*/
 .hospiBox{
   background:none !important;
 }
@@ -1612,3 +1612,19 @@ ul{
    	filter : none;
    	-webkit-filter : none;
    }
+/*GL*/
+.glContainer .item{
+	padding-left:50px;
+}
+.owl-item{
+	float:left;
+	display:inline-block;
+
+}
+.item .anno{
+	border-radius:50%;
+	width:200px;
+	height:200px;
+	float:left;
+	display:inline-block;
+}
