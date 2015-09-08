@@ -1,29 +1,44 @@
 
 html,body{
 	overflow-x:hidden !important;
-	-webkit-transition:all 0.65s;
-	-moz-transition:all 0.65s;
-	transition:all 0.65s;
+	-webkit-transition:all 0.620s;
+	-moz-transition:all 0.620s;
+	transition:all 0.620s;
  background-image:url(images/patterns/red_stars2.jpg),url(images/patterns/red_stars1.jpg) !important;
  background-position:0 0 center;
  background-size: 100px 100px, 100px 100px;
-  -webkit-animation: AnimationName 30s ease infinite;
--moz-animation: AnimationName 100s ease infinite;
-animation: AnimationName 100s ease infinite;
+  -webkit-animation: AnimationName 30s linear infinite;
+-moz-animation: AnimationName 20s linear infinite;
+animation: AnimationName 20s linear infinite;
 }
 @-webkit-keyframes AnimationName {
-    0%{background-position:0% 52%}
+    /*0%{background-position:0% 52%}
     50%{background-position:100% 49%}
-    100%{background-position:0% 52%}
+    100%{background-position:0% 52%}*/
+    0%{background-color: #420308;}
+			20%{background-color: #871409;}
+			40%{background-color: #000;}
+			60%{ background-color:#2A1027;}
+			80%{ background-color:#871409;}
+			100%{ background-color:#420308;}
 }
 @-moz-keyframes AnimationName {
-			from { background-position: 20px -90px; }
-			to { background-position: 300px -90px; }
+			/*from { background-position: 20px -90px; }
+			to { background-position: 300px -90px; }*/
+			0%{background-color: #420308;}
+			20%{background-color: #871409;}
+			40%{background-color: #000;}
+			60%{ background-color:#2A1027;}
+			80%{ background-color:#871409;}
+			100%{ background-color:#420308;}
 		}
 @keyframes AnimationName {
-
-	0%{ background-position: -10000px -10000px;}
-	100%{ position: -4000px -3000px;}
+		0%{background-color: #420308;}
+			20%{background-color: #871409;}
+			40%{background-color: #000;}
+			60%{ background-color:#2A1027;}
+			80%{ background-color:#871409;}
+			100%{ background-color:#420308;}
 }
 .hospiBox{
   background:none !important;
@@ -32,11 +47,10 @@ ul{
 	list-style: none;
 }
  .bg{
-	
-  background-image:url(images/patterns/red_stars2.jpg), url(images/patterns/red_stars2.jpg) !important;
- 	-webkit-animation: AnimationName 30s ease infinite;
-	-moz-animation: AnimationName 100s ease infinite;
-	animation: AnimationName 100s ease infinite;
+  background:#420308;
+ 	-webkit-animation: AnimationName 30s linear infinite;
+	-moz-animation: AnimationName 20s linear infinite;
+	animation: AnimationName 20s linear infinite;
 	left:0;
 	position:absolute;	
 	width:100%;
@@ -49,10 +63,10 @@ ul{
 	overflow-y:auto;
 	width:100%;
 	height:100%;
-	background-image:url(images/patterns/red_stars2.jpg),url(images/patterns/red_stars2.jpg) !important;
- 	-webkit-animation: AnimationName 30s ease infinite;
-	-moz-animation: AnimationName 100s ease infinite;
-	animation: AnimationName 100s ease infinite;
+	background:#420308;
+ 	-webkit-animation: AnimationName 30s linear infinite;
+	-moz-animation: AnimationName 20s linear infinite;
+	animation: AnimationName 20s linear infinite;
 	
 }
 
@@ -138,9 +152,9 @@ A.text.dropdown-toggle:focus{
 DIV#bs-example-navbar-collapse-1.navbar-collapse.collapse.in{
 	overflow-x:hidden;
 background:url(images/patterns/red_stars2.jpg),url(images/patterns/red_stars2.jpg);	
--webkit-animation: AnimationName 30s ease infinite;
--moz-animation: AnimationName 100s ease infinite;
-animation: AnimationName 100s ease infinite;
+-webkit-animation: AnimationName 30s linear infinite;
+-moz-animation: AnimationName 20s linear infinite;
+animation: AnimationName 20s linear infinite;
 	z-index:2;
 }
 .changeNav{
@@ -192,9 +206,9 @@ nav.navbar {
 .nav.navbar-nav a.navelem:active{
 background: linear-gradient(270deg, #270900, #3e0202, #4d0404, #120404, #320109);
 background-size: 1000% 1000%;
--webkit-animation: AnimationName 30s ease infinite;
--moz-animation: AnimationName 100s ease infinite;
-animation: AnimationName 100s ease infinite;
+-webkit-animation: AnimationName 30s linear infinite;
+-moz-animation: AnimationName 20s linear infinite;
+animation: AnimationName 20s linear infinite;
 }
 
 .navicons{
@@ -252,10 +266,10 @@ INPUT.form-control:focus
   -webkit-transform-style:preserve-3d;
   transform-style:preserve-3d;
  -webkit-perspective:2500px;
- -webkit-transition:all 0.5s;
+ -webkit-transition:all 0.20s;
   transform:perspective(480px);
- -moz-transition:all 0.5s;
- transition:all 0.5s;
+ -moz-transition:all 0.20s;
+ transition:all 0.20s;
 cursor: pointer;
 }
 
@@ -297,9 +311,9 @@ cursor: pointer;
 	transform-origin:50% 0;
 	/*opacity:0.3;*/
   -webkit-transform-origin:50% 0;
-  -webkit-transition:all 0.5s;
-  -moz-transition:all 0.5s;
-  transition:all 0.5s;
+  -webkit-transition:all 0.20s;
+  -moz-transition:all 0.20s;
+  transition:all 0.20s;
   background-position:0px 0px,50px 0px,0px 35px, 50px 35px;
   background-size:80px 35px;
   background-repeat: no-repeat;
@@ -345,10 +359,10 @@ visibility:hidden;
 	height:auto;
 }
 .headerBox{
-background-image:url(images/patterns/red_stars2.jpg),url(images/patterns/red_stars2.jpg) !important;
- -webkit-animation: AnimationName 30s ease infinite;
--moz-animation: AnimationName 100s ease infinite;
-animation: AnimationName 100s ease infinite;
+background-color:#420308;
+ -webkit-animation: AnimationName 30s linear infinite;
+-moz-animation: AnimationName 20s linear infinite;
+animation: AnimationName 20s linear infinite;
 z-index:2;
 }
 #ceg{
@@ -388,9 +402,9 @@ ul li.eventCircle{
 	border-radius:50%;
 	padding:20px;
 	color:#fff;
-	/*-webkit-transition:all 0.5s;
-	-moz-transition:all 0.5s;
-	transition:all 0.5s;*/
+	/*-webkit-transition:all 0.20s;
+	-moz-transition:all 0.20s;
+	transition:all 0.20s;*/
 }
 .eventCircle .btmText{
 	font-size:12px;
@@ -425,6 +439,15 @@ li ul{
 }
 
 @media all and (max-width: 640px) and (min-width: 320px) {
+	/*gl*/
+.glpage1{
+  position:relative;
+
+}
+.glbox{
+	 margin-top:160px;
+ 
+}
 /*karnival*/
 .karCircleBox{
 	margin-left:20px;
@@ -457,6 +480,9 @@ li ul{
 	transition:all 0.3s;
 	
 }
+	.imagebox{
+		height:350px;
+	}
 	.subscribe{
 	margin-top:10px;	
 	background:#d9534f !important;
@@ -525,9 +551,9 @@ ul li.eventCircleNav{
 	background:#111;
 	border-radius:50%;
 	padding:10px;
-	-webkit-transition:all 0.5s;
-	-moz-transition:all 0.5s;
-	transition:all 0.5s;
+	-webkit-transition:all 0.20s;
+	-moz-transition:all 0.20s;
+	transition:all 0.20s;
 }
 .eventCircleNav .sideText{
 	font-size:12px;
@@ -555,9 +581,19 @@ ul li.eventCircleNav{
 	margin-top:30px !important;
 	height:auto !important;
 }
+.navbar-toggle{
+	margin-top:30px;
+}
 }
 
 @media all and (min-width: 960px) {
+/*gl*/
+.glpage1{
+  position:absolute;
+}
+.glbox{
+	 margin-top:200px;
+}
 .navbar-nav{
 	height:60px;
 }
@@ -597,9 +633,9 @@ ul li.eventCircleNav{
   position:relative;
   visibility: hidden;
   box-shadow:0px 2px 2px rgba(255,255,255,.3);
-  -webkit-transition:all 0.65s;
-	-moz-transition:all 0.65s;
-	transition:all 0.65s;
+  -webkit-transition:all 0.620s;
+	-moz-transition:all 0.620s;
+	transition:all 0.620s;
 	
 }
 .karBox .topPage{
@@ -630,7 +666,10 @@ li span{
 top:10px;
 }
 
-	
+.imagebox{
+ height:350px;
+ 
+}
 .subscribe{
 margin-top:15px;
 background:#d9534f !important;
@@ -686,7 +725,11 @@ UL.nav.navbar-nav.navbar-right{
 	margin-top:0px;
 	position: absolute;
 	visibility:hidden;
-	background:url(images/patterns/red_stars2.jpg)!important;
+    background-color:#420308;
+ 	-webkit-animation: AnimationName 30s linear infinite;
+	-moz-animation: AnimationName 20s linear infinite;
+	animation: AnimationName 20s linear infinite;
+
 
 }
 
@@ -701,7 +744,7 @@ UL.nav.navbar-nav.navbar-right{
 .titleHeader{
 	width:100%;
 	height:125px;
-	background:orange;
+	background:#420308;
 	color:#111;
 	text-align: center;
 	top:0;
@@ -720,16 +763,16 @@ UL.nav.navbar-nav.navbar-right{
   -webkit-transform-style:preserve-3d;
   transform-style:preserve-3d;
  -webkit-perspective:2500px;
- -webkit-transition:all 0.5s;
+ -webkit-transition:all 0.20s;
   transform:perspective(480px);
- -moz-transition:all 0.5s;
- transition:all 0.5s;
+ -moz-transition:all 0.20s;
+ transition:all 0.20s;
 }
 /* EVENTS */
 .cd-tabs a{
- -moz-transition:all 0.5s;
- transition:all 0.5s;
--webkit-transition:all 0.5s;
+ -moz-transition:all 0.20s;
+ transition:all 0.20s;
+-webkit-transition:all 0.20s;
 	cursor: pointer;
 }
 .cd-tabs a:hover{
@@ -763,22 +806,44 @@ UL.nav.navbar-nav.navbar-right{
 }
 .imagebox{
   width:100%;
-  min-height:450px;
-  padding-bottom:10px;
   background:#fff;
   margin-bottom:20px;
   cursor: pointer;
   box-shadow:0px 8px 10px rgba(0,0,0,0.4);
-  -webkit-transition:all 0.5s;
-  -moz-transition:all 0.5s;
-  transition:all 0.5s;
+  -webkit-transition:all 0.20s;
+  -moz-transition:all 0.20s;
+  transition:all 0.20s;
   color:#333;
+  position: relative;
+}
+.imagebox .overlay{
+	opacity:0 !important;
+	background:rgba(0,0,0,0.75) !important;
+	position: absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	 -webkit-transition:all 0.20s;
+    -moz-transition:all 0.20s;
+   transition:all 0.20s;
 }
 .imagebox p{
-  padding:10px;
-  font-size: 14px;
+  margin-left:10px;
+  margin-right:10px;
+  font-size: 15px;
   line-height: 1.6;
   text-align:center;
+  position:absolute;
+  top:50px;
+  left:0;
+  color:#fff;
+  opacity: 0;
+  transform:rotateX(-90deg);
+  -webkit-transform:rotateX(-90deg);
+  -webkit-transition:all 0.20s;
+  -moz-transition:all 0.20s;
+   transition:all 0.20s;
 }
 .imagebox .icon{
   margin:auto;
@@ -786,8 +851,6 @@ UL.nav.navbar-nav.navbar-right{
   display:block;
 
 }
-
-
 .imagebox .title{
   font-size: 14px;
 	background:rgb(215,60,52);
@@ -797,11 +860,26 @@ UL.nav.navbar-nav.navbar-right{
 	color:#fff;
 	line-height:1.6;
 	position:absolute;
-	-webkit-transition:all 0.5s;
-	-moz-transition:all 0.5s;
-	transition:all 0.5s;
-  width:93%;
+	-webkit-transition:all 0.20s;
+	-moz-transition:all 0.20s;
+	transition:all 0.20s;
+  width:103.5%;
   font-family:'Raleway',sans-serif;
+}
+@keyframes imageboxanim{
+	0%{transform:rotateX(-90deg);opacity:1;}
+	33%{transform:rotateX(-60deg) scale(1.1);}
+	66%{transform:rotateX(-30deg) scale(1.5);}
+	100%{transform:rotateX(0deg) scale(1);opacity:1;}
+}
+@-webkit-keyframes imageboxanim{
+	0%{transform:rotateX(-90deg);opacity:1;}
+	33%{transform:rotateX(-60deg) scale(1.1);}
+	66%{transform:rotateX(-30deg) scale(1.5);}
+	100%{transform:rotateX(0deg) scale(1);opacity:1;}
+}
+.imagebox:hover .overlay{
+	opacity:1;
 }
 .imagebox .title::after{
   position:absolute;
@@ -812,21 +890,27 @@ UL.nav.navbar-nav.navbar-right{
 }
 .imagebox img{
 	width:100%;
-	height:200px;
+	height:100%;
+	-webkit-transition:all 0.20s;
+	-moz-transition:all 0.20s;
+	transition:all 0.20s;
 }
-.imageboxl:hover, .imageboxr:hover{
-  box-shadow:5px 2px 5px rgba(255,255,255,0.06),
-  5px -2px 5px rgba(255,255,255,0.06),
-  -5px 2px 5px rgba(255,255,255,0.06),
-  -5px -2px 5px rgba(255,255,255,0.06);
+  .imagebox:hover img{
+  	filter:grayscale(80%) blur(0.3px);
+  	-webkit-filter:grayscale(80%) blur(0.3px);
+  }
+.imagebox:hover p{
+-moz-animation:imageboxanim 0.4s linear forwards;
+-webkit-animation:imageboxanim 0.4s linear forwards;
 }
-
 .boxes{
 	width:100%;
 	position:relative;
 	overflow:hidden;
 	padding-bottom:50px;
-  margin-top:20px;
+  	margin-top:20px;
+  	padding-left: 0;
+  	padding-right: 0;
 }
 .pageHeader{
 	position:relative;
@@ -878,13 +962,13 @@ UL.nav.navbar-nav.navbar-right{
   width:100%;
   height:5px;
   background:#000;
-
+  box-shadow:0px 2px 2px rgba(255,255,255,0.05);
 }
 .longer-line{
   height:5px; position:absolute;
-   -webkit-transition:all 0.65s;
-  -moz-transition:all 0.65s;
-  transition:all 0.65s;
+   -webkit-transition:all 0.620s;
+  -moz-transition:all 0.620s;
+  transition:all 0.620s;
  
 }
 .long-line .node{
@@ -990,8 +1074,11 @@ UL.nav.navbar-nav.navbar-right{
 .hospi_content .title{
   border-bottom:2px solid #333;
   padding-bottom:15px;
+  font-family:'Raleway',sans-serif;
+  font-size: 35px ;
 }
 .hospi_desc{
+	font-family:'Raleway',sans-serif;
   margin-top:20px;
   padding-left:25px;
   padding-right:25px;
@@ -1097,11 +1184,11 @@ UL.nav.navbar-nav.navbar-right{
   border:10px solid #444;
   box-shadow:0 0 0 20px inset #333, 0px 3px 10px rgba(255,255,255,0.3);
   border-radius:50%;
-  -webkit-transition:all 0.5s;
-  -moz-transition:all 0.5s;
-  -o-transition:all 0.5s;
-  -ms-transition:all 0.5s;
-  transition:all 0.5s;
+  -webkit-transition:all 0.20s;
+  -moz-transition:all 0.20s;
+  -o-transition:all 0.20s;
+  -ms-transition:all 0.20s;
+  transition:all 0.20s;
 
 }
 .karInnerCircle img{
@@ -1208,32 +1295,32 @@ UL.nav.navbar-nav.navbar-right{
 .flyLeft{
 	transform:translateX(-2000px) translateY(1500px) scale(0.8);
 	-webkit-transform:translateX(-2000px) translateY(1500px) scale(0.8);
-	-moz-transition: transform 0.65s linear forwards;
-	-webkit-transition: transform 0.65s linear forwards;
-	transition: transform 0.65s linear forwards;
+	-moz-transition: transform 0.620s linear forwards;
+	-webkit-transition: transform 0.620s linear forwards;
+	transition: transform 0.620s linear forwards;
 }
 .flyRight{
 	transform:translateX(-2000px) translateY(1500px) scale(0.8);
 	-webkit-transform:translateX(-2000px) translateY(1500px) scale(0.8);
-	-moz-transition: transform 0.65s linear forwards;
-	-webkit-transition: transform 0.65s linear forwards;
-	transition: transform 0.65s linear forwards;
+	-moz-transition: transform 0.620s linear forwards;
+	-webkit-transition: transform 0.620s linear forwards;
+	transition: transform 0.620s linear forwards;
 
 }
 
 .flyTop{
 	transform:translateX(600px) translateY(-2500px) scale(0.8);
 	-webkit-transform:translateX(600px) translateY(-2500px) scale(0.8);
-	-moz-transition: transform 0.65s linear forwards;
-	-webkit-transition: transform 0.65s linear forwards;
-	transition: transform 0.65s linear forwards;
+	-moz-transition: transform 0.620s linear forwards;
+	-webkit-transition: transform 0.620s linear forwards;
+	transition: transform 0.620s linear forwards;
 }
 .flyBottom{
 	transform:translateX(600px) translateY(2500px) scale(0.8);
 	-webkit-transform:translateX(600px) translateY(2500px) scale(0.8);
-	-moz-transition: transform 0.65s linear forwards;
-	-webkit-transition: transform 0.65s linear forwards;
-	transition: transform 0.65s linear forwards;
+	-moz-transition: transform 0.620s linear forwards;
+	-webkit-transition: transform 0.620s linear forwards;
+	transition: transform 0.620s linear forwards;
 
 }
 /* =============================================================================
@@ -1263,7 +1350,8 @@ UL.nav.navbar-nav.navbar-right{
 	width:100%;
 	height:100%;
 }
-.xceedContainer #place1,.xceedContainer #place2,.xceedContainer #place3,.xceedContainer #place4{
+.xceedContainer #place1,.xceedContainer #place2,.xceedContainer #place3,.xceedContainer #place4,
+.xceedContainer #place1m,.xceedContainer #place2m,.xceedContainer #place3m,.xceedContainer #place4m{
 	position:absolute;
 	font-size:20px;
 	cursor: pointer;
@@ -1277,8 +1365,8 @@ UL.nav.navbar-nav.navbar-right{
 }
 .place .fa-map-marker{
 	color:#d62134;
-	-moz-animation:popGlow 1.5s ease-in-out forwards infinite;
-	-webkit-animation:popGlow 1.5s ease-in-out forwards infinite;
+	-moz-animation:popGlow 1.20s ease-in-out forwards infinite;
+	-webkit-animation:popGlow 1.20s ease-in-out forwards infinite;
 
 }
 .place .btmText{
@@ -1318,6 +1406,26 @@ UL.nav.navbar-nav.navbar-right{
 	top:450px;
 	left:850px;
 	}
+.xceedContainer #place1m{
+	top:50px;
+	left:120px;
+}
+
+.xceedContainer #place2m{
+	top:200px;
+	left:10px;
+}
+
+.xceedContainer #place3m{
+	top:200px;
+	left:230px;
+}
+
+.xceedContainer #place4m{
+	top:350px;
+	left:120px;
+}
+
 .tooltips{
 	box-shadow:0px 3px 3px rgba(0,0,0,0.3);
 }
@@ -1413,7 +1521,7 @@ transform:scale(1.2) translateY(-10px);
   background:none;
   -moz-transition:all 0.1s;
   -webkit-transition:all 0.1s;
-  transition:all 0.5s;
+  transition:all 0.20s;
   box-shadow:0px 4px 10px rgba(255,255,255,0.1),
   			0px -4px 10px rgba(255,255,255,0.1);
   			}
@@ -1479,9 +1587,9 @@ ul{
   color:#fff;
 }
 .popOut, .popOutFast{
-  -webkit-animation:scaleDown 0.25s ease-in-out forwards;
-  -moz-animation:scaleDown 0.25s ease-in-out forwards;
-  animation:scaleDown 0.25s ease-in-out forwards;
+  -webkit-animation:scaleDown 0.220s ease-in-out forwards;
+  -moz-animation:scaleDown 0.220s ease-in-out forwards;
+  animation:scaleDown 0.220s ease-in-out forwards;
   visibility: hidden;
   pointer-events:none;
   -moz-transition:all 0.4s;
@@ -1489,9 +1597,9 @@ ul{
   transition:all 0.4s;
 }
 .popOutFast{
-  -webkit-animation:scaleDown 0.05s ease-in-out forwards;
-  -moz-animation:scaleDown 0.05s ease-in-out forwards;
-  animation:scaleDown 0.05s ease-in-out forwards;
+  -webkit-animation:scaleDown 0.020s ease-in-out forwards;
+  -moz-animation:scaleDown 0.020s ease-in-out forwards;
+  animation:scaleDown 0.020s ease-in-out forwards;
   -moz-transition:all 0.1s;
   -webkit-transition:all 0.1s;
   transition:all 0.1s;
@@ -1628,4 +1736,189 @@ ul{
 	height:200px;
 	float:left;
 	display:inline-block;
+}
+/*GL*/
+
+.glContainer{
+  margin-top:50px;
+}
+.glCircle{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  /*change in 320px*/
+  margin-left:30px;
+  box-shadow:0px 3px 3px rgba(0,0,0,0.3);
+  border:3px solid transparent;
+  filter:blur(0.05px) grayscale(20%);
+  cursor: pointer;
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  transition:all 0.5s ease;
+}
+.glContainer .glThumbs{
+  margin-top:50px;
+  padding-left:50px;
+  padding-right:50px;
+}
+.glThumbs .glThumb{
+width:100%;
+height:100%;  
+}
+.glCircleName{
+  width:100%;
+  padding:10px;
+  background:rgb(207,32,53);
+  color:#fff;
+  margin-bottom:30px;
+  margin-left:25px;
+  position:relative;
+  margin-top: 10px
+}
+.glCircleName::after{
+  content:'';
+  width:0;
+  height:0;
+  border-left:10px solid transparent;
+  border-right:10px solid transparent;
+  border-bottom:10px solid rgb(207,32,53);
+  position:absolute;
+  top:-8px;
+  left:45%;
+}
+.glCircle:hover{
+ box-shadow:0 3px 3px rgba(0,0,0,0.3);
+ filter:blur(0.0px) grayscale(0%);
+}
+/*glcontent*/
+.glbox{
+  width:100%;
+  min-height:400px;
+  max-height:auto;
+  padding-bottom:20px;
+  margin-bottom:80px;
+}
+.glbox .glbottom1{
+  width:100%;
+  margin-left:20px;
+  min-height:530px;
+  max-height:auto;
+  background:#bbb;
+  padding-bottom:20px;
+  position:absolute;
+  top:0;
+  transform:skew(-5deg) rotate(5deg);
+}
+.glbox .glbottom2{
+  width:100%;
+  margin-left:-20px;
+  min-height:530px;
+  max-height:auto;
+  background:#bbb;
+  padding-bottom:20px;
+  position:relative;
+  transform:skew(5deg) rotate(-5deg);
+}
+.glpage1{
+  width:100%;
+  min-height:550px;
+  max-height:auto;
+  top:0;
+  padding-bottom:30px;
+  margin-bottom:30px;
+  background:#fff;
+  box-shadow:0px 3px 3px rgba(0,0,0,0.3);
+  -webkit-transition:all 0.65s ease;
+  -moz-transition:all 0.65s ease;
+  transition:all 0.65s ease;
+
+}
+
+.glpage2{
+  width:100%;
+  min-height:550px;
+  max-height:auto;
+  position:absolute;
+  top:0;
+  padding-bottom:30px;
+  margin-bottom:30px;
+  background:#fff;
+  box-shadow:0px 3px 3px rgba(0,0,0,0.3);
+  visibility: hidden;
+  transform:rotate(60deg) translateX(-3000px) translateY(-300px);
+  -webkit-transition:all 0.65s ease;
+  -moz-transition:all 0.65s ease;
+  transition:all 0.65s ease;
+
+}
+.glpage1 img,.glpage2 img{
+  margin-top:20px;
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  box-shadow:0px 3px 3px rgba(0,0,0,0.3);
+}
+.glpage1 .redribbon,.glpage2 .redribbon{
+  position: absolute;
+  top:-2px;
+  width:98px;
+  min-height:100px;
+  max-height:auto;
+  padding:10px;
+  background:rgb(207,32,53);
+  color:#fff;
+  text-align: center;
+  box-shadow:0px 3px 3px rgba(0,0,0,0.3);
+  font-family:'Raleway',sans-serif !important;
+
+}
+.redribbon::after{
+  position:absolute;
+  bottom:-48px;
+  left:0;
+  width:0;
+  height:0;
+  content:'';
+  border-left:50px solid transparent;
+  border-right:50px solid transparent;
+  border-top:50px solid rgb(207,32,53);
+}
+.glpage1 .glcontent,.glpage2 .glcontent{
+  position: relative;
+  padding:30px;
+
+}
+.glcontent p{
+  line-height:1.6;
+  font-size:16px;
+  text-align: center;
+  font-family:'Raleway',sans-serif !important;
+
+}
+.next, .prev{
+  position:absolute;
+  bottom:0;
+  color:#333;
+  font-weight:600;
+  cursor: pointer;
+  right:0;
+  padding-right:30px;
+}
+.prev{
+  left:0;
+  padding-left:30px;
+}
+.glpageanim1{
+ visibility: hidden;
+ -webkit-transition:all 0.85s;
+ -moz-transition:all 0.85s;
+ -webkit-transition:all 0.85s;
+ transform:rotate(30deg) translateX(3000px) translateY(-200px); 
+}
+.glpageanim2{
+ visibility: visible;
+ -webkit-transition:all 0.85s;
+ -moz-transition:all 0.85s;
+ -webkit-transition:all 0.85s;
+ transform:rotate(0deg) translateY(0px) translateX(0px);
 }

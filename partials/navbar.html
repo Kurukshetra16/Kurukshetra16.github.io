@@ -159,7 +159,7 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-   <div class="col-md-12 col-xs-12 eventHeader" style="background:url(images/patterns/sativa.png)">
+   <div class="col-md-12 col-xs-12 eventHeader">
    <ul class="eventCats col-md-12 col-xs-12 col-md-push-3">
               <li class="eventCircle"><a href="#/events"><i class="fa fa-gear"></i></a>
                   <div class="btmText">Engineering</div>
@@ -185,7 +185,7 @@
             </ul>
   </div>
 
-   <div class="col-md-12 col-xs-12 wkshopHeader" style="background:url(images/patterns/sativa.png)">
+   <div class="col-md-12 col-xs-12 wkshopHeader">
    <ul class="wkshopCats col-md-12 col-xs-12 col-md-push-4">
               <li class="eventCircle"><i class="fa fa-gear"></i>
                   <div class="btmText">Engineering</div>
@@ -224,6 +224,19 @@
   <!--navbar script-->
   <script>
   $(document).ready(function(){
+  $(function() {
+    $('.nav a').on('click', function(){ 
+      var clickedId = $(this).text();
+     // alert("boo"+clickedId+"boo")
+        if( clickedId == "EVENTS " || clickedId == "WORKSHOPS " || clickedId == "LOGIN " )
+          return;
+        else if($('.navbar-toggle').css('display') !='none'){
+            $(".navbar-toggle").trigger( "click" );
+        }
+    });
+});
+
+
   $(".navbar-toggle").click(function(){
     $(".top-bar").toggleClass("top-bar-anim");
     $(".middle-bar").toggleClass("middle-bar-anim");
@@ -236,11 +249,11 @@
 
     $("#eventsNav").hover(function(){
     $(".eventHeader").addClass("dropDown");
-    $(".container").children().fadeOut();
+    $(".container").children().fadeOut().finish();
     });
     $("#loginNav").hover(function(){
     $(".loginHeader").addClass("dropDown");
-    $(".container").children().fadeOut();
+    $(".container").children().fadeOut().finish();
     });
 
     $(".navbar-nav li").hover(function(){
@@ -269,7 +282,7 @@
     $(".eventHeader").hover(function(){
       $("#eVane").find("i").fadeOut(0);
       $("#eVane").addClass("openOut");
-    $(".container").children().fadeOut();
+    $(".container").children().fadeOut().finish();
 
     }, function(){
       $("#eVane").find("i").fadeIn(100);
@@ -283,7 +296,7 @@
     $(".wkshopHeader").hover(function(){
       $("#wVane").find("i").fadeOut(0);
       $("#wVane").addClass("openOut");
-    $(".container").children().fadeOut();
+    $(".container").children().fadeOut().finish();
 
     }, function(){
      $("#wVane").find("i").fadeIn(100);
@@ -296,7 +309,7 @@
     $(".loginHeader").hover(function(){
       $("#lVane").find("i").fadeOut(0);
       $("#lVane").addClass("openOut");
-    $(".container").children().fadeOut();
+    $(".container").children().fadeOut().finish();
 
     }, function(){
      $("#lVane").find("i").fadeIn(100);
@@ -308,7 +321,7 @@
     $(".wkshopHeader").removeClass("dropDown");
     $("#wkshopsNav").hover(function(){
       $(".wkshopHeader").addClass("dropDown");
-      $(".container").children().fadeOut();
+      $(".container").children().fadeOut().finish();
     });
   }
 
