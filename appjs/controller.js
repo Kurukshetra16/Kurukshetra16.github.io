@@ -19,17 +19,20 @@ $scope.nodes = [
 {
 	title:'REACHING CEG',
 	icon:'fa fa-map-marker hospi_icon',
-	url:'reachceg'
+	url:'reachceg',
+	mclass:'margin-left:-5px'
 },
 {
 	title:'FAQ',
 	icon:'fa fa-question hospi_icon',
-	url:'faq'
+	url:'faq',
+	mclass:'margin-left:2px'
 },
 {
 	title:'CONTACT',
 	icon:'fa fa-mobile hospi_icon',
-	url:'contact'
+	url:'contact',
+	mclass:'margin-left:2px'
 }
 ];
 
@@ -39,24 +42,27 @@ $scope.nodes = [
 myApp.controller('aboutController',['$scope',function($scope){
 $scope.nodes = [
 {
-	title:'INTRODUCTION',
-	icon:'fa fa-info hospi_icon',
-	url:'intro'
+	title:'CEG',
+	icon:'fa fa-university hospi_icon',
+	url:'intro',
+	mclass:'margin-left:1px'
 },
 {
-	title:'INSTRUCTIONS',
-	icon:'fa fa-file hospi_icon',
+	title:'KURUKSHETRA',
+	icon:'fa fa-diamond hospi_icon',
 	url:'instr'
 },
 {
-	title:'ACCOMODATION',
-	icon:'fa fa-suitcase hospi_icon',
-	url:'accom'
+	title:'CYCLOTRON',
+	icon:'fa fa-empire hospi_icon',
+	url:'accom',
+	mclass:'margin-left:-10px'
 },
 {
-	title:'REACHING CEG',
-	icon:'fa fa-map-marker hospi_icon',
-	url:'reachceg'
+	title:'CEG TECH FORUM',
+	icon:'fa fa-graduation-cap hospi_icon',
+	url:'reachceg',
+	mclass:'margin-left:2px'
 }
 ];
 

@@ -1021,6 +1021,7 @@ UL.nav.navbar-nav.navbar-right{
 .node .hospi_icon{
   font-size:35px;
   line-height: 1.5;
+  -webkit-transform:translateX(-2px);
 }
 .node:hover{
   background:rgb(255,150,0);
