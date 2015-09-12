@@ -3,7 +3,7 @@ var myApp = angular.module("myApp",['ngRoute','ngSanitize','ngAnimate','myAppDir
 
 
 myApp.config(['$routeProvider', function($routeProvider) {
-                $routeProvider.when("/", {templateUrl: "partials/events.html"});
+                $routeProvider.when("/", {templateUrl: "partials/home.html"});
                 $routeProvider.when("/xceed", {templateUrl: "partials/xceed.html", controller: "xceedController"});
                 $routeProvider.when("/events", {templateUrl: "partials/events.html", controller: "eventsController"});
                 $routeProvider.when("/depts/:dept_id", {templateUrl: "partials/deptview.html", controller: "deptsController"});

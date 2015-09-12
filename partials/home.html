@@ -1,0 +1,78 @@
+<style>
+</style>
+<!--put components here -->
+<div ng-controller="homeController">
+<div class="col-md-12 col-xs-12">
+  <div class="container">
+
+<div class="row">
+  <div class="col-md-3 col-xs-12">
+    <div class="update-box">
+      <h5>This is a new update! This is a new update!</h5>
+    </div>
+  </div>
+
+ <div class="row">
+
+<div class="col-md-3 col-xs-12">
+  <div class="sponsor-box">
+    <img src="images/patterns/bluespace.png" />
+  </div>
+</div>
+</div>
+
+<!-- 
+<div class="col-md-12 col-xs-12 home-event-boxes">
+  <div class="col-md-2">
+    <div class="home-event-box">
+
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="home-event-box">
+
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="home-event-box">
+
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="home-event-box">
+
+    </div>
+  </div>
+<div class="col-md-2">
+    <div class="home-event-box">
+
+    </div>
+  </div>
+<div class="col-md-2">
+    <div class="home-event-box">
+
+    </div>
+  </div>
+
+</div>  
+
+ -->
+</div>
+</div>
+
+<script>
+$(document).ready(function(){
+$(".home-event-circle").find("ul").addClass("hideme").animate({'opacity':"0"});
+$(".home-event-circle").click(function(){
+  if($(this).find("ul").hasClass("hideme"))
+     {
+      $(".home-event-circle").find("ul").addClass("hideme").animate({'opacity':"0"},'easeInOutQuad');
+      $(this).find("ul").removeClass("hideme").animate({'opacity':"1"},'easeOutQuad');
+      }
+  else
+  { 
+    $(this).find("ul").addClass("hideme").animate({'opacity':"0"},'easeInOutQuad');
+  }
+}); 
+});
+</script>
