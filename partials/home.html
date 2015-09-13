@@ -60,19 +60,3 @@
 </div>
 </div>
 
-<script>
-$(document).ready(function(){
-$(".home-event-circle").find("ul").addClass("hideme").animate({'opacity':"0"});
-$(".home-event-circle").click(function(){
-  if($(this).find("ul").hasClass("hideme"))
-     {
-      $(".home-event-circle").find("ul").addClass("hideme").animate({'opacity':"0"},'easeInOutQuad');
-      $(this).find("ul").removeClass("hideme").animate({'opacity':"1"},'easeOutQuad');
-      }
-  else
-  { 
-    $(this).find("ul").addClass("hideme").animate({'opacity':"0"},'easeInOutQuad');
-  }
-}); 
-});
-</script>

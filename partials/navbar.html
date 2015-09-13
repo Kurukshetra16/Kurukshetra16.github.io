@@ -171,7 +171,7 @@
   <div id="eventsNav" class="home-event-circle" id="eventsNav">
     <i class="fa fa-cogs circle-icon"></i>
     <div class="text">EVENTS</div>
-<!--     <ul class="event-icons">
+    <ul class="event-icons">
       <li><i class="fa fa-cog list-icon" ></i>ENGINEERING</li>
       <li><i class="fa fa-money list-icon"></i>MANAGEMENT</li>
       <li><i class="fa fa-android list-icon"></i>ROBOTICS</li>
@@ -180,7 +180,7 @@
       <li><i class="fa fa-terminal list-icon"></i>CODING</li>
       <li><i class="fa fa-binoculars list-icon"></i>QUIZZES</li>
     </ul>
- -->  </div>
+  </div>
 </div>
 <div class="col-md-1 mg-lg col-xs-6">
   <div id="wkshopsNav" class="home-event-circle" id="workshopsNav">
@@ -427,3 +427,19 @@
 
   });
   </script>
+  <script>
+$(document).ready(function(){
+$(".home-event-circle").find("ul").addClass("hideme").animate({'opacity':"0"});
+$(".home-event-circle").click(function(){
+  if($(this).find("ul").hasClass("hideme"))
+     {
+      $(".home-event-circle").find("ul").addClass("hideme").animate({'opacity':"0"},'easeInOutQuad');
+      $(this).find("ul").removeClass("hideme").animate({'opacity':"1"},'easeOutQuad');
+      }
+  else
+  { 
+    $(this).find("ul").addClass("hideme").animate({'opacity':"0"},'easeInOutQuad');
+  }
+}); 
+});
+</script>
