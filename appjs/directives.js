@@ -43,17 +43,17 @@ $(".node").click(function(){
   if( $(window).width() >= 600)
   {
   if(nodeid == 'intro')
-  $(".longer-line").css({'background':"rgb(255,200,0)",'width':"8%"});
+  $(".longer-line").css({'background':"rgb(250,16,14)",'width':"8%"});
   else if(nodeid == 'instr')
-  $(".longer-line").css({'background':"rgb(255,200,0)",'width':"24%"});
+  $(".longer-line").css({'background':"rgb(250,16,14)",'width':"24%"});
   else if(nodeid == 'accom')
-  $(".longer-line").css({'background':"rgb(255,200,0)",'width':"40%"});
+  $(".longer-line").css({'background':"rgb(250,16,14)",'width':"40%"});
   else if(nodeid == 'reachceg')
-  $(".longer-line").css({'background':"rgb(255,200,0)",'width':"57%"});
+  $(".longer-line").css({'background':"rgb(250,16,14)",'width':"57%"});
   else if(nodeid == 'faq')
-  $(".longer-line").css({'background':"rgb(255,200,0)",'width':"74%"});
+  $(".longer-line").css({'background':"rgb(250,16,14)",'width':"74%"});
   else if(nodeid == 'contact')
-  $(".longer-line").css({'background':"rgb(255,200,0)",'width':"100%"});
+  $(".longer-line").css({'background':"rgb(250,16,14)",'width':"100%"});
   }
 setTimeout(function(){$(".hospi_content").addClass("hospi_animated");},500);
   

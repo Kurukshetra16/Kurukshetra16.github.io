@@ -315,7 +315,6 @@
   $(function() {
     $('.nav a').on('click', function(){ 
       var clickedId = $(this).text();
-     // alert("boo"+clickedId+"boo")
         if( clickedId == "EVENTS " || clickedId == "WORKSHOPS " || clickedId == "LOGIN " )
           return;
         else if($('.navbar-toggle').css('display') !='none'){
@@ -338,9 +337,11 @@
     $("#eventsNav").hover(function(){
     $(".eventHeader").addClass("dropDown");
     $(".container").children().fadeOut().finish();
+    $(".cd-tabs").children().fadeOut().finish();
     });
     $("#loginNav").hover(function(){
     $(".loginHeader").addClass("dropDown");
+    $(".cd-tabs").children().fadeOut().finish();
     $(".container").children().fadeOut().finish();
     });
 
@@ -364,6 +365,7 @@
     }, function(){
       $(this).find(".topVane").removeClass("openOut");
       $(".container").children().fadeIn();
+      $(".cd-tabs").children().fadeIn();
       
     });
 
@@ -371,12 +373,14 @@
       $("#eVane").find("i").fadeOut(0);
       $("#eVane").addClass("openOut");
     $(".container").children().fadeOut().finish();
+    $(".cd-tabs").children().fadeOut().finish();
 
     }, function(){
       $("#eVane").find("i").fadeIn(100);
       $("#eVane").removeClass("openOut");
       $(".eventHeader").removeClass("dropDown");
       $(".container").children().fadeIn();
+    $(".cd-tabs").children().fadeIn().finish();
     $(".container").children().fadeIn();
       
     });
@@ -384,6 +388,7 @@
     $(".wkshopHeader").hover(function(){
       $("#wVane").find("i").fadeOut(0);
       $("#wVane").addClass("openOut");
+    $(".cd-tabs").children().fadeOut().finish();
     $(".container").children().fadeOut().finish();
 
     }, function(){
@@ -391,6 +396,7 @@
      $("#wVane").removeClass("openOut");
      $(".wkshopHeader").removeClass("dropDown");
      $(".container").children().fadeIn();
+    $(".cd-tabs").children().fadeIn().finish();
 
     });
 
@@ -398,17 +404,20 @@
       $("#lVane").find("i").fadeOut(0);
       $("#lVane").addClass("openOut");
     $(".container").children().fadeOut().finish();
+    $(".cd-tabs").children().fadeOut().finish();
 
     }, function(){
      $("#lVane").find("i").fadeIn(100);
      $("#lVane").removeClass("openOut");
      $(".loginHeader").removeClass("dropDown");
+    $(".cd-tabs").children().fadeIn().finish();
     $(".container").children().fadeIn();
     });
     
     $(".wkshopHeader").removeClass("dropDown");
     $("#wkshopsNav").hover(function(){
       $(".wkshopHeader").addClass("dropDown");
+    $(".cd-tabs").children().fadeOut().finish();
       $(".container").children().fadeOut().finish();
     });
   }

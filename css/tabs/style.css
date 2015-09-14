@@ -140,7 +140,7 @@ header h1 {
   height: 70px;
   width: 80px;
   text-align: center;
-  font-size: 12px;
+  font-size: 15px !important;
   font-size: 0.75rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -199,7 +199,8 @@ header h1 {
     text-align: left;
     font-size: 14px;
     font-size: 0.875rem;
-    padding: 0 2.8em 0 4.6em;
+    padding: 0 2em 0 3.6em;
+    font-family:'Raleway',sans-serif;
   }
   .cd-tabs-navigation a.selected {
     box-shadow: inset 0 -2px 0 #f05451;
@@ -226,8 +227,8 @@ header h1 {
   animation: cd-fade-in 0.5s;
 }
 .cd-tabs-content li p {
-  font-size: 14px;
-  font-size: 0.875rem;
+  font-size: 22px !important;
+  font-family:'Raleway',sans-serif;
   line-height: 1.6;
   color: #fff;
   margin-bottom: 2em;
