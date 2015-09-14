@@ -1974,6 +1974,9 @@ height:100%;
   background:rgba(255,255,255,0.1);
   margin-bottom:40px;
   cursor: pointer;
+-webkit-transition:all 0.4s;
+  -moz-transition:all 0.4s;
+  transition:all 0.4s;
 }
 .smaller-icon{
   width:70px;
@@ -1998,6 +2001,9 @@ height:100%;
   border-left-color:rgb(243,62,75);
   border-bottom-color:rgb(250,16,14);
   border-right-color:rgb(255,63,77);
+  -webkit-transition:all 0.4s;
+  -moz-transition:all 0.4s;
+  transition:all 0.4s;
 }
 .smaller-icon::after{
   padding:10px;
@@ -2017,6 +2023,9 @@ height:100%;
   margin-left:33%;
   margin-top:29%;
   text-shadow:0px 1px 2px rgba(0,0,0,0.3);
+  -webkit-transition:all 0.4s;
+  -moz-transition:all 0.4s;
+  transition:all 0.4s;
 }
 .smaller-icon .circle-icon{
   font-size:25px;
@@ -2033,7 +2042,21 @@ height:100%;
   font-family:'Orbitron',sans-serif;
   }
  .home-event-circle:hover{
- 	transform:scale(1.1);
+ 	width:100px;
+ 	height:100px;
+ }
+ .home-event-circle:hover::after{
+ 	width:75px;
+ 	height:75px;
+ 	left:28px;
+ 	transform:rotate(360deg);
+ }
+ .home-event-circle:hover .text{
+ 	font-size:16px;
+ }
+ .home-event-circle:hover .circle-icon{
+ 	font-size:40px;
+ 	margin-left:30%;
  }
 .mg-lg{
   margin-right:10px !important;
