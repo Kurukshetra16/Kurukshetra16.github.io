@@ -1977,6 +1977,9 @@ height:100%;
 -webkit-transition:all 0.4s;
   -moz-transition:all 0.4s;
   transition:all 0.4s;
+  -moz-animation:chOuterBorder 30s linear infinite;
+  -webkit-animation:chOuterBorder 30s linear infinite;
+  animation:chOuterBorder 30s linear infinite;
 }
 .smaller-icon{
   width:70px;
@@ -2004,6 +2007,83 @@ height:100%;
   -webkit-transition:all 0.4s;
   -moz-transition:all 0.4s;
   transition:all 0.4s;
+-moz-animation:chInnerBorder 30s linear infinite;
+  -webkit-animation:chInnerBorder 30s linear infinite;
+  animation:chInnerBorder 30s linear infinite;
+}
+@-moz-keyframes chOuterBorder{
+	0%{
+	border:5px solid rgb(250,16,14);
+  	border-right-color:rgb(196,2,0);
+  	border-bottom-color:rgb(196,2,0);
+	}
+	33%{
+	border:5px solid rgb(0,183,181);
+  	border-right-color:rgb(1,85,82);
+  	border-bottom-color:rgb(1,85,82);		
+	}
+	66%{
+	border:5px solid rgb(0,183,181);
+  	border-right-color:rgb(1,85,82);
+  	border-bottom-color:rgb(1,85,82);		
+	}
+	100%{
+	border:5px solid rgb(250,16,14);
+  	border-right-color:rgb(196,2,0);
+  	border-bottom-color:rgb(196,2,0);
+	}
+}
+@-webkit-keyframes chOuterBorder{
+	0%{
+	border:5px solid rgb(250,16,14);
+  	border-right-color:rgb(196,2,0);
+  	border-bottom-color:rgb(196,2,0);
+	}
+	33%{
+	border:5px solid rgb(0,183,181);
+  	border-right-color:rgb(1,85,82);
+  	border-bottom-color:rgb(1,85,82);		
+	}
+	66%{
+	border:5px solid rgb(0,183,181);
+  	border-right-color:rgb(1,85,82);
+  	border-bottom-color:rgb(1,85,82);		
+	}
+	100%{
+	border:5px solid rgb(250,16,14);
+  	border-right-color:rgb(196,2,0);
+  	border-bottom-color:rgb(196,2,0);
+	}
+}
+
+@-moz-keyframes chInnerBorder{
+	0%{
+border:11px solid rgb(206,3,3);
+  border-left-color:rgb(243,62,75);
+  border-bottom-color:rgb(250,16,14);
+  border-right-color:rgb(255,63,77);
+  	}
+	33%{
+border:11px solid rgb(0,99,97);
+  border-left-color:rgb(0,254,252);
+  border-bottom-color:rgb(0,134,132);
+  border-right-color:rgb(0,254,252);
+  
+	}
+	66%{
+border:11px solid rgb(0,99,97);
+  border-left-color:rgb(0,254,252);
+  border-bottom-color:rgb(0,134,132);
+  border-right-color:rgb(0,254,252);
+  
+	}
+	100%{
+border:11px solid rgb(206,3,3);
+  border-left-color:rgb(243,62,75);
+  border-bottom-color:rgb(250,16,14);
+  border-right-color:rgb(255,63,77);
+  
+	}
 }
 .smaller-icon::after{
   padding:10px;
