@@ -40,6 +40,8 @@ $(".node").click(function(){
   $(this).addClass("node-active");
   $(".hospi_content").removeClass("hospi_animated");
   var nodeid = $(this).attr("id");
+  if( $(window).width() >= 600)
+  {
   if(nodeid == 'intro')
   $(".longer-line").css({'background':"rgb(255,200,0)",'width':"8%"});
   else if(nodeid == 'instr')
@@ -52,9 +54,9 @@ $(".node").click(function(){
   $(".longer-line").css({'background':"rgb(255,200,0)",'width':"74%"});
   else if(nodeid == 'contact')
   $(".longer-line").css({'background':"rgb(255,200,0)",'width':"100%"});
-
+  }
 setTimeout(function(){$(".hospi_content").addClass("hospi_animated");},500);
-
+  
 });       	}
         };
     });
