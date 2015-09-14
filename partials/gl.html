@@ -2,51 +2,31 @@
   <div class="container">
   <h1 class="paddingReset ribbontitle text-center col-md-12 col-xs-12">GUEST LECTURES</h1>
 </div>
-<div class="container glContainer col-md-12 col-xs-12 paddingReset owl-theme owl-carousel" id = "owl-example">
+<div class="container glContainer col-md-12 col-xs-12" >
+<div class="long-line col-md-12 col-xs-12 paddingReset clearfix">
+    <div class="longer-line col-md-12 col-xs-12 clearfix"></div>
+    <div class="glAnim col-md-2 col-xs-6" ng-repeat="nodeItem in nodes">
       <div class="item paddingReset">
         <div class="anno scrim">
-          <img class="glCircle" src="images/ceg.jpg"/>
+          <img class="glCircle" src="{{nodeItem.img}}">
           <h4 class="glCircleName text-center">Venkatakrishnan Ranganathan <br/>
             <span style="font-size:14.5px">Head of Social Media and Workplace Re-imagination Practice, TCS</span>
           </h4>
         </div>
       </div>
-      <div class="item paddingReset">
-        <div class="anno scrim">
-          <img class="glCircle" src="images/patterns/redkarnival.jpg"/>
-          <h4 class="glCircleName text-center">Venkatakrishnan Ranganathan <br/>
-            <span style="font-size:14.5px">Head of Social Media and Workplace Re-imagination Practice, TCS</span>
-            </h4>
-        </div>
-      </div><div class="item paddingReset">
-        <div class="anno scrim">
-          <img class="glCircle" src="images/ceg.jpg"/>
-          <h4 class="glCircleName text-center">Venkatakrishnan Ranganathan <br/>
-            <span style="font-size:14.5px">Head of Social Media and Workplace Re-imagination Practice, TCS</span>
-            </h4>
-        </div>
-      </div><div class="item paddingReset">
-        <div class="anno scrim">
-          <img class="glCircle" src="images/ceg.jpg"/>
-          <h4 class="glCircleName text-center">Venkatakrishnan Ranganathan <br/>
-            <span style="font-size:14.5px">Head of Social Media and Workplace Re-imagination Practice, TCS</span>
-            </h4>
-        </div>
-      </div><div class="item paddingReset">
-        <div class="anno scrim">
-          <img class="glCircle" src="images/ceg.jpg"/>
-          <h4 class="glCircleName text-center">Venkatakrishnan Ranganathan <br/>
-            <span style="font-size:14.5px">Head of Social Media and Workplace Re-imagination Practice, TCS</span>
-            </h4>
-        </div>
-      </div><div class="item paddingReset">
-        <div class="anno scrim">
-          <img class="glCircle" src="images/patterns/redkarnival.jpg"/>
-          <h4 class="glCircleName text-center">Venkatakrishnan Ranganathan <br/>
-            <span style="font-size:14.5px">Head of Social Media and Workplace Re-imagination Practice, TCS</span>
-            </h4>
-        </div>
       </div>
+    </div>
+  </div><!--long-line -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+      
 <!--content-->
 </div>
 <div class="row">
@@ -98,6 +78,8 @@
 </div>
 <script>
 $(document).ready(function() {
+
+  
     $("#owl-example").owlCarousel({
         items:4,
         autoPlay:true,

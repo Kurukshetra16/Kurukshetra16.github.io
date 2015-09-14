@@ -26,6 +26,25 @@ myApp.directive('compile', ['$compile', function ($compile) {
 				};
 
 }]);
+
+// GLAnim
+myApp.directive('glAnim', function() {
+  console.log("glAnim");
+  var total = $('.glCircle').length;
+  $("img").click(function(){
+    alert($(this).html());
+    // $(".glCircle").removeClass("node-active");
+    // $(this).addClass("node-active");
+    // $(".hospi_content").removeClass("hospi_animated");
+    var nodeid = $(this).attr("id");
+    if( $(window).width() >= 600)
+    {
+      $(".longer-line").css({'background':"rgb(255,200,0)",'width':((nodeid/total)*100).toString+"%"});
+    }
+    // setTimeout(function(){$(".hospi_content").addClass("hospi_animated");},500);
+    
+  }); 
+});
 /*hospi anim*/
 myApp.directive('hospiAnim', function() {
         console.log("hospiAnim");

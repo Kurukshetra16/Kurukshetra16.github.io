@@ -38,6 +38,40 @@ $scope.nodes = [
 
 }]);
 
+// guestlectures
+myApp.controller('glController',['$scope',function($scope){
+$scope.nodes = [
+{
+	title:'Venkatakrishnan Ranganathan',
+	description:'Head of Social Media and Workplace Re-imagination Practice, TCS',
+	img:'images/ceg.jpg',
+	id:1
+},{
+	title:'Venkatakrishnan Ranganathan',
+	description:'Head of Social Media and Workplace Re-imagination Practice, TCS',
+	img:'images/ceg.jpg',
+	id:2
+},{
+	title:'Venkatakrishnan Ranganathan',
+	description:'Head of Social Media and Workplace Re-imagination Practice, TCS',
+	img:'images/ceg.jpg',
+	id:3
+},{
+	title:'Venkatakrishnan Ranganathan',
+	description:'Head of Social Media and Workplace Re-imagination Practice, TCS',
+	img:'images/ceg.jpg',
+	id:4
+},{
+	title:'Venkatakrishnan Ranganathan',
+	description:'Head of Social Media and Workplace Re-imagination Practice, TCS',
+	img:'images/ceg.jpg',
+	id:5
+},
+
+];
+
+}]);
+
 /*ABOUT*/
 myApp.controller('aboutController',['$scope',function($scope){
 $scope.nodes = [

@@ -1,3 +1,4 @@
+@import '3L/3L.less';
 
 html,body{
 	overflow-x:hidden !important;
@@ -349,7 +350,6 @@ visibility:hidden;
 	height:auto;
 }
 .headerBox{
-/*background-color:#420308;*/ background-image:url(images/patterns//*/*background:#420308;*/ background-image:url(images/patterns/shade3.jpg);*/ background-image:url(images/patterns/shade3.jpg);.jpg);
  -webkit-animation: AnimationName 30s ease infinite;
 -moz-animation: AnimationName 20s ease infinite;
 animation: AnimationName 20s ease infinite;
@@ -731,7 +731,7 @@ UL.nav.navbar-nav.navbar-right{
 	margin-top:150px;
 	position: absolute;
 	visibility:hidden;
-    /*background-color:#420308;*/ background-image:url(images/patterns//*/*background:#420308;*/ background-image:url(images/patterns/shade3.jpg);*/ background-image:url(images/patterns/shade3.jpg);.jpg);
+    /*background-color:#420308;*/ 
  	-webkit-animation: AnimationName 30s ease infinite;
 	-moz-animation: AnimationName 20s ease infinite;
 	animation: AnimationName 20s ease infinite;
@@ -1753,7 +1753,11 @@ ul{
 /*GL*/
 
 .glContainer{
-  margin-top:50px;
+  /*margin-top:50px;*/
+  width: 80%;
+  margin-left:10%;
+  margin-right:10%;
+  margin-bottom: 200px;
 }
 .glCircle{
   width:180px;
@@ -1960,6 +1964,64 @@ height:100%;
   box-shadow:0px 6px 10px rgba(255,255,255,0.3);
   background:rgb(250,16,14);
 }
+.smaller-icon{
+  width:70px;
+  height:70px;
+}
+.smaller-logins .smaller-icon{
+	position: relative;
+}
+
+
+.animation1() {
+    0%{
+	border:5px solid rgb(250,16,14);
+  	border-right-color:rgb(196,2,0);
+  	border-bottom-color:rgb(196,2,0);
+	}
+	50%{
+	border:5px solid rgb(0,183,181);
+  	border-right-color:rgb(1,85,82);
+  	border-bottom-color:rgb(1,85,82);		
+	}
+	100%{
+	border:5px solid rgb(250,16,14);
+  	border-right-color:rgb(196,2,0);
+  	border-bottom-color:rgb(196,2,0);
+	}
+}
+
+.animation2() {
+   	0%{
+border:11px solid rgb(206,3,3);
+  border-left-color:rgb(243,62,75);
+  border-bottom-color:rgb(250,16,14);
+  border-right-color:rgb(255,63,77);
+  	}
+	50%{
+border:11px solid rgb(0,99,97);
+  border-left-color:rgb(0,254,252);
+  border-bottom-color:rgb(0,134,132);
+  border-right-color:rgb(0,254,252);
+  
+	}
+	100%{
+border:11px solid rgb(206,3,3);
+  border-left-color:rgb(243,62,75);
+  border-bottom-color:rgb(250,16,14);
+  border-right-color:rgb(255,63,77);
+  
+	}
+}
+
+@duration-color: 2s;
+@duration-hover:0.4s;
+@border-main: rgb(250,16,14);
+@border-right: rgb(196,2,0);
+@border-bottom: rgb(196,2,0);
+
+@import '3L/assets/animations/animation1';
+@import '3L/assets/animations/animation2';
 
 .home-event-circle{
   -webkit-transition:all 0.4s;
@@ -1968,26 +2030,20 @@ height:100%;
   width:90px;
   height:90px;
   border-radius:50%;
-  border:5px solid rgb(250,16,14);
-  border-right-color:rgb(196,2,0);
-  border-bottom-color:rgb(196,2,0);
+  border:5px solid @border-main;
+  border-right-color:@border-right;
+  border-bottom-color:@border-bottom;
   background:rgba(255,255,255,0.1);
   margin-bottom:40px;
   cursor: pointer;
--webkit-transition:all 0.4s;
-  -moz-transition:all 0.4s;
-  transition:all 0.4s;
-  -moz-animation:chOuterBorder 30s linear infinite;
-  -webkit-animation:chOuterBorder 30s linear infinite;
-  animation:chOuterBorder 30s linear infinite;
+  .transition(all @duration-hover);
+  .animation(animation1 @duration-color linear 3s infinite alternate);
 }
-.smaller-icon{
-  width:70px;
-  height:70px;
-}
-.smaller-logins .smaller-icon{
-	position: relative;
-}
+
+@small-border-main: rgb(206,3,3);
+@small-border-right: rgb(255,63,77);
+@small-border-left: rgb(243,62,75);
+@small-border-bottom: rgb(250,16,14);
 .home-event-circle::after{
   content:'';
   width:0;
@@ -2000,91 +2056,14 @@ height:100%;
   width:65px;
   height:65px;
   border-radius:50%;
-  border:11px solid rgb(206,3,3);
-  border-left-color:rgb(243,62,75);
-  border-bottom-color:rgb(250,16,14);
-  border-right-color:rgb(255,63,77);
-  -webkit-transition:all 0.4s;
-  -moz-transition:all 0.4s;
-  transition:all 0.4s;
--moz-animation:chInnerBorder 30s linear infinite;
-  -webkit-animation:chInnerBorder 30s linear infinite;
-  animation:chInnerBorder 30s linear infinite;
-}
-@-moz-keyframes chOuterBorder{
-	0%{
-	border:5px solid rgb(250,16,14);
-  	border-right-color:rgb(196,2,0);
-  	border-bottom-color:rgb(196,2,0);
-	}
-	33%{
-	border:5px solid rgb(0,183,181);
-  	border-right-color:rgb(1,85,82);
-  	border-bottom-color:rgb(1,85,82);		
-	}
-	66%{
-	border:5px solid rgb(0,183,181);
-  	border-right-color:rgb(1,85,82);
-  	border-bottom-color:rgb(1,85,82);		
-	}
-	100%{
-	border:5px solid rgb(250,16,14);
-  	border-right-color:rgb(196,2,0);
-  	border-bottom-color:rgb(196,2,0);
-	}
-}
-@-webkit-keyframes chOuterBorder{
-	0%{
-	border:5px solid rgb(250,16,14);
-  	border-right-color:rgb(196,2,0);
-  	border-bottom-color:rgb(196,2,0);
-	}
-	33%{
-	border:5px solid rgb(0,183,181);
-  	border-right-color:rgb(1,85,82);
-  	border-bottom-color:rgb(1,85,82);		
-	}
-	66%{
-	border:5px solid rgb(0,183,181);
-  	border-right-color:rgb(1,85,82);
-  	border-bottom-color:rgb(1,85,82);		
-	}
-	100%{
-	border:5px solid rgb(250,16,14);
-  	border-right-color:rgb(196,2,0);
-  	border-bottom-color:rgb(196,2,0);
-	}
+  border:11px solid @small-border-main;
+  border-left-color:@small-border-left;
+  border-bottom-color:@small-border-bottom;
+  border-right-color:@small-border-right;
+  .transition(all @duration-hover);
+  .animation(animation2 @duration-color linear 3s infinite alternate);
 }
 
-@-moz-keyframes chInnerBorder{
-	0%{
-border:11px solid rgb(206,3,3);
-  border-left-color:rgb(243,62,75);
-  border-bottom-color:rgb(250,16,14);
-  border-right-color:rgb(255,63,77);
-  	}
-	33%{
-border:11px solid rgb(0,99,97);
-  border-left-color:rgb(0,254,252);
-  border-bottom-color:rgb(0,134,132);
-  border-right-color:rgb(0,254,252);
-  
-	}
-	66%{
-border:11px solid rgb(0,99,97);
-  border-left-color:rgb(0,254,252);
-  border-bottom-color:rgb(0,134,132);
-  border-right-color:rgb(0,254,252);
-  
-	}
-	100%{
-border:11px solid rgb(206,3,3);
-  border-left-color:rgb(243,62,75);
-  border-bottom-color:rgb(250,16,14);
-  border-right-color:rgb(255,63,77);
-  
-	}
-}
 .smaller-icon::after{
   padding:10px;
   position:absolute;
@@ -2179,4 +2158,10 @@ li .list-icon{
   width:100%;
   height:100%;
   border-radius:30px;
+}
+
+.glCircle-new{
+	.glCircle;
+	position: relative;
+	left:20%;
 }
