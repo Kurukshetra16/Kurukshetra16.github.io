@@ -1767,14 +1767,14 @@ ul{
   margin-left:30px;
   box-shadow:0px 6px 15px rgba(255,247,219,0.2),
   			0px -6px 15px rgba(255,247,219,0.2);
-  border:10px solid rgb(250,16,14);
-  border-right-color:rgb(196,2,0);
-  border-bottom-color:rgb(196,2,0);
+  border:10px solid @border-main;
+  border-right-color:@border-right;
+  border-bottom-color:@border-right;
   filter:blur(0.05px) grayscale(20%);
   cursor: pointer;
-  -webkit-transition:all 0.5s ease;
-  -moz-transition:all 0.5s ease;
-  transition:all 0.5s ease;
+  .transition(all 0.5s ease);
+  .animation(animation1 @duration-color linear 3s infinite alternate);
+
 }
 .glContainer .glThumbs{
   margin-top:50px;
@@ -1785,6 +1785,19 @@ ul{
 width:100%;
 height:100%;  
 }
+
+.animation3() {
+    0%{
+  		background:rgb(250,16,14);
+	}
+	50%{
+  		background:rgb(0,183,181);		
+	}
+	100%{
+  		background:rgb(250,16,14);
+	}
+}
+
 .glCircleName{
   width:100%;
   padding:10px;
@@ -1794,6 +1807,7 @@ height:100%;
   margin-left:25px;
   position:relative;
   margin-top: 10px;
+  .animation(animation3 @duration-color linear 3s infinite alternate);
 }
 .glCircleName::after{
   content:'';
@@ -1805,6 +1819,7 @@ height:100%;
   position:absolute;
   top:-8px;
   left:45%;
+  /*.animation(animation3 @duration-color linear 3s infinite alternate);*/
 }
 .glCircle:hover{
  box-shadow:0 3px 3px rgba(0,0,0,0.3);
@@ -1828,6 +1843,7 @@ height:100%;
   position:absolute;
   top:0;
   transform:skew(-5deg) rotate(5deg);
+  .animation(animation3 @duration-color linear 3s infinite alternate);
 }
 .glbox .glbottom2{
   width:100%;
@@ -1838,6 +1854,7 @@ height:100%;
   padding-bottom:20px;
   position:relative;
   transform:skew(5deg) rotate(-5deg);
+  .animation(animation3 @duration-color linear 3s infinite alternate);
 }
 .glpage1{
   width:100%;
@@ -1890,7 +1907,7 @@ height:100%;
   text-align: center;
   box-shadow:0px 3px 3px rgba(0,0,0,0.3);
   font-family:'Raleway',sans-serif !important;
-
+  .animation(animation3 @duration-color linear 3s infinite alternate);
 }
 .redribbon::after{
   position:absolute;
@@ -1902,6 +1919,7 @@ height:100%;
   border-left:50px solid transparent;
   border-right:50px solid transparent;
   border-top:50px solid rgb(178,0,12);
+  .animation(animation3 @duration-color linear 3s infinite alternate);
 }
 .glpage1 .glcontent,.glpage2 .glcontent{
   position: relative;
@@ -1973,19 +1991,24 @@ height:100%;
 }
 
 
+
+
 .animation1() {
     0%{
-	border:5px solid rgb(250,16,14);
+	border-top-color:rgb(250,16,14);
+	border-left-color:rgb(250,16,14);
   	border-right-color:rgb(196,2,0);
   	border-bottom-color:rgb(196,2,0);
 	}
 	50%{
-	border:5px solid rgb(0,183,181);
+	border-top-color:rgb(0,183,181);
+	border-left-color:rgb(0,183,181);
   	border-right-color:rgb(1,85,82);
   	border-bottom-color:rgb(1,85,82);		
 	}
 	100%{
-	border:5px solid rgb(250,16,14);
+	border-top-color:rgb(250,16,14);
+	border-left-color:rgb(250,16,14);
   	border-right-color:rgb(196,2,0);
   	border-bottom-color:rgb(196,2,0);
 	}
@@ -1993,20 +2016,20 @@ height:100%;
 
 .animation2() {
    	0%{
-border:11px solid rgb(206,3,3);
+border-top-color:rgb(206,3,3);
   border-left-color:rgb(243,62,75);
   border-bottom-color:rgb(250,16,14);
   border-right-color:rgb(255,63,77);
   	}
 	50%{
-border:11px solid rgb(0,99,97);
+	border-top-color:rgb(0,99,97);
   border-left-color:rgb(0,254,252);
   border-bottom-color:rgb(0,134,132);
   border-right-color:rgb(0,254,252);
   
 	}
 	100%{
-border:11px solid rgb(206,3,3);
+border-top-color:rgb(206,3,3);
   border-left-color:rgb(243,62,75);
   border-bottom-color:rgb(250,16,14);
   border-right-color:rgb(255,63,77);
@@ -2022,6 +2045,7 @@ border:11px solid rgb(206,3,3);
 
 @import '3L/assets/animations/animation1';
 @import '3L/assets/animations/animation2';
+@import '3L/assets/animations/animation3';
 
 .home-event-circle{
   -webkit-transition:all 0.4s;
@@ -2061,7 +2085,7 @@ border:11px solid rgb(206,3,3);
   border-bottom-color:@small-border-bottom;
   border-right-color:@small-border-right;
   .transition(all @duration-hover);
-  .animation(animation2 @duration-color linear 3s infinite alternate);
+  /*.animation(animation2 @duration-color linear 3s infinite alternate);*/
 }
 
 .smaller-icon::after{
