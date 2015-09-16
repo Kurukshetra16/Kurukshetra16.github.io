@@ -26,6 +26,36 @@ myApp.directive('compile', ['$compile', function ($compile) {
 				};
 
 }]);
+
+// GLAnim
+myApp.directive('glAnim', function() {
+  jQuery.fn.swapWith = function(to) {
+    return this.each(function() {
+        var copy_to = $(to).clone(true);//#3
+        var copy_from = $(this).clone(true);//clicked
+        $(this).replaceWith(copy_to);
+        $(to).replaceWith(copy_from);
+    });
+};
+       console.log("glAnim");
+        return{
+        scope:{},
+        restrict: 'AEC',
+        replace:'true',
+        link: function(scope,elem,attrs){
+
+$(".glCircle").on("click",function(){
+  console.log($(this).attr('id'));
+  var selector2 = $(".glCircle:eq(2)").parent();
+  var middle = $(selector2).find('.glCircle')[0];
+  console.log($(middle));
+  if($(this).attr('id') != $(middle).attr('id')){
+    $(this).parent().swapWith(selector2);
+  }
+});
+}
+};
+});
 /*hospi anim*/
 myApp.directive('hospiAnim', function() {
         console.log("hospiAnim");
@@ -40,20 +70,13 @@ $(".node").click(function(){
   $(this).addClass("node-active");
   $(".hospi_content").removeClass("hospi_animated");
   var nodeid = $(this).attr("id");
+  var total = 6;
   if( $(window).width() >= 600)
-  {
-  if(nodeid == 'intro')
-  $(".longer-line").css({'background':"rgb(250,16,14)",'width':"8%"});
-  else if(nodeid == 'instr')
-  $(".longer-line").css({'background':"rgb(250,16,14)",'width':"24%"});
-  else if(nodeid == 'accom')
-  $(".longer-line").css({'background':"rgb(250,16,14)",'width':"40%"});
-  else if(nodeid == 'reachceg')
-  $(".longer-line").css({'background':"rgb(250,16,14)",'width':"57%"});
-  else if(nodeid == 'faq')
-  $(".longer-line").css({'background':"rgb(250,16,14)",'width':"74%"});
-  else if(nodeid == 'contact')
-  $(".longer-line").css({'background':"rgb(250,16,14)",'width':"100%"});
+  {   if(nodeid == total)
+        $(".longer-line").css({'background':"rgb(250,16,14)",'width':"100%"});
+      else
+        $(".longer-line").css({'background':"rgb(250,16,14)",'width':(nodeid*85)/total+"%"});
+  
   }
 setTimeout(function(){$(".hospi_content").addClass("hospi_animated");},500);
   
@@ -73,21 +96,15 @@ $(".node").click(function(){
   $(".node").removeClass("node-active");
   $(this).addClass("node-active");
   $(".hospi_content").removeClass("hospi_animated");
-
   var nodeid = $(this).attr("id");
-  if(nodeid == 'intro')
-  $(".longer-line").css({'background':"rgb(255,200,0)",'width':"24%"});
-  else if(nodeid == 'instr')
-  $(".longer-line").css({'background':"rgb(255,200,0)",'width':"40%"});
-  else if(nodeid == 'accom')
-  $(".longer-line").css({'background':"rgb(255,200,0)",'width':"57%"});
-  else if(nodeid == 'reachceg')
-  $(".longer-line").css({'background':"rgb(255,200,0)",'width':"100%"});
-  else if(nodeid == 'faq')
-  $(".longer-line").css({'background':"rgb(255,200,0)",'width':"74%"});
-  else if(nodeid == 'contact')
-  $(".longer-line").css({'background':"rgb(255,200,0)",'width':"100%"});
-
+  var total = 4;
+  if( $(window).width() >= 600)
+  {   if(nodeid == total)
+        $(".longer-line").css({'background':"rgb(250,16,14)",'width':"100%"});
+      else
+      $(".longer-line").css({'background':"rgb(250,16,14)",'width':(nodeid*85)/total+"%"});
+  
+  }
 setTimeout(function(){$(".hospi_content").addClass("hospi_animated");},500);
 
 });         }

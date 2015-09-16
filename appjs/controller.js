@@ -4,38 +4,75 @@ $scope.nodes = [
 {
 	title:'INTRODUCTION',
 	icon:'fa fa-info hospi_icon',
-	url:'intro'
+	url:'intro',
+	id:1
 },
 {
 	title:'INSTRUCTIONS',
 	icon:'fa fa-file hospi_icon',
-	url:'instr'
+	url:'instr',
+	id:2
 },
 {
 	title:'ACCOMODATION',
 	icon:'fa fa-suitcase hospi_icon',
-	url:'accom'
+	url:'accom',
+	id:3
 },
 {
 	title:'REACHING CEG',
 	icon:'fa fa-map-marker hospi_icon',
 	url:'reachceg',
-	mclass:'margin-left:-5px'
+	mclass:'margin-left:-5px',
+	id:4
 },
 {
 	title:'FAQ',
 	icon:'fa fa-question hospi_icon',
 	url:'faq',
-	mclass:'margin-left:2px'
+	mclass:'margin-left:2px',
+	id:5
 },
 {
 	title:'CONTACT',
 	icon:'fa fa-mobile hospi_icon',
 	url:'contact',
-	mclass:'margin-left:2px'
+	mclass:'margin-left:2px',
+	id:6
 }
 ];
 
+}]);
+
+// guestlectures
+myApp.controller('glController',['$scope',function($scope){
+$scope.nodes = [
+{
+	title:'Venkatakrishnan Ranganathan1',
+	description:'Head of Social Media and Workplace Re-imagination Practice, TCS',
+	img:'images/ceg.jpg',
+	id:1
+},{
+	title:'Venkatakrishnan Ranganathan2',
+	description:'Head of Social Media and Workplace Re-imagination Practice, TCS',
+	img:'images/patterns/bluekar.jpg',
+	id:2
+},{
+	title:'Venkatakrishnan Ranganathan3',
+	description:'Head of Social Media and Workplace Re-imagination Practice, TCS',
+	img:'images/patterns/redkarnival.jpg',
+	id:3
+},{
+	title:'Venkatakrishnan Ranganathan4',
+	description:'Head of Social Media and Workplace Re-imagination Practice, TCS',
+	img:'images/ceg.jpg',
+	id:4
+},{
+	title:'Venkatakrishnan Ranganathan5',
+	description:'Head of Social Media and Workplace Re-imagination Practice, TCS',
+	img:'images/gplay.png',
+	id:5
+}];
 }]);
 
 /*ABOUT*/
@@ -45,24 +82,28 @@ $scope.nodes = [
 	title:'CEG',
 	icon:'fa fa-university hospi_icon',
 	url:'intro',
-	mclass:'margin-left:1px'
+	mclass:'margin-left:1px',
+	id:1
 },
 {
 	title:'KURUKSHETRA',
 	icon:'fa fa-diamond hospi_icon',
-	url:'instr'
+	url:'instr',
+	id:2
 },
 {
 	title:'CYCLOTRON',
 	icon:'fa fa-empire hospi_icon',
 	url:'accom',
-	mclass:'margin-left:-10px'
+	mclass:'margin-left:-10px',
+	id:3
 },
 {
 	title:'CEG TECH FORUM',
 	icon:'fa fa-graduation-cap hospi_icon',
 	url:'reachceg',
-	mclass:'margin-left:2px'
+	mclass:'margin-left:2px',
+	id:4
 }
 ];
 
