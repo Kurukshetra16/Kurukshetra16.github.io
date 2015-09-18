@@ -72,6 +72,12 @@ $scope.nodes = [
 	description:'Head of Social Media and Workplace Re-imagination Practice, TCS',
 	img:'images/gplay.png',
 	id:5
+},
+{
+	title:'Venkatakrishnan Ranganathan5',
+	description:'Head of Social Media and Workplace Re-imagination Practice, TCS',
+	img:'images/patterns/food.png',
+	id:6
 }];
 }]);
 

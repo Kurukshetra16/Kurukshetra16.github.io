@@ -45,13 +45,16 @@ myApp.directive('glAnim', function() {
         link: function(scope,elem,attrs){
 
 $(".glCircle").on("click",function(){
-  console.log($(this).attr('id'));
-  var selector2 = $(".glCircle:eq(2)").parent();
-  var middle = $(selector2).find('.glCircle')[0];
-  console.log($(middle));
-  if($(this).attr('id') != $(middle).attr('id')){
-    $(this).parent().swapWith(selector2);
-  }
+  // console.log($(this).attr('id'));
+  // var selector2 = $(".glCircle:eq(2)").parent();
+  $(".glCircle").removeClass("glBigBorder");
+  $(this).addClass("glBigBorder");
+  //$(selector2).find(".glCircleName").addClass("glNameNoAnim");
+  // var middle = $(selector2).find('.glCircle')[0];
+  // console.log($(middle));
+  // if($(this).attr('id') != $(middle).attr('id')){
+  //   $(this).parent().swapWith(selector2);
+  // }
 });
 }
 };

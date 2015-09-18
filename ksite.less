@@ -3,7 +3,7 @@
 html,body{
 	overflow-x:hidden !important;
 	.transition(0.65s ease);
- background-image:url(images/patterns/shade1.jpg),url(images/patterns/shade1.jpg) !important;
+background-color:#000;
  background-position:0 0 center;
  background-size: 100px 100px, 100px 100px;
   -webkit-animation: AnimationName  ease infinite;
@@ -36,7 +36,9 @@ ul{
 	list-style: none;
 }
  .bg{
-  /*background:#420308;*/ background-image:url(images/patterns/shade3.jpg);
+  /*background:#420308;*/ background-image:url(images/patterns/constellation.png);
+	background-size:500px 500px;
+
  	-webkit-animation: AnimationName  ease infinite;
 	-moz-animation: AnimationName 20s ease infinite;
 	animation: AnimationName 20s ease infinite;
@@ -52,7 +54,8 @@ ul{
 	overflow-y:auto;
 	width:100%;
 	height:100%;
-	/*background:#420308;*/ background-image:url(images/patterns/shade3.jpg);
+	/*background:#420308;*/ background-image:url(images/patterns/constellation.png);
+	background-size:500px 500px;
  	-webkit-animation: AnimationName  ease infinite;
 	-moz-animation: AnimationName 20s ease infinite;
 	animation: AnimationName 20s ease infinite;
@@ -424,11 +427,22 @@ li ul{
 		margin-left:80px;
 	}
 	/*gl*/
+
+.glAnim{
+	margin-bottom:250px;
+}
 .glpage1{
+margin-top:-50%;
   position:relative;
 
 }
 /*karnival*/
+.large-header {
+	position: relative;
+	width: 100%;
+	z-index: 1;
+}
+
 .karCircleBox{
 	margin-left:20px;
 }
@@ -561,6 +575,10 @@ ul li.eventCircleNav{
 
 @media all and (min-width: 960px) {
 /*gl*/
+
+.glAnim{
+	margin-bottom:30px;
+}
 .glpage1{
   position:absolute;
 }
@@ -1092,7 +1110,7 @@ border:none;
   width:270px;
   height:270px;
   background:none;
-  border-radius:50%;
+  border-radius:30px;
    border:15px solid rgb(250,16,14);
   border-right-color:rgb(196,2,0);
   border-bottom-color:rgb(196,2,0);
@@ -1113,7 +1131,7 @@ border:none;
   position: relative;
   margin-top:10%;
   box-shadow:0 0 0 20px inset #333, 0px 3px 10px rgba(255,255,255,0.3);
-  border-radius:50%;
+  border-radius:30px;
  .transition(all 0.40s ease);
   border:11px solid @small-border-main;
   border-left-color:@small-border-left;
@@ -1138,13 +1156,13 @@ text-align: center;
   .transition(all 0.3s ease);
 }
 .karCircle:hover .karInnerCircle{
-	transform:rotate(360deg) scale(1.3);
-	-webkit-transform:scale(1.3) rotate(360deg);
+	transform: scale(1.3);
+	-webkit-transform:scale(1.3);
 .animation(animation4 10s linear infinite);
 }
 .karCircle:hover{
-border:none;
 box-shadow:none;
+border:none;
 }
 .karCircle:hover h5{
 	margin-top:-23%;
@@ -1259,14 +1277,12 @@ box-shadow:none;
 ============================================================================= */
 .karInnerCircle .video {
   position:absolute;
+  top:-100px !important;
   z-index: 1;
   min-width: 100%;
   min-height: 100%;
   width: auto;
   height: auto;
-  border-radius:50%;
-  -webkit-transform: translateY(-30px) scale(5);
-  transform: translateY(-30px);
 
 }
 .karTitle{
@@ -1652,9 +1668,6 @@ ul{
   border-bottom-color:#eee !important;
   
 }
-.glContainer .item{
-	padding-left:50px;
-}
 .owl-item{
 	float:left;
 	display:inline-block;
@@ -1673,6 +1686,7 @@ ul{
   margin-left:10%;
   margin-right:10%;
   margin-bottom: 200px;
+  margin-top: 50px;
 }
 .glCircle{
   width:180px;
@@ -1689,7 +1703,17 @@ ul{
   cursor: pointer;
   .transition(all 0.65s ease);
   .animation(animation1 @duration-color linear  infinite );
-
+}
+.glBigBorder{
+  border:25px solid @border-main !important;
+  border-right-color:@border-right !important;
+  border-bottom-color:@border-right !important;
+  box-shadow:0px 10px 10px rgba(255,255,255,0.3);
+  .animation(animation4 20s linear infinite);
+  .transition(0.3s linear);
+}
+.glNameNoAnim{
+	background:white !important;
 }
 .glContainer .glThumbs{
   margin-top:50px;
@@ -1705,11 +1729,16 @@ height:100%;
   padding:10px;
   background:rgb(178,0,12);
   color:#fff;
+  font-size:1.35rem;
   margin-bottom:30px;
   margin-left:25px;
   position:relative;
   margin-top: 10px;
   .animation(animation3 @duration-color linear  infinite );
+}
+.glCircleName h5{
+	padding-left:5px;
+	padding-right:5px;
 }
 .glCircleName::after{
   content:'';
@@ -1734,6 +1763,7 @@ height:100%;
   max-height:auto;
   padding-bottom:20px;
   margin-bottom:80px;
+  margin-top:50px;
 }
 .glbox .glbottom1{
   width:100%;
@@ -1826,7 +1856,7 @@ height:100%;
 }
 .glcontent p{
   line-height:1.6;
-  font-size:16px;
+  font-size:1.3rem;
   text-align: center;
   font-family:'Raleway',sans-serif !important;
 
@@ -1838,6 +1868,7 @@ height:100%;
   font-weight:600;
   cursor: pointer;
   right:0;
+  font-size:1.2rem;
   padding-right:30px;
   padding:10px;
 }
@@ -1968,7 +1999,7 @@ border-top-color:rgb(206,3,3);
 
 	}
 }
-
+/*border*/
 
 
 @duration-color: 30s;
@@ -2091,7 +2122,7 @@ li .list-icon{
 }
 /*updates*/
 .update-box, .sponsor-box{
-  width:80%;
+  width:100%;
   height:150px;
   border:10px solid rgb(0,255,255);
   margin-top:50px;
@@ -2100,7 +2131,11 @@ li .list-icon{
   color:rgb(250,16,14);
   line-height:1.3;
   font-family:'Orbitron',sans-serif;
-  box-shadow:0px 7px 7px rgba(255,255,255,0.4);
+  box-shadow:2px 10px 25px rgba(255,255,255,0.1),
+  2px -10px 25px rgba(255,255,255,0.1),
+  -2px -10px 25px rgba(255,255,255,0.1),
+  -2px 10px 25px rgba(255,255,255,0.1);
+  .animation(animation1 30s linear infinite);
 }
 .sponsor-box{
   height:200px;
@@ -2115,4 +2150,11 @@ li .list-icon{
 	.glCircle;
 	position: relative;
 	left:20%;
+}
+/*jarvis*/
+.jarvis{
+	width:700px;
+	height:700px;
+	margin-left:50px;
+	border-radius:50%;
 }
