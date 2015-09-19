@@ -1,4 +1,59 @@
 <style>
+.jarvisContainer .biggestHomeCircle{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  background:none;
+  border-radius:50%;
+  width:700px;
+  height:700px;
+  border:30px solid aqua;
+  -webkit-transition:border 1s linear;
+  -moz-transition:border 1s linear;
+   transition:border 1s linear;
+}
+.toprad{
+  border:30px solid aqua;
+  border-top-color:orangered !important;
+}
+.leftrad{
+ border:30px solid aqua;
+ border-left-color:orangered !important;
+}
+.bottomrad{
+ border:30px solid aqua;
+ border-bottom-color:orangered !important;
+}
+.rightrad{
+  border:30px solid aqua;
+  border-right-color:orangered !important;
+}
+
+.biggestHomeCircle .bigHomeCircle{
+  display:block;
+  position:absolute;
+  margin-left:20px;
+  margin-top:20px;
+  background:seagreen;
+  border-radius:50%;
+  width:600px;
+  height:600px; 
+}
+.bigHomeCircle .allImages{
+  position:absolute;
+  width:600px;
+  height:600px;
+  border-radius:50%;
+  background:black;
+}
+.allImages li{
+  position: absolute;
+}
+li img{
+  width:600px;
+  height:600px;
+  border-radius:50%;
+}
 </style>
 <!--put components here -->
 <div ng-controller="homeController">
@@ -9,9 +64,18 @@
     </div>
   </div>
 
-<div class="jarvisContainer col-md-8 col-md-push-1 col-xs-12">
-<img src="images/patterns/red_stars1.jpg" class="jarvis"/>
-
+<div class="jarvisContainer col-md-8 col-xs-12">
+<!-- <img src="images/patterns/red_stars1.jpg" class="jarvis"/> -->
+<div class="biggestHomeCircle">
+  <div class="bigHomeCircle">
+    <ul class="allImages">
+      <li><img id="1" class="slide" src="images/ceg.jpg"/></li>
+      <li><img id="2" class="slide" src="images/patterns/bluekar.jpg"/></li>
+      <li><img id="3" class="slide" src="images/patterns/redkarnival.jpg"/></li>
+      <li><img id="4" class="slide" src="images/sudar111.jpg"/></li>
+    </ul>
+  </div>
+</div>
 
 </div>
 
@@ -27,3 +91,51 @@
 
 </div>
 </div>
+<script>
+$(document).ready(function(){
+var index = 1;
+var tot = 4;
+ $(".slide").animate({'opacity':"0"},'easeOutBounce');
+sliderin();
+function sliderin(){
+ $(".slide").each(function(i){
+      var elem = $(this);
+      setTimeout(function(){
+        $(elem).animate({'opacity':"1"},1000,'easeInOutSine');
+        if( i == 0 )
+        $(".biggestHomeCircle").addClass("toprad");
+      else if( i == 1)
+        $(".biggestHomeCircle").addClass("rightrad");
+     else if( i == 2 )
+        $(".biggestHomeCircle").addClass("bottomrad");
+      else if( i == 3)
+        $(".biggestHomeCircle").addClass("leftrad");
+      
+      },i*2000+1000);
+
+          
+  });
+  setTimeout(sliderout,11500);
+}
+
+function sliderout(){
+ $($(".slide").get().reverse()).each(function(i){
+      var elem = $(this);
+      setTimeout(function(){
+        $(elem).animate({'opacity':"0"},1000,'easeInOutSine');
+        if( i == 0 )
+        $(".biggestHomeCircle").removeClass("leftrad");
+      else if( i == 1)
+        $(".biggestHomeCircle").removeClass("bottomrad");
+     else if( i == 2 )
+        $(".biggestHomeCircle").removeClass("rightrad");
+      else if( i == 3)
+        $(".biggestHomeCircle").removeClass("toprad");
+      
+      },i*2000+1000);
+
+          
+  });
+  setTimeout(sliderin,10500);}
+});
+</script>
