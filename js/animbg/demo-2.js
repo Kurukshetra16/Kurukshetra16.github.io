@@ -9,7 +9,7 @@
     function initHeader() {
         width = window.innerWidth;
         height = window.innerHeight;
-        target = {x: 0, y: 0};
+        target = {x: 0, y: height};
 
         largeHeader = document.getElementById('large-header');
         largeHeader.style.height = height+'px';
@@ -70,7 +70,7 @@
 
         function init() {
             _this.pos.x = Math.random()*width;
-            _this.pos.y = Math.random()*10;
+            _this.pos.y = Math.random()*height;
             _this.alpha = 0.1+Math.random()*0.5;
             _this.scale = 0.1+Math.random()*0.3;
             _this.velocity = Math.random();
@@ -80,7 +80,7 @@
             if(_this.alpha <= 0) {
                 init();
             }
-            _this.pos.y += _this.velocity;
+            _this.pos.y -= _this.velocity;
             _this.alpha -= 0.0001;
             ctx.beginPath();
             ctx.arc(_this.pos.x, _this.pos.y, _this.scale*10, 0, 2 * Math.PI, false);

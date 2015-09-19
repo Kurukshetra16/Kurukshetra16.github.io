@@ -1,5 +1,12 @@
 @import '3L/3L.less';
-
+@font-face {
+    font-family: Samarkan;
+    src: url(samarkan.ttf);
+}
+@font-face {
+    font-family: Aroly;
+    src: url(AROLY.ttf);
+}
 html,body{
 	overflow-x:hidden !important;
 	.transition(0.65s ease);
@@ -437,14 +444,8 @@ margin-top:-50%;
 
 }
 /*karnival*/
-.large-header {
-	position: relative;
-	width: 100%;
-	z-index: 1;
-}
-
-.karCircleBox{
-	margin-left:20px;
+.karCircles{
+padding-left:50px;
 }
 /*topPage*/
 .zoomIn{
@@ -459,9 +460,8 @@ margin-top:-50%;
    width:100%;
   min-height:600px;
   max-height:auto;
-  position:relative;
-  background:#eee;
-  color:#333;
+  position:relative; 
+   color:#333;
   margin-left:100px;
   margin-bottom:30px;
   padding:25px;
@@ -470,7 +470,8 @@ margin-top:-50%;
   -webkit-transform:scale(5);
   visibility: hidden;
   .transition(all 0.4s ease);	
-}
+  background:rgba(255,255,255,0.8);
+  }
 	
 	.subscribe{
 	margin-top:10px;	
@@ -590,14 +591,11 @@ ul li.eventCircleNav{
 	margin-left:-13px;
 }
 /*karnival*/
-.karCircleBox{
-	margin-left:-20px;
-}
 /*topPage*/
 .zoomIn{
 	transform:scale(1) !important;
 	-webkit-transform:scale(1) !important;
-	margin-top:-70% !important;
+	margin-top:-75% !important;
 	visibility: visible !important;
 }
 .karBox{
@@ -615,10 +613,10 @@ ul li.eventCircleNav{
   margin:auto;
   margin-top:140%;
   margin-left:28%;
-  background:rgb(255,227,219);
-  border:15px solid rgb(243,62,75);
-  border-right:20px solid rgb(206,3,3);
-  border-top:20px solid rgb(206,3,3);
+  background:rgba(255,255,255,0.8);
+  border:5px solid rgb(243,62,75);
+  border-right:5px solid rgb(206,3,3);
+  border-top:5px solid rgb(206,3,3);
   transform:rotate(45deg) scale(0.1) rotate3d(0,1,1,90deg);
   -webkit-transform:rotate(45deg) scale(0.1) rotate3d(0,1,1,90deg);
   position:relative;
@@ -632,15 +630,14 @@ ul li.eventCircleNav{
   min-height:650px;
   max-height:auto;
   position:relative;
-  background:rgb(255,227,219);
   color:#333;
+  background:rgba(255,255,255,0.9);
   margin-left:28%;
   margin-bottom:30px;
   padding:25px;
-  border:15px solid rgb(243,62,75);
-  border-left:15px solid rgb(206,3,3);
-  border-bottom:15px solid rgb(206,3,3);
-  
+  border:10px solid rgb(243,62,75);
+  border-left:10px solid rgb(206,3,3);
+  border-bottom:10px solid rgb(206,3,3);
   padding-bottom:20px;
   transform:scale(5);
   -webkit-transform:scale(5);
@@ -1100,84 +1097,46 @@ border:none;
 	visibility: visible !important;
 }
 /*Karnival*/
-.karCircles{
+
+.karCircle{
   width:100%;
   height:100%;
-  margin-top:40px;
-  z-index:2;
 }
 .karCircles .karCircle{
-  width:270px;
-  height:270px;
-  background:none;
-  border-radius:30px;
-   border:15px solid rgb(250,16,14);
-  border-right-color:rgb(196,2,0);
-  border-bottom-color:rgb(196,2,0);
-  box-shadow:0px 7px 20px rgba(255,247,219,0.2),
-  				0px -7px 20px rgba(255,247,219,0.2);
-  cursor: pointer;
-  margin-top:20px;
-  margin-bottom:50px;
-  margin-right:250px;
- .transition(all 0.4s ease);
-  .animation(animation1 @duration-color linear  infinite );
+  position:relative;
+  float:left;
+  display:inline;
 }
-.karCircle .karInnerCircle{
-  overflow:hidden;
-  width:195px;
-  height:195px;
-  margin:auto;
-  position: relative;
-  margin-top:10%;
-  box-shadow:0 0 0 20px inset #333, 0px 3px 10px rgba(255,255,255,0.3);
-  border-radius:30px;
- .transition(all 0.40s ease);
-  border:11px solid @small-border-main;
-  border-left-color:@small-border-left;
-  border-bottom-color:@small-border-bottom;
-  border-right-color:@small-border-right;
- .animation(animation2 @duration-color linear  infinite );
- }
- .karCircle h5{
- color: #fff;
-z-index: 9999;
-margin-top: 25%;
-position: absolute;
-font-size: 1.4rem;
-font-family: 'Raleway',sans-serif;
-text-align: center;
- .transition(0.1s ease);
- }
-.karInnerCircle img{
-  width:100%;
-  height: 100%;
-  border-radius: 50%;
-  .transition(all 0.3s ease);
-}
-.karCircle:hover .karInnerCircle{
-	transform: scale(1.3);
-	-webkit-transform:scale(1.3);
-.animation(animation4 10s linear infinite);
-}
-.karCircle:hover{
-box-shadow:none;
-border:none;
-}
-.karCircle:hover h5{
-	margin-top:-23%;
-}
-.karInnerCircle .overlay{
-  position:absolute;
-  top:0;
-  width:100%;
-  height: 100%;
-  border-radius:50%;
-  background:rgba(0,0,0,0.3);
- .transition(all 0.4s ease);
-}
-.karInnerCircle:hover .overlay{
-  background:rgba(0,0,0,0);
+
+.shape {
+  text-shadow: rgba(18, 133, 110,0.09) 1px 1px,
+    rgba(18, 133, 110,0.09) 2px 2px,
+    rgba(18, 133, 110,0.09) 3px 3px,
+    rgba(18, 133, 110,0.09) 4px 4px,
+    rgba(18, 133, 110,0.09) 5px 5px,
+    rgba(18, 134, 111,0.09) 6px 6px,
+    rgba(18, 135, 112,0.09) 7px 7px,
+    rgba(18, 137, 113,0.09) 8px 8px,
+    rgba(18, 138, 114,0.09) 9px 9px,
+    rgba(19, 140, 116,0.09) 10px 10px,
+    rgba(19, 141, 117,0.09) 11px 11px,
+    rgba(19, 142, 118,0.09) 12px 12px,
+    rgba(19, 144, 119,0.09) 13px 13px,
+    rgba(19, 145, 120,0.09) 14px 14px,
+    rgba(20, 147, 122,0.09) 15px 15px,
+    rgba(20, 148, 123,0.09) 16px 16px,
+    rgba(20, 150, 124,0.09) 17px 17px,
+    rgba(20, 151, 125,0.09) 18px 18px,
+    rgba(20, 152, 126,0.09) 19px 19px,
+    rgba(21, 154, 128,0.09) 20px 20px,
+    rgba(21, 155, 129,0.09) 21px 21px,
+    rgba(21, 157, 130,0.09) 22px 22px,
+    rgba(21, 158, 131,0.09) 23px 23px,
+    rgba(22, 160, 133,0.09) 24px 24px;
+   height: 100%;
+  width: 100%;
+  font-size: 75px;
+  text-align: center;
 }
 @-webkit-keyframes flipColor{
   0%{ color:#fff;}
@@ -1192,62 +1151,6 @@ border:none;
   66%{ transform:rotateX(90deg) scale(1.5);}
   100%{ transform: scale(1.3); color:crimson;}
 }
-
-/*tooltip for karCircle */
-.karCircle .karTooltip{
-  width:100%;
-  height:auto;
-  background:#eee;
-  color:#333;
-  font-size:14px;
-  padding:5px;
-  position: relative;
-  margin-top:50px;
-}
-.karTooltip::before{
-  content:'';
-  position:absolute;
-  top:-10px;
-  left:43%;
-  border-left:10px solid transparent;
-  border-right:10px solid transparent;
-  border-bottom:10px solid #eee;
-}
-
-.topPage .karImCircle{
-    width:160px;
-    height:160px;
-    border-radius:50%;
-    margin:auto;
-    border:6px solid #333;
-    box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
-  }
-
-  .karImCircle img{
-    width:100%;
-    height:100%;
-    border-radius:50%;
-    
-  }
-
-.topPage p{
-  font-size:16px;
-  line-height:1.8;
-}
-.karDetails{
-  padding-top:10px;
-}
-.karDetails h5{
-  font-size: 16px;
-  line-height:1.5;
-  font-weight:600;
-  text-decoration: underline;
-}
-.karTime::before{
-  content:' at ';
-  font-style: italic;
-}
-
 
 .flyLeft{
 	transform:translateX(-2000px) translateY(1500px) scale(0.8);
@@ -1271,25 +1174,6 @@ border:none;
 	-webkit-transform:translateX(600px) translateY(2500px) scale(0.8);
 	.transition(transform 0.620s ease forwards);
 
-}
-/* =============================================================================
-  VIDEO
-============================================================================= */
-.karInnerCircle .video {
-  position:absolute;
-  top:-100px !important;
-  z-index: 1;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-
-}
-.karTitle{
-	color:#fff;
-	font-family:'Raleway',sans-serif;
-	font-size:50px;
-	font-weight:600;
 }
 /*XCEED*/
 .xceedContainer{
@@ -2157,4 +2041,199 @@ li .list-icon{
 	height:700px;
 	margin-left:50px;
 	border-radius:50%;
+}
+/*karnival page*/
+.karCircles{
+  margin-top:100px !important;
+}
+.karContainer h1{
+  font-size:5rem;
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+  font-family:'Orbitron',sans-serif;
+  color:rgb(54,214,215);
+  
+}
+.karCircles .karCircle{
+  width:300px;
+  height:300px;
+  margin-bottom:50px;
+  border-radius:50%;
+  .transition(all 0.4s ease);
+}
+.karCircle .overlayContainer{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+}
+.overlayContainer .slice{
+  width:300px;
+  height:300px;
+  background:rgba(255,255,255,0.3);
+  clip:rect(0,150px,150px,0);
+}
+.overlayContainer .slice1{
+  transform:rotate(45deg);
+  -webkit-transform:rotate(45deg);
+  position:absolute;
+  border-radius:50%;
+  .transition(all 0.4s ease);
+}
+
+.overlayContainer .slice2{
+  transform:rotate(135deg);
+  -webkit-transform:rotate(135deg);
+  position:absolute;
+  border-radius:50%;
+}
+.overlayContainer .slice3{
+  transform:rotate(225deg);
+  -webkit-transform:rotate(225deg);
+  position:absolute;
+  border-radius:50%;
+}
+.overlayContainer .slice4{
+  transform:rotate(315deg);
+  -webkit-transform:rotate(315deg);
+  position:absolute;
+  border-radius:50%;
+}
+.karCircle img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  position:absolute;
+
+  border:5px solid @border-main;
+  border-right-color:@border-right;
+  border-bottom-color:@border-right;
+  .animation(animation1 30s linear infinite);
+}
+.karCircle:hover{
+   box-shadow: -10px -10px 20px rgba(255,255,255,0.15),
+              -10px 10px 20px rgba(255,255,255,0.15),
+              10px -10px 20px rgba(255,255,255,0.15),
+              10px 10px 20px rgba(255,255,255,0.15)  ;
+ cursor:pointer;
+}
+.karCircle:hover .slice1{
+  transform:rotate(45deg) translate(-50%,-50%);
+   -webkit-transform:rotate(45deg) translate(-50%,-50%);
+    background:rgba(255,255,255,0.05);
+  -moz-animation:rotate360 0.4s linear;
+  -webkit-animation:rotate360 0.4s linear;
+  .transition(background 0.1s linear 0.46s,transform 0.3s ease-in 0.45s);
+}
+
+.karCircle:hover .slice2{
+  transform:rotate(135deg) translate(-50%,-50%);
+ -webkit-transform:rotate(135deg) translate(-50%,-50%);
+ background:rgba(255,255,255,0.05);
+ .transition(background 0.1s linear 0.46s,transform 0.3s ease-in 0.45s);
+}
+.karCircle:hover .slice3{
+  transform:rotate(225deg) translate(-50%,-50%);
+  -webkit-transform:rotate(225deg) translate(-50%,-50%);
+  background:rgba(255,255,255,0.05);
+  .transition(background 0.1s linear 0.46s,transform 0.3s ease-in 0.45s);
+}
+
+.karCircle:hover .slice4{
+  transform:rotate(315deg) translate(-50%,-50%);
+  -webkit-transform:rotate(315deg) translate(-50%,-50%);
+  background:rgba(255,255,255,0.05);
+  .transition(background 0.1s linear 0.46s,transform 0.3s ease-in 0.45s);
+}
+.overlayContainer .karTitle{
+  position:absolute;
+  top:50%;
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
+  padding:10px;
+  background:rgba(0,0,0,0.8);
+  color:#fff;
+  font-family:'Raleway',sans-serif;
+  font-size:1.3rem;
+  width:100%;
+  border-bottom-left-radius:50%;
+  border-bottom-right-radius:50%;
+ }
+.karTitle p{
+  text-align:center;
+}
+.topPage .karImCircle{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	width:100px;
+	height:100px;
+	border-radius:50%;
+}
+.karImCircle img{
+	width:100px;
+	height:100px;
+	border-radius:50%;	
+	margin-top:-40px;
+}
+.topPage{
+	font-size:1.4rem !important;
+	font-family:'Raleway',sans-serif;
+}
+
+.topPage .karDetails{
+	margin-bottom:10px;
+	font-size:1.5rem;
+}
+.topPage p{
+	line-height:1.5;
+}
+@-moz-keyframes rotate360{
+  0%{
+    transform:rotate(45deg);
+  background:rgba(255,255,255,0.6);
+
+  }
+  25%{
+    transform:rotate(135deg);
+  background:rgba(255,255,255,0.6);
+  }
+  50%{
+    transform:rotate(225deg);
+  }
+  75%{
+    transform:rotate(315deg);
+  background:rgba(255,255,255,0.6);
+  }
+  100%{
+    transform:rotate(405deg);
+    background:rgba(255,255,255,0.6);
+  }
+}
+
+@-webkit-keyframes rotate360{
+  0%{
+    -webkit-transform:rotate(45deg);
+  background:rgba(255,255,255,0.6);
+
+  }
+  25%{
+    -webkit-transform:rotate(135deg);
+  background:rgba(255,255,255,0.6);
+  }
+  50%{
+    -webkit-transform:rotate(225deg);
+  }
+  75%{
+    -webkit-transform:rotate(315deg);
+  background:rgba(255,255,255,0.6);
+  }
+  100%{
+    -webkit-transform:rotate(405deg);
+    background:rgba(255,255,255,0.6);
+  }
 }
