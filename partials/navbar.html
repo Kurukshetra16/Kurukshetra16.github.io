@@ -363,37 +363,27 @@
     $(".loginHeader").removeClass("dropDown");
     }
     }, function(){
-      $(this).find(".topVane").removeClass("openOut");
       $(".container").children().fadeIn();
       $(".cd-tabs").children().fadeIn();
       
     });
 
     $(".eventHeader").hover(function(){
-      $("#eVane").find("i").fadeOut(0);
-      $("#eVane").addClass("openOut");
-    $(".container").children().fadeOut().finish();
+      $(".container").children().fadeOut().finish();
     $(".cd-tabs").children().fadeOut().finish();
 
     }, function(){
-      $("#eVane").find("i").fadeIn(100);
-      $("#eVane").removeClass("openOut");
       $(".eventHeader").removeClass("dropDown");
       $(".container").children().fadeIn();
     $(".cd-tabs").children().fadeIn().finish();
-    $(".container").children().fadeIn();
       
     });
 
     $(".wkshopHeader").hover(function(){
-      $("#wVane").find("i").fadeOut(0);
-      $("#wVane").addClass("openOut");
-    $(".cd-tabs").children().fadeOut().finish();
+      $(".cd-tabs").children().fadeOut().finish();
     $(".container").children().fadeOut().finish();
 
     }, function(){
-     $("#wVane").find("i").fadeIn(100);
-     $("#wVane").removeClass("openOut");
      $(".wkshopHeader").removeClass("dropDown");
      $(".container").children().fadeIn();
     $(".cd-tabs").children().fadeIn().finish();
@@ -401,14 +391,10 @@
     });
 
     $(".loginHeader").hover(function(){
-      $("#lVane").find("i").fadeOut(0);
-      $("#lVane").addClass("openOut");
     $(".container").children().fadeOut().finish();
     $(".cd-tabs").children().fadeOut().finish();
 
     }, function(){
-     $("#lVane").find("i").fadeIn(100);
-     $("#lVane").removeClass("openOut");
      $(".loginHeader").removeClass("dropDown");
     $(".cd-tabs").children().fadeIn().finish();
     $(".container").children().fadeIn();
@@ -420,6 +406,14 @@
     $(".cd-tabs").children().fadeOut().finish();
       $(".container").children().fadeOut().finish();
     });
+  $(".headerBox").hover(function(){
+      $(".eventHeader").removeClass("dropDown");
+      $(".wkshopsHeader").removeClass("dropDown");
+      $(".loginHeader").removeClass("dropDown");
+      $(".container").children().fadeIn();
+      $(".cd-tabs").children().fadeIn().finish();
+
+  });
   }
 
   });

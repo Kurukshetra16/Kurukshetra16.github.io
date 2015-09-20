@@ -429,6 +429,33 @@ li ul{
 }
 
 @media all and (max-width: 640px) and (min-width: 320px) {
+	/*jarvis*/
+	.jarvisContainer .biggestHomeCircle{
+	width:500px !important;
+	height:500px !important;
+	margin-top:50px;
+	margin-bottom:50px;
+	margin-left:-10px;
+    box-shadow: -3px -3px 20px rgba(255,255,255,0.1),
+              -3px 3px 20px rgba(255,255,255,0.1),
+              3px -3px 20px rgba(255,255,255,0.1),
+              3px 3px 20px rgba(255,255,255,0.1)  ;
+ 
+	}
+	.biggestHomeCircle .bigHomeCircle{
+	width:400px !important;
+	height:400px !important;
+	}
+  .allImages{
+  width:400px !important;
+  height:400px !important;
+  }
+  img.slide {
+  width:400px !important;
+  height:400px !important;
+}
+
+
 	/*events*/
 	.imagebox{
 		margin-left:80px;
@@ -2042,6 +2069,60 @@ li .list-icon{
 	margin-left:50px;
 	border-radius:50%;
 }
+.jarvisContainer .biggestHomeCircle{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  background:none;
+  border-radius:50%;
+  width:700px;
+  height:700px;
+  border:30px solid rgb(33,161,159);
+  .transition(border 1s linear);
+}
+.toprad{
+  border:30px solid rgb(33,161,159);
+  border-top-color:@border-right !important;
+}
+.leftrad{
+ border:30px solid rgb(33,161,159);
+ border-left-color:@border-right !important;
+}
+.bottomrad{
+ border:30px solid rgb(33,161,159);
+ border-bottom-color:@border-right !important;
+}
+.rightrad{
+  border:30px solid rgb(33,161,159);
+  border-right-color:@border-right !important;
+}
+
+.biggestHomeCircle .bigHomeCircle{
+  display:block;
+  position:absolute;
+  margin-left:20px;
+  margin-top:20px;
+  background:none;
+  border-radius:50%;
+  width:600px;
+  height:600px; 
+}
+.bigHomeCircle .allImages{
+  position:absolute;
+  width:600px;
+  height:600px;
+  border-radius:50%;
+  background:none;
+}
+.allImages li{
+  position: absolute;
+}
+li img{
+  width:600px;
+  height:600px;
+  border-radius:50%;
+}
+
 /*karnival page*/
 .karCircles{
   margin-top:100px !important;

@@ -1,60 +1,3 @@
-<style>
-.jarvisContainer .biggestHomeCircle{
-  display:block;
-  margin-left:auto;
-  margin-right:auto;
-  background:none;
-  border-radius:50%;
-  width:700px;
-  height:700px;
-  border:30px solid aqua;
-  -webkit-transition:border 1s linear;
-  -moz-transition:border 1s linear;
-   transition:border 1s linear;
-}
-.toprad{
-  border:30px solid aqua;
-  border-top-color:orangered !important;
-}
-.leftrad{
- border:30px solid aqua;
- border-left-color:orangered !important;
-}
-.bottomrad{
- border:30px solid aqua;
- border-bottom-color:orangered !important;
-}
-.rightrad{
-  border:30px solid aqua;
-  border-right-color:orangered !important;
-}
-
-.biggestHomeCircle .bigHomeCircle{
-  display:block;
-  position:absolute;
-  margin-left:20px;
-  margin-top:20px;
-  background:seagreen;
-  border-radius:50%;
-  width:600px;
-  height:600px; 
-}
-.bigHomeCircle .allImages{
-  position:absolute;
-  width:600px;
-  height:600px;
-  border-radius:50%;
-  background:black;
-}
-.allImages li{
-  position: absolute;
-}
-li img{
-  width:600px;
-  height:600px;
-  border-radius:50%;
-}
-</style>
 <!--put components here -->
 <div ng-controller="homeController">
 <div class="container col-md-12 col-xs-12" style="margin-top:50px">
@@ -101,7 +44,7 @@ function sliderin(){
  $(".slide").each(function(i){
       var elem = $(this);
       setTimeout(function(){
-        $(elem).animate({'opacity':"1"},1000,'easeInOutSine');
+        $(elem).animate({'opacity':"1"},2500,'easeInOutSine');
         if( i == 0 )
         $(".biggestHomeCircle").addClass("toprad");
       else if( i == 1)
@@ -111,18 +54,18 @@ function sliderin(){
       else if( i == 3)
         $(".biggestHomeCircle").addClass("leftrad");
       
-      },i*2000+1000);
+      },i*5000+5000);
 
           
   });
-  setTimeout(sliderout,11500);
+  setTimeout(sliderout,20500);
 }
 
 function sliderout(){
  $($(".slide").get().reverse()).each(function(i){
       var elem = $(this);
       setTimeout(function(){
-        $(elem).animate({'opacity':"0"},1000,'easeInOutSine');
+        $(elem).animate({'opacity':"0"},2500,'easeInOutSine');
         if( i == 0 )
         $(".biggestHomeCircle").removeClass("leftrad");
       else if( i == 1)
@@ -132,10 +75,10 @@ function sliderout(){
       else if( i == 3)
         $(".biggestHomeCircle").removeClass("toprad");
       
-      },i*2000+1000);
+      },i*5000+5000);
 
           
   });
-  setTimeout(sliderin,10500);}
+  setTimeout(sliderin,18000);}
 });
 </script>
