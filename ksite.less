@@ -149,7 +149,9 @@ A.text.dropdown-toggle:focus{
 
 DIV#bs-example-navbar-collapse-1.navbar-collapse.collapse.in{
 	overflow-x:hidden;
-background:url(images/patterns/shade1.jpg),url(images/patterns/shade1.jpg);	
+background-image:url(images/patterns/constellation.png);	
+background-color:#000;
+background-size:100px 100px;
 -webkit-animation: AnimationName 30s ease infinite;
 -moz-animation: AnimationName 20s ease infinite;
 animation: AnimationName 20s ease infinite;
@@ -431,28 +433,24 @@ li ul{
 @media all and (max-width: 640px) and (min-width: 320px) {
 	/*jarvis*/
 	.jarvisContainer .biggestHomeCircle{
-	width:500px !important;
-	height:500px !important;
-	margin-top:50px;
-	margin-bottom:50px;
-	margin-left:-10px;
-    box-shadow: -3px -3px 20px rgba(255,255,255,0.1),
-              -3px 3px 20px rgba(255,255,255,0.1),
-              3px -3px 20px rgba(255,255,255,0.1),
-              3px 3px 20px rgba(255,255,255,0.1)  ;
- 
-	}
-	.biggestHomeCircle .bigHomeCircle{
 	width:400px !important;
 	height:400px !important;
+	margin-top:50px;
+	margin-bottom:50px;
+	margin-left:-40px !important;
+    
+	}
+	.biggestHomeCircle .bigHomeCircle{
+	width:335px !important;
+	height:335px !important;
 	}
   .allImages{
-  width:400px !important;
-  height:400px !important;
+  width:335px !important;
+  height:335px !important;
   }
   img.slide {
-  width:400px !important;
-  height:400px !important;
+  width:335px !important;
+  height:335px !important;
 }
 
 
@@ -529,7 +527,9 @@ padding-left:50px;
 	}
 	
 	.navbar-header{
-		background:url(images/blacktri.png);
+		background-image:url(images/patterns/constellation.png);
+		background-color:#000;
+		background-size:100px 100px;
 		overflow-y:hidden;
 	}
 .headerBox{
@@ -599,9 +599,16 @@ ul li.eventCircleNav{
 .navbar-toggle{
 	margin-top:30px;
 }
+
 }
 
 @media all and (min-width: 960px) {
+/*hospi*/
+.longer-line{
+.animation(animation3 @duration-color linear  infinite ); 
+.transition(all 0.620s ease);
+ width:0%;
+}
 /*gl*/
 
 .glAnim{
@@ -766,7 +773,8 @@ UL.nav.navbar-nav.navbar-right{
 .titleHeader{
 	width:100%;
 	height:125px;
-	/*background:#420308;*/ background-image:url(images/patterns/shade3.jpg);
+	background-color:#000;
+	background-image:url(images/patterns/constellation.png);
 	color:#111;
 	text-align: center;
 	top:0;
@@ -944,9 +952,7 @@ border:none;
 }
 .longer-line{
   height:5px; position:absolute;
- .animation(animation3 @duration-color linear  infinite ); 
- .transition(all 0.620s ease);
- width:0%;
+ 
 }
 .long-line .node{
   width:60px;
@@ -2035,7 +2041,7 @@ li .list-icon{
 .update-box, .sponsor-box{
   width:100%;
   height:150px;
-  border:10px solid rgb(0,255,255);
+  border:10px solid aqua;
   margin-top:50px;
   border-radius:30px;
   padding:20px;
@@ -2046,7 +2052,9 @@ li .list-icon{
   2px -10px 25px rgba(255,255,255,0.1),
   -2px -10px 25px rgba(255,255,255,0.1),
   -2px 10px 25px rgba(255,255,255,0.1);
-  .animation(animation1 30s linear infinite);
+  -webkit-animation:altBorder 30s linear infinite;
+  -moz-animation:altBorder 30s linear infinite;
+  animation:altBorder 30s linear infinite;
 }
 .sponsor-box{
   height:200px;
@@ -2066,7 +2074,6 @@ li .list-icon{
 .jarvis{
 	width:700px;
 	height:700px;
-	margin-left:50px;
 	border-radius:50%;
 }
 .jarvisContainer .biggestHomeCircle{
@@ -2077,8 +2084,13 @@ li .list-icon{
   border-radius:50%;
   width:700px;
   height:700px;
-  border:30px solid rgb(33,161,159);
+  border:15px solid rgb(33,161,159);
   .transition(border 1s linear);
+  box-shadow: -3px -3px 20px rgba(255,255,255,0.1),
+              -3px 3px 20px rgba(255,255,255,0.1),
+              3px -3px 20px rgba(255,255,255,0.1),
+              3px 3px 20px rgba(255,255,255,0.1)  ;
+ 
 }
 .toprad{
   border:30px solid rgb(33,161,159);
@@ -2100,8 +2112,8 @@ li .list-icon{
 .biggestHomeCircle .bigHomeCircle{
   display:block;
   position:absolute;
-  margin-left:20px;
-  margin-top:20px;
+  margin-left:35px;
+  margin-top:35px;
   background:none;
   border-radius:50%;
   width:600px;
@@ -2317,4 +2329,93 @@ li img{
     -webkit-transform:rotate(405deg);
     background:rgba(255,255,255,0.6);
   }
+}
+/*badgeEvents on homepage */
+.badgeEventsContainer{
+	width:100%;
+	height:100%;
+	 margin-top:50px;
+}
+.badgeEventsContainer .badgeEvent{
+	width:120px;
+	height:120px;
+	margin-bottom:100px;
+	margin-right:50px;
+	border-radius:50%;
+	background:none;
+	border:10px solid aqua;
+	border-right-color:rgba(0,255,255,0.07);
+	border-left-color:rgba(0,255,255,0.07);
+	-webkit-animation:altBorder 30s linear infinite;
+	-moz-animation:altBorder 30s linear infinite;
+	animation:altBorder 30s linear infinite;
+	.transition(all 0.15s linear);
+	}
+.badgeEvent:hover{
+	cursor:pointer;
+	box-shadow:0px 5px 10px rgba(255,255,255,0.1);
+	transform:scale(1.1);
+	-webkit-transform:scale(1.1);
+}
+.badgeEvent:hover .fa{
+	text-shadow:1px 0.5px 5px rgba(0,255,255,1);
+}
+.badgeEvent h4{
+	font-family:'Raleway',sans-serif;
+	margin-top:50%;
+	text-align:center;
+}
+.badgeEvent .fa{
+	font-size:2.5rem;
+	color:#fff;
+	text-align:center;
+	margin-top:28%;
+	margin-left:27%;
+	.transition(all 0.15s linear);
+
+}
+/*alternate top-bot with rt-left bord homepage*/
+@-webkit-keyframes altBorder{
+0%{
+	border:10px solid aqua;
+	border-right-color:rgba(0,255,255,0.07);
+	border-left-color:rgba(0,255,255,0.07);
+}
+33%{
+	border:10px solid aqua;
+	border-top-color:rgba(0,255,255,0.07);
+	border-bottom-color:rgba(0,255,255,0.07);	
+}	
+66%{
+	border:10px solid aqua;
+	border-top-color:rgba(0,255,255,0.07);
+	border-bottom-color:rgba(0,255,255,0.07);
+}
+100%{
+	border:10px solid aqua;
+	border-right-color:rgba(0,255,255,0.07);
+	border-left-color:rgba(0,255,255,0.07);
+}
+}
+@keyframes altBorder{
+0%{
+	border:10px solid aqua;
+	border-right-color:rgba(0,255,255,0.07) !important;
+	border-left-color:rgba(0,255,255,0.07) !important;
+}
+33%{
+	border:10px solid aqua;
+	border-top-color:rgba(0,255,255,0.07) !important;
+	border-bottom-color:rgba(0,255,255,0.07) !important;	
+}	
+66%{
+	border:10px solid aqua;
+	border-top-color:rgba(0,255,255,0.07) !important;
+	border-bottom-color:rgba(0,255,255,0.07) !important;
+}
+100%{
+	border:10px solid aqua;
+	border-right-color:rgba(0,255,255,0.07) !important;
+	border-left-color:rgba(0,255,255,0.07) !important;
+}
 }

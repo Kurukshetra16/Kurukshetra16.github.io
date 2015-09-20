@@ -1,5 +1,5 @@
 /*HOSPI*/
-myApp.controller('hospiController',['$scope',function($scope){
+myApp.controller('hospiController',['$scope','$document',function($scope,$document){
 $scope.nodes = [
 {
 	title:'INTRODUCTION',
@@ -41,8 +41,13 @@ $scope.nodes = [
 	id:6
 }
 ];
+     var section3 = angular.element(document.getElementById('hospi_content'));
+    $scope.tohospi = function() {
 
+      $document.scrollTo(0,1000);
+    }
 }]);
+
 
 // guestlectures
 myApp.controller('glController',['$scope',function($scope){

@@ -81,8 +81,8 @@ $(".node").click(function(){
         $(".longer-line").css({'background':"rgb(250,16,14)",'width':(nodeid*85)/total+"%"});
   
   }
-setTimeout(function(){$(".hospi_content").addClass("hospi_animated");},500);
-  
+  setTimeout(function(){$(".hospi_content").addClass("hospi_animated");},500);
+
 });       	}
         };
     });
