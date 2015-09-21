@@ -1,3 +1,24 @@
+/*UPDATES*/
+myApp.controller('updateController',['$scope',function($scope){
+$scope.updates = ['the second round of microsoft\'s tame the code begins at 3pm in the computer science department, 3rd floor lab!','get ready for round 3 of ros! it begins at 20 00 hrs!',
+'student ambassadors are requested to assemble at TEQUIP hall at 3pm for distro of goodies!'];
+
+$(function(){
+    $(".update-box p").typed({
+      strings:$scope.updates,
+      typeSpeed: 40,
+      loop: true,
+      backDelay: 1500,
+      contentType: 'text',
+      loopCount: false,
+      cursorChar: " |"
+    });
+  });
+
+
+
+}]);
+
 /*HOSPI*/
 myApp.controller('hospiController',['$scope','$document',function($scope,$document){
 $scope.nodes = [

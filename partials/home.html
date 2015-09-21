@@ -1,5 +1,4 @@
 <!--put components here -->
-<div ng-controller="homeController">
 <div class="container col-md-12 col-xs-12" style="margin-top:50px">
 
 <div class="col-md-4 col-xs-12">
@@ -64,11 +63,9 @@
 </div>
 </div><!--jContainer-->
  <div class="col-md-3 col-xs-12">
-    <div class="col-md-12 col-xs-12">
-      <div class="update-box">
-        <h5>This is a new update! This is a new update!</h5>
+      <div class="update-box" ng-controller="updateController">
+        <p></p>        
       </div>
-    </div>
   <div class="col-md-12 col-xs-12">
     <ul class="sponsor-box">
       <li><img src="images/ceg.jpg" /></li>
@@ -81,7 +78,7 @@
 </div>
 </div>
 </div>
-</div><!--controller-->
+
 <script>
 $(document).ready(function(){
 var index = 1;
@@ -159,5 +156,8 @@ setTimeout(sponsorout,spons_time_in);
   });
 setTimeout(sponsorin,spons_time_out);
 }
+//typed.js
 });
+
 </script>
+

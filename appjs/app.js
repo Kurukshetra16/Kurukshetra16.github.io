@@ -1,4 +1,4 @@
-var myApp = angular.module("myApp",['ngRoute','ngSanitize','ngAnimate','duScroll','myAppDirectives','wu.masonry']);
+var myApp = angular.module("myApp",['ngRoute','ngSanitize','ngAnimate','duScroll','myAppDirectives']);
 
 
 
