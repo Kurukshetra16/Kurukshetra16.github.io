@@ -1,19 +1,56 @@
 <!--put components here -->
 <div ng-controller="homeController">
 <div class="container col-md-12 col-xs-12" style="margin-top:50px">
-  <div class="col-md-3 col-xs-12">
-    <div class="col-md-12 col-xs-12">
-      <div class="update-box">
-        <h5>This is a new update! This is a new update!</h5>
+
+<div class="col-md-4 col-xs-12">
+  <div class="col-md-12 col-xs-12 clearfix paddingReset badgeEventsContainer">
+    <ul class="col-md-12 col-xs-12 paddingReset">
+      <div class="col-md-4 col-xs-6 ">
+        <li class="badgeEvent ">
+          <i class="fa fa-star"></i>
+          <h4 style="color:#fff">STARTUP WEEKEND</h4>
+        </li>
       </div>
-    </div>
-  <div class="col-md-12 col-xs-12">
-    <div class="sponsor-box">
-      <img src="images/patterns/bluespace.png" />
-    </div>
+      <div class="col-md-4 col-xs-6 ">
+        <li class="badgeEvent ">
+          <i class="fa fa-bullhorn"></i>
+          <h4 style="color:#fff">BARKAMP</h4>
+
+        </li>
+
+      </div>
+      <div class="col-md-4 col-xs-6 ">
+        <li class="badgeEvent ">
+          <i class="fa fa-graduation-cap"></i>
+          <h4 style="color:#fff">STUDENT AMBASSADOR</h4>
+        </li>
+      </div>
+      <div class="col-md-4 col-xs-6 ">
+        <li class="badgeEvent ">
+          <i class="fa fa-calendar"></i>
+          <h4 style="color:#fff">SCHEDULE</h4>
+        </li>
+      </div>
+
+      <div class="col-md-4 col-xs-6 ">
+        <li class="badgeEvent ">
+          <i class="fa fa-quote-right"></i>
+          <h4 style="color:#fff">K! BLOG</h4>
+        </li>
+      </div>
+
+      <div class="col-md-4 col-xs-6 ">
+        <li class="badgeEvent ">
+          <i class="fa fa-tag"></i>
+          <h4 style="color:#fff">LASER TAG</h4>
+        </li>
+      </div>
+    </ul>
+  </div>
 </div>
-</div>
-<div class="jarvisContainer col-md-7 col-xs-12">
+
+ 
+<div class="jarvisContainer col-md-5 col-xs-12">
 <!-- <img src="images/patterns/red_stars1.jpg" class="jarvis"/> -->
 <div class="biggestHomeCircle">
   <div class="bigHomeCircle">
@@ -26,62 +63,36 @@
   </div>
 </div>
 </div><!--jContainer-->
-
-<div class="col-md-2 col-md-pull-1 col-xs-12">
-  <div class="badgeEventsContainer">
-    <ul class="col-md-12 col-xs-12">
-      <div class="col-md-6 col-xs-6">
-        <li class="badgeEvent ">
-          <i class="fa fa-star"></i>
-          <h4 style="color:#fff">STARTUP WEEKEND</h4>
-        </li>
+ <div class="col-md-3 col-xs-12">
+    <div class="col-md-12 col-xs-12">
+      <div class="update-box">
+        <h5>This is a new update! This is a new update!</h5>
       </div>
-      <div class="col-md-6 col-xs-6">
-        <li class="badgeEvent ">
-          <i class="fa fa-bullhorn"></i>
-          <h4 style="color:#fff">BARKAMP</h4>
-
-        </li>
-
-      </div>
-      <div class="col-md-6 col-xs-6">
-        <li class="badgeEvent ">
-          <i class="fa fa-graduation-cap"></i>
-          <h4 style="color:#fff">STUDENT AMBASSADOR</h4>
-        </li>
-      </div>
-      <div class="col-md-6 col-xs-6">
-        <li class="badgeEvent ">
-          <i class="fa fa-calendar"></i>
-          <h4 style="color:#fff">SCHEDULE</h4>
-        </li>
-      </div>
-
-      <div class="col-md-6 col-xs-6">
-        <li class="badgeEvent ">
-          <i class="fa fa-quote-right"></i>
-          <h4 style="color:#fff">K! BLOG</h4>
-        </li>
-      </div>
-
-      <div class="col-md-6 col-xs-6">
-        <li class="badgeEvent ">
-          <i class="fa fa-exclamation"></i>
-          <h4 style="color:#fff">LASER TAG</h4>
-        </li>
-      </div>
+    </div>
+  <div class="col-md-12 col-xs-12">
+    <ul class="sponsor-box">
+      <li><img src="images/ceg.jpg" /></li>
+      <li><img src="images/patterns/bluekar.jpg" /></li>
+      <li><img src="images/patterns/redkarnival.jpg" /></li>
+      <li><img src="images/ceg.jpg" /></li>
+      <li><img src="images/patterns/bluekar.jpg" /></li>
+      <li><img src="images/patterns/redkarnival.jpg" /></li>
     </ul>
-  </div>
 </div>
-
-
+</div>
 </div>
 </div><!--controller-->
 <script>
 $(document).ready(function(){
 var index = 1;
-var tot = 4;
+var tot1 = $(".slide").length;
+var tot2 = $(".sponsor-box img").length;
+var slide_time_in = 5125*tot1;
+var slide_time_out = 4500*tot1;
+var spons_time_in = 5125*tot2;
+var spons_time_in = 4500*tot2;
  $(".slide").animate({'opacity':"0"},'easeOutBounce');
+ $(".sponsor-box img").animate({'opacity':"0"},'easeOutBounce');
 sliderin();
 function sliderin(){
  $(".slide").each(function(i){
@@ -101,7 +112,10 @@ function sliderin(){
 
           
   });
-  setTimeout(sliderout,20500);
+
+  setTimeout(sliderout,slide_time_in);
+  
+
 }
 
 function sliderout(){
@@ -122,6 +136,28 @@ function sliderout(){
 
           
   });
-  setTimeout(sliderin,18000);}
+
+  setTimeout(sliderin,slide_time_out);}
+//sponsorin
+function sponsorin()
+{
+ $(".sponsor-box img").each(function(i){
+      var elem = $(this);
+      setTimeout(function(){
+        $(elem).animate({'opacity':"1"},2500,'easeInOutSine');
+      },i*5000+5000);
+  });
+setTimeout(sponsorout,spons_time_in);
+}
+
+ function sponsorout(){
+ $(".sponsor-box img").each(function(i){
+      var elem = $(this);
+      setTimeout(function(){
+        $(elem).animate({'opacity':"0"},2500,'easeInOutSine');
+              },i*5000+5000);
+  });
+setTimeout(sponsorin,spons_time_out);
+}
 });
 </script>

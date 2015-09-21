@@ -188,7 +188,7 @@ nav.navbar {
 .nav.navbar-nav a.navelem{
 	font-weight: bold;
 	color:white;
-	font-family:'Oswald',sans-serif;
+	font-family:'Orbitron',sans-serif;
 	font-size:15px;
 	border:2px solid transparent;
 	text-decoration:none;
@@ -273,7 +273,7 @@ INPUT.form-control:focus
 	font-size:14px;
 	line-height:3.5;
 	height:100% !important;
-	font-family:'Raleway',sans-serif;
+	font-family:'Orbitron',sans-serif;
 	background:none !important;
 	font-weight: 600;
 }
@@ -451,14 +451,11 @@ li ul{
   img.slide {
   width:335px !important;
   height:335px !important;
+  margin-left: -15px;
+  margin-top: -15px;
 }
 
-
-	/*events*/
-	.imagebox{
-		margin-left:80px;
-	}
-	/*gl*/
+/*gl*/
 
 .glAnim{
 	margin-bottom:250px;
@@ -468,16 +465,12 @@ margin-top:-50%;
   position:relative;
 
 }
-/*karnival*/
-.karCircles{
-padding-left:50px;
-}
 /*topPage*/
 .zoomIn{
 	margin-left:0 !important;
 	transform:scale(1) !important;
 	-webkit-transform:scale(1) !important;
-	margin-top:-30% !important;
+	margin-top:-75% !important;
 	visibility: visible !important;
 }
 .karBox .topPage{
@@ -494,7 +487,7 @@ padding-left:50px;
   transform:scale(5);
   -webkit-transform:scale(5);
   visibility: hidden;
-  .transition(all 0.4s ease);	
+  .transition(all 0.4s linear);	
   background:rgba(255,255,255,0.8);
   }
 	
@@ -571,9 +564,10 @@ ul li.eventCircleNav{
 	.transition(all 0.20s ease);
 }
 .eventCircleNav .sideText{
-	font-size:12px;
+	font-size:1rem;
 	color:#fff;
-	font-family:sans-serif;
+	font-family:'Orbitron',sans-serif;
+	text-transform:uppercase;
 	display:inline;
 	margin-left:10px;
 }
@@ -1364,10 +1358,10 @@ transform:scale(1.2) translateY(-10px);
 .bucketBox{
   float: left;
   display: inline-block;
-  width:210px;
-  height:210px;
-  margin: 0px;
-  padding: 0px;
+  width:230px;
+  height:230px;
+  margin-right: 50px;
+  margin-bottom: 50px;
 }
 
 .imgSize{
@@ -1375,50 +1369,46 @@ transform:scale(1.2) translateY(-10px);
   width: 300px;
 }
 
-.i1:hover, .i2:hover, .i3:hover, .i4:hover, .i5:hover,.i6:hover, .i7:hover, .i8:hover, .i9:hover, .i10:hover,.i11:hover, .i12:hover, .i13:hover, .i14:hover, .i15:hover{
-  width:200px;
-  height:200px;
-  margin: 5px;
-  padding: 45px;
-  background:none;
-  .transition(all 0.20s ease);
-  box-shadow:0px 4px 10px rgba(255,255,255,0.1),
-  			0px -4px 10px rgba(255,255,255,0.1);
-  			}
 .margin-top-lg{
   margin-top:50px;
 }
 ul{
   list-style: none;
 }
-
+.bucketContainer{
+	margin-top:100px;
+}
 .bucketCircle{
   float: left;
-  margin-right:50px;
   display: inline-block;
-  width:220px;
-  height:220px;
+  width:100%;
+  height:100%;
   background:none;
   padding:20px;
   text-align: center;
-  margin:30px;
+  margin-right:100px;
   vertical-align: middle;
   border-radius:50%;
   cursor: pointer;
-  border: 10px solid rgb(225,57,38);
-  border-right-color: rgb(244,140,50);
-  border-bottom-color: rgb(244,140,50);
+  border: 10px solid aqua;
+  border-right-color: teal;
+  border-bottom-color: teal;
 	margin-bottom:50px;
 .transition(all 0.4s ease);
-
 }
 
 .bucketCircle:hover{
- border: 10px solid #fff;
-  border-right-color: rgb(109,175,223);
-  border-bottom-color: rgb(109,175,223);
+  transform:scale(1.1);
+  -webkit-transform:scale(1.1);
+		  background:none;
+  .transition(all 0.20s ease);
   box-shadow: inset 0 0 40px rgba(255,255,255,0.3);
 }
+.bucketBox:hover .bucketCircle{
+	border-radius:0;
+	.animation(animation1 30s linear infinite);
+}
+
 .bucketCircle .bucketName{
   margin-top:38%;
   line-height:1.6;
@@ -2019,6 +2009,9 @@ border-top-color:rgb(206,3,3);
 .mg-lg{
   margin-right:10px !important;
 }
+.mg-lglg{
+  margin-right:40px !important;
+}
 .mg-xs{
 	margin-right:-25px !important;
 }
@@ -2038,33 +2031,35 @@ li .list-icon{
   color:rgb(200,247,250);
 }
 /*updates*/
-.update-box, .sponsor-box{
-  width:100%;
-  height:150px;
+.update-box,.sponsor-box img{
+  width:250px;
+  height:250px;
   border:10px solid aqua;
   margin-top:50px;
   border-radius:30px;
-  padding:20px;
-  color:rgb(250,16,14);
+  color:#fff;
+  font-size:1.3rem;
   line-height:1.3;
-  font-family:'Orbitron',sans-serif;
-  box-shadow:2px 10px 25px rgba(255,255,255,0.1),
-  2px -10px 25px rgba(255,255,255,0.1),
-  -2px -10px 25px rgba(255,255,255,0.1),
-  -2px 10px 25px rgba(255,255,255,0.1);
+  font-family:'Raleway',sans-serif;
+  box-shadow:2px 1px 5px rgba(255,255,255,0.1),
+  2px -1px 5px rgba(255,255,255,0.1),
+  -2px -1px 5px rgba(255,255,255,0.1),
+  -2px 1px 5px rgba(255,255,255,0.1);
   -webkit-animation:altBorder 30s linear infinite;
   -moz-animation:altBorder 30s linear infinite;
   animation:altBorder 30s linear infinite;
+  .transition(all 0.5s linear);
 }
-.sponsor-box{
-  height:200px;
+.update-box{
+	padding:20px;
 }
 .sponsor-box img{
-  width:100%;
-  height:100%;
-  border-radius:30px;
+	position:absolute;
 }
-
+.sponsorAnim{
+	-webkit-transform:rotateX(180deg);
+	transform:rotateX(180deg);
+}
 .glCircle-new{
 	.glCircle;
 	position: relative;
@@ -2084,7 +2079,7 @@ li .list-icon{
   border-radius:50%;
   width:700px;
   height:700px;
-  border:15px solid rgb(33,161,159);
+  border:15px solid rgba(0,255,255,0.3);
   .transition(border 1s linear);
   box-shadow: -3px -3px 20px rgba(255,255,255,0.1),
               -3px 3px 20px rgba(255,255,255,0.1),
@@ -2093,20 +2088,20 @@ li .list-icon{
  
 }
 .toprad{
-  border:30px solid rgb(33,161,159);
-  border-top-color:@border-right !important;
+  border:30px solid rgba(0,255,255,0.3);
+  border-top-color:aqua !important;
 }
 .leftrad{
- border:30px solid rgb(33,161,159);
- border-left-color:@border-right !important;
+ border:30px solid rgba(0,255,255,0.3);
+ border-left-color:aqua !important;
 }
 .bottomrad{
- border:30px solid rgb(33,161,159);
- border-bottom-color:@border-right !important;
+ border:30px solid rgba(0,255,255,0.3);
+ border-bottom-color:aqua !important;
 }
 .rightrad{
-  border:30px solid rgb(33,161,159);
-  border-right-color:@border-right !important;
+  border:30px solid rgba(0,255,255,0.3);
+  border-right-color:aqua !important;
 }
 
 .biggestHomeCircle .bigHomeCircle{
@@ -2140,7 +2135,7 @@ li img{
   margin-top:100px !important;
 }
 .karContainer h1{
-  font-size:5rem;
+  font-size:3rem;
   margin-left:auto;
   margin-right:auto;
   display:block;
@@ -2340,7 +2335,6 @@ li img{
 	width:120px;
 	height:120px;
 	margin-bottom:100px;
-	margin-right:50px;
 	border-radius:50%;
 	background:none;
 	border:10px solid aqua;
