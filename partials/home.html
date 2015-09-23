@@ -1,3 +1,12 @@
+<style>
+.flipY{
+  -webkit-transform:rotateY(-90deg);
+  transform:rotateY(-90deg);
+  -webkit-transition:transform 0.6s linear;
+  -moz-transition:transform 0.6s linear;
+  transition:transform 0.6s linear;
+}
+</style>
 <!--put components here -->
 <div class="container col-md-12 col-xs-12" style="margin-top:50px">
 
@@ -89,7 +98,6 @@ var slide_time_out = 4500*tot1;
 var spons_time_in = 5125*tot2;
 var spons_time_in = 4500*tot2;
  $(".slide").animate({'opacity':"0"},'easeOutBounce');
- $(".sponsor-box img").animate({'opacity':"0"},'easeOutBounce');
 sliderin();
 function sliderin(){
  $(".slide").each(function(i){
@@ -111,8 +119,6 @@ function sliderin(){
   });
 
   setTimeout(sliderout,slide_time_in);
-  
-
 }
 
 function sliderout(){
@@ -136,25 +142,17 @@ function sliderout(){
 
   setTimeout(sliderin,slide_time_out);}
 //sponsorin
+$(".sponsor-box img").animate({'opacity':"0"},'easeOutBounce');
+sponsorin();
 function sponsorin()
 {
  $(".sponsor-box img").each(function(i){
       var elem = $(this);
       setTimeout(function(){
-        $(elem).animate({'opacity':"1"},2500,'easeInOutSine');
-      },i*5000+5000);
+        $(elem).animate({'opacity':"1"},500,'easeInOutSine');
+      },i*1000+1000);
   });
-setTimeout(sponsorout,spons_time_in);
-}
-
- function sponsorout(){
- $(".sponsor-box img").each(function(i){
-      var elem = $(this);
-      setTimeout(function(){
-        $(elem).animate({'opacity':"0"},2500,'easeInOutSine');
-              },i*5000+5000);
-  });
-setTimeout(sponsorin,spons_time_out);
+setTimeout(sponsorin,10500);
 }
 //typed.js
 });

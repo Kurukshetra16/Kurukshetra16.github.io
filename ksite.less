@@ -1919,6 +1919,7 @@ border-top-color:rgb(206,3,3);
 @import '3L/assets/animations/animation2';
 @import '3L/assets/animations/animation3';
 @import '3L/assets/animations/animation4';
+@import '3L/assets/animations/animation5';
 
 .home-event-circle{
   width:90px;
@@ -1996,16 +1997,64 @@ border-top-color:rgb(206,3,3);
 
   }
   .home-event-circle:hover::after{
- 	transform:rotate(120deg);
- 	-webkit-transform:rotate(120deg);
+ 	transform:rotate(60deg);
+ 	-webkit-transform:rotate(60deg);
  	opacity:0;
  }
  .home-event-circle:hover .circle-icon{
  transform:scale(2.5) translateX(-1px);
  -webkit-transform:scale(2.5) translateX(-1px);
- .transition(transform 0.2s linear 0.2s);
+ .transition(transform 0.1s linear 0.2s, text-shadow 0.1s linear 0.2s);
+ .animation(animation5 15s linear infinite);
  }
+ .home-event-circle:hover{
+ border:none;
+ background:none;
+ }
+/*navbar circles glow colors */
+@color-home:rgba(254,0,0,0.35);
+@color-xceed:rgba(253,254,2,0.35);
+@color-karnival:rgba(129,254,4,0.35);
+@color-events:rgba(174,211,253,0.35);
+@color-workshops:rgba(27,250,236,0.35);
+.animation5()
+{
+	
+0%{
+ text-shadow:3px 3px 3px @color-home,
+ 			-3px 3px 3px @color-home,
+ 			3px -3px 3px @color-home,
+ 			-3px -3px 3px @color-home;
  
+ 	}
+ 25%{
+ text-shadow:4px 4px 4px @color-xceed,
+ 			-4px 4px 4px @color-xceed,
+ 			4px -4px 4px @color-xceed,
+ 			-4px -4px 4px @color-xceed;
+ 
+ 	}
+ 50%{
+ text-shadow:5px 5px 5px @color-karnival,
+ 			-5px 5px 5px @color-karnival,
+ 			5px -5px 5px @color-karnival,
+ 			-5px -5px 5px @color-karnival;
+ 
+	 }
+ 75%{
+ text-shadow:6px 6px 6px @color-events,
+ 			-6px 6px 6px @color-events,
+ 			6px -6px 6px @color-events,
+ 			-6px -6px 6px @color-events;
+ 	}
+ 100%{
+ text-shadow:4px 4px 4px @color-workshops,
+ 			-4px 4px 4px @color-workshops,
+ 			4px -4px 4px @color-workshops,
+ 			-4px -4px 4px @color-workshops;
+ 	}
+ }
+
 .mg-lg{
   margin-right:10px !important;
 }
