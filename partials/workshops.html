@@ -121,7 +121,10 @@
 </div>
 <script>
 $(document).ready(function(){
-
+$(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
+$(".home-event-circle").removeClass("removeBB");
+$("#workshopsNav").find(".circle-icon").addClass("selectedNavElem");
+$("#workshopsNav").addClass("removeBB");
 $(".imageboxl").click(function(){
 		$(".left").animate({'marginLeft':"0px"},500,'easeOutSine');
 	
@@ -147,5 +150,4 @@ $(".navbar-toggle").click(function(){
 	
 });
 });
-	
 </script>

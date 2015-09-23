@@ -188,6 +188,12 @@ function moveKarsDown(){
 }
 
 });
-
-       
+</script>
+<script>
+$(document).ready(function(){
+$(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
+$(".home-event-circle").removeClass("removeBB");
+$("#karnival").addClass("selectedNavElem");
+$("#karnival").parent().addClass("removeBB");
+});
 </script>

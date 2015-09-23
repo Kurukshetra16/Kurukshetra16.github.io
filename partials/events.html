@@ -143,7 +143,10 @@
 </div>
 <script>
 $(document).ready(function(){
-
+$(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
+$(".home-event-circle").removeClass("removeBB");
+$("#eventsNav").find(".circle-icon").addClass("selectedNavElem");
+$("#eventsNav").addClass("removeBB");
 $(".imageboxl").click(function(){
 		$(".left").animate({'marginLeft':"0px"},500,'easeOutSine');
 	

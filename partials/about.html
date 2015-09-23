@@ -49,3 +49,11 @@
   </div>
  </div>
 </div>
+<script>
+$(document).ready(function(){
+$(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
+$(".home-event-circle").removeClass("removeBB");
+$("#about").addClass("selectedNavElem");
+$("#about").parent().addClass("removeBB");
+});
+</script>

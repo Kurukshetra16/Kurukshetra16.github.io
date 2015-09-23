@@ -2002,11 +2002,25 @@ border-top-color:rgb(206,3,3);
  	opacity:0;
  }
  .home-event-circle:hover .circle-icon{
- transform:scale(2.5) translateX(-1px);
- -webkit-transform:scale(2.5) translateX(-1px);
+ transform:scale(2) translateX(-1px);
+ -webkit-transform:scale(2) translateX(-1px);
  .transition(transform 0.2s linear 0.2s, text-shadow 0.2s linear 0.2s);
  .animation(animation5 15s linear infinite);
  }
+ .selectedNavElem{
+ transform:scale(2) translateX(-1px) !important;
+ -webkit-transform:scale(2) translateX(-1px) !important;
+ .animation(animation5 15s linear infinite) !important;
+  }
+  .removeBB{
+ border:none;
+ background:none;
+  }
+  .removeBB::after{
+ border:none;
+ background:none;
+  }
+
  .home-event-circle:hover{
  border:none;
  background:none;
