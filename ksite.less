@@ -431,6 +431,14 @@ li ul{
 }
 
 @media all and (max-width: 640px) and (min-width: 320px) {
+.tabContainer li{
+	padding:10px;
+	margin-bottom:70px !important;
+	box-shadow:none !important;
+}
+.boxes{
+	padding-left:50px !important;
+}
 	/*jarvis*/
 	.jarvisContainer .biggestHomeCircle{
 	width:400px !important;
@@ -491,11 +499,6 @@ margin-top:-50%;
   background:rgba(255,255,255,0.8);
   }
 	
-	.subscribe{
-	margin-top:10px;	
-	background:#d9534f !important;
-	}
-
 	/*hospi*/
 	.long-line, .longer-line{
 	background:rgba(0,0,0,0) !important;
@@ -505,14 +508,14 @@ margin-top:-50%;
 		margin-top:450px;
 	}
 	.close{
-	font-size: 35px !important;
+	font-size: 50px !important;
     margin-bottom: 101px;
     margin-left: 36%;
     padding-bottom: 0;
     position: absolute;
     text-align: center;
-    top: -35px;
-    left:-113px;
+    top: -15px;
+    right:0;
     color:#fff !important;
 	}
 	.top,.left,.right{
@@ -587,7 +590,7 @@ ul li.eventCircleNav{
 	}
 .left{
 	padding-top:20px;
-	margin-top:30px !important;
+	margin-top:-35px !important;
 	height:auto !important;
 }
 .navbar-toggle{
@@ -597,6 +600,9 @@ ul li.eventCircleNav{
 }
 
 @media all and (min-width: 960px) {
+.tabContainer li{
+	padding:15px;
+}
 /*hospi*/
 .longer-line{
 .animation(animation3 @duration-color linear  infinite ); 
@@ -680,17 +686,10 @@ li span{
 top:10px;
 }
 .subscribe{
-margin-top:15px;
-background:none !important;
-margin-left:50px;
 font-size:18px;
-border:5px solid rgb(250,16,14);
-  border-right-color:rgb(196,2,0);
-  border-bottom-color:rgb(196,2,0);
 box-shadow:0px 2px 2px rgba(255,255,255,0.3);
--webkit-animation:chOuterBorder  ease infinite;
--moz-animation:chOuterBorder  ease infinite;
-animation:chOuterBorder  ease infinite;
+margin-top:30px;
+margin-left:15px;
 }
 	.top,.left,.right{
 	margin-top:160px;
@@ -1424,13 +1423,15 @@ ul{
   height:100%;
   margin-top:40px;
   margin-left:100%;
+  background:rgba(0,0,0,0.85); padding-bottom:40px;
     }
 .left h1{
   text-align: center;
   }
 .close{
   cursor: pointer;
-  color:#fff;
+  color:rgba(0,255,255,0.8);
+  opacity:0.9 !important;
 }
 .close:hover{
   color:#fff;
@@ -2502,4 +2503,35 @@ li img{
     0% { opacity:1; }
     50% { opacity:0; }
     100% { opacity:1; }
+}
+/*EVENT TABS*/
+
+.tabContainer{
+  width:100%;
+  font-family:'Raleway',sans-serif;
+}
+.tabContainer li{
+  font-size:1.5rem;
+  cursor: pointer;
+  color:#fff;
+  display:inline;
+  float:left;
+  margin-right:50px;
+  color:#fff;
+  margin-top:-40px;
+  background:rgba(0,255,255,0.2);
+  margin-bottom:10px;
+  .transition(all 0.2s linear);
+  .animation(animation5 15s linear infinite);
+  }
+.tabContent {
+  padding:20px;
+  font-size:1.5rem;
+  color:#fff;
+  }
+.tabContent p{
+  line-height: 1.7;
+}
+.tabContainer li:hover{
+	background:rgb(251,66,80);
 }

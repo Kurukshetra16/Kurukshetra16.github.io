@@ -5,7 +5,7 @@ var myApp = angular.module("myApp",['ngRoute','ngSanitize','ngAnimate','duScroll
 myApp.config(['$routeProvider', function($routeProvider) {
                 $routeProvider.when("/", {templateUrl: "partials/home.html"});
                 $routeProvider.when("/xceed", {templateUrl: "partials/xceed.html", controller: "xceedController"});
-                $routeProvider.when("/events", {templateUrl: "partials/events.html", controller: "eventsController"});
+                $routeProvider.when("/events/:category", {templateUrl: "partials/events.html", controller: "eventsController"});
                 $routeProvider.when("/depts/:dept_id", {templateUrl: "partials/deptview.html", controller: "deptsController"});
                 $routeProvider.when("/workshops", {templateUrl: "partials/workshops.html", controller: "workshopsController"});
                 $routeProvider.when("/karnival", {templateUrl: "partials/karnival.html", controller: "karnivalController"});

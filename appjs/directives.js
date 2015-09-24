@@ -121,14 +121,24 @@ myApp.directive('tabsAnim', function() {
         restrict: 'AEC',
         replace:'true',
         link: function(scope,elem,attrs){
-$(".cd-tabs li").click(function(){
-  var id = $(this).find("a").attr("id")+"1";
-  //$(".cd-tabs li").removeClass("selected");
-  $(this).addClass("selected");
+$(document).ready(function(){
+$(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
+$(".home-event-circle").removeClass("removeBB");
+$("#eventsNav").find(".circle-icon").addClass("selectedNavElem");
+$("#eventsNav").addClass("removeBB");
+$(".close").click(function(){
+  closeall();
+});
+function closeall(){
+    $(".left").animate({'marginLeft':"-100%"},1000,'easeOutElastic');
+    $(".right").animate({'marginLeft':"-100%"},1000,'easeOutElastic');
+}
+
+$(".navbar-toggle").click(function(){
+  closeall();
   
+});
 });
            }
         };
     });
-
-
