@@ -173,6 +173,7 @@ $scope.clicked = function(name,id)
 	$(".glpage1").removeClass("glpageanim1");
     $(".glpage2").removeClass("glpageanim2");
 	$scope.clickedName = name;
+	id = id-1;
 	$scope.date = $scope.nodes[id]['date'];
 	$scope.Time = $scope.nodes[id]['time'];
 	$scope.venue = $scope.nodes[id]['venue'];
