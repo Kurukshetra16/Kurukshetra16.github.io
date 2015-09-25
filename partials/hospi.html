@@ -5,7 +5,7 @@
   <div class="long-line col-md-12 col-xs-12 paddingReset clearfix">
     <div class="longer-line col-md-12 col-xs-12 clearfix"></div>
     <div class=" hospiAnim col-md-2 col-xs-6" ng-repeat="nodeItem in nodes">
-      <div class="node" id="{{nodeItem.id}}" ng-click="tohospi()">
+      <div class="node" id="{{nodeItem.id}}" ng-click="tohospi(nodeItem.title,nodeItem.id)">
         <i class="{{nodeItem.icon}}"></i>
         <h4 class="btmText" style="{{nodeItem.mclass}}">{{nodeItem.title}}</h4>
       </div>
@@ -17,34 +17,11 @@
 <div class="col-md-10 col-md-push-1 col-xs-12 hospiBox">
   <div class="hospi_content">
     <div class="header" style="background:url(images/patterns/lightspace.png)">
-      <!--insert pic here -->      
     </div>
-    <h3 class="text-center title">INTRODUCTION</h3>
-    <div class="hospi_desc" id="h" du-smooth-scroll du-scrollspy>
-      <p>Random lorem ipsum Random lorem ipsum Random lorem ipsum Random lorem ipsum
-          Random lorem ipsum Random lorem ipsum
-          Random lorem ipsum Random lorem ipsum
-          Random lorem ipsum Random lorem ipsum
-          Random lorem ipsum Random lorem ipsum
-          Random lorem ipsum Random lorem ipsum
-        Random lorem ipsum Random lorem ipsum
-      </p>
-      <p>Random lorem ipsum Random lorem ipsum Random lorem ipsum Random lorem ipsum
-          Random lorem ipsum Random lorem ipsum
-          Random lorem ipsum Random lorem ipsum
-          Random lorem ipsum Random lorem ipsum
-          Random lorem ipsum Random lorem ipsum
-          Random lorem ipsum Random lorem ipsum
-        Random lorem ipsum Random lorem ipsum
-      </p>
-      <p>Random lorem ipsum Random lorem ipsum Random lorem ipsum Random lorem ipsum
-          Random lorem ipsum Random lorem ipsum
-          Random lorem ipsum Random lorem ipsum
-          Random lorem ipsum Random lorem ipsum
-          Random lorem ipsum Random lorem ipsum
-          Random lorem ipsum Random lorem ipsum
-        Random lorem ipsum Random lorem ipsum
-      </p>
+ 
+    <h3 class="text-center title">{{clickedNode}}</h3>
+    <div class="hospi_desc" ng-bind-html="nodeData">
+      
     </div>
   </div>
  </div>

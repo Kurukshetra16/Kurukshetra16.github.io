@@ -27,8 +27,8 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/updates.json'}).succes
 
 }]);
 
-/*UPDATES*/
-myApp.controller('eventsController',['$scope','$http','$location',function($scope,$http,$location){
+/*EVENTS*/
+myApp.controller('eventsController',['$scope','$http','$location','$timeout',function($scope,$http,$location,$timeout){
 $scope.events = [];
 $scope.tabs = [];
 $scope.eventName;
@@ -48,8 +48,8 @@ $scope.getEvent = function(eventname){
 	eventName = eventname;
 	eventname = eventname.toLowerCase().replace(' ','-');
 function init(){
-	$(".left").animate({'marginLeft':"0px"},500,'easeOutSine');
-	$(".tabContent").hide();
+	$(".tabContent li").hide();
+	$(".tabContent").find("li.0").show();
 }
 	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/events/'+eventname+'.json'}).success(function(data)
 				   {
@@ -59,8 +59,9 @@ function init(){
 			   			$scope.tabs[i] = jsonstr[i];
 				   			$scope.tabs[i]['id']=i;
 				   		}
+					$(".left").animate({'marginLeft':"0px"},500,'easeOutSine');
 
-				   	init();
+				   	$timeout(init, 10);
 });
 }
 $scope.showTab = function(tabtitle)
@@ -72,92 +73,221 @@ $scope.showTab = function(tabtitle)
 
 
 }]);
-myApp.controller('hospiController',['$scope','$document',function($scope,$document){
+
+myApp.controller('hospiController',['$scope','$document','$http',function($scope,$document,$http){
 $scope.nodes = [
 {
-	title:'INTRODUCTION',
+	title:'Introduction',
 	icon:'fa fa-info hospi_icon',
 	url:'intro',
 	id:1
 },
 {
-	title:'INSTRUCTIONS',
+	title:'Instructions',
 	icon:'fa fa-file hospi_icon',
 	url:'instr',
 	id:2
 },
 {
-	title:'ACCOMODATION',
+	title:'Accommodation',
 	icon:'fa fa-suitcase hospi_icon',
 	url:'accom',
 	id:3
 },
 {
-	title:'REACHING CEG',
+	title:'Reaching CEG',
 	icon:'fa fa-map-marker hospi_icon',
 	url:'reachceg',
 	mclass:'margin-left:-5px',
 	id:4
 },
 {
-	title:'FAQ',
+	title:'FAQs',
 	icon:'fa fa-question hospi_icon',
 	url:'faq',
 	mclass:'margin-left:2px',
 	id:5
 },
 {
-	title:'CONTACT',
+	title:'Contact',
 	icon:'fa fa-mobile hospi_icon',
 	url:'contact',
 	mclass:'margin-left:2px',
 	id:6
 }
 ];
-     var section3 = angular.element(document.getElementById('hospi_content'));
-    $scope.tohospi = function() {
+$scope.clickedNode = '';
+$scope.nodeData = '';
+$scope.clickedID = ''; 
+$scope.nodeInfo = [];
 
-      $document.scrollTo(0,1000);
-    }
+	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/hospitalities.json'}).success(function(data)
+				   {	
+						var jsonstr = data['hospitalities'];
+						for(var i=0; i<jsonstr.length;i++)
+							{
+							$scope.nodeInfo[i] = jsonstr[i];
+							$scope.nodeInfo[i]['id'] = i+1;
+							console.log($scope.nodeInfo[i]['title']);
+							}
+					});
+	$scope.tohospi = function(clicked,clickedid) {
+      $scope.clickedNode = clicked;
+      $scope.clickedID = clickedid;
+      $scope.nodeData = $scope.nodeInfo[$scope.clickedID]['desc'];
+    };
 }]);
-
-
 // guestlectures
-myApp.controller('glController',['$scope',function($scope){
-$scope.nodes = [
-{
-	title:'Venkatakrishnan Ranganathan1',
-	description:'Head of Social Media and Workplace Re-imagination Practice, TCS',
-	img:'images/ceg.jpg',
-	id:1
-},{
-	title:'Venkatakrishnan Ranganathan2',
-	description:'Head of Social Media and Workplace Re-imagination Practice, TCS',
-	img:'images/patterns/bluekar.jpg',
-	id:2
-},{
-	title:'Venkatakrishnan Ranganathan3',
-	description:'Head of Social Media and Workplace Re-imagination Practice, TCS',
-	img:'images/patterns/redkarnival.jpg',
-	id:3
-},{
-	title:'Venkatakrishnan Ranganathan4',
-	description:'Head of Social Media and Workplace Re-imagination Practice, TCS',
-	img:'images/ceg.jpg',
-	id:4
-},{
-	title:'Venkatakrishnan Ranganathan5',
-	description:'Head of Social Media and Workplace Re-imagination Practice, TCS',
-	img:'images/gplay.png',
-	id:5
-},
-{
-	title:'Venkatakrishnan Ranganathan5',
-	description:'Head of Social Media and Workplace Re-imagination Practice, TCS',
-	img:'images/patterns/food.png',
-	id:6
-}];
+myApp.controller('glController',['$scope','$http','$timeout',function($scope,$http,$timeout){
+$scope.nodes =[];
+
+function init(){
+	$(".glContainer #1").addClass("glBigBorder");
+	var id = 0; 
+	$scope.clickedName = $scope.nodes[id]['title'];
+	$scope.date = $scope.nodes[id]['date'];
+	$scope.Time = $scope.nodes[id]['time'];
+	$scope.venue = $scope.nodes[id]['venue'];
+	$scope.desc = $scope.nodes[id]['desc'];
+	$scope.about = $scope.nodes[id]['about'];
+}
+	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/gls.json'}).success(function(data)
+				   {	
+						var jsonstr = data['gls'];
+						for(var i=0; i<jsonstr.length;i++)
+							{
+							$scope.nodes[i] = jsonstr[i];
+							$scope.nodes[i]['id'] = i+1;
+							console.log($scope.nodes[i]['title']);
+							}
+				   		$timeout(init, 10);
+					});
+$scope.clickedName = '';
+$scope.date = '';
+$scope.Time = '';
+$scope.venue = '';
+$scope.desc = '';
+$scope.about = '';
+$scope.clicked = function(name,id)
+{	
+	$(".glpage1").removeClass("glpageanim1");
+    $(".glpage2").removeClass("glpageanim2");
+	$scope.clickedName = name;
+	$scope.date = $scope.nodes[id]['date'];
+	$scope.Time = $scope.nodes[id]['time'];
+	$scope.venue = $scope.nodes[id]['venue'];
+	$scope.desc = $scope.nodes[id]['desc'];
+	$scope.about = $scope.nodes[id]['about'];
+};
+
 }]);
+
+//karnival
+myApp.controller('karnivalController',['$scope','$http','$timeout',function($scope,$http,$timeout){
+$scope.nodes =[];
+
+	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/karnivals.json'}).success(function(data)
+				   {	
+						var jsonstr = data['karnivals'];
+						for(var i=0; i<jsonstr.length;i++)
+							{
+							$scope.nodes[i] = jsonstr[i];
+							$scope.nodes[i]['id'] = i+1;
+							console.log($scope.nodes[i]['title']);
+							}
+					});
+$scope.clickedName = '';
+$scope.date = '';
+$scope.Time = '';
+$scope.venue = '';
+$scope.desc = '';
+$scope.clicked = function(name,id)
+{	
+	$scope.clickedName = name;
+	$scope.date = $scope.nodes[id]['date'];
+	$scope.Time = $scope.nodes[id]['time'];
+	$scope.venue = $scope.nodes[id]['venue'];
+	$scope.desc = $scope.nodes[id]['desc'];
+	setClose = 0;
+
+$(".navbar-toggle").click(function(){
+  closeall();
+});
+
+
+$(".karCircle").click(function(){
+
+if( $(window).width() >= 600)
+{
+    popOut();
+    setTimeout(function(){  
+      moveKarsUp();},200*6);
+    setClose = 1;
+}
+//mobile effects
+else
+{
+    mpopOut();
+    setTimeout(function(){
+      moveKarsUp();},200*6);
+
+    setClose = 1; 
+}
+  });
+
+$(".closeme").click(function(){
+  moveKarsDown();
+  popIn();
+  
+});
+
+  var anims = ['flyLeft','flyBottom','flyRight','flyTop'];
+  var index = 0;
+  function popOut(){
+  $(".karCircle").each(function(i){
+      var ele = $(this);
+      index = (index+1)%4;
+      var currentanim = anims[index];
+      setTimeout(function(){ $(ele).addClass(currentanim).fadeOut(200*i+100);},200*i+100);
+  });
+}
+
+//mobile popOut effects -- reduced
+  function mpopOut(){
+  $(".karCircle").each(function(i){
+      var ele = $(this);
+      setTimeout(function(){ $(ele).addClass("flyLeft").fadeOut(200*i+100);},200*i+100);
+  });
+}
+function popIn(){
+
+  $(".karCircle").each(function(i){
+      var ele = $(this);
+      setTimeout(function(){ $(ele).removeClass("flyLeft").removeClass("flyRight").removeClass("flyTop").removeClass("flyBottom").fadeIn(i*175);},200*i+100);
+  });
+}
+
+function closeall(){
+    moveKarsDown();
+    popIn();  
+}
+
+function moveKarsUp(){
+  $(".karBox").addClass("floatUp");
+  $(".bottomPage").addClass("rotateUp");
+  $(".topPage").addClass("zoomIn");
+}
+
+function moveKarsDown(){
+  $(".karBox").removeClass("floatUp");
+  $(".bottomPage").removeClass("rotateUp");
+  $(".topPage").removeClass("zoomIn");
+
+}
+};
+
+}]);
+
 
 /*ABOUT*/
 myApp.controller('aboutController',['$scope',function($scope){

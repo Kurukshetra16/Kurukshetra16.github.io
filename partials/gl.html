@@ -1,14 +1,14 @@
      <!--Gl starts here-->
-  <div class="container">
+  <div class="container" ng-controller="glController">
   <h1 class="paddingReset ribbontitle text-center">GUEST LECTURES</h1>
 </div>
 <div class="container glContainer col-md-12 col-xs-12" >
     <div class="glAnim col-md-2 col-xs-12" ng-repeat="nodeItem in nodes">
       <div class="item paddingReset">
         <div class="anno scrim">
-          <img class="glCircle" src="{{nodeItem.img}}" id="{{nodeItem.id}}">
-          <h4 class="glCircleName text-center">{{nodeItem.title}} <br/>
-            <span style="font-size:1.3rem">{{nodeItem.description}}</span>
+          <img ng-click="clicked(nodeItem.title,nodeItem.id)" class="glCircle" src="{{nodeItem.avatar}}" id="{{nodeItem.id}}">
+          <h4 class="glCircleName text-center" ng-bind-html="nodeItem.title"><br/>
+            <!-- <span style="font-size:1.3rem" ng-bind-html="nodeItem.desc"></span> -->
           </h4>
         </div>
       </div>
@@ -22,41 +22,29 @@
     <div class="glbottom2 hidden-xs"></div>
     <div class="glpage1 col-md-12 col-xs-12 paddingReset clearfix">
       <div class="col-md-2">
-        <h4 class="redribbon">21st December 2015 Turing Hall</h4>
+        <h4 class="redribbon">{{date}} at {{Time}} in {{venue}}</h4>
       </div>
       <div class="col-md-2 col-md-push-3 col-xs-12 col-xs-push-4">
           <img src="images/ceg.jpg"/>
+      <h4 class="glName text-center" style="font-size:2rem;font-family:'Raleway',sans-serif">{{clickedName}}</h4>
       </div>
-      <div class="glcontent col-md-12 col-xs-12">
-      <p>Page 1 Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...</p>
-      <p>Lorem ipsum stuff about our speaker...
-        Lorem ipsum stuff about our speaker...
-        Lorem ipsum stuff about our speaker...
-      </p>
-            <p>Page 1 Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...</p>
-      <p>Lorem ipsum stuff about our speaker...
-        Lorem ipsum stuff about our speaker...
-        Lorem ipsum stuff about our speaker...
-      </p>
-
+      
+      <div class="glcontent col-md-12 col-xs-12" ng-bind-html="about">
+      </div>
       <div class="next"><i class="fa fa-angle-right"></i> The Talk</div>
-    </div>
     </div>
 <div class="glpage2">
       <div class="col-md-2">
-        <h4 class="redribbon">20.65st December 2015 Turing Hall</h4>
+        <h4 class="redribbon">{{date}} at {{Time}} in {{venue}}</h4>
       </div>
       <div class="col-md-2 col-md-push-3 col-xs-12 col-xs-push-3">
           <img src="images/gplay.png"/>
+          <h4 class="glName text-center" style="font-size:2rem;font-family:'Raleway',sans-serif">{{clickedName}}</h4>
       </div>
-      <div class="glcontent col-md-12 col-xs-12">
-      <p>page 2 Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...Lorem ipsum stuff about our speaker...</p>
-      <p>Lorem ipsum stuff about our speaker...
-        Lorem ipsum stuff about our speaker...
-        Lorem ipsum stuff about our speaker...
-      </p>
-      <div class="prev"><i class="fa fa-angle-left"></i> The Speaker</div>
+      <h4 class="ribbontitle text-center">{{clickedName}}</h4>
+      <div class="glcontent col-md-12 col-xs-12" ng-bind-html="desc">
     </div>
+    <div class="prev"><i class="fa fa-angle-left"></i> The Speaker</div>
     </div>
 
   </div>
@@ -64,13 +52,6 @@
 </div>
 <script>
 $(document).ready(function() {
-   
-    // $("#owl-example").owlCarousel({
-    //     items:4,
-    //     autoPlay:true,
-    //     autoplayHoverPause:true,
-    //     navigation:false
-    // });
     $(".next").click(function(){
       $(".glpage1").addClass("glpageanim1");
       $(".glpage2").addClass("glpageanim2");
