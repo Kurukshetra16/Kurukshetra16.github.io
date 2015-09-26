@@ -1,113 +1,30 @@
 <!--put components here -->
+<div ng-controller="contactsController">
 <div class="container col-md-12 col-xs-12 topMargin">
   <h1 class="ribbontitle col-md-12 col-xs-12 text-center">CONTACT US</h1>
 <ul class="container col-md-12 col-xs-12 col-md-push-1 clearfix paddingReset bucketContainer">
-  <li class="bucketBox">
+  <li id="bucket.id" class="bucketBox" ng-repeat="bucket in buckets" ng-click="getBucket(bucket.name,bucket.id)">
     <div class="bucketCircle col-md-4 col-xs-12 ">
-      <h5 class="bucketName">INDUSTRY RELATIONS </h5>
-    </div>
-  </li>
-
-  <li class="bucketBox">
-    <div class="bucketCircle col-md-4 col-xs-12 ">
-      <h5 class="bucketName">EVENTS</h5>
-    </div>
-  </li>
-
-  <li class="bucketBox">
-    <div class="bucketCircle col-md-4 col-xs-12 ">
-      <h5 class="bucketName">GUEST LECTURES</h5>
-    </div>
-  </li>
-
-  <li class="bucketBox">
-    <div class="bucketCircle col-md-4 col-xs-12 ">
-      <h5 class="bucketName">XCEED</h5>
-    </div>
-  </li>
-
-  <li class="bucketBox">
-    <div class="bucketCircle col-md-4 col-xs-12 ">
-      <h5 class="bucketName">KARNIVAL</h5>
-    </div>
-  </li>
-
-  <li class="bucketBox">
-    <div class="bucketCircle col-md-4 col-xs-12 ">
-      <h5 class="bucketName">WORKSHOPS</h5>
-    </div>
-  </li>
-
-  <li class="bucketBox">
-    <div class="bucketCircle col-md-4 col-xs-12 ">
-      <h5 class="bucketName">HOSPITALITY</h5>
-    </div>
-  </li>
-
-  <li class="bucketBox">
-    <div class="bucketCircle col-md-4 col-xs-12 ">
-      <h5 class="bucketName">LOGISTICS</h5>
-    </div>
-  </li>
-
-  <li class="bucketBox">
-    <div class="bucketCircle col-md-4 col-xs-12 ">
-      <h5 class="bucketName">MEDIA</h5>
-    </div>
-  </li>
-
-  <li class="bucketBox">
-    <div class="bucketCircle col-md-4 col-xs-12 ">
-      <h5 class="bucketName">CREATIVITY</h5>
-    </div>
-  </li>
-
-  <li class="bucketBox">
-    <div class="bucketCircle col-md-4 col-xs-12 ">
-      <h5 class="bucketName">DESIGN</h5>
-    </div>
-  </li>
-
-  <li class="bucketBox">
-    <div class="bucketCircle col-md-4 col-xs-12 ">
-      <h5 class="bucketName">TECH</h5>
-    </div>
-  </li>
-
-  <li class="bucketBox">
-    <div class="bucketCircle col-md-4 col-xs-12 ">
-      <h5 class="bucketName">PROJECTS</h5>
-    </div>
-  </li>
-
-  <li class="bucketBox">
-    <div class="bucketCircle col-md-4 col-xs-12 ">
-      <h5 class="bucketName">HR</h5>
-    </div>
-  </li>
-
-  <li class="bucketBox">
-    <div class="bucketCircle col-md-4 col-xs-12 ">
-      <h5 class="bucketName">FINANCE</h5>
+      <h5 class="bucketName">{{bucket.name}}</h5>
     </div>
   </li>
 </ul>
 </div>
 
 <div class="left container col-md-12 col-xs-12" style="background:rgba(0,0,0,0.85); padding-bottom:40px">
-    <h4 class='col-md-12 col-xs-12 ribbontitle text-center' style="font-family:Orbitron;font-size:35px;">BUCKET NAME</h4>
-    <h5 class='text-center col-md-12 ribbontitle col-xs-12' style="font-family:Orbitron;font-size:20px; margin-bottom:15px">BUCKET EMAIL</h5>
+    <h4 class='col-md-12 col-xs-12 ribbontitle text-center' style="font-family:Orbitron;font-size:35px;">{{bucketname}}</h4>
+    <h5 class='text-center col-md-12 ribbontitle col-xs-12' style="font-family:Orbitron;font-size:20px; margin-bottom:15px">{{bucketemail}}</h5>
            <i class="close fa fa-times fa-4x fa-fw" style="margin-top:-6%;color:#fff;"></i>
   
     <div class="container paddingReset col-md-12 col-md-push-1 col-xs-12">
-          <div class="col-md-2 col-xs-12">
+          <div class="col-md-2 col-xs-12" ng-repeat="member in members">
           <div class="ih-item circle colored effect1">
            <!-- <a href="#"> -->
               <div class="spinner"></div>
-              <div class="img"><img src="images/sudar111.jpg" alt="img"/></div>
+              <div class="img"><img src="{{member.avatar}}" alt="img"/></div>
               <div class="info">
-                <p>NAME</p>
-                <p>NUMBER</p>
+                <p>{{member.name}}</p>
+                <p>{{member.phone}}</p>
               </div>
             <!-- </a> -->
           </div>
@@ -116,51 +33,7 @@
   </div>
 </div><!-- overlay -->
 </div>
-
-<!--navbar ends-->
-
-
-<script>
-$(document).ready(function(){
-$(".navbar-toggle").click(function(){
-  closeall();
-  
-});
-
-$(".bucketCircle").click(function(){
-    
-    popOut($(this));
-    $(".left").delay(800).animate({'marginLeft':"0px"},800,'easeOutSine');
-  });
-$(".close").click(function(){
-  closeall();
-});
-
-function popOut(thisele){
-  $(thisele).addClass("popOutFast");
-  $(".bucketCircle").each(function(i){
-      var ele = $(this);
-      setTimeout(function(){ if(!$(ele).hasClass("popOut")) $(ele).addClass("popOut"); }, i*75);
-  });
-$("html,body").delay(800).animate({'scrollTop':"20px"},1000);
-}
-function popIn(){
-
-  $(".bucketCircle").each(function(i){
-      var ele = $(this);
-      setTimeout(function(){ $(ele).removeClass("popOut").removeClass("popOutFast");
-       }, i*70);
-  });
-}
-
-function closeall(){
-    $(".left").animate({'marginLeft':"100%"},1000,'easeOutElastic');
-    popIn();
-}
-
-
-});
-</script>
+</div><!--controller-->
 <script>
 $(document).ready(function(){
 $(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");

@@ -1,3 +1,12 @@
+/*NAVBAR*/
+myApp.controller('navController',['$scope','$http',function($scope,$http){
+	$scope.clicked = function(category)
+	{
+		alert(category);
+		$scope.$emit("clicknav",{cat:category});
+	};
+}]);
+
 /*UPDATES*/
 myApp.controller('updateController',['$scope','$http',function($scope,$http){
 $scope.updates = [];
@@ -32,6 +41,11 @@ myApp.controller('eventsController',['$scope','$http','$location','$timeout',fun
 $scope.events = [];
 $scope.tabs = [];
 $scope.eventName;
+$scope.category = '';
+$scope.$on('clicknav', function(event, args) {
+	alert(args.cat);
+	$scope.category = args.cat + "Events";
+});
 var path = $location.path();
 path = '/'+path.substr(8,path.length);
 //alert(path);
@@ -46,7 +60,7 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/categories'+path+'.jso
 				   });
 $scope.getEvent = function(eventname){
 	eventName = eventname;
-	eventname = eventname.toLowerCase().replace(' ','-');
+	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','');
 function init(){
 	$(".tabContent li").hide();
 	$(".tabContent").find("li.0").show();
@@ -73,7 +87,52 @@ $scope.showTab = function(tabtitle)
 
 
 }]);
+/*WORKSHOPS*/
+myApp.controller('wkshopsController',['$scope','$http','$location','$timeout',function($scope,$http,$location,$timeout){
+$scope.events = [];
+$scope.tabs = [];
+$scope.eventName;
+var path = $location.path();
+path = '/'+path.substr(8,path.length);
+//alert(path);
+$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/wkshopcategories'+path+'.json'}).success(function(data)
+				   {
+				    jsonstr = data['category']['wkshops']; // response data 
+				   	for(i=0;i<jsonstr.length;i++)
+				   		{
+				   			$scope.events[i] = jsonstr[i];
+				   			
+				   		}
+				   });
+$scope.getEvent = function(eventname){
+	eventName = eventname;
+	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','');
+function init(){
+	$(".tabContent li").hide();
+	$(".tabContent").find("li.0").show();
+}
+	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/wkshops/'+eventname+'.json'}).success(function(data)
+				   {
+				    jsonstr = data['workshop']['tabs']; // response data 
+				   	for(i=0;i<jsonstr.length;i++)
+				   		{
+			   			$scope.tabs[i] = jsonstr[i];
+				   			$scope.tabs[i]['id']=i;
+				   		}
+					$(".left").animate({'marginLeft':"0px"},500,'easeOutSine');
 
+				   	$timeout(init, 10);
+});
+}
+$scope.showTab = function(tabtitle)
+{
+	$(".tabContent").show();
+	$(".tabContent").find("li").hide();
+	$(".tabContent").find("."+tabtitle).show();
+};
+}]);
+
+/*HOSPI*/
 myApp.controller('hospiController',['$scope','$document','$http',function($scope,$document,$http){
 $scope.nodes = [
 {
@@ -321,5 +380,84 @@ $scope.nodes = [
 	id:4
 }
 ];
+
+$scope.nodeInfo=[
+{
+	id:1,
+	desc:'Some info about CEG Some info about CEG Some info about CEG'
+},
+{
+	id:2,
+	desc:'Info about kurukshetra Info about kurukshetra Info about kurukshetra'
+},
+{
+	id:3,
+	desc:'Info about Cyclotron Info about Cyclotron Info about Cyclotron'
+},
+{
+	id:4,
+	desc:'Info about CTF Info about CTF Info about CTF'
+}];
+$scope.clickedName = '';
+$scope.information = '';
+$scope.clicked = function(clickedid)
+{
+	$scope.clickedName = $scope.nodes[clickedid-1]['title'];
+	$scope.information = $scope.nodeInfo[clickedid-1]['desc']; 
+};
+
+}]);
+/*CONTACTS*/
+/*WORKSHOPS*/
+myApp.controller('contactsController',['$scope','$http','$location','$timeout',function($scope,$http,$location,$timeout){
+$scope.buckets = [];
+$scope.members = [];
+$scope.bucketname = '';
+$scope.bucketemail = '';
+
+$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/teams.json'}).success(function(data)
+				   {
+				    jsonstr = data['teams'];
+				   	for(i=0;i<jsonstr.length;i++)
+				   		{
+				   			$scope.buckets[i] = jsonstr[i];
+				   			$scope.buckets[i]['id'] = i;
+				   		}
+				   });
+$scope.getBucket = function(bname,id){
+
+//function
+$(".navbar-toggle").click(function(){
+  closeall();
+});
+$(".bucketCircle").click(function(){
+    popOut($(this));
+    $(".left").delay(100).animate({'marginLeft':"0px"},500,'easeOutSine');
+  });
+$(".close").click(function(){
+  closeall();
+});
+function popOut(thisele){
+  $(thisele).addClass("popOutFast");
+  $(".bucketCircle").each(function(i){
+  var ele = $(this);
+  $timeout(function(){ if(!$(ele).hasClass("popOut")) $(ele).addClass("popOut"); }, i*75);
+  });
+}
+function popIn(){
+  $(".bucketCircle").each(function(i){
+      var ele = $(this);
+      $timeout(function(){ $(ele).removeClass("popOut").removeClass("popOutFast");
+       }, i*20);
+  });
+}
+function closeall(){
+    $(".left").animate({'marginLeft':"100%"},500,'easeOutElastic');
+    popIn();
+}
+	$scope.bucketname = bname;
+	$scope.bucketemail = $scope.buckets[id]['email'];
+	$scope.members = $scope.buckets[id]['members'];
+}
 
 }]);

@@ -59,17 +59,13 @@
 
  
 <div class="jarvisContainer col-md-5 col-xs-12">
-<!-- <img src="images/patterns/red_stars1.jpg" class="jarvis"/> -->
-<div class="biggestHomeCircle">
-  <div class="bigHomeCircle">
+<img src="images/jarvis.png" class="jarvis"/>
     <ul class="allImages">
       <li><img id="1" class="slide" src="images/ceg.jpg"/></li>
       <li><img id="2" class="slide" src="images/patterns/bluekar.jpg"/></li>
       <li><img id="3" class="slide" src="images/patterns/redkarnival.jpg"/></li>
       <li><img id="4" class="slide" src="images/patterns/lightspace.png"/></li>
     </ul>
-  </div>
-</div>
 </div><!--jContainer-->
  <div class="col-md-3 col-xs-12">
       <div class="update-box" ng-controller="updateController">
@@ -104,15 +100,6 @@ function sliderin(){
       var elem = $(this);
       setTimeout(function(){
         $(elem).animate({'opacity':"1"},2500,'easeInOutSine');
-        if( i == 0 )
-        $(".biggestHomeCircle").addClass("toprad");
-      else if( i == 1)
-        $(".biggestHomeCircle").addClass("rightrad");
-     else if( i == 2 )
-        $(".biggestHomeCircle").addClass("bottomrad");
-      else if( i == 3)
-        $(".biggestHomeCircle").addClass("leftrad");
-      
       },i*5000+5000);
 
           
@@ -161,6 +148,9 @@ setTimeout(sponsorin,10500);
 
 <script>
 $(document).ready(function(){
+setTimeout(function(){
+$(".typed-cursor").css({'font-size':"1.3rem"});
+},17500);
 $(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
 $(".home-event-circle").removeClass("removeBB");
 $("#home").addClass("selectedNavElem");

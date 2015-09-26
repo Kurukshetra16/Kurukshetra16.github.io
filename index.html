@@ -10,7 +10,17 @@
 
  <body ng-app="myApp">
   <!--navbar--> 
-  <div class="overlay">
+<!-- <div class="preloader">
+<div class="typing-loader">
+  <style>
+  .typed-cursor{
+    font-size:5.5rem;
+  }
+  </style>
+  <p></p>
+</div>
+</div>
+ -->  <div class="overlay">
 
   <div ng-include="'partials/header.html'"></div>
     <div class="bg">
@@ -38,3 +48,21 @@
  <script type="text/javascript" src="appjs/controller.js"></script>
  <script type="text/javascript" src="appjs/services.js"></script>
  <script type="text/javascript" src="appjs/directives.js"></script>
+<script>
+        $(document).ready(function(){
+           $(function(){
+            $(".typing-loader p").typed({
+              strings:['CEG TECH FORUM PRESENTS','KURUKSHETRA 2016','LOADING','5','4','3','2','1'],
+              typeSpeed: 100,
+              loop: false,
+              backDelay: 1000,
+              contentType: 'text',
+              loopCount: false,
+              cursorChar: "|",
+              callback: function() {
+                $(".preloader").fadeOut(1000);
+              },
+            });
+          });
+        });
+</script>

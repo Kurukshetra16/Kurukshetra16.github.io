@@ -1,7 +1,7 @@
 <!--image boxes start -->
-<div ng-controller="eventsController">
+<div ng-controller="wkshopsController">
 <div class="eventContainer container" >
-<h2 class="col-md-12 col-xs-12 ribbontitle text-center">{{category}}</h2>
+<h2 class="col-md-12 col-xs-12 ribbontitle text-center">ENGINEERING EVENTS</h2>
 <div class="bottom col-md-12 col-xs-12 boxes">
 <div class=" col-md-4 col-xs-12" ng-repeat="event in events">
   <div class="imagebox imageboxl" ng-click="getEvent(event.name);">
@@ -13,12 +13,14 @@
 </div>
 </div>
 </div><!-- overlay -->
+
+
 <!--navbar ends-->
 <div class="container tabsAnim left col-md-12 col-xs-12">
  <i class="close fa fa-times fa-4x fa-fw" style="color:#fff;"></i>
   <div class="col-md-12 col-xs-12">
-   <h1 class="text-center col-md-12 col-xs-12 ribbontitle">{{eventName}}</h1>
    <ul class="tabContainer">
+    <h1 class="ribbontitle">{{eventName}}</h1>
     <div class="col-md-12 col-xs-12">
       <li class="tab {{tab.title}}" ng-repeat="tab in tabs" ng-click="showTab(tab.id);">{{tab.title}}
         <i class="fa fa-chevron-down fa-fw"></i>
