@@ -12,7 +12,12 @@
     <div class="preloader" ng-hide="dataLoaded">
 </div>
   <!--navbar--> 
+<<<<<<< HEAD
 <!-- <div class="typing-loader">
+=======
+<!-- <div class="preloader">
+<div class="typing-loader">
+>>>>>>> 08606cde8e3ac542a22ac17ece5a20631af86a44
   <style>
   .typed-cursor{
     font-size:5.5rem;
@@ -22,15 +27,18 @@
 </div>
  -->
 </div>
-  <div class="overlay">
-
-  <div ng-include="'partials/header.html'"></div>
+ -->  
+ <!-- <div class="overlay"> -->
+<div id="container"></div>
+ <div ng-include="'partials/header.html'"></div>
     <div class="bg">
       <div ng-include="'partials/navbar.html'"></div>
-      <!--views come here-->
+      
       <div ng-view></div> 
     </div>
   </div>
+
+  
 </body>
 <!--scripts-->
 <script src="js/jquery.min.js"></script>
@@ -50,6 +58,12 @@
  <script type="text/javascript" src="appjs/controller.js"></script>
  <script type="text/javascript" src="appjs/services.js"></script>
  <script type="text/javascript" src="appjs/directives.js"></script>
+
+ <!-- Birds -->
+ <script type="text/javascript" src="js/birds/three.min.js"></script>
+ <script type="text/javascript" src="js/birds/Bird.js"></script>
+ <script type="text/javascript" src="js/birds/stats.js"></script>
+ <script type="text/javascript" src="js/birds/main.js"></script>
 <script>
         $(document).ready(function(){
            $(function(){
