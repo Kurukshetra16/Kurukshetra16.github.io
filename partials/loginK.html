@@ -1,147 +1,21 @@
-<style>
-.card{
-  margin-top: 60px;
-  width:100%;
-  max-height:auto;
-  min-height:300px;
-  padding:20px;
-  padding-bottom:45px;
-  box-shadow:0px 3px 3px rgba(255,255,255,0.1);
-  border-bottom:10px solid aqua;
-  border-bottom-right-radius: 130px;
-  border-bottom-left-radius: 130px;
-  border-top:10px solid aqua;
-  border-top-right-radius: 130px;
-  border-top-left-radius: 130px;
-  border-left:5px solid teal;
-  border-right:5px solid teal;
-  -webkit-transition:all 3s ease;
-  -webkit-transition:all 3s ease;
-}
-.label{
-  font-family: 'Orbitron',sans-serif;
-  font-size: 1.5rem;
-  line-height:2.5;
-  margin-top:20px !important;
-}
-.cardtext{
-  background:none;
-  border-radius:0;
-  border:none;
-  border-bottom:1px solid aqua;
-  padding-bottom:5px;
-  font-size:1.2rem;
-  color:#fff;
-  font-family:'Orbitron',sans-serif;
-  padding-left:5px;
-  letter-spacing:5px;
-  margin-bottom:10px;
-  text-align: center;
-}
-.cardtext:focus, .cardtext:active{
-  background:none;
-  border-bottom:1px solid aqua !important;
-}
-.card .detail{
-  color:#fff;
-  font-size:1.3rem;
-}
-.submitme{
-  background:teal;
-  font-family:'Orbitron',sans-serif;
-  font-size: 1.2rem;
-}
-.signupbtn, .loginbtn{
- font-family:'Orbitron',sans-serif;
-  font-size: 1.2rem;
-  background: rgb(0,200,200);
-  color:#000;
-}
-.submitme:hover, .signupbtn:hover,.loginbtn:hover{
-  background:aqua;
-  color:#000;
-}
-.scDown{
-  -webkit-transform:scale(0);
-  transform:scale(0);
-}
-.scUp{
-  -webkit-transform:scale(1);
-  transform:scale(1);
-}
-</style>
-
 <div class="col-md-12 col-xs-12">
   <div class="container karContainer first">
-      <div class="col-md-6 col-md-push-4">
-      <button style="margin-top:30px" class="btn btn-lg signupbtn">Is it your first visit? Sign Up!</button>
+      <div class="col-md-12 col-xs-12">
+        <div class="col-md-6 col-md-push-1 col-xs-12">
+          <button style="margin-top:30px" class="btn btn-lg signupbtn">Sign Up for K!16</button>
+        </div>
+        <div class="col-md-6 col-md-push-1 col-xs-12">
+          <button style="margin-top:30px" class="btn btn-lg loginbtn">Login to K!16</button>
+        </div>
     </div>
-      <form name="loginForm" class="card col-md-12 col-xs-12 paddingReset clearfix">
-      <h1 class="ribbontitle text-center">LOGIN</h1>
-      <p class="label">Hey Kurukshetra 16!</p>
-      <p class="label">Here's my <input class="cardtext" type="text" placeholder="username"/> and 
-        <input  class="cardtext" type="password" placeholder="password"/>
-      </p>
-      <p class="label">Cheers!</p>
-      <a class="detail">Yikes! I forgot my password</a>
-      <p class="detail">Remember me <input type="checkbox" class="cardtext"/></p>
-      <button class="btn btn-lg btn-success submitme" type="submit">LOG IN</button>
-      </form>
-
-   </div>
-</div>
-
-<div class="col-md-12 col-xs-12">
-  <div class="container karContainer second">
-      <div class="col-md-6 col-md-push-4">
-      <button style="margin-top:30px" class="btn btn-lg loginbtn ">Already Signed Up? Login Now!</button>
-    </div>
-      <form name="signupForm" class="card  col-md-12 col-xs-12 paddingReset clearfix">
-      <h1 class="ribbontitle text-center">SIGN UP</h1>
-       <div class="row">
-        <div class="col-md-4 col-xs-12">
-          <h4 class="label">NAME</h4>
-        </div>
-        <div class="col-md-8 col-xs-12">
-          <input type="text" class="cardtext"/>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 col-xs-12">
-          <h4 class="label">EMAIL</h4>
-        </div>
-        <div class="col-md-8 col-xs-12">
-          <input type="text" class="cardtext"/>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 col-xs-12">
-          <h4 class="label">PASSWORD</h4>
-        </div>
-        <div class="col-md-8 col-xs-12">
-          <input type="password" class="cardtext"/>
-        </div>
-      </div>
-       <div class="row">
-        <div class="col-md-4 col-xs-12">
-          <h4 class="label">CONFIRM PASSWORD</h4>
-        </div>
-        <div class="col-md-8 col-xs-12">
-          <input type="password" class="cardtext"/>
-        </div>
-      </div>
-     
-      <div class="col-md-push-4 col-md-6 col-xs-12">
-        <a href="#" class="detail"  style="margin-top:20px" >Forgot Password?</a>
-      </div>
-      <div class="col-md-12 col-md-push-4 col-xs-12">
-        <h4  style="margin-top:20px" class="detail">Remember Me <input type="checkbox" class="detail"/></h4>
-      </div>
-      <div class="col-md-12 col-xs-12 col-md-push-3">
-        <button style="margin-top:30px" class="btn btn-lg btn-success submitme" type="submit">Sign Up</button>
+      <div class="col-md-12 col-xs-12 paddingReset clearfix">
+      <form name="loginForm" class="card">
+      <h1 class=" formtitle ribbontitle col-md-12 col-xs-12 text-center" style="margin-top:-20px">LOGIN</h1>
+      <div class="form-details">
+        <p></p>
       </div>
       </form>
-
+    </div>
    </div>
 </div>
 <script>
@@ -150,15 +24,31 @@ $(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
 $(".home-event-circle").removeClass("removeBB");
 $("#loginNav").find(".circle-icon").addClass("selectedNavElem");
 $("#loginNav").addClass("removeBB");
-  $(".second").addClass("scDown");
-  $(".signupbtn").click(function(){
-  $(".second").removeClass("scDown").addClass("scUp").animate({'marginTop':"-33%"},100);
-  $(".first").removeClass("scUp").addClass("scDown").animate({'marginTop':"0%"});
-    
   });
-   $(".loginbtn").click(function(){
-  $(".first").removeClass("scDown").addClass("scUp").animate({'marginTop':"0"});
-  $(".second").removeClass("scUp").addClass("scDown").animate({'marginTop':"0"},100);
-  });
- });
+</script>
+<script>
+        $(document).ready(function(){
+
+          $(".loginbtn").click(function(){
+              $(".form-details p").text("");
+              $(".card").animate({'opacity':"1"},100);
+              typelogin();
+              });
+          $(".signupbtn").click(function(){
+              $(".form-details p").text("");
+              $(".card").animate({'opacity':"1"},100);
+              typesignup();
+              });
+         
+           function typelogin(){
+            $(".formtitle").text("LOGIN TO K!16");
+            $(".form-details p").html("<p>I, <input type='text' class='cardtext' placeholder='  swag username'/> am super excited to battle it out with the best at Kurukshetra 2016! Let me just type in my <input type='password' class='cardtext' placeholder='  swag password'/> and I\'ll be ready to roll!</p><p><a>Yikes, I forgot my password.</a></p><p>Remember Me <input type='checkbox' /></p><a class='btn btn-lg btn-success submitme' type='submit'>SIGNUP FOR K!16</button>");
+             
+          }
+             function typesignup(){
+            $(".formtitle").text("SIGN UP FOR K!16");
+            $(".form-details p").html("<p>I, <input type='text' class='cardtext' placeholder='  swag username'/> am super excited to battle it out with the best at Kurukshetra 2016! Let me just type in my <input type='password' class='cardtext' placeholder='  swag password'/> and I\'ll be ready to roll!</p><p>Let me type my <input type='password' class='cardtext' placeholder='confirm swag password'/> again for luck!</p><p>Remember Me <input type='checkbox' /></p><a class='btn btn-lg btn-success submitme' type='submit'>SIGNUP FOR K!16</button>"); 
+          }
+        });
+        
 </script>

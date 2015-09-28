@@ -95,7 +95,7 @@ myApp.directive('aboutAnim', function() {
         replace:'true',
         link: function(scope,elem,attrs){
 
-$(".node").click(function(){
+  $(".node").click(function(){
   $(".node").removeClass("node-active");
   $(this).addClass("node-active");
   $(".hospi_content").removeClass("hospi_animated");
@@ -142,3 +142,19 @@ $(".navbar-toggle").click(function(){
            }
         };
     });
+
+/*contacts anim*/
+myApp.directive('contactsAnim', function() {
+        console.log("contactsAnim");
+        return{
+        scope:{},
+        restrict: 'AEC',
+        replace:'true',
+        link: function(scope,elem,attrs){
+            $(".bucketCircle").click(function(){
+                $(".left").animate({'marginLeft':"0"},1000);
+            });
+
+    }
+};
+});

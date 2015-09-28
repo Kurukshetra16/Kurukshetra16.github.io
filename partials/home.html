@@ -9,20 +9,19 @@
 </style>
 <!--put components here -->
 <div class="container col-md-12 col-xs-12" style="margin-top:50px">
-
 <div class="col-md-4 col-xs-12">
   <div class="col-md-12 col-xs-12 clearfix paddingReset badgeEventsContainer">
     <ul class="col-md-12 col-xs-12 paddingReset">
       <div class="col-md-4 col-xs-6 ">
         <li class="badgeEvent ">
           <i class="fa fa-star"></i>
-          <h4 style="color:#fff">STARTUP WEEKEND</h4>
+          <h5 style="color:#fff">STARTUP WEEKEND</h5>
         </li>
       </div>
       <div class="col-md-4 col-xs-6 ">
         <li class="badgeEvent ">
           <i class="fa fa-bullhorn"></i>
-          <h4 style="color:#fff">BARKAMP</h4>
+          <h5 style="color:#fff">BARKAMP</h5>
 
         </li>
 
@@ -30,27 +29,27 @@
       <div class="col-md-4 col-xs-6 ">
         <li class="badgeEvent ">
           <i class="fa fa-graduation-cap"></i>
-          <h4 style="color:#fff">STUDENT AMBASSADOR</h4>
+          <h5 style="color:#fff">STUDENT AMBASSADOR</h5>
         </li>
       </div>
       <div class="col-md-4 col-xs-6 ">
         <li class="badgeEvent ">
           <i class="fa fa-calendar"></i>
-          <h4 style="color:#fff">SCHEDULE</h4>
+          <h5 style="color:#fff">SCHEDULE</h5>
         </li>
       </div>
 
       <div class="col-md-4 col-xs-6 ">
         <li class="badgeEvent ">
           <i class="fa fa-quote-right"></i>
-          <h4 style="color:#fff">K! BLOG</h4>
+          <h5 style="color:#fff">K! BLOG</h5>
         </li>
       </div>
 
       <div class="col-md-4 col-xs-6 ">
         <li class="badgeEvent ">
           <i class="fa fa-tag"></i>
-          <h4 style="color:#fff">LASER TAG</h4>
+          <h5 style="color:#fff">LASER TAG</h5>
         </li>
       </div>
     </ul>
@@ -68,7 +67,7 @@
     </ul>
 </div><!--jContainer-->
  <div class="col-md-3 col-xs-12">
-      <div class="update-box" ng-controller="updateController">
+      <div class="update-box" ng-show="dataLoaded" ng-controller="updateController">
         <p></p>        
       </div>
   <div class="col-md-12 col-xs-12">
@@ -100,7 +99,7 @@ function sliderin(){
       var elem = $(this);
       setTimeout(function(){
         $(elem).animate({'opacity':"1"},2500,'easeInOutSine');
-      },i*5000+5000);
+      },i*5000+2000);
 
           
   });

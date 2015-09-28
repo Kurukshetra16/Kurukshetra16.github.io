@@ -16,13 +16,13 @@
         <ul class="nav navbar-nav" style="width:104% !important">
            <li>
             <a class="text" href="#/">HOME</a>
-            <div class="topVane">
+            <div class=" hidden-xs topVane">
               <i class="fa fa-home"></i>
             </div>
            </li>
             <li class="hidden-xs">
             <a class="text">EVENTS</a>
-            <div class="topVane" id="eVane">
+            <div class="hidden-xs topVane" id="eVane">
               <i class="fa fa-hourglass"></i>
             </div>
            </li>
@@ -61,7 +61,7 @@
           </li>
            <li class='hidden-xs'>
             <a class="text" href="#/workshops">WORKSHOPS</a>
-            <div class="topVane" id="wVane">
+            <div class="hidden-xs topVane" id="wVane">
               <i class="fa fa-wreh"></i>
             </div>
            </li>
@@ -93,50 +93,50 @@
           </li>
            <li>
             <a class="text" href="#/xceed">XCEED</a>
-            <div class="topVane">
+            <div class="hidden-xs topVane">
               <i class="fa fa-fighter-jet"></i>
             </div>
            </li>
            <li class="">
             <a class="text" href="#/sponsors">SPONSORS</a>
-            <div class="topVane">
+            <div class="hidden-xs topVane">
               <i class="fa fa-inr"></i>
             </div>
            </li>
            <li class="">
             <a class="text" href="#/gl">GUEST LECTURES</a>
-            <div class="topVane">
+            <div class="hidden-xs topVane">
               <i class="fa fa-microphone"></i>
             </div>
            </li>
 
            <li class="">
             <a href="#/karnival" class="text">K!ARNIVAL</a>
-            <div class="topVane">
+            <div class="hidden-xs topVane">
               <i class="fa fa-empire"></i>
             </div>
            </li>
            <li class="">
             <a href="#/hospi" class="text">HOSPITALITY</a>
-            <div class="topVane">
+            <div class="hidden-xs topVane">
               <i class="fa fa-map-o"></i>
             </div>
            </li>
            <li class="">
             <a href="#/about" class="text">ABOUT US</a>
-            <div class="topVane">
+            <div class="hidden-xs topVane">
               <i class="fa fa-angellist"></i>
             </div>
            </li>
            <li class="">
             <a href="#/contacts" class="text">CONTACT</a>
-            <div class="topVane">
+            <div class="hidden-xs topVane">
               <i class="fa fa-comment"></i>
             </div>
            </li>
            <li class="smalleritem hidden-xs">
             <a class="text">LOGIN</a>
-            <div class="topVane" id="lVane">
+            <div class="hidden-xs topVane" id="lVane">
               <i class="fa fa-key"></i>
             </div>
            </li>
@@ -299,7 +299,7 @@
               <li class="eventCircle"><a href="#/loginK"><i class="fa fa-gear"></i></a>
                   <div class="btmText">K! Login</div>
               </li>
-             <li class="eventCircle" style="margin-left:25px"><i class="fa fa-facebook"></i>
+             <li class="eventCircle" style="margin-left:20px"><i class="fa fa-facebook"></i>
                 <div class="btmText">Facebook Login</div>
               </li>
               <li class="eventCircle"><i class="fa fa-google"></i>
@@ -346,7 +346,7 @@
 
     $(".home-event-circle ").hover(function(){
       //openOut css animation
-      $(this).find(".topVane").addClass("openOut");
+      $(this).find(".hidden-xs topVane").addClass("openOut");
 
       if($(this).attr("id") != "eventsNav" )
     {

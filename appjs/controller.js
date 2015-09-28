@@ -1,24 +1,21 @@
 /*NAVBAR*/
 myApp.controller('navController',['$scope','$http',function($scope,$http){
-	$scope.clicked = function(category)
-	{
-		alert(category);
-		$scope.$emit("clicknav",{cat:category});
-	};
+
 }]);
 
 /*UPDATES*/
-myApp.controller('updateController',['$scope','$http',function($scope,$http){
+myApp.controller('updateController',['$scope','$http','$timeout',function($scope,$http,$timeout){
 $scope.updates = [];
-
+$scope.dataLoaded = false;
 $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/updates.json'}).success(function(data)
 				   {
 				    jsonstr = data; // response data 
 				   	console.log("updates"+jsonstr.length);
+				   	$timeout(function(){$scope.dataLoaded = true;},100);
+				   	// alert($scope.dataLoaded);
 				   	for(var i=0;i<jsonstr.length;i++)
 				   		{
 				   			$scope.updates[i] = jsonstr[i]['title'];
-				   			// alert($scope.updates[i]);
 				   		}
 				   $(function(){
 				    $(".update-box p").typed({
@@ -41,14 +38,9 @@ myApp.controller('eventsController',['$scope','$http','$location','$timeout',fun
 $scope.events = [];
 $scope.tabs = [];
 $scope.eventName;
-$scope.category = '';
-$scope.$on('clicknav', function(event, args) {
-	alert(args.cat);
-	$scope.category = args.cat + "Events";
-});
 var path = $location.path();
 path = '/'+path.substr(8,path.length);
-//alert(path);
+$scope.category = path.substr(1,path.length).toUpperCase()+" EVENTS";
 $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/categories'+path+'.json'}).success(function(data)
 				   {
 				    jsonstr = data['category']['events']; // response data 
@@ -93,8 +85,8 @@ $scope.events = [];
 $scope.tabs = [];
 $scope.eventName;
 var path = $location.path();
-path = '/'+path.substr(8,path.length);
-//alert(path);
+path = '/'+path.substr(9,path.length);
+$scope.category = path.substr(1,path.length).toUpperCase()+" WORKSHOPS";
 $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/wkshopcategories'+path+'.json'}).success(function(data)
 				   {
 				    jsonstr = data['category']['wkshops']; // response data 
@@ -189,7 +181,16 @@ $scope.nodeInfo = [];
 							$scope.nodeInfo[i]['id'] = i+1;
 							console.log($scope.nodeInfo[i]['title']);
 							}
+							init();
 					});
+	function init()
+	{
+		$scope.nodeData = $scope.nodeInfo[0]['desc'];
+		$scope.clickedNode = "Introduction";
+		$scope.clickedID = "1";
+  		$(".longer-line").css({'background':"rgb(250,16,14)",'width':"35%"});
+  		setTimeout(function(){$(".hospi_content").addClass("hospi_animated");},500);
+	}
 	$scope.tohospi = function(clicked,clickedid) {
       $scope.clickedNode = clicked;
       $scope.clickedID = clickedid;
@@ -398,8 +399,11 @@ $scope.nodeInfo=[
 	id:4,
 	desc:'Info about CTF Info about CTF Info about CTF'
 }];
-$scope.clickedName = '';
-$scope.information = '';
+$scope.clickedName = 'CTF';
+$scope.information = $scope.nodeInfo[3]['desc'];
+$(".longer-line").css({'background':"rgb(250,16,14)",'width':"100%"});
+setTimeout(function(){$(".hospi_content").addClass("hospi_animated");},500);
+
 $scope.clicked = function(clickedid)
 {
 	$scope.clickedName = $scope.nodes[clickedid-1]['title'];
@@ -458,6 +462,6 @@ function closeall(){
 	$scope.bucketname = bname;
 	$scope.bucketemail = $scope.buckets[id]['email'];
 	$scope.members = $scope.buckets[id]['members'];
-}
+};
 
 }]);
