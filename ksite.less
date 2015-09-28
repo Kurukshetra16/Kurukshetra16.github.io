@@ -13,6 +13,12 @@ background-color:rgb(4,17,52);
 -moz-animation: AnimationName 20s ease infinite;
 animation: AnimationName 20s ease infinite;
 }
+@media all and (min-device-width: 1440px) {
+	html,body{
+		zoom:90%;
+	}
+}
+
 /*@-webkit-keyframes AnimationName {
     0%{background-color: #420308;}
 			20%{background-color: #871409;}
@@ -1801,10 +1807,12 @@ height:100%;
 
 }
 .home-event-circles{
-  width:100%;
+  width:auto;
   height:100%;
-  margin-top:20px;
-
+  margin-top:70px;
+  margin-left:  auto;
+  margin-right:  auto;
+  display: block;
 }
 .home-event-box{
   width:80%;
@@ -2068,7 +2076,7 @@ border-top-color:rgb(206,3,3);
  }
 
 .mg-lg{
-  margin-right:10px !important;
+  margin-right:5px !important;
 }
 .mg-lglg{
   margin-right:40px !important;
