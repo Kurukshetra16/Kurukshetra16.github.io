@@ -4,21 +4,15 @@
     src: url(samarkan.ttf);
 }
 html,body{
-	overflow-x:hidden !important;
-	.transition(0.65s ease);
+overflow-x:hidden !important;
+.transition(0.65s ease);
  background-color:rgb(4,17,52);	
- background-image:url(images/patterns/constellations.png);
- background-position:0 0 center;
-background-size: 500px 500px;
-
-}
-
+ }
 @media all and (max-device-width:1440px) {
 	html,body{
 		zoom:90%;
 	}
 }
-
 @media all and (min-device-width: 1440px) {
 	html,body{
 		zoom:90%;
@@ -27,27 +21,16 @@ background-size: 500px 500px;
 		width:100%;
 	}
 }
-
-/*@-webkit-keyframes AnimationName {
-    0%{background-color: #420308;}
-			20%{background-color: #871409;}
-			40%{background-color: #000;}
-			60%{ background-color:#2A1027;}
-			80%{ background-color:#871409;}
+@-webkit-keyframes AnimationName {
+    0%{ background-color:rgb(4,17,52);}
+	50%{ background-color:rgba(240,189,76,0.8);}
+	100%{background-color:rgb(4,17,52);}
 }
-@-moz-keyframes AnimationName {
-30%{background-color:black;}
-50%{background-color:indigo;}
-100%{background-color:navy;}
-		}
 @keyframes AnimationName {
-		0%{background-color: #420308;}
-			20%{background-color: #871409;}
-			40%{background-color: #000;}
-			60%{ background-color:#2A1027;}
-			80%{ background-color:#871409;}
+    0%{ background-color:rgb(4,17,52);}
+	50%{ background-color:rgba(240,189,76,0.8);}
+	100%{background-color:rgb(4,17,52);}
 }
-*/
 .hospiBox{
   background:none !important;
 }
@@ -60,6 +43,9 @@ ul{
 	width:100%;
 	background-image:url(images/patterns/constellations.png);
 	background-size: 500px 500px;
+	-webkit-animation:AnimationName 30s linear infinite;
+	-moz-animation:AnimationName 30s linear infinite;
+	animation:AnimationName 30s linear infinite;
 }
 .overlay{
 	position:absolute;
@@ -71,9 +57,9 @@ ul{
 	height:100%;
 	/*background:#420308;*/ background-image:url(images/patterns/constellations.png);
 	background-size:500px 500px;
- 	-webkit-animation: AnimationName  ease infinite;
-	-moz-animation: AnimationName 20s ease infinite;
-	animation: AnimationName 20s ease infinite;
+ 	-webkit-animation: AnimationName 30s  linear infinite;
+	-moz-animation: AnimationName 30s linear infinite;
+	animation: AnimationName 30s linear infinite;
 }
 
 /* NAVBAR */
@@ -356,6 +342,8 @@ visibility:hidden;
  -webkit-animation: AnimationName  ease infinite;
 -moz-animation: AnimationName 20s ease infinite;
 animation: AnimationName 20s ease infinite;
+background-image: url(images/patterns/constellations.png);
+background-size: 500px 500px;
 z-index:2;
 }
 #ceg{
