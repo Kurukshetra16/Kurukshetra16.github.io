@@ -188,7 +188,7 @@ $scope.nodeInfo = [];
 		$scope.nodeData = $scope.nodeInfo[0]['desc'];
 		$scope.clickedNode = "Introduction";
 		$scope.clickedID = "1";
-  		$(".longer-line").css({'background':"rgb(250,16,14)",'width':"35%"});
+  		$(".longer-line").css({'background':"rgb(250,16,14)",'width':"10%"});
   		setTimeout(function(){$(".hospi_content").addClass("hospi_animated");},500);
 	}
 	$scope.tohospi = function(clicked,clickedid) {
