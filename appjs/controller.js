@@ -87,7 +87,7 @@ $scope.eventName;
 var path = $location.path();
 path = '/'+path.substr(9,path.length);
 $scope.category = path.substr(1,path.length).toUpperCase()+" WORKSHOPS";
-$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/wkshopcategories'+path+'.json'}).success(function(data)
+$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/workshopcategories'+path+'.json'}).success(function(data)
 				   {
 				    jsonstr = data['category']['wkshops']; // response data 
 				   	for(i=0;i<jsonstr.length;i++)
