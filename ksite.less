@@ -8,10 +8,9 @@ overflow-x:hidden !important;
 .transition(0.65s ease);
  background-color:rgb(4,17,52);	
  background-image:url(images/patterns/constellations.png);
--webkit-animation: AnimationName 30s  linear infinite;
--moz-animation: AnimationName 30s linear infinite;
-animation: AnimationName 30s linear infinite;
- }
+ background-position:0 0 center;
+ background-size: 500px 500px;
+}
 @media all and (max-device-width:1440px) {
 	html,body{
 		zoom:90%;
@@ -25,16 +24,6 @@ animation: AnimationName 30s linear infinite;
 		width:100%;
 	}
 }
-@-webkit-keyframes AnimationName {
-    0%{ background-color:rgb(4,17,52);}
-	50%{ background-color:rgba(240,189,76,0.8);}
-	100%{background-color:rgb(4,17,52);}
-}
-@keyframes AnimationName {
-    0%{ background-color:rgb(4,17,52);}
-	50%{ background-color:rgba(240,189,76,0.8);}
-	100%{background-color:rgb(4,17,52);}
-}
 .hospiBox{
   background:none !important;
 }
@@ -47,9 +36,6 @@ ul{
 	width:100%;
 	background-image:url(images/patterns/constellations.png);
 	background-size: 500px 500px;
-	-webkit-animation:AnimationName 30s linear infinite;
-	-moz-animation:AnimationName 30s linear infinite;
-	animation:AnimationName 30s linear infinite;
 }
 .overlay{
 	position:absolute;
@@ -59,11 +45,8 @@ ul{
 	overflow-y:auto;
 	width:100%;
 	height:100%;
-	/*background:#420308;*/ background-image:url(images/patterns/constellations.png);
+	background-image:url(images/patterns/constellations.png);
 	background-size:500px 500px;
- 	-webkit-animation: AnimationName 30s  linear infinite;
-	-moz-animation: AnimationName 30s linear infinite;
-	animation: AnimationName 30s linear infinite;
 }
 
 /* NAVBAR */
@@ -149,9 +132,6 @@ DIV#bs-example-navbar-collapse-1.navbar-collapse.collapse.in{
 background-image:url(images/patterns/constellations.png);	
 background-color:rgb(4,17,52) !important;
 background-size:500px 500px;
-/*-webkit-animation: AnimationName 30s ease infinite;
--moz-animation: AnimationName 20s ease infinite;
-animation: AnimationName 20s ease infinite;
 z-index:2;
 }
 .changeNav{
@@ -165,8 +145,6 @@ z-index:2;
 	border:2px solid transparent;
 	text-decoration:none;
 	margin-top: 2px;
-	
-
 }
 .changeNavElem:hover{
 	border:2px solid #333;
@@ -199,9 +177,6 @@ nav.navbar {
 .nav.navbar-nav a.navelem:active{
 background: ease-gradient(270deg, #270900, #3e0202, #4d0404, #120404, #320109);
 background-size: 1000% 1000%;
--webkit-animation: AnimationName  ease infinite;
--moz-animation: AnimationName 20s ease infinite;
-animation: AnimationName 20s ease infinite;
 }
 
 .navicons{
@@ -721,10 +696,6 @@ UL.nav.navbar-nav.navbar-right{
 	transform:translateY(150px) !important;
 	position: absolute;
 	visibility:hidden;
-    /*background-color:#420308;*/ 
- 	-webkit-animation: AnimationName  ease infinite;
-	-moz-animation: AnimationName 20s ease infinite;
-	animation: AnimationName 20s ease infinite;
 }
 .eventCircle:hover .left{
 	opacity:0 !important;
