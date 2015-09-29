@@ -2001,11 +2001,11 @@ border-top-color:rgb(206,3,3);
  background:none;
  }
 /*navbar circles glow colors */
-@color-home:rgba(254,0,0,0.22);
-@color-xceed:rgba(253,254,2,0.22);
-@color-karnival:rgba(129,254,4,0.22);
-@color-events:rgba(174,211,253,0.22);
-@color-workshops:rgba(27,250,236,0.22);
+@color-home:rgba(254,0,0,0.12);
+@color-xceed:rgba(253,254,2,0.12);
+@color-karnival:rgba(129,254,4,0.12);
+@color-events:rgba(174,211,253,0.12);
+@color-workshops:rgba(27,250,236,0.12);
 .animation5()
 {
 0%{
@@ -2116,8 +2116,24 @@ li .list-icon{
 	z-index:1;
 	position:absolute;
 	-webkit-animation:rotateC 30s linear infinite;
+	-moz-animation:rotateC 30s linear infinite;
+	animation:rotateC 30s linear infinite;
+	-webkit-transform-origin:50% 50%;
+	-moz-transform-origin:50% 50%;
+	transform-origin:50% 50%;
 }
 @-webkit-keyframes rotateC{
+	0%{
+	-webkit-transform:rotate(0deg);
+	}
+	50%{
+	-webkit-transform:rotate(180deg);
+	}
+	100%{
+	-webkit-transform:rotate(360deg);
+	}
+}
+@-moz-keyframes rotateC{
 	0%{
 	-webkit-transform:rotate(0deg);
 	}
