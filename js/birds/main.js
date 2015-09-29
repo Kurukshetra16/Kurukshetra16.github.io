@@ -2,7 +2,7 @@ var Boid = function() {
 
 				var vector = new THREE.Vector3(),
 				_acceleration, _width = 500, _height = 500, _depth = 200, _goal, _neighborhoodRadius = 100,
-				_maxSpeed = 4, _maxSteerForce = 0.1, _avoidWalls = true;
+				_maxSpeed = SCREEN_WIDTH/260, _maxSteerForce = 0.1, _avoidWalls = true, _mouse_pos=null;
 
 				this.position = new THREE.Vector3();
 				this.velocity = new THREE.Vector3();
@@ -34,56 +34,11 @@ var Boid = function() {
 
 				this.run = function ( boids ) {
 
-					if ( !_avoidWalls ) {
-
-						vector.set( - _width, this.position.y, this.position.z );
-						vector = this.avoid( vector );
-						vector.multiplyScalar( 5 );
-						_acceleration.add( vector );
-
-						vector.set( _width, this.position.y, this.position.z );
-						vector = this.avoid( vector );
-						vector.multiplyScalar( 5 );
-						_acceleration.add( vector );
-
-						vector.set( this.position.x, - _height, this.position.z );
-						vector = this.avoid( vector );
-						vector.multiplyScalar( 5 );
-						_acceleration.add( vector );
-
-						vector.set( this.position.x, _height, this.position.z );
-						vector = this.avoid( vector );
-						vector.multiplyScalar( 5 );
-						_acceleration.add( vector );
-
-						vector.set( this.position.x, this.position.y, - _depth );
-						vector = this.avoid( vector );
-						vector.multiplyScalar( 5 );
-						_acceleration.add( vector );
-
-						vector.set( this.position.x, this.position.y, _depth );
-						vector = this.avoid( vector );
-						vector.multiplyScalar( 5 );
-						_acceleration.add( vector );
-
-					}/* else {
-
-						this.checkBounds();
-
-					}
-					*/
-
-					// if ( Math.random() > 0.5 ) {
-
-					// 	this.flock( boids );
-
-					// }
-
 					speed = SCREEN_WIDTH/5;
 					
 					vector.set( -speed, -speed*slope, -10 );
 					// vector = this.avoid( vector );
-					vector.multiplyScalar( 5 );
+					vector.multiplyScalar( 0.001 );
 					_acceleration.add( vector );
 
 					this.move();
@@ -136,17 +91,7 @@ var Boid = function() {
 
 					this.position.add( this.velocity );
 					_acceleration.set( 0, 0, 0 );
-
-				}
-
-				this.checkBounds = function () {
-
-					if ( this.position.x >   _width ) this.position.x = - _width;
-					if ( this.position.x < - _width ) this.position.x =   _width;
-					if ( this.position.y >   _height ) this.position.y = - _height;
-					if ( this.position.y < - _height ) this.position.y =  _height;
-					if ( this.position.z >  _depth ) this.position.z = - _depth;
-					if ( this.position.z < - _depth ) this.position.z =  _depth;
+					this.repulse(_mouse_pos);
 
 				}
 
@@ -166,16 +111,18 @@ var Boid = function() {
 				}
 
 				this.repulse = function ( target ) {
-
+					if(!target)
+						return
+					_mouse_pos = target;
 					var distance = this.position.distanceTo( target );
 					// console.log('hmm');
-					if ( distance < 150 ) {
+					if ( distance < SCREEN_WIDTH/20 ) {
 
 						var steer = new THREE.Vector3();
 
 						// steer.subVectors(  target, this.position );
 						steer.subVectors(  this.position, target );
-						steer.multiplyScalar( 500.0 / distance );
+						steer.multiplyScalar( 1.0 / distance );
 
 						_acceleration.add( steer );
 
@@ -380,6 +327,8 @@ var Boid = function() {
 				camera.lookAt(center);
 			}
 
+			var mouse_vector;
+
 
 			function init() {
 
@@ -445,15 +394,15 @@ var Boid = function() {
 
 			function onDocumentMouseMove( event ) {
 
-				var vector = new THREE.Vector3( event.clientX - SCREEN_WIDTH_HALF, - event.clientY + SCREEN_HEIGHT_HALF, 0 );
+				mouse_vector = new THREE.Vector3( event.clientX - SCREEN_WIDTH_HALF, - event.clientY + SCREEN_HEIGHT_HALF, 0 );
 
 				for ( var i = 0, il = boids.length; i < il; i++ ) {
 
 					boid = boids[ i ];
 
-					vector.z = boid.position.z;
+					mouse_vector.z = boid.position.z;
 
-					boid.repulse( vector );
+					boid.repulse( mouse_vector );
 
 				}
 
@@ -461,13 +410,14 @@ var Boid = function() {
 
 			//
 			var oldcount=0;
-			var limit=100;
+			var limit=200;
 			function animate() {
 				stats.update();
 				if(stats.getms()<40 && count<limit){
 					// for(var i=0;i<10;i++){
 						if(Math.random()<0.1){
 							addBird(count,shape[count%goal_length]);
+							boids[count].repulse(mouse_vector);
 							count=count+1;
 						}
 					// }
