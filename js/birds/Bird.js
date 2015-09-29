@@ -9,7 +9,7 @@ var Bird = function (slope) {
 	v(   1,   0,   0 );
 	v( 0, 1,   0 );
 	v( 0.5,   0.5,   1 );
-	v( 10, 10*slope, 0.5 );
+	v( -10, -10*slope*slope, 0.5 );
 	// console.log(slope);
 
 	// v(   0,   2, - 6 );

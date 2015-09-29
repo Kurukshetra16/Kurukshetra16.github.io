@@ -81,7 +81,7 @@ var Boid = function() {
 
 					speed = SCREEN_WIDTH/5;
 					
-					vector.set( -speed, -speed*slope, 2 );
+					vector.set( -speed, -speed*slope, -10 );
 					// vector = this.avoid( vector );
 					vector.multiplyScalar( 5 );
 					_acceleration.add( vector );
@@ -168,14 +168,14 @@ var Boid = function() {
 				this.repulse = function ( target ) {
 
 					var distance = this.position.distanceTo( target );
-
+					// console.log('hmm');
 					if ( distance < 150 ) {
 
 						var steer = new THREE.Vector3();
 
 						// steer.subVectors(  target, this.position );
 						steer.subVectors(  this.position, target );
-						steer.multiplyScalar( -5.0 / distance );
+						steer.multiplyScalar( 500.0 / distance );
 
 						_acceleration.add( steer );
 
@@ -279,27 +279,27 @@ var Boid = function() {
 
 				this.separation = function ( boids ) {
 
-					var boid, distance,
-					posSum = new THREE.Vector3(),
-					repulse = new THREE.Vector3();
+					// var boid, distance,
+					// posSum = new THREE.Vector3(),
+					// repulse = new THREE.Vector3();
 
-					for ( var i = 0, il = boids.length; i < il; i ++ ) {
+					// for ( var i = 0, il = boids.length; i < il; i ++ ) {
 
-						if ( Math.random() > 0.6 ) continue;
+					// 	if ( Math.random() > 0.6 ) continue;
 
-						boid = boids[ i ];
-						distance = boid.position.distanceTo( this.position );
+					// 	boid = boids[ i ];
+					// 	distance = boid.position.distanceTo( this.position );
 
-						if ( distance > 0 && distance <= _neighborhoodRadius ) {
+					// 	if ( distance > 0 && distance <= _neighborhoodRadius ) {
 
-							repulse.subVectors( this.position, boid.position );
-							repulse.normalize();
-							repulse.divideScalar( distance );
-							posSum.add( repulse );
+					// 		repulse.subVectors( this.position, boid.position );
+					// 		repulse.normalize();
+					// 		repulse.divideScalar( distance );
+					// 		posSum.add( repulse );
 
-						}
+					// 	}
 
-					}
+					// }
 
 					return posSum;
 
@@ -461,14 +461,16 @@ var Boid = function() {
 
 			//
 			var oldcount=0;
-			var limit=70;
+			var limit=100;
 			function animate() {
 				stats.update();
-				if(stats.getms()<20 && count<limit){
-					for(var i=0;i<10;i++){
-						addBird(count,shape[count%goal_length]);
-						count=count+1;
-					}
+				if(stats.getms()<40 && count<limit){
+					// for(var i=0;i<10;i++){
+						if(Math.random()<0.1){
+							addBird(count,shape[count%goal_length]);
+							count=count+1;
+						}
+					// }
 				}else{
 					if(oldcount != count)
 						console.log(count);
@@ -512,8 +514,8 @@ var Boid = function() {
 					color = bird.material.color;
 					// color.r = color.g = color.b = ( 500 - bird.position.z ) / 1000;
 
-					// bird.rotation.y = Math.atan2( - boid.velocity.z, boid.velocity.x );
-					// bird.rotation.z = Math.asin( boid.velocity.y / boid.velocity.length() );
+					bird.rotation.y = Math.atan2( - boid.velocity.z, boid.velocity.x );
+					bird.rotation.z = Math.asin( boid.velocity.y / boid.velocity.length() );
 
 					// bird.phase = ( bird.phase + ( Math.max( 0, bird.rotation.z ) + 0.1 )  ) % 62.83;
 					// bird.geometry.vertices[ 5 ].y = bird.geometry.vertices[ 4 ].y = Math.sin( bird.phase ) * 5;
