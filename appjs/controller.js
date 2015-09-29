@@ -85,11 +85,11 @@ $scope.events = [];
 $scope.tabs = [];
 $scope.eventName;
 var path = $location.path();
-path = '/'+path.substr(9,path.length);
+path = '/'+path.substr(11,path.length);
 $scope.category = path.substr(1,path.length).toUpperCase()+" WORKSHOPS";
 $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/workshopcategories'+path+'.json'}).success(function(data)
 				   {
-				    jsonstr = data['category']['wkshops']; // response data 
+				    jsonstr = data['workshopcategory']['workshops']; // response data 
 				   	for(i=0;i<jsonstr.length;i++)
 				   		{
 				   			$scope.events[i] = jsonstr[i];
@@ -103,7 +103,7 @@ function init(){
 	$(".tabContent li").hide();
 	$(".tabContent").find("li.0").show();
 }
-	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/wkshops/'+eventname+'.json'}).success(function(data)
+	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/workshops/'+eventname+'.json'}).success(function(data)
 				   {
 				    jsonstr = data['workshop']['tabs']; // response data 
 				   	for(i=0;i<jsonstr.length;i++)
@@ -112,7 +112,6 @@ function init(){
 				   			$scope.tabs[i]['id']=i;
 				   		}
 					$(".left").animate({'marginLeft':"0px"},500,'easeOutSine');
-
 				   	$timeout(init, 10);
 });
 }
