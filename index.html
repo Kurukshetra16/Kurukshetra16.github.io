@@ -9,18 +9,14 @@
 <link href='https://fonts.googleapis.com/css?family=Orbitron|Raleway' rel='stylesheet' type='text/css'>
 
  <body ng-controller="updateController" ng-app="myApp">
-    <div class="preloader" ng-hide="dataLoaded">
+<!--     <div class="preloader" ng-hide="dataLoaded">
 </div>
-</div>
- <!-- <div class="overlay"> -->
-<div id="container"></div>
+ --></div>
+ <div class="overlay">
  <div ng-include="'partials/header.html'"></div>
-    <div class="bg">
       <div ng-include="'partials/navbar.html'"></div>
-      
       <div ng-view></div> 
-    </div>
-  </div>
+ </div>
 
   
 </body>
