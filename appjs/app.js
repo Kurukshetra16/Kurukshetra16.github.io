@@ -1,7 +1,4 @@
-var myApp = angular.module("myApp",['ngRoute','ngSanitize','chieffancypants.loadingBar','ngAnimate','duScroll','myAppDirectives']);
-
-
-
+var myApp = angular.module("myApp",['ngRoute','ngSanitize','ngAnimate','myAppControllers','myAppDirectives']);
 myApp.config(['$routeProvider', function($routeProvider) {
                 $routeProvider.when("/", {templateUrl: "partials/home.html"});
                 $routeProvider.when("/xceed", {templateUrl: "partials/xceed.html", controller: "xceedController"});

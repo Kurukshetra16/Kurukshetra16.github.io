@@ -1,4 +1,5 @@
 /*UPDATES*/
+var myApp = angular.module("myAppControllers",[]);
 myApp.controller('updateController',['$scope','$http','$timeout',function($scope,$http,$timeout){
 $scope.updates = [];
 // $scope.dataLoaded = false;

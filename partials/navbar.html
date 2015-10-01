@@ -1,5 +1,5 @@
   <!--navbar-->
-  <div ng-controller="navController">
+  <div>
 <!--navbar for mobile -->
     <nav class="navbar hidden-md hidden-lg hidden-sm" >
       <div class="container-fluid paddingReset">
@@ -352,11 +352,9 @@
     });
     //leave and hide headers
     $(".headerBox").mouseenter(function(){
-        if(ids.indexOf($(this).attr("id")) < 0)//random nav item - hide headers
-          {
             hideAllHeaders();
             showStuffBelow();
-          }
+        
     });
     //leave header and show stuff below
     $(".Header").mouseleave(function(){
