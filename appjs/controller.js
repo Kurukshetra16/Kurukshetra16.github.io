@@ -37,7 +37,7 @@ $scope.eventName;
 var path = $location.path();
 path = '/'+path.substr(8,path.length);
 $scope.category = path.substr(1,path.length).toUpperCase()+" EVENTS";
-	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/categories'+path+'.json'}).success(function(data)
+$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/categories'+path+'.json'}).success(function(data)
 				   {
 				    jsonstr = data['category']['events']; // response data 
 				   	for(i=0;i<jsonstr.length;i++)
@@ -48,7 +48,7 @@ $scope.category = path.substr(1,path.length).toUpperCase()+" EVENTS";
 				  
 				   });
 $scope.getEvent = function(eventname){
-	eventName = eventname;
+	$scope.eventName = eventname;
 	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','');
 function init(){
 	$(".tabContent li").hide();
@@ -93,7 +93,7 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/workshopcategories'+pa
 				   		}
 				   });
 $scope.getEvent = function(eventname){
-	eventName = eventname;
+	$scope.eventName = eventname;
 	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','');
 function init(){
 	$(".tabContent li").hide();

@@ -9,7 +9,6 @@ overflow-x:hidden !important;
  background-color:rgb(4,17,52);	
  background-position:0 0 center;
  background-size: 800px 800px;
-.animation(animation6 30s linear infinite);
 }
 @media all and (max-device-width:1440px) {
 	html,body{
@@ -44,10 +43,10 @@ ul{
 	height:100%;
 	.transition(0.65s ease);
 	 background-color:rgb(4,17,52);	
-	 background-image:url(images/patterns/constellations.png);
-	 background-position:0 0 center;
+	 background-image:url(images/patterns/constellations.png),url(images/patterns/constellations.png);
+	 background-position:0 0 center, 0 0 center;
 	 background-size: 800px 800px;
-
+	 .animation(animation6 20s linear infinite);
 }
 /* NAVBAR */
 a:focus{
@@ -85,7 +84,8 @@ A.text.dropdown-toggle:focus{
   }
  DIV#bs-example-navbar-collapse-1.navbar-collapse.collapse.in{
 	overflow-x:hidden;
-	background-image:url(images/patterns/constellations.png);	
+	background-image:url(images/patterns/constellations.png),url(images/patterns/constellations.png);
+	background-position:0 0 center, 0 0 center;
 	background-color:rgb(4,17,52) !important;
 	background-size:800px 800px;
 	z-index:2;
@@ -314,8 +314,8 @@ img.slide {
 		top:10% !important;
 	}
 .navbar-header{
-		background-image:url(images/patterns/constellations.png);
-		background-color:rgba(4,17,52,0.65) !important;
+		background-image:url(images/patterns/constellations.png),url(images/patterns/constellations.png);
+	 	background-position:0 0 center, 0 0 center;background-color:rgba(4,17,52,0.65) !important;
 		background-size:800px 800px;
 		overflow-y:hidden;
 	}
@@ -531,7 +531,7 @@ UL.nav.navbar-nav.navbar-right{
   height:auto;
   top:25%;
   margin-left:100%;
-  background:rgba(0,0,0,0.85); 
+  background-color:rgba(0,0,0,0.75); 
   padding-bottom:40px;
     }
 .left h1
@@ -1595,16 +1595,14 @@ border-top-color:rgb(206,3,3);
  }
 .animation6(){
 	0%{
-	 background-color:rgba(4,17,52,0.65);	
+	 background-position:0 0,0 0;	
 	}
 	33%{
-		background-color:rgba(15,2,37,0.8);
-	}
+		background-position:33% 50%, 33% 50%;	}
 	66%{
-		background-color:rgba(41,8,30,0.8);
-	}
+		background-position:66%50%,66% 50%;	}
 	100%{
-	 background-color:rgba(4,17,52,0.65);	
+	 background-position:100% 50%,100% 50%;	
 	}
 }
 .mg-lg{
@@ -2047,7 +2045,8 @@ li img{
 	height:100%;
 	background-color:rgb(4,17,52);
 	background-size:800px 800px;
-	background-image:url(images/patterns/constellations/png);
+	background-image:url(images/patterns/constellations.png),url(images/patterns/constellations.png);
+	background-position:0 0 center, 0 0 center;
 }
 .sk-cube-grid {
   width: 80px;
