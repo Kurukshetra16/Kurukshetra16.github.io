@@ -6,11 +6,11 @@
 <link href="3L/3L.less" rel="stylesheet/less" type="text/css" >
 <link href="css/animate.css" rel="stylesheet">
 <link href="fontawesome/css/font-awesome.min.css" rel="stylesheet">
-<!-- <link href="loading/loading-bar.min.css" rel="stylesheet"> -->
+<link href="loading/loading-bar.css" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Orbitron|Raleway' rel='stylesheet' type='text/css'>
 
 <body ng-app="myApp">
- <div class="overlay">
+ <div class="overlay" ng-controller="updateController">
  <div ng-include="'partials/header.html'"></div>
       <div ng-include="'partials/navbar.html'"></div>
       <div ng-view></div> 
@@ -26,18 +26,14 @@
 <script type="text/javascript" src="js/typed.min.js"></script>
 <!--angular-->
  <script type="text/javascript" src="js/angular/angular.min.js"></script>
- <script type="text/javascript" src="js/angular/angular-scroll.min.js"></script>
- <script type="text/javascript" src="js/angular/angular-scroll.min.js.map"></script>
- <script type="text/javascript" src="js/angular/ui-bootstrap.min.js"></script>
   <script type="text/javascript" src="js/angular-route/angular-route.js"></script>
  <script type="text/javascript" src="js/angular-sanitize/angular-sanitize.min.js"></script>
- <script type="text/javascript" src="js/angular/angular-animate.min.js"></script>
  <script type="text/javascript" src="appjs/app.js"></script>
- <script type="text/javascript" src="appjs/controller.js"></script>
  <script type="text/javascript" src="appjs/services.js"></script>
+ <script type="text/javascript" src="appjs/controller.js"></script>
  <script type="text/javascript" src="appjs/directives.js"></script>
 <!--loading-->
-<!-- <script type="text/javascript" src="loading/loading-bar.min.js"></script>-->
+ <script type="text/javascript" src="loading/loading-bar.js"></script>
 
  <!-- Birds -->
  <script type="text/javascript" src="js/birds/three.min.js"></script>

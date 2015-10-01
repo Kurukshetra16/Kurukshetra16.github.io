@@ -1,9 +1,3 @@
-/*! 
- * angular-loading-bar v0.8.0
- * https://chieffancypants.github.io/angular-loading-bar
- * Copyright (c) 2015 Wes Cruver
- * License: MIT
- */
 /*
  * angular-loading-bar
  *
@@ -32,7 +26,8 @@ angular.module('chieffancypants.loadingBar', ['cfp.loadingBarInterceptor']);
 angular.module('cfp.loadingBarInterceptor', ['cfp.loadingBar'])
   .config(['$httpProvider', function ($httpProvider) {
 
-    var interceptor = ['$q', '$cacheFactory', '$timeout', '$rootScope', '$log', 'cfpLoadingBar', function ($q, $cacheFactory, $timeout, $rootScope, $log, cfpLoadingBar) {
+
+    var interceptor = ['$q', '$cacheFactory', '$timeout', '$rootScope', 'cfpLoadingBar', function ($q, $cacheFactory, $timeout, $rootScope, cfpLoadingBar) {
 
       /**
        * The total number of requests made
@@ -113,14 +108,9 @@ angular.module('cfp.loadingBarInterceptor', ['cfp.loadingBar'])
         },
 
         'response': function(response) {
-          if (!response || !response.config) {
-            $log.error('Broken interceptor detected: Config object not supplied in response:\n https://github.com/chieffancypants/angular-loading-bar/pull/50');
-            return response;
-          }
-
           if (!response.config.ignoreLoadingBar && !isCached(response.config)) {
             reqsCompleted++;
-            $rootScope.$broadcast('cfpLoadingBar:loaded', {url: response.config.url, result: response});
+            $rootScope.$broadcast('cfpLoadingBar:loaded', {url: response.config.url});
             if (reqsCompleted >= reqsTotal) {
               setComplete();
             } else {
@@ -131,14 +121,9 @@ angular.module('cfp.loadingBarInterceptor', ['cfp.loadingBar'])
         },
 
         'responseError': function(rejection) {
-          if (!rejection || !rejection.config) {
-            $log.error('Broken interceptor detected: Config object not supplied in rejection:\n https://github.com/chieffancypants/angular-loading-bar/pull/50');
-            return $q.reject(rejection);
-          }
-
           if (!rejection.config.ignoreLoadingBar && !isCached(rejection.config)) {
             reqsCompleted++;
-            $rootScope.$broadcast('cfpLoadingBar:loaded', {url: rejection.config.url, result: rejection});
+            $rootScope.$broadcast('cfpLoadingBar:loaded', {url: rejection.config.url});
             if (reqsCompleted >= reqsTotal) {
               setComplete();
             } else {
@@ -166,13 +151,13 @@ angular.module('cfp.loadingBarInterceptor', ['cfp.loadingBar'])
 angular.module('cfp.loadingBar', [])
   .provider('cfpLoadingBar', function() {
 
-    this.autoIncrement = true;
     this.includeSpinner = true;
     this.includeBar = true;
     this.latencyThreshold = 100;
     this.startSize = 0.02;
     this.parentSelector = 'body';
-    this.spinnerTemplate = '<div id="loading-bar-spinner"><div class="spinner-icon"></div></div>';
+    this.spinnerTemplate = '<div class="preloader"><div class="sk-cube-grid"><div class="sk-cube sk-cube1"></div><div class="sk-cube sk-cube2"></div><div class="sk-cube sk-cube3"></div><div class="sk-cube sk-cube4"></div><div class="sk-cube sk-cube5"></div><div class="sk-cube sk-cube6"></div><div class="sk-cube sk-cube7"></div><div class="sk-cube sk-cube8"></div><div class="sk-cube sk-cube9"></div></div></div>';
+    this.loadingBarTemplate = '<div id="loading-bar"><div class="bar"><div class="peg"></div></div></div>';
     this.loadingBarTemplate = '<div id="loading-bar"><div class="bar"><div class="peg"></div></div></div>';
 
     this.$get = ['$injector', '$document', '$timeout', '$rootScope', function ($injector, $document, $timeout, $rootScope) {
@@ -187,7 +172,6 @@ angular.module('cfp.loadingBar', [])
         started = false,
         status = 0;
 
-      var autoIncrement = this.autoIncrement;
       var includeSpinner = this.includeSpinner;
       var includeBar = this.includeBar;
       var startSize = this.startSize;
@@ -199,6 +183,8 @@ angular.module('cfp.loadingBar', [])
         if (!$animate) {
           $animate = $injector.get('$animate');
         }
+
+          $("#viewPage").addClass('blur');
 
         var $parent = $document.find($parentSelector).eq(0);
         $timeout.cancel(completeTimeout);
@@ -212,14 +198,16 @@ angular.module('cfp.loadingBar', [])
         started = true;
 
         if (includeBar) {
-          $animate.enter(loadingBarContainer, $parent, angular.element($parent[0].lastChild));
+          $animate.enter(loadingBarContainer, $parent);
         }
 
         if (includeSpinner) {
-          $animate.enter(spinner, $parent, angular.element($parent[0].lastChild));
+          $animate.enter(spinner, $parent);
         }
 
         _set(startSize);
+          debugger;
+
       }
 
       /**
@@ -231,6 +219,8 @@ angular.module('cfp.loadingBar', [])
         if (!started) {
           return;
         }
+
+
         var pct = (n * 100) + '%';
         loadingBar.css('width', pct);
         status = n;
@@ -238,12 +228,10 @@ angular.module('cfp.loadingBar', [])
         // increment loadingbar to give the illusion that there is always
         // progress but make sure to cancel the previous timeouts so we don't
         // have multiple incs running at the same time.
-        if (autoIncrement) {
-          $timeout.cancel(incTimeout);
-          incTimeout = $timeout(function() {
-            _inc();
-          }, 250);
-        }
+        $timeout.cancel(incTimeout);
+        incTimeout = $timeout(function() {
+          _inc();
+        }, 250);
       }
 
       /**
@@ -268,6 +256,7 @@ angular.module('cfp.loadingBar', [])
           rnd = (Math.random() * 3) / 100;
         } else if (stat >= 0.65 && stat < 0.9) {
           // increment between 0 - 2%
+
           rnd = (Math.random() * 2) / 100;
         } else if (stat >= 0.9 && stat < 0.99) {
           // finally, increment it .5 %
@@ -276,7 +265,6 @@ angular.module('cfp.loadingBar', [])
           // after 99%, don't increment:
           rnd = 0;
         }
-
         var pct = _status() + rnd;
         _set(pct);
       }
@@ -295,6 +283,8 @@ angular.module('cfp.loadingBar', [])
           $animate = $injector.get('$animate');
         }
 
+
+
         $rootScope.$broadcast('cfpLoadingBar:completed');
         _set(1);
 
@@ -306,6 +296,7 @@ angular.module('cfp.loadingBar', [])
           if (promise && promise.then) {
             promise.then(_completeAnimation);
           }
+            $("#viewPage").removeClass('blur');
           $animate.leave(spinner);
         }, 500);
       }
@@ -316,7 +307,6 @@ angular.module('cfp.loadingBar', [])
         status           : _status,
         inc              : _inc,
         complete         : _complete,
-        autoIncrement    : this.autoIncrement,
         includeSpinner   : this.includeSpinner,
         latencyThreshold : this.latencyThreshold,
         parentSelector   : this.parentSelector,

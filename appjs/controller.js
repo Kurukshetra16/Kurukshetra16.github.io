@@ -1,6 +1,6 @@
 /*UPDATES*/
 var myApp = angular.module("myAppControllers",[]);
-myApp.controller('updateController',['$scope','$http','$timeout',function($scope,$http,$timeout){
+myApp.controller('updateController',['$scope','$http','$timeout','cfpLoadingBar',function($scope,$http,$timeout,cfpLoadingBar){
 $scope.updates = [];
 // $scope.dataLoaded = false;
 $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/updates.json'}).success(function(data)
@@ -8,7 +8,7 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/updates.json'}).succes
 				    jsonstr = data; // response data 
 				   	console.log("updates"+jsonstr.length);
 				   	
-				   	$timeout(function(){$scope.dataLoaded = true;},1000);
+				   	// $timeout(function(){$scope.dataLoaded = true;},1000);
 				   	
 				   	for(var i=0;i<jsonstr.length;i++)
 				   		{
@@ -31,7 +31,7 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/updates.json'}).succes
 }]);
 
 /*EVENTS*/
-myApp.controller('eventsController',['$scope','$http','$location','$timeout',function($scope,$http,$location,$timeout){
+myApp.controller('eventsController',['$scope','$http','$location','$timeout','cfpLoadingBar',function($scope,$http,$location,$timeout, cfpLoadingBar){
 $scope.events = [];
 $scope.tabs = [];
 $scope.eventName;
@@ -77,7 +77,7 @@ $scope.showTab = function(tabtitle)
 
 }]);
 /*WORKSHOPS*/
-myApp.controller('wkshopsController',['$scope','$http','$location','$timeout',function($scope,$http,$location,$timeout){
+myApp.controller('wkshopsController',['$scope','$http','$location','$timeout','cfpLoadingBar',function($scope,$http,$location,$timeout,cfpLoadingBar){
 $scope.events = [];
 $scope.tabs = [];
 $scope.eventName;
@@ -122,7 +122,7 @@ $scope.showTab = function(tabtitle)
 }]);
 
 /*HOSPI*/
-myApp.controller('hospiController',['$scope','$document','$http',function($scope,$document,$http){
+myApp.controller('hospiController',['$scope','$document','$http','cfpLoadingBar',function($scope,$document,$http,cfpLoadingBar){
 $scope.nodes = [
 {
 	title:'Introduction',
@@ -195,7 +195,7 @@ $scope.nodeInfo = [];
     };
 }]);
 // guestlectures
-myApp.controller('glController',['$scope','$http','$timeout',function($scope,$http,$timeout){
+myApp.controller('glController',['$scope','$http','$timeout','cfpLoadingBar',function($scope,$http,$timeout,cfpLoadingBar){
 $scope.nodes =[];
 
 function init(){
@@ -241,7 +241,7 @@ $scope.clicked = function(name,id)
 }]);
 
 //karnival
-myApp.controller('karnivalController',['$scope','$http','$timeout',function($scope,$http,$timeout){
+myApp.controller('karnivalController',['$scope','$http','$timeout','cfpLoadingBar',function($scope,$http,$timeout,cfpLoadingBar){
 $scope.nodes =[];
 
 	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/karnivals.json'}).success(function(data)
@@ -408,7 +408,7 @@ $scope.clicked = function(clickedid)
 }]);
 /*CONTACTS*/
 /*WORKSHOPS*/
-myApp.controller('contactsController',['$scope','$http','$location','$timeout',function($scope,$http,$location,$timeout){
+myApp.controller('contactsController',['$scope','$http','$location','$timeout','cfpLoadingBar',function($scope,$http,$location,$timeout,cfpLoadingBar){
 $scope.buckets = [];
 $scope.members = [];
 $scope.bucketname = '';
