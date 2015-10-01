@@ -370,11 +370,13 @@
     $(ccid).addClass("dropDown");
     $(".container").children().fadeOut().finish();
     $(".cd-tabs").children().fadeOut().finish();
+    $(".left").fadeOut(10).finish();
   }
   function showStuffBelow()
   {
     $(".container").children().fadeIn();
     $(".cd-tabs").children().fadeIn(); 
+    $(".left").fadeIn(10);
   }
   function hideAllHeaders()
   {

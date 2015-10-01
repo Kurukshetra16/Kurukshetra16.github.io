@@ -1,18 +1,14 @@
-/*NAVBAR*/
-myApp.controller('navController',['$scope','$http',function($scope,$http){
-
-}]);
-
 /*UPDATES*/
 myApp.controller('updateController',['$scope','$http','$timeout',function($scope,$http,$timeout){
 $scope.updates = [];
-$scope.dataLoaded = false;
+// $scope.dataLoaded = false;
 $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/updates.json'}).success(function(data)
 				   {
 				    jsonstr = data; // response data 
 				   	console.log("updates"+jsonstr.length);
-				   	$timeout(function(){$scope.dataLoaded = true;},100);
-				   	// alert($scope.dataLoaded);
+				   	
+				   	$timeout(function(){$scope.dataLoaded = true;},1000);
+				   	
 				   	for(var i=0;i<jsonstr.length;i++)
 				   		{
 				   			$scope.updates[i] = jsonstr[i]['title'];
@@ -41,7 +37,7 @@ $scope.eventName;
 var path = $location.path();
 path = '/'+path.substr(8,path.length);
 $scope.category = path.substr(1,path.length).toUpperCase()+" EVENTS";
-$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/categories'+path+'.json'}).success(function(data)
+	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/categories'+path+'.json'}).success(function(data)
 				   {
 				    jsonstr = data['category']['events']; // response data 
 				   	for(i=0;i<jsonstr.length;i++)
@@ -49,6 +45,7 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/categories'+path+'.jso
 				   			$scope.events[i] = jsonstr[i];
 				   			
 				   		}
+				  
 				   });
 $scope.getEvent = function(eventname){
 	eventName = eventname;
@@ -66,7 +63,6 @@ function init(){
 				   			$scope.tabs[i]['id']=i;
 				   		}
 					$(".left").animate({'marginLeft':"0px"},500,'easeOutSine');
-
 				   	$timeout(init, 10);
 });
 }
@@ -113,6 +109,7 @@ function init(){
 				   		}
 					$(".left").animate({'marginLeft':"0px"},500,'easeOutSine');
 				   	$timeout(init, 10);
+
 });
 }
 $scope.showTab = function(tabtitle)
@@ -333,13 +330,11 @@ function closeall(){
 }
 
 function moveKarsUp(){
-  $(".karBox").addClass("floatUp");
   $(".bottomPage").addClass("rotateUp");
   $(".topPage").addClass("zoomIn");
 }
 
 function moveKarsDown(){
-  $(".karBox").removeClass("floatUp");
   $(".bottomPage").removeClass("rotateUp");
   $(".topPage").removeClass("zoomIn");
 

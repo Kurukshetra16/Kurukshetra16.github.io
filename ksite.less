@@ -7,9 +7,8 @@ html,body{
 overflow-x:hidden !important;
 .transition(0.65s ease);
  background-color:rgb(4,17,52);	
- background-image:url(images/patterns/constellations.png);
  background-position:0 0 center;
- background-size: 500px 500px;
+ background-size: 800px 800px;
 .animation(animation6 30s linear infinite);
 }
 @media all and (max-device-width:1440px) {
@@ -47,7 +46,7 @@ ul{
 	 background-color:rgb(4,17,52);	
 	 background-image:url(images/patterns/constellations.png);
 	 background-position:0 0 center;
-	 background-size: 500px 500px;
+	 background-size: 800px 800px;
 
 }
 /* NAVBAR */
@@ -88,7 +87,7 @@ A.text.dropdown-toggle:focus{
 	overflow-x:hidden;
 	background-image:url(images/patterns/constellations.png);	
 	background-color:rgb(4,17,52) !important;
-	background-size:500px 500px;
+	background-size:800px 800px;
 	z-index:2;
 }
 nav.navbar {
@@ -251,14 +250,14 @@ li ul{
 	margin-left:-14% !important;
 }
 .jarvisContainer .allImages{
-  width:400px !important;
-  height:400px !important;
+  width:390px !important;
+  height:390px !important;
   margin-top: -13%;
   margin-left: -14%;
   }
 img.slide {
-  width:400px !important;
-  height:400px !important;
+  width:390px !important;
+  height:390px !important;
   margin-top: -100%;
 }
 /*gl*/
@@ -274,7 +273,7 @@ img.slide {
 	margin-left:0 !important;
 	transform:scale(1) !important;
 	-webkit-transform:scale(1) !important;
-	margin-top:-70% !important;
+	margin-top:-28% !important;
 	visibility: visible !important;
 }
 .karBox .topPage{
@@ -311,12 +310,13 @@ img.slide {
     right:0;
     }
 .left{
-		margin-top:50px;
+		position:absolute;
+		top:10% !important;
 	}
 .navbar-header{
 		background-image:url(images/patterns/constellations.png);
 		background-color:rgba(4,17,52,0.65) !important;
-		background-size:500px 500px;
+		background-size:800px 800px;
 		overflow-y:hidden;
 	}
 .headerBox{
@@ -420,14 +420,13 @@ ul li.eventCircleNav{
 .zoomIn{
 	transform:scale(1) !important;
 	-webkit-transform:scale(1) !important;
-	margin-top:20% !important;
+	margin-top:-70% !important;
 	visibility: visible !important;
 }
 .karBox{
 	top:1000px;
 	position:absolute;
 	margin:auto;
-
 }
 .karBox .topPage{
   z-index:2;
@@ -448,7 +447,7 @@ ul li.eventCircleNav{
   transform:scale(3.5);
   -webkit-transform:scale(3.5);
   visibility: hidden;
-.transition(all 0.4s ease);
+.transition(all 0.2s ease);
 }
 .hospi_content{
 	 margin-top:100px;
@@ -530,7 +529,7 @@ UL.nav.navbar-nav.navbar-right{
   position:absolute;
   width:100%;
   height:auto;
-  margin-top:110px;
+  top:25%;
   margin-left:100%;
   background:rgba(0,0,0,0.85); 
   padding-bottom:40px;
@@ -573,6 +572,7 @@ UL.nav.navbar-nav.navbar-right{
 	left:0;
 	width:100%;
 	height:100%;
+	overflow:hidden;
 	.transition(all 0.50s ease);
 }
 .imagebox h5{
@@ -1711,7 +1711,7 @@ li img{
   height:550px;
   border-radius:50%;
   margin-top:50px;
-  margin-left:30px;
+  margin-left:5%;
 }
 /*karnival page*/
 .karCircles{
@@ -2041,18 +2041,80 @@ li img{
 .tabContainer li:hover{
 	background:rgba(251,66,80,0.9);
 }
-/*preloader*/
-.preloader{
+.preloader
+{
 	width:100%;
 	height:100%;
-	position:absolute;
-	top:0;
-	left:0;
-	z-index:3;
-	background-image:url(images/patterns/constellations.png);
-	background-size:100px 100px;
-	background-position:50% 50%;
-	background-repeat: no-repeat;
+	background-color:rgb(4,17,52);
+	background-size:800px 800px;
+	background-image:url(images/patterns/constellations/png);
+}
+.sk-cube-grid {
+  width: 80px;
+  height: 80px;
+  border-radius:50%;
+  margin: 100px auto;
+  overflow:hidden;
+  top:45%;
+  left:45%;
+  position:absolute;
+}
+.sk-cube-grid .sk-cube {
+  width: 33%;
+  height: 33%;
+  border-radius:50%;
+  background-color: #fff;
+  box-shadow:0px 4px 4px rgba(0,255,255,0.1);
+  float: left;
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+}
+.sk-cube-grid .sk-cube1 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube2 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube3 {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s; }
+.sk-cube-grid .sk-cube4 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube5 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube6 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube7 {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s; }
+.sk-cube-grid .sk-cube8 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube9 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1); 
+  }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1);
+  } 
 }
 .typing-loader{
   margin-top:20%;
