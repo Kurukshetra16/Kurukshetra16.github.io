@@ -306,7 +306,7 @@ $(".closeme").click(function(){
       var ele = $(this);
       index = (index+1)%4;
       var currentanim = anims[index];
-      setTimeout(function(){ $(ele).addClass(currentanim).fadeOut(200*i+100);},200*i+100);
+      setTimeout(function(){ $(ele).addClass(currentanim).fadeOut(100*i+100);},100*i+100);
   });
 }
 
@@ -314,7 +314,7 @@ $(".closeme").click(function(){
   function mpopOut(){
   $(".karCircle").each(function(i){
       var ele = $(this);
-      setTimeout(function(){ $(ele).addClass("flyLeft").fadeOut(200*i+100);},200*i+100);
+      setTimeout(function(){ $(ele).addClass("flyLeft").fadeOut(100*i+100);},100*i+100);
   });
 }
 function popIn(){
@@ -331,14 +331,11 @@ function closeall(){
 }
 
 function moveKarsUp(){
-  $(".bottomPage").addClass("rotateUp");
   $(".topPage").addClass("zoomIn");
 }
 
 function moveKarsDown(){
-  $(".bottomPage").removeClass("rotateUp");
   $(".topPage").removeClass("zoomIn");
-
 }
 };
 

@@ -7,7 +7,7 @@
       <div class="item paddingReset">
         <div class="anno scrim">
           <img ng-click="clicked(nodeItem.title,nodeItem.id)" class="glCircle" src="{{nodeItem.avatar}}" id="{{nodeItem.id}}">
-          <h4 class="glCircleName text-center" ng-bind-html="nodeItem.title"><br/>
+          <h4 class="glCircleName" ng-bind-html="nodeItem.title"><br/>
             <!-- <span style="font-size:1.3rem" ng-bind-html="nodeItem.desc"></span> -->
           </h4>
         </div>
@@ -21,12 +21,12 @@
     <div class="glbottom1 hidden-xs"></div>
     <div class="glbottom2 hidden-xs"></div>
     <div class="glpage1 col-md-12 col-xs-12 paddingReset clearfix">
-      <div class="col-md-2">
+      <div class="col-md-2 col-xs-2">
         <h4 class="redribbon">{{date}} at {{Time}} in {{venue}}</h4>
       </div>
       <div class="col-md-2 col-md-push-3 col-xs-12 col-xs-push-4">
           <img src="images/ceg.jpg"/>
-      <h4 class="glName text-center" style="font-size:2rem;font-family:'Raleway',sans-serif">{{clickedName}}</h4>
+      <h4 class="glName" style="font-size:2rem;font-family:'Raleway',sans-serif">{{clickedName}}</h4>
       </div>
       
       <div class="glcontent col-md-12 col-xs-12" ng-bind-html="about">
@@ -39,9 +39,9 @@
       </div>
       <div class="col-md-2 col-md-push-3 col-xs-12 col-xs-push-3">
           <img src="images/gplay.png"/>
-          <h4 class="glName text-center" style="font-size:2rem;font-family:'Raleway',sans-serif">{{clickedName}}</h4>
+          <h4 class="glName" style="font-size:2rem;font-family:'Raleway',sans-serif">{{clickedName}}</h4>
       </div>
-      <h4 class="ribbontitle text-center">{{clickedName}}</h4>
+      <h4 class="ribbontitle">{{clickedName}}</h4>
       <div class="glcontent col-md-12 col-xs-12" ng-bind-html="desc">
     </div>
     <div class="prev"><i class="fa fa-angle-left"></i> The Speaker</div>

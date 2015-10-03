@@ -1,14 +1,10 @@
 @import '3L/3L.less';
-@font-face {
-    font-family: Samarkan;
-    src: url(samarkan.ttf);
-}
 html,body{
 overflow-x:hidden !important;
 .transition(0.65s ease);
  background-color:rgb(4,17,52);	
  background-position:0 0 center;
- background-size: 800px 800px;
+ background-size: 1000px 1000px;
 }
 @media all and (max-device-width:1440px) {
 	html,body{
@@ -44,9 +40,8 @@ ul{
 	.transition(0.65s ease);
 	 background-color:rgb(4,17,52);	
 	 background-image:url(images/patterns/constellations.png),url(images/patterns/constellations.png);
-	 background-position:0 0 center, 0 0 center;
-	 background-size: 800px 800px;
-	 .animation(animation6 20s linear infinite);
+	 background-size: 1000px 1000px;
+	 
 }
 /* NAVBAR */
 a:focus{
@@ -87,7 +82,7 @@ A.text.dropdown-toggle:focus{
 	background-image:url(images/patterns/constellations.png),url(images/patterns/constellations.png);
 	background-position:0 0 center, 0 0 center;
 	background-color:rgb(4,17,52) !important;
-	background-size:800px 800px;
+	background-size:1000px 1000px;
 	z-index:2;
 }
 nav.navbar {
@@ -160,7 +155,7 @@ background-size: 1000% 1000%;
 	height:auto;
 }
 .headerBox{
- z-index:2;
+	height:230px;
 }
 #ceg{
 	width:55%;
@@ -238,6 +233,14 @@ li ul{
  }
 }
 @media all and (max-width: 640px) and (min-width: 320px) {
+/*footer*/
+.footer{
+	height:120px !important;
+}
+	/*sponsors*/
+.sponsor-img{
+		padding-left:50px;
+	}
 .tabContainer li{
 	padding:10px;
 	margin-bottom:70px !important;
@@ -256,7 +259,7 @@ li ul{
   width:390px !important;
   height:390px !important;
   margin-top: -13%;
-  margin-left: -14%;
+  margin-left: -11% !important;
   }
 img.slide {
   width:390px !important;
@@ -264,20 +267,24 @@ img.slide {
   margin-top: -100%;
 }
 /*gl*/
-.glAnim{
-	margin-bottom:250px;
-}
 .glpage1{
-  margin-top:-50%;
+  margin-top:150px;
   position:relative;
 }
+.glCircleName{
+	margin-left: -20px !important;
+}
 /*topPage*/
+.shape{
+	font-size:4rem !important;
+}
 .zoomIn{
 	margin-left:0 !important;
-	transform:scale(1) !important;
-	-webkit-transform:scale(1) !important;
-	margin-top:-28% !important;
+	transform:scale(1)  rotateX(0deg)!important;
+	-webkit-transform:scale(1) rotateX(0deg) !important;
+	margin-top:-5% !important;
 	visibility: visible !important;
+	.transition(all 0.1s linear);
 }
 .karBox .topPage{
 	z-index:2;
@@ -291,10 +298,10 @@ img.slide {
   margin-bottom:30px;
   padding:25px;
   padding-bottom:10px;
-  transform:scale(3.5);
-  -webkit-transform:scale(3.5);
+  transform:scale(.1) rotateX(-60deg);
+  -webkit-transform:scale(.1) rotateX(-60deg);
   visibility: hidden;
-  .transition(all 0.4s linear);	
+  .transition(all 0.2s linear);	
   background:rgba(255,255,255,0.8);
   }
 /*hospi*/
@@ -319,7 +326,7 @@ img.slide {
 .navbar-header{
 		background-image:url(images/patterns/constellations.png),url(images/patterns/constellations.png);
 	 	background-position:0 0 center, 0 0 center;background-color:rgba(4,17,52,0.65) !important;
-		background-size:800px 800px;
+		background-size:1000px 1000px;
 		overflow-y:hidden;
 	}
 .headerBox{
@@ -395,8 +402,11 @@ ul li.eventCircleNav{
 }
 
 @media all and (min-width: 960px) {
+.overlay{
+	.animation(animation6 10s linear infinite);
+}
 .shape{
-	font-size:8rem !important;
+	font-size:5rem !important;
 }
 .tabContainer li{
 	padding:15px;
@@ -424,9 +434,9 @@ ul li.eventCircleNav{
 /*karnival*/
 /*topPage*/
 .zoomIn{
-	transform:scale(1) !important;
-	-webkit-transform:scale(1) !important;
-	margin-top:-70% !important;
+	transform:scale(1) rotateX(0deg) rotateY(0deg)!important;
+	-webkit-transform:scale(1) rotateX(0deg)  rotateY(0deg)!important;
+	margin-top:-77% !important;
 	visibility: visible !important;
 }
 .karBox{
@@ -450,10 +460,10 @@ ul li.eventCircleNav{
   border-left:10px solid rgb(206,3,3);
   border-bottom:10px solid rgb(206,3,3);
   padding-bottom:20px;
-  transform:scale(3.5);
-  -webkit-transform:scale(3.5);
+  transform:scale(.5) rotateX(-60deg) rotateY(80deg);
+  -webkit-transform:scale(.5) rotateX(-60deg) rotateY(80deg);
   visibility: hidden;
-.transition(all 0.2s ease);
+.transition(all 0.5s ease);
 }
 .hospi_content{
 	 margin-top:100px;
@@ -497,6 +507,7 @@ UL.nav.navbar-nav.navbar-right{
 /*events*/
 .eventContainer{
 	padding-top:50px;
+	padding-left:50px;
 }
 /*jarvis*/
 .jarvisContainer{
@@ -552,14 +563,14 @@ UL.nav.navbar-nav.navbar-right{
   color:#fff;
 }
 .imagebox{
-  width:300px;
-  height:300px;
+  width:260px;
+  height:260px;
   border-radius:50% !important;
   border:15px solid rgb(250,16,14);
   border-right-color:rgb(196,2,0);
   border-bottom-color:rgb(196,2,0);
   background:#fff;
-  margin-bottom:50px;
+  margin-bottom:30px;
   cursor: pointer;
   padding:15px;
   background:none;
@@ -585,7 +596,7 @@ UL.nav.navbar-nav.navbar-right{
 	font-family:'Raleway',sans-serif;
 	font-size:22px;
 	position:relative;
-	margin-top:130px;
+	margin-top:48%;
 	color:rgb(200,247,250) !important;
 	text-align: center;
 	text-shadow:0px 2px 2px rgba(255,255,255,0.3);
@@ -1137,7 +1148,6 @@ ul{
   width: 80%;
   margin-left:10%;
   margin-right:10%;
-  margin-bottom: 200px;
   margin-top: 50px;
 }
 .glCircle{
@@ -1176,6 +1186,7 @@ ul{
   margin-left:25px;
   position:relative;
   margin-top: 10px;
+  text-align: center;
   .animation(animation3 @duration-color linear  infinite );
 }
 .glCircleName h5{
@@ -1319,7 +1330,7 @@ ul{
 .home-event-circles{
   width:auto;
   height:100%;
-  margin-top:-30px;
+  margin-top:-70px;
   margin-left:auto;
   margin-right:auto;
   display:block;
@@ -1387,7 +1398,8 @@ border-top-color:rgb(206,3,3);
 	}
 }
 /*bg*/
-.animation3() {
+.animation3()
+{
   	0%{
 		background-color:rgb(54,214,215);
 	}
@@ -1505,7 +1517,7 @@ border-top-color:rgb(206,3,3);
   text-shadow:0px 1px 2px rgba(0,0,0,0.3);
 }
 .home-event-circle .text{
-  font-size:14px;
+  font-size:1.7rem;
   margin-top:40px;
   text-align: center;
   color:rgb(200,247,250);
@@ -1539,11 +1551,11 @@ border-top-color:rgb(206,3,3);
  background:none;
  }
 /*navbar circles glow colors */
-@color-home:rgba(254,0,0,0.12);
-@color-xceed:rgba(253,254,2,0.12);
-@color-karnival:rgba(129,254,4,0.12);
-@color-events:rgba(174,211,253,0.12);
-@color-workshops:rgba(27,250,236,0.12);
+@color-home:rgba(254,0,0,0.02);
+@color-xceed:rgba(253,254,2,0.02);
+@color-karnival:rgba(129,254,4,0.02);
+@color-events:rgba(174,211,253,0.02);
+@color-workshops:rgba(27,250,236,0.02);
 .animation5()
 {
 0%{
@@ -1584,16 +1596,12 @@ border-top-color:rgb(206,3,3);
 	0%{
 	 background-position:0 0,0 0;	
 	}
-	33%{
-		background-position:33% 50%, 33% 50%;	}
-	66%{
-		background-position:66%50%,66% 50%;	}
 	100%{
-	 background-position:100% 50%,100% 50%;	
+	 background-position:500px 500px,500px 500px;	
 	}
 }
 .mg-lg{
-  margin-right:5px !important;
+  margin-right:7px !important;
 }
 .mg-xs{
 	margin-right:-25px !important;
@@ -1687,6 +1695,7 @@ li .list-icon{
 }
 .jarvisContainer .allImages{
   position:absolute;
+  margin-left:5%;
   }
 .allImages li{
   position: absolute;
@@ -1709,9 +1718,9 @@ li img{
   color:rgb(54,214,215);
 }
 .karCircles .karCircle{
-  width:300px;
-  height:300px;
-  margin-bottom:50px;
+  width:260px;
+  height:260px;
+  margin-bottom:30px;
   border-radius:50%;
   .transition(all 0.4s ease);
 }
@@ -1723,10 +1732,10 @@ li img{
   border-radius:50%;
 }
 .overlayContainer .slice{
-  width:300px;
-  height:300px;
+  width:260px;
+  height:260px;
   background:rgba(255,255,255,0.3);
-  clip:rect(0,150px,150px,0);
+  clip:rect(0,130px,130px,0);
 }
 .overlayContainer .slice1{
   transform:rotate(45deg);
@@ -1756,7 +1765,7 @@ li img{
 .karCircle img{
   width:100%;
   height:100%;
-  top:-15%;
+  top:-19%;
   border-radius:50%;
   position:absolute;
   border:5px solid @border-main;
@@ -2030,7 +2039,7 @@ li img{
 	width:100% !important;
 	height:100% !important;
 	background-color:rgb(4,17,52) !important;
-	background-size:800px 800px !important;
+	background-size:1000px 1000px !important;
 	background-image:url(images/patterns/constellations.png),url(images/patterns/constellations.png) !important;
 	background-position:0 0 center, 0 0 center;
 }
@@ -2114,3 +2123,100 @@ li img{
   font-family:'Orbitron',sans-serif;
   color:aqua;
   }
+  /*loader*/
+  #loading-bar,
+#loading-bar-spinner {
+  pointer-events: none;
+  -webkit-pointer-events: none;
+  -webkit-transition: 350ms linear all;
+  -moz-transition: 350ms linear all;
+  -o-transition: 350ms linear all;
+  transition: 350ms linear all;
+}
+
+#loading-bar.ng-enter,
+#loading-bar.ng-leave.ng-leave-active,
+#loading-bar-spinner.ng-enter,
+#loading-bar-spinner.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+#loading-bar.ng-enter.ng-enter-active,
+#loading-bar.ng-leave,
+#loading-bar-spinner.ng-enter.ng-enter-active,
+#loading-bar-spinner.ng-leave {
+  opacity: 1;
+}
+
+#loading-bar .bar {
+  -webkit-transition: width 350ms;
+  -moz-transition: width 350ms;
+  -o-transition: width 350ms;
+  transition: width 350ms;
+  background-color: rgb(250,16,14);
+  background-image:url(images/patterns/constellations.png);
+  background-size:1000px 1000px;
+  .animation(animation3 20s linear infinite);
+  position: fixed;
+  z-index: 10002;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  border-bottom-right-radius: 1px;
+  border-top-right-radius: 1px;
+}
+
+/* Fancy blur effect */
+#loading-bar .peg {
+  position: absolute;
+  width: 100%;
+  right: 0;
+  top: 0;
+  height: 100%;
+  opacity: .1;
+  -moz-box-shadow: #29d 1px 0 6px 1px;
+  -ms-box-shadow: #29d 1px 0 6px 1px;
+  -webkit-box-shadow: #29d 1px 0 6px 1px;
+  box-shadow: #29d 1px 0 6px 1px;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+}
+/*footer*/
+.footer{
+	width:100%;
+	height:50px;
+	position:relative;
+	top:1000px;
+	padding:5px;
+	background-color: rgba(0,0,0,0.2);
+	color:#fff;
+	font-size:1.8rem;
+	line-height:3;
+	font-family:'Raleway',sans-serif;
+	clear:both;
+	margin-top:-50px;
+}
+.footer a{
+	cursor: pointer;
+	margin-right:10px;
+	color:#fff;
+	display:inline;
+	float:left;
+	.transition(all 0.5s linear);
+}
+.footer .fa{
+	padding:8px;
+	border-radius:50%;
+	background:rgba(255,255,255,0.3);
+	.transition(all 0.5s linear);
+}
+.footer .fa:hover{
+	color:#000;
+	background:rgba(255,255,255,0.4);
+	box-shadow: 0px 1px 1px rgba(255,255,255,0.1);
+}
+.archives{
+	font-weight:bold;
+}
