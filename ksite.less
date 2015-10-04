@@ -2021,7 +2021,7 @@ li img{
 }
 .tabContainer li:hover{
 	background:rgba(251,66,80,0.9);
-}
+}/*
 .preloader
 {
 	width:100% !important;
@@ -2030,8 +2030,28 @@ li img{
 	background-size:1000px 1000px !important;
 	background-image:url(images/patterns/constellations.png),url(images/patterns/constellations.png) !important;
 	background-position:0 0 center, 0 0 center;
+}*/
+
+.ksprite{
+	width:740px;
+	height:720px;
+	position:absolute;
+	z-index:1000;
+	-webkit-transform:scale(0.2);
+	transform:scale(0.2);
+	background-image:url(images/ksprite.png);
+	top:25%;
+	left:25%;	
+	animation:play 1.2s steps(31) infinite;	
+	-webkit-animation:play 1.2s steps(31) infinite;	
+	}
+@keyframes play {
+   100% { background-position: -22320px; }
 }
-.sk-cube-grid {
+@-webkit-keyframes play {
+   100% { background-position: -22320px; }
+}
+/*.sk-cube-grid {
   width: 80px;
   height: 80px;
   border-radius:50%;
@@ -2098,7 +2118,7 @@ li img{
             transform: scale3D(0, 0, 1);
   } 
 }
-.typing-loader{
+*/.typing-loader{
   margin-top:20%;
   margin-left:auto;
   margin-right:auto;
