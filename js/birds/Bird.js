@@ -10,6 +10,7 @@ var Bird = function (slope) {
 	v( 0, 1,   0 );
 	v( 0.5,   0.5,   1 );
 	v( -10, -10*slope*slope, 0.5 );
+	v( 2, 2*slope*slope, 0.5 );
 	// console.log(slope);
 
 	// v(   0,   2, - 6 );
@@ -22,6 +23,12 @@ var Bird = function (slope) {
 
 	f3( 3, 2, 1 );
 	f3( 3, 1, 0 );
+
+	f3( 0, 2, 1 );
+	f3( 0, 4, 2 );
+
+	f3( 4, 2, 1 );
+	f3( 4, 1, 0 );
 
 	this.computeFaceNormals();
 
