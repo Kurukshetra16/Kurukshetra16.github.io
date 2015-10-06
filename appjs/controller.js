@@ -1,8 +1,14 @@
+
 /*UPDATES*/
 var myApp = angular.module("myAppControllers",[]);
-myApp.controller('updateController',['$scope','$http','$timeout','cfpLoadingBar',function($scope,$http,$timeout,cfpLoadingBar){
+myApp.controller('updateController',['$scope','$http','$timeout' , '$auth','$route','cfpLoadingBar',
+					function($scope,$http,$timeout,$auth,$route, cfpLoadingBar, Account){
 $scope.updates = [];
 // $scope.dataLoaded = false;
+$scope.isLoggedin = $auth.isAuthenticated();
+
+$scope.kid = "";
+$scope.name = "";
 $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/updates.json'}).success(function(data)
 				   {
 				    jsonstr = data; // response data 
@@ -27,6 +33,34 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/updates.json'}).succes
 				  });
 
 				   });
+
+    $scope.authenticate = function(provider) {
+    	console.log("authenticate")
+      $auth.authenticate(provider)
+        .then(function(response) {
+          console.log('You have successfully signed in with ' + provider);
+          console.log(response.data.kid);
+          console.log(response.data.name);
+          $scope.kid = response.data.kid;
+          $scope.name = response.data.name;	
+       $scope.isLoggedin = true;
+        $route.reload();
+        })
+        .catch(function(response) {
+   		  console.log('Error signing in');
+        });
+    };
+
+    $scope.logout = function(argument) {
+    if (!$auth.isAuthenticated()) { return; }
+    $auth.logout()
+      .then(function() {
+        console.log('You have been logged out');
+              $scope.isLoggedin = false;
+       		  $route.reload();
+      	
+      });
+   };
 
 }]);
 
@@ -464,3 +498,27 @@ function closeall(){
 };
 
 }]);
+
+myApp.controller('ProfileCtrl', function($scope, $auth, Account) {
+    $scope.getProfile = function() {
+      Account.getProfile()
+        .then(function(response) {
+          $scope.user = response.data;
+        })
+        .catch(function(response) {
+          console.log(response.data.message, response.status);
+        });
+    };
+    $scope.updateProfile = function() {
+      Account.updateProfile($scope.user)
+        .then(function() {
+          console.log('Profile has been updated');
+        })
+        .catch(function(response) {
+          toastr.error(response.data.message, response.status);
+        });
+    };
+
+
+    $scope.getProfile();
+  });

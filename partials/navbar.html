@@ -233,10 +233,16 @@
   </div>
 </div>
 <div class="col-md-1 mg-lg col-xs-6">
-  <div id="loginNav" class="home-event-circle">
+  <div ng-show="!isLoggedin" id="loginNav" class="home-event-circle">
     <i class="fa fa-key circle-icon"></i>
     <div class="text">LOGIN</div>
   </div>
+  <a href="" ng-click="logout()">
+  <div ng-show="isLoggedin" id="accountNav" class="home-event-circle">
+    <i class="fa fa-key circle-icon"></i>
+    <div class="text">ACCOUNT</div>
+  </div>
+</a>
 </div>
 </div>
 
@@ -294,11 +300,17 @@
              <!--  <li class="eventCircle"><a href="#/loginK"><i class="fa fa-gear"></i></a>
                   <div class="btmText">K!</div>
               </li>
-              --><li class="eventCircle" style="margin-right:20px"><i class="fa fa-facebook"></i>
+              --><li class="eventCircle" style="margin-right:20px">
+              <a href="" ng-click="authenticate('facebook')">
+                <i class="fa fa-facebook"></i>
                 <div class="btmText">Facebook</div>
+              </a>
               </li>
-              <li class="eventCircle"><i class="fa fa-google"></i>
-                <div class="btmText">Google+</div>
+              <li class="eventCircle">
+                <a href="" ng-click="authenticate('google')">
+                  <i class="fa fa-google"></i>
+                  <div class="btmText">Google+</div>
+                </a>
               </li>
             </ul>
   </div>

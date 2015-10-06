@@ -9,12 +9,12 @@
 <body ng-app="myApp">
   <div id="container"></div>
  <div class="overlay" ng-controller="updateController">
+  <!-- <div ng-if="!isAuthenticated()"> Hola!! </div> -->
  <div ng-include="'partials/header.html'"></div>
       <div ng-include="'partials/navbar.html'"></div>
       <div ng-view id="main"></div> 
  <div ng-include="'partials/footer.html'"></div>
  </div>
-
   
 </body>
 <!--scripts-->
@@ -27,6 +27,9 @@
  <script type="text/javascript" src="js/angular/angular.new.js"></script>
   <script type="text/javascript" src="js/angular-route/angular-route.js"></script>
  <script type="text/javascript" src="js/angular-sanitize/angular-sanitize.min.js"></script>
+  <script type="text/javascript" src="js/satellizer.js"></script>
+
+ 
  <script type="text/javascript" src="appjs/app.js"></script>
  <script type="text/javascript" src="appjs/services.js"></script>
  <script type="text/javascript" src="appjs/controller.js"></script>
