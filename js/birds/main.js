@@ -42,15 +42,15 @@ var Boid = function() {
 
 					this.move();
 					if(this.position.x<0 || this.position.y<0){
-						// console.log('Outside')
-						// console.log(boids.indexOf(this));
-						// index = boids.indexOf(this);
-						// console.log(index+' '+birds.length);
+					// 	// console.log('Outside')
+					// 	// console.log(boids.indexOf(this));
+					// 	// index = boids.indexOf(this);
+					// 	// console.log(index+' '+birds.length);
 
-						// boids.splice(index,1);
+					// 	// boids.splice(index,1);
 
-						// birds.splice(index,1);
-						// console.log('a '+index+' '+birds.length);
+					// 	// birds.splice(index,1);
+					// 	// console.log('a '+index+' '+birds.length);
 						if(_moving){
 							limit++;
 						}
@@ -115,13 +115,13 @@ var Boid = function() {
 					_mouse_pos = target;
 					var distance = this.position.distanceTo( target );
 					// console.log('hmm');
-					if ( distance < SCREEN_WIDTH/20 ) {
+					if ( distance < SCREEN_WIDTH/10 ) {
 
 						var steer = new THREE.Vector3();
 
 						// steer.subVectors(  target, this.position );
 						steer.subVectors(  this.position, target );
-						steer.multiplyScalar( 1.0 / distance );
+						steer.multiplyScalar( -0.1 / distance );
 
 						_acceleration.add( steer );
 
@@ -286,8 +286,8 @@ var Boid = function() {
 			function addBird(i,goal){
 				color = new THREE.Color( getRandomColor() );
 				boid = boids[ i ] = new Boid();
-					boid.position.x = SCREEN_WIDTH/2 + Math.random() * 400 - 200;
-					boid.position.y = SCREEN_HEIGHT/2 + Math.random() * 400 - 200;
+					boid.position.x = SCREEN_WIDTH/2 + Math.random() * SCREEN_WIDTH - 200;
+					boid.position.y = SCREEN_HEIGHT/2 + Math.random() * SCREEN_HEIGHT - 200;
 					boid.position.z = Math.random() * 400 - 200;
 					// boid.velocity.x = Math.random() * 2 - 1;
 					// boid.velocity.y = Math.random() * 2 - 1;
@@ -297,7 +297,14 @@ var Boid = function() {
 					if(goal)
 						boid.setGoal(goal);
 
-					bird = birds[ i ] = new THREE.Mesh( new Bird(slope), new THREE.MeshBasicMaterial( { color: color, side: THREE.DoubleSide } ) );
+					var materials = [new THREE.MeshBasicMaterial({
+				        color : 0xffffff,  side: THREE.DoubleSide 
+				    }), new THREE.MeshBasicMaterial({
+				        color : 0xFFE0A4,  side: THREE.DoubleSide 
+				    })];
+				    material = new THREE.MeshBasicMaterial( { color: color,  side: THREE.DoubleSide } ) ;
+					// bird = birds[ i ] = new THREE.Mesh( new Bird(slope), new THREE.MeshFaceMaterial(materials));
+					bird = birds[ i ] = new THREE.Mesh( new Bird(slope) , material);
 					bird.phase = Math.floor( Math.random() * 62.83 );
 					scene.add( bird );
 
@@ -310,6 +317,12 @@ var Boid = function() {
 				finaly = e.pageY;
 			});
 
+			var stop = false;
+			$(document).click(function(e){
+				// stop = true;
+			});
+
+
 
 			function moveCam(step){
 				// console.log(currentx+' '+currenty+' '+(finalx-currentx)+' '+(finaly-currenty));
@@ -317,7 +330,7 @@ var Boid = function() {
 				currenty=(finaly-currenty)/step+currenty;
 				var deviationx = ((SCREEN_WIDTH/2-currentx)/SCREEN_WIDTH)*450;
 				var deviationy = ((SCREEN_HEIGHT/2-currenty)/SCREEN_HEIGHT)*450;
-				camera.position.z = Math.sqrt(450*450-deviationx*deviationx-deviationy*deviationy);
+				camera.position.z = +Math.sqrt(450*450-deviationx*deviationx-deviationy*deviationy);
 				camera.position.x = deviationx;
 				camera.position.y = deviationy;
 				// currentx = camera.position.x;
@@ -452,17 +465,18 @@ var Boid = function() {
 
 			function render() {
 
+				if(!stop){
 				for ( var i = 0, il = birds.length; i < il; i++ ) {
 
 					boid = boids[ i ];
-					if(boid.moving){
+					// if(boid.moving){
 						boid.run( boids );
-					}
+					// }
 
 					bird = birds[ i ];
 					bird.position.copy( boids[ i ].position );
 
-					color = bird.material.color;
+					// color = bird.material.color;
 					// color.r = color.g = color.b = ( 500 - bird.position.z ) / 1000;
 
 					bird.rotation.y = Math.atan2( - boid.velocity.z, boid.velocity.x );
@@ -472,7 +486,7 @@ var Boid = function() {
 					// bird.geometry.vertices[ 5 ].y = bird.geometry.vertices[ 4 ].y = Math.sin( bird.phase ) * 5;
 
 				}
-
+			}
 				renderer.render( scene, camera );
 
 			}
