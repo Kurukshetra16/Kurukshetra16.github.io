@@ -44,7 +44,7 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/categories'+path+'.jso
 				   	for(i=0;i<jsonstr.length;i++)
 				   		{
 				   			$scope.events[i] = jsonstr[i];
-				   			
+				   			console.log($scope.events[i]);
 				   		}
 				  
 				   });
