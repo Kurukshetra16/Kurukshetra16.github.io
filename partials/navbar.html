@@ -242,47 +242,48 @@
 
    <div class="col-md-12 col-xs-12 eventHeader Header">
    <ul class="eventCats col-md-12 col-xs-12 col-md-push-3">
-              <li class="eventCircle"><a ng-click="clicked('Engineering')" href="#/events/engineering"><i class="fa fa-gear"></i></a>
-                  <div class="btmText">Engineering</div>
+              <li class="eventCircle"><i class="fa fa-gear"></i>
+                 <a ng-click="clicked('Engineering')" href="#/events/engineering"> <div class="btmText" style="margin-left:-10px">Engineering</div>
+                 </a>
               </li>
-             <li class="eventCircle"><a href="#/events/management"><i class="fa fa-money"></i></a>
-                <div class="btmText">Management</div>
+             <li class="eventCircle"><i class="fa fa-money"></i>
+                <a href="#/events/management"><div class="btmText" style="margin-left:-10px">Management</div></a>
               </li>
-              <li class="eventCircle"><a href="#/events/robotics"><i class="fa fa-android"></i><a href="#/events/robotics">
-                <div class="btmText">Robotics</div>
+              <li class="eventCircle"><i class="fa fa-android"></i>
+                <a href="#/events/robotics"><div class="btmText">Robotics</div></a>
               </li>
-              <li class="eventCircle"><a href="#/events/general"><i class="fa fa-archive"></i></a>
-                <div class="btmText">General</div>
+              <li class="eventCircle"><i class="fa fa-archive"></i>
+                <a href="#/events/general"><div class="btmText">General</div></a>
               </li>
-              <li class="eventCircle"><a href="#/events/online"><i class="fa fa-laptop"></i></a>
-                <div class="btmText">Online</div>
+              <li class="eventCircle"><i class="fa fa-laptop"></i>
+               <a href="#/events/online"><div class="btmText">Online</div></a>
               </li>
-              <li class="eventCircle"><a href="#/events/coding"><i class="fa fa-terminal"></i></a>
-                <div class="btmText">Coding</div>
+              <li class="eventCircle"><i class="fa fa-terminal"></i>
+                <a href="#/events/coding"><div class="btmText">Coding</div></a>
               </li>
-              <li class="eventCircle"><a href="#/events/quizzes"><i class="fa fa-binoculars"></i>
-                <div class="btmText">Quizzes</div>
+              <li class="eventCircle"><i class="fa fa-binoculars"></i>
+               <a href="#/events/quizzes"><div class="btmText">Quizzes</div></a>
               </li>
             </ul>
   </div>
 
    <div class="col-md-12 col-xs-12 wkshopHeader  Header">
    <ul class="wkshopCats col-md-12 col-xs-12 col-md-push-3">
-              <li class="eventCircle"><a href="#/workshops/engineering"><i class="fa fa-gear"></i></a>
-                  <div class="btmText">Engineering</div>
+              <li class="eventCircle"><i class="fa fa-gear"></i>
+               <a href="#/workshops/engineering"><div class="btmText" style="margin-left:-10px">Engineering</div></a>
               </li>
-              <li class="eventCircle"><a href="#/workshops/general"><i class="fa fa-archive"></i></a>
-                <div class="btmText">General</div>
+              <li class="eventCircle"><i class="fa fa-archive"></i>
+                <a href="#/workshops/general"><div class="btmText">General</div></a>
               </li>
              
-              <li class="eventCircle"><a href="#/workshops/robotics"><i class="fa fa-android"></i><a href="#/events/robotics">
-                <div class="btmText">Robotics</div>
+              <li class="eventCircle"><i class="fa fa-android"></i>
+                <a href="#/workshops/robotics"><div class="btmText">Robotics</div></a>
               </li>
-              <li class="eventCircle"><a href="#/workshops/management"><i class="fa fa-money"></i></a>
-                <div class="btmText">Management</div>
+              <li class="eventCircle"><i class="fa fa-money"></i>
+                <a href="#/workshops/management"><div class="btmText" style="margin-left:-10px">Management</div></a>
               </li>
-              <li class="eventCircle"><a href="#/workshops/school"><i class="fa fa-university"></i></a>
-                <div class="btmText">School</div>
+              <li class="eventCircle"><i class="fa fa-university"></i>
+                <a href="#/workshops/school"><div class="btmText">School</div></a>
               </li>
             </ul>
   </div>
@@ -352,6 +353,10 @@
     });
     //leave header and show stuff below
     $(".Header").mouseleave(function(){
+      hideAllHeaders();
+      showStuffBelow();
+    });
+    $(".eventCircle .btmText").click(function(){
       hideAllHeaders();
       showStuffBelow();
     });

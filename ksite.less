@@ -184,7 +184,7 @@ ul li.eventCircle{
 	padding-top:20px;
 	display: inline-block;
 	float:left;
-	cursor:pointer;
+	margin-right:20px;
 }
 .eventCircle .fa{
 	font-size:30px;
@@ -198,7 +198,6 @@ ul li.eventCircle{
     border-bottom-color:rgb(0,134,132);
     border-right-color:rgb(0,254,252);
 	.animation(animation2 @duration-color linear  infinite );	
-
 	color:rgb(252,217,219);
 	text-shadow:0px 3px 15px rgba(255,255,255,0.7),
 				0px -3px 15px rgba(255,255,255,0.7);
@@ -212,11 +211,15 @@ ul li.eventCircle{
 	margin-top:10px;
 	padding-left:30px;
 	text-align: center;
-	.transition(all 0.01s ease);
+	cursor:pointer;
+	.transition(all 0.2s ease);
 }
 .eventCircle:hover .fa{
 	color:rgb(255,247,219);
 	box-shadow:0px 5px 25px rgba(255,255,255,0.4);
+}
+.eventCircle:hover .btmText{
+	font-size:1.6rem;
 }
 .inNav{
 	opacity:1 !important;
@@ -534,7 +537,7 @@ UL.nav.navbar-nav.navbar-right{
 	margin-left:40px;
 }
 .eventHeader{
-	margin-left:-30px;
+	margin-left:-80px;
 }
 .loginHeader{
 	margin-left:30px;
