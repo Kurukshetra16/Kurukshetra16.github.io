@@ -23,6 +23,11 @@ a:active, a:focus{
 		width:100%;
 	}
 }
+
+#main{
+	.transition(0.5s ease);
+}
+
 .hospiBox{
   background:none !important;
 }
@@ -2031,26 +2036,31 @@ li img{
 	left:0;
 	width:100% !important;
 	height:100% !important;
-	/*background-color:rgba(4,17,52,0.9) !important;
-	background-size:1000px 1000px !important;
+	background-color:rgba(4,17,52,0.9) !important;
+	text-align: center;
+	/*background-size:1000px 1000px !important;
 	background-image:url(images/patterns/constellations.png) !important;
 	background-position:0 0 center;*/
-	z-index:100002;
+	z-index:100001;
+
 }
 
 .ksprite{
 	width:720px;
 	height:720px;
-	position:absolute;
+	/*position:absolute;*/
 	z-index:1000;
 	-webkit-transform:scale(0.5);
 	transform:scale(0.5);
+	/*background-color: rgba(0,0,0,0.2);*/
 	background-image:url(images/ksprite.png);
-	top:5%;
-	left:25%;	
-	animation:play 1.2s steps(31) infinite;	
-	-webkit-animation:play 1.2s steps(31) infinite;	
-	}
+	/*top:5%;*/
+	/*left:25%;	*/
+	display: inline-block;
+	animation:play 1.5s steps(31) infinite;	
+	-webkit-animation:play 1.5s steps(31) infinite;	
+}
+	
 @keyframes play {
    100% { background-position: -22320px; }
 }
