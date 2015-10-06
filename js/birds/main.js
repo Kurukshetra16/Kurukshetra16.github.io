@@ -383,10 +383,12 @@ var Boid = function() {
 
 				width = window.innerWidth;
 				height = window.innerHeight;
-				if(width>1440){
-					width = width*1.22;
-					height = height*1.22;
-				}
+				// if(width>1440){
+				// 	width = width*1.22;
+				// 	height = height*1.22;
+				// }
+				width = width*1.25*1.23;
+				height = height*1.25*1.23;
 				renderer.setSize( width, height );
 
 			}
