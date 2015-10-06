@@ -1,5 +1,5 @@
   <!--navbar-->
-  <div ng-controller="navController">
+  <div>
 <!--navbar for mobile -->
     <nav class="navbar hidden-md hidden-lg hidden-sm" >
       <div class="container-fluid paddingReset">
@@ -62,7 +62,7 @@
            <li class='hidden-xs'>
             <a class="text" href="#/workshops">WORKSHOPS</a>
             <div class="hidden-xs topVane" id="wVane">
-              <i class="fa fa-wreh"></i>
+              <i class="fa fa-wrench"></i>
             </div>
            </li>
 
@@ -160,81 +160,77 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-
-
-
-
 <div class="hidden-xs col-md-12 col-xs-12 paddingReset">
 <div class="home-event-circles">
 <div class="col-md-1 mg-lg col-xs-6">
-  <a href="#/"><div class="home-event-circle ">
-    <i id="home" class="fa fa-home circle-icon"></i>
+  <div class="home-event-circle ">
+  <a href="#/"><i id="home" class="fa fa-home circle-icon"></i>
     <div class="text">HOME</div>
+  </a>
   </div>
-</a>
 </div>
 
 <div class="col-md-1 mg-lg col-xs-6">
-  <a href="#/xceed"><div class="home-event-circle ">
-    <i id="xceed"  class="fa fa-fighter-jet circle-icon"></i>
+  <div class="home-event-circle ">
+  <a href="#/xceed"> <i id="xceed"  class="fa fa-fighter-jet circle-icon"></i>
     <div class="text">XCEED</div>
+  </a>
   </div>
-</a>
 </div>
 <div class="col-md-1 mg-lg col-xs-6">
-  <a href="#/sponsors"><div class="home-event-circle ">
-    <i id="sponsors" class="fa fa-inr circle-icon" style="margin-left:33px"\></i>
+  <div class="home-event-circle ">
+  <a href="#/sponsors"><i id="sponsors" class="fa fa-inr circle-icon" style="margin-left:33px"\></i>
     <div class="text">SPONSORS</div>
-  </div>
   </a>
+  </div>
 </div>
 <div class="col-md-1 mg-lg col-xs-6">
-  <a href="#/gl"><div class="home-event-circle">
-    <i id="gl" class="fa fa-microphone circle-icon" style="margin-left:30px"\></i>
+ <div class="home-event-circle">
+   <a href="#/gl"><i id="gl" class="fa fa-microphone circle-icon" style="margin-left:30px"\></i>
     <div class="text">GUEST LECTURES</div>
+    </a>
   </div>
-  </a>
 </div>
 <div class="col-md-1 mg-lg col-xs-6">
-  <a href="#/karnival"><div class="home-event-circle ">
-    <i id="karnival" class="fa fa-empire circle-icon" style="margin-left:25px"\></i>
+  <div class="home-event-circle ">
+   <a href="#/karnival"><i id="karnival" class="fa fa-empire circle-icon" style="margin-left:25px"\></i>
     <div class="text">K!ARNIVAL</div>
-  </div>
   </a>
+  </div>
 </div>
 <div class="col-md-1 mg-lg col-xs-6">
-  <div id="eventsNav" class="home-event-circle">
+  <div id="eventNav" class="home-event-circle">
     <i class="fa fa-hourglass circle-icon"></i>
     <div class="text">EVENTS</div>
     </div>
 </div>
 <div class="col-md-1 mg-lg col-xs-6">
-  <div id="wkshopsNav" class="home-event-circle " >
+  <div id="wkshopNav" class="home-event-circle " >
     <i class="fa fa-wrench circle-icon"></i>
-    <div class="text">WORKSHOPS</div>
+    <div class="text" style="margin-left:-15px">WORKSHOPS</div>
 </div>
 </div>
 
 <div class="col-md-1 mg-lg col-xs-6">
-  <a href="#/hospi"><div class="home-event-circle ">
-    <i id="hospi" class="fa fa-map circle-icon"></i>
+  <div class="home-event-circle ">
+  <a href="#/hospi"><i id="hospi" class="fa fa-map circle-icon"></i>
     <div class="text">HOSPITALITY</div>
-  </div>
   </a>
+  </div>
 </div>
 <div class="col-md-1 mg-lg col-xs-6">
-  <a href="#/about"><div class="home-event-circle ">
-    <i id="about" class="fa fa-angellist circle-icon"></i>
+ <div class="home-event-circle ">
+  <a href="#/about"><i id="about" class="fa fa-angellist circle-icon"></i>
     <div class="text">ABOUT</div>
-  </div>
   </a>
+  </div>
 </div>
 <div class="col-md-1 mg-lg col-xs-6">
-  <a href="#/contacts"><div class="home-event-circle ">
-    <i id="contact" class="fa fa-comment-o circle-icon"></i>
+  <div class="home-event-circle ">
+  <a href="#/contacts"><i id="contact" class="fa fa-comment-o circle-icon"></i>
     <div class="text">CONTACT</div>
-  </div>
   </a>
+  </div>
 </div>
 <div class="col-md-1 mg-lg col-xs-6">
   <div id="loginNav" class="home-event-circle">
@@ -242,11 +238,9 @@
     <div class="text">LOGIN</div>
   </div>
 </div>
-
 </div>
 
-
-   <div class="col-md-12 col-xs-12 eventHeader">
+   <div class="col-md-12 col-xs-12 eventHeader Header">
    <ul class="eventCats col-md-12 col-xs-12 col-md-push-3">
               <li class="eventCircle"><a ng-click="clicked('Engineering')" href="#/events/engineering"><i class="fa fa-gear"></i></a>
                   <div class="btmText">Engineering</div>
@@ -272,38 +266,38 @@
             </ul>
   </div>
 
-   <div class="col-md-12 col-xs-12 wkshopHeader">
-   <ul class="wkshopCats col-md-12 col-xs-12 col-md-push-4">
-              <li class="eventCircle"><a href="#/wkshops/engineering"><i class="fa fa-gear"></i></a>
+   <div class="col-md-12 col-xs-12 wkshopHeader  Header">
+   <ul class="wkshopCats col-md-12 col-xs-12 col-md-push-3">
+              <li class="eventCircle"><a href="#/workshops/engineering"><i class="fa fa-gear"></i></a>
                   <div class="btmText">Engineering</div>
               </li>
-              <li class="eventCircle"><a href="#/wkshops/general"><i class="fa fa-archive"></i></a>
+              <li class="eventCircle"><a href="#/workshops/general"><i class="fa fa-archive"></i></a>
                 <div class="btmText">General</div>
               </li>
              
-              <li class="eventCircle"><a href="#/wkshops/robotics"><i class="fa fa-android"></i><a href="#/events/robotics">
+              <li class="eventCircle"><a href="#/workshops/robotics"><i class="fa fa-android"></i><a href="#/events/robotics">
                 <div class="btmText">Robotics</div>
               </li>
-              <li class="eventCircle"><a href="#/wkshops/management"><i class="fa fa-money"></i></a>
+              <li class="eventCircle"><a href="#/workshops/management"><i class="fa fa-money"></i></a>
                 <div class="btmText">Management</div>
               </li>
-              <li class="eventCircle"><a href="#/wkshops/school"><i class="fa fa-university"></i></a>
+              <li class="eventCircle"><a href="#/workshops/school"><i class="fa fa-university"></i></a>
                 <div class="btmText">School</div>
               </li>
             </ul>
   </div>
 
   <!--login header -->
-  <div class="col-md-12 col-xs-12 loginHeader" >
+  <div class="col-md-3 col-md-push-7 col-xs-12 loginHeader  Header" >
    <ul class="eventCats col-md-12 col-xs-12 col-md-push-9">
-              <li class="eventCircle"><a href="#/loginK"><i class="fa fa-gear"></i></a>
-                  <div class="btmText">K! Login</div>
+             <!--  <li class="eventCircle"><a href="#/loginK"><i class="fa fa-gear"></i></a>
+                  <div class="btmText">K!</div>
               </li>
-             <li class="eventCircle" style="margin-left:20px"><i class="fa fa-facebook"></i>
-                <div class="btmText">Facebook Login</div>
+              --><li class="eventCircle" style="margin-right:20px"><i class="fa fa-facebook"></i>
+                <div class="btmText">Facebook</div>
               </li>
               <li class="eventCircle"><i class="fa fa-google"></i>
-                <div class="btmText">Google+ Login</div>
+                <div class="btmText">Google+</div>
               </li>
             </ul>
   </div>
@@ -321,104 +315,69 @@
         }
     });
 });
-
-
   $(".navbar-toggle").click(function(){
     $(".top-bar").toggleClass("top-bar-anim");
     $(".middle-bar").toggleClass("middle-bar-anim");
     $(".bottom-bar").toggleClass("bottom-bar-anim");
   });
   if( $(window).width() >= 600)
-  {
-    $(".eventHeader").removeClass("dropDown");
-    $(".loginHeader").removeClass("dropDown");
+  { 
+    //leave and hide headers
+    $(".home-event-circle").mouseenter(function(){
+        var cid = $(this).attr("id");
+        if( cid == "eventNav")
+        {
+          hideStuffBelow("event");
+        }
+        else if( cid == "wkshopNav")
+        {
+          hideStuffBelow("wkshop");
+        }
+        else if( cid == "loginNav")
+        {
+          hideStuffBelow("login");
+        }
+        else
+        {
+          hideAllHeaders();
+          showStuffBelow();
+        }
 
-    $("#eventsNav").hover(function(){
-    $(".eventHeader").addClass("dropDown");
+    });
+    //leave and hide headers
+    $(".headerBox").mouseenter(function(){
+            hideAllHeaders();
+            showStuffBelow();
+        
+    });
+    //leave header and show stuff below
+    $(".Header").mouseleave(function(){
+      hideAllHeaders();
+      showStuffBelow();
+    });
+  function hideStuffBelow(cid)
+  { 
+    hideAllHeaders();
+    var ccid = "."+cid+"Header";
+    $(ccid).addClass("dropDown");
     $(".container").children().fadeOut().finish();
     $(".cd-tabs").children().fadeOut().finish();
-    });
-    $("#loginNav").hover(function(){
-    $(".loginHeader").addClass("dropDown");
-    $(".cd-tabs").children().fadeOut().finish();
-    $(".container").children().fadeOut().finish();
-    });
-
-    $(".home-event-circle ").hover(function(){
-      //openOut css animation
-      $(this).find(".hidden-xs topVane").addClass("openOut");
-
-      if($(this).attr("id") != "eventsNav" )
-    {
-    $(".eventHeader").removeClass("dropDown");
-    }
-      if($(this).attr("id") != "wkshopsNav" )
-    {
-    $(".wkshopHeader").removeClass("dropDown");
-    }
-
-      if($(this).attr("id") != "loginNav" )
-    {
-    $(".loginHeader").removeClass("dropDown");
-    }
-    }, function(){
-      $(".container").children().fadeIn();
-      $(".cd-tabs").children().fadeIn();
-      
-    });
-
-    $(".eventHeader").hover(function(){
-      $(".container").children().fadeOut().finish();
-    $(".cd-tabs").children().fadeOut().finish();
-
-    }, function(){
-      $(".eventHeader").removeClass("dropDown");
-      $(".container").children().fadeIn();
-    $(".cd-tabs").children().fadeIn().finish();
-      
-    });
-
-    $(".wkshopHeader").hover(function(){
-      $(".cd-tabs").children().fadeOut().finish();
-    $(".container").children().fadeOut().finish();
-
-    }, function(){
-     $(".wkshopHeader").removeClass("dropDown");
-     $(".container").children().fadeIn();
-    $(".cd-tabs").children().fadeIn().finish();
-
-    });
-
-    $(".loginHeader").hover(function(){
-    $(".container").children().fadeOut().finish();
-    $(".cd-tabs").children().fadeOut().finish();
-
-    }, function(){
-     $(".loginHeader").removeClass("dropDown");
-    $(".cd-tabs").children().fadeIn().finish();
-    $(".container").children().fadeIn();
-    });
-    
-    $(".wkshopHeader").removeClass("dropDown");
-    $("#wkshopsNav").hover(function(){
-      $(".wkshopHeader").addClass("dropDown");
-    $(".cd-tabs").children().fadeOut().finish();
-      $(".container").children().fadeOut().finish();
-    });
-  $(".headerBox").hover(function(){
-      $(".eventHeader").removeClass("dropDown");
-      $(".wkshopsHeader").removeClass("dropDown");
-      $(".loginHeader").removeClass("dropDown");
-      $(".container").children().fadeIn();
-      $(".cd-tabs").children().fadeIn().finish();
-
-  });
+    $(".left").fadeOut(10).finish();
   }
-
-  });
-  </script>
-  <script>
-$(document).ready(function(){
+  function showStuffBelow()
+  {
+    $(".container").children().fadeIn();
+    $(".cd-tabs").children().fadeIn(); 
+    $(".left").fadeIn(10);
+  }
+  function hideAllHeaders()
+  {
+        $(".eventHeader").removeClass("dropDown");
+        $(".wkshopHeader").removeClass("dropDown");
+        $(".loginHeader").removeClass("dropDown");
+  }
+}
+//random page stuff
 $(".home-event-circle").find("ul").addClass("hideme").animate({'opacity':"0"});
 $(".home-event-circle").click(function(){
   if($(this).find("ul").hasClass("hideme"))
@@ -431,5 +390,6 @@ $(".home-event-circle").click(function(){
     $(this).find("ul").addClass("hideme").animate({'opacity':"0"},'easeInOutQuad');
   }
 }); 
- });
-</script>
+
+  });
+  </script>

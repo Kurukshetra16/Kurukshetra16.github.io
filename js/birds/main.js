@@ -1,5 +1,4 @@
 var Boid = function() {
-
 				var vector = new THREE.Vector3(),
 				_acceleration, _width = 500, _height = 500, _depth = 200, _goal, _neighborhoodRadius = 100,
 				_maxSpeed = SCREEN_WIDTH/860, _maxSteerForce = 0.1, _avoidWalls = true, _mouse_pos=null;

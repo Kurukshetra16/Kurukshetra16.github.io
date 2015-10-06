@@ -1,18 +1,15 @@
-/*NAVBAR*/
-myApp.controller('navController',['$scope','$http',function($scope,$http){
-
-}]);
-
 /*UPDATES*/
-myApp.controller('updateController',['$scope','$http','$timeout',function($scope,$http,$timeout){
+var myApp = angular.module("myAppControllers",[]);
+myApp.controller('updateController',['$scope','$http','$timeout','cfpLoadingBar',function($scope,$http,$timeout,cfpLoadingBar){
 $scope.updates = [];
-$scope.dataLoaded = false;
+// $scope.dataLoaded = false;
 $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/updates.json'}).success(function(data)
 				   {
 				    jsonstr = data; // response data 
 				   	console.log("updates"+jsonstr.length);
-				   	$timeout(function(){$scope.dataLoaded = true;},100);
-				   	// alert($scope.dataLoaded);
+				   	
+				   	// $timeout(function(){$scope.dataLoaded = true;},1000);
+				   	
 				   	for(var i=0;i<jsonstr.length;i++)
 				   		{
 				   			$scope.updates[i] = jsonstr[i]['title'];
@@ -34,7 +31,7 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/updates.json'}).succes
 }]);
 
 /*EVENTS*/
-myApp.controller('eventsController',['$scope','$http','$location','$timeout',function($scope,$http,$location,$timeout){
+myApp.controller('eventsController',['$scope','$http','$location','$timeout','cfpLoadingBar',function($scope,$http,$location,$timeout, cfpLoadingBar){
 $scope.events = [];
 $scope.tabs = [];
 $scope.eventName;
@@ -49,9 +46,10 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/categories'+path+'.jso
 				   			$scope.events[i] = jsonstr[i];
 				   			
 				   		}
+				  
 				   });
 $scope.getEvent = function(eventname){
-	eventName = eventname;
+	$scope.eventName = eventname;
 	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','');
 function init(){
 	$(".tabContent li").hide();
@@ -66,7 +64,6 @@ function init(){
 				   			$scope.tabs[i]['id']=i;
 				   		}
 					$(".left").animate({'marginLeft':"0px"},500,'easeOutSine');
-
 				   	$timeout(init, 10);
 });
 }
@@ -80,16 +77,16 @@ $scope.showTab = function(tabtitle)
 
 }]);
 /*WORKSHOPS*/
-myApp.controller('wkshopsController',['$scope','$http','$location','$timeout',function($scope,$http,$location,$timeout){
+myApp.controller('wkshopsController',['$scope','$http','$location','$timeout','cfpLoadingBar',function($scope,$http,$location,$timeout,cfpLoadingBar){
 $scope.events = [];
 $scope.tabs = [];
 $scope.eventName;
 var path = $location.path();
-path = '/'+path.substr(9,path.length);
+path = '/'+path.substr(11,path.length);
 $scope.category = path.substr(1,path.length).toUpperCase()+" WORKSHOPS";
-$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/wkshopcategories'+path+'.json'}).success(function(data)
+$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/workshopcategories'+path+'.json'}).success(function(data)
 				   {
-				    jsonstr = data['category']['wkshops']; // response data 
+				    jsonstr = data['workshopcategory']['workshops']; // response data 
 				   	for(i=0;i<jsonstr.length;i++)
 				   		{
 				   			$scope.events[i] = jsonstr[i];
@@ -97,13 +94,13 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/wkshopcategories'+path
 				   		}
 				   });
 $scope.getEvent = function(eventname){
-	eventName = eventname;
+	$scope.eventName = eventname;
 	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','');
 function init(){
 	$(".tabContent li").hide();
 	$(".tabContent").find("li.0").show();
 }
-	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/wkshops/'+eventname+'.json'}).success(function(data)
+	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/workshops/'+eventname+'.json'}).success(function(data)
 				   {
 				    jsonstr = data['workshop']['tabs']; // response data 
 				   	for(i=0;i<jsonstr.length;i++)
@@ -112,8 +109,8 @@ function init(){
 				   			$scope.tabs[i]['id']=i;
 				   		}
 					$(".left").animate({'marginLeft':"0px"},500,'easeOutSine');
-
 				   	$timeout(init, 10);
+
 });
 }
 $scope.showTab = function(tabtitle)
@@ -125,7 +122,7 @@ $scope.showTab = function(tabtitle)
 }]);
 
 /*HOSPI*/
-myApp.controller('hospiController',['$scope','$document','$http',function($scope,$document,$http){
+myApp.controller('hospiController',['$scope','$document','$http','cfpLoadingBar',function($scope,$document,$http,cfpLoadingBar){
 $scope.nodes = [
 {
 	title:'Introduction',
@@ -198,7 +195,7 @@ $scope.nodeInfo = [];
     };
 }]);
 // guestlectures
-myApp.controller('glController',['$scope','$http','$timeout',function($scope,$http,$timeout){
+myApp.controller('glController',['$scope','$http','$timeout','cfpLoadingBar',function($scope,$http,$timeout,cfpLoadingBar){
 $scope.nodes =[];
 
 function init(){
@@ -244,7 +241,7 @@ $scope.clicked = function(name,id)
 }]);
 
 //karnival
-myApp.controller('karnivalController',['$scope','$http','$timeout',function($scope,$http,$timeout){
+myApp.controller('karnivalController',['$scope','$http','$timeout','cfpLoadingBar',function($scope,$http,$timeout,cfpLoadingBar){
 $scope.nodes =[];
 
 	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/karnivals.json'}).success(function(data)
@@ -309,7 +306,7 @@ $(".closeme").click(function(){
       var ele = $(this);
       index = (index+1)%4;
       var currentanim = anims[index];
-      setTimeout(function(){ $(ele).addClass(currentanim).fadeOut(200*i+100);},200*i+100);
+      setTimeout(function(){ $(ele).addClass(currentanim).fadeOut(100*i+100);},100*i+100);
   });
 }
 
@@ -317,7 +314,7 @@ $(".closeme").click(function(){
   function mpopOut(){
   $(".karCircle").each(function(i){
       var ele = $(this);
-      setTimeout(function(){ $(ele).addClass("flyLeft").fadeOut(200*i+100);},200*i+100);
+      setTimeout(function(){ $(ele).addClass("flyLeft").fadeOut(100*i+100);},100*i+100);
   });
 }
 function popIn(){
@@ -334,16 +331,11 @@ function closeall(){
 }
 
 function moveKarsUp(){
-  $(".karBox").addClass("floatUp");
-  $(".bottomPage").addClass("rotateUp");
   $(".topPage").addClass("zoomIn");
 }
 
 function moveKarsDown(){
-  $(".karBox").removeClass("floatUp");
-  $(".bottomPage").removeClass("rotateUp");
   $(".topPage").removeClass("zoomIn");
-
 }
 };
 
@@ -413,7 +405,7 @@ $scope.clicked = function(clickedid)
 }]);
 /*CONTACTS*/
 /*WORKSHOPS*/
-myApp.controller('contactsController',['$scope','$http','$location','$timeout',function($scope,$http,$location,$timeout){
+myApp.controller('contactsController',['$scope','$http','$location','$timeout','cfpLoadingBar',function($scope,$http,$location,$timeout,cfpLoadingBar){
 $scope.buckets = [];
 $scope.members = [];
 $scope.bucketname = '';

@@ -9,54 +9,56 @@
 </style>
 <!--put components here -->
 <div class="container col-md-12 col-xs-12">
-<div class="col-md-3 col-xs-12">
+ <div class="col-md-3 col-xs-12">
   <div class="col-md-12 col-xs-12 clearfix paddingReset badgeEventsContainer">
     <ul class="col-md-12 col-xs-12 paddingReset">
       <div class="col-md-4 col-xs-4 ">
         <li class="badgeEvent ">
-          <i class="fa fa-star"></i>
-          <h5 style="color:#fff">STARTUP WEEKEND</h5>
+          <a href="#"><i class="fa fa-star"></i>
+            <h5 style="color:#fff">STARTUP WEEKEND</h5>
+          </a>
         </li>
       </div>
       <div class="col-md-4 col-xs-4 ">
         <li class="badgeEvent ">
-          <i class="fa fa-bullhorn"></i>
-          <h5 style="color:#fff">BARKAMP</h5>
+          <a href="#"><i class="fa fa-bullhorn"></i>
+            <h5 style="color:#fff">BARKAMP</h5>
+          </a>
+        </li>
 
+      </div>
+      <div class="col-md-4 col-xs-4 ">
+        <li class="badgeEvent ">
+          <a href="#"><i class="fa fa-graduation-cap"></i>
+            <h5 style="color:#fff">STUDENT AMBASSADOR</h5>
+          </a>
         </li>
+      </div>
+      <div class="col-md-4 col-xs-4 ">
+        <li class="badgeEvent ">
+          <a href="#"><i class="fa fa-calendar"></i>
+            <h5 style="color:#fff">SCHEDULE</h5>
+          </a>
+        </li>
+      </div>
+      <div class="col-md-4 col-xs-4 ">
+        <li class="badgeEvent ">
+         <a href="#"><i class="fa fa-quote-right"></i>
+            <h5 style="color:#fff">K! BLOG</h5>
+          </a>
+        </li>
+      </div>
 
-      </div>
       <div class="col-md-4 col-xs-4 ">
         <li class="badgeEvent ">
-          <i class="fa fa-graduation-cap"></i>
-          <h5 style="color:#fff">STUDENT AMBASSADOR</h5>
-        </li>
-      </div>
-      <div class="col-md-4 col-xs-4 ">
-        <li class="badgeEvent ">
-          <i class="fa fa-calendar"></i>
-          <h5 style="color:#fff">SCHEDULE</h5>
-        </li>
-      </div>
-
-      <div class="col-md-4 col-xs-4 ">
-        <li class="badgeEvent ">
-          <i class="fa fa-quote-right"></i>
-          <h5 style="color:#fff">K! BLOG</h5>
-        </li>
-      </div>
-
-      <div class="col-md-4 col-xs-4 ">
-        <li class="badgeEvent ">
-          <i class="fa fa-tag"></i>
-          <h5 style="color:#fff">LASER TAG</h5>
+          <a href='#'><i class="fa fa-tag"></i>
+            <h5 style="color:#fff">LASER TAG</h5>
+          </a>
         </li>
       </div>
     </ul>
   </div>
 </div>
-
- 
 <div class="jarvisContainer col-md-6 col-xs-12">
 <img src="images/jarvis.png" class="jarvis"/>
     <ul class="allImages">
@@ -67,7 +69,7 @@
     </ul>
 </div><!--jContainer-->
  <div class="col-md-3 col-xs-12">
-      <div class="update-box" ng-show="dataLoaded" ng-controller="updateController">
+      <div class="update-box" ng-controller="updateController">
         <p></p>        
       </div>
   <div class="col-md-12 col-xs-12">
@@ -153,6 +155,7 @@ $(".typed-cursor").css({'font-size':"1.3rem"});
 $(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
 $(".home-event-circle").removeClass("removeBB");
 $("#home").addClass("selectedNavElem");
-$("#home").parent().addClass("removeBB");
+$("#home").parent().parent().addClass("removeBB");
+
 });
 </script>

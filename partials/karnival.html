@@ -1,6 +1,15 @@
 <div class="container karContainer" ng-controller="karnivalController">
     <div class="col-md-12 col-xs-12">
-      <h1 class="shape ribbontitle">K!ARNIVAL</h1>
+      <h1 class="col-md-12 col-xs-12 text-center"><span class="shape ribbontitle">K</span>
+          <span class="shape ribbontitle">!</span>
+          <span class="shape ribbontitle">A</span>
+          <span class="shape ribbontitle">R</span>
+          <span class="shape ribbontitle">N</span>
+          <span class="shape ribbontitle">I</span>
+          <span class="shape ribbontitle">V</span>
+          <span class="shape ribbontitle">A</span>
+          <span class="shape ribbontitle">L</span>
+      </h1>
       <ul class="karCircles">
         <div class="col-md-4 col-xs-12" ng-repeat="node in nodes">
           <li ng-click="clicked(node.title,node.id)" class="karCircle" >
@@ -39,6 +48,6 @@ $(document).ready(function(){
 $(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
 $(".home-event-circle").removeClass("removeBB");
 $("#karnival").addClass("selectedNavElem");
-$("#karnival").parent().addClass("removeBB");
+$("#karnival").parent().parent().addClass("removeBB");
 });
 </script>

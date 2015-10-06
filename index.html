@@ -4,35 +4,15 @@
 <link href="ksite.less" rel="stylesheet/less" type="text/css" >
 <link href="prefixer.less" rel="stylesheet/less" type="text/css" >
 <link href="3L/3L.less" rel="stylesheet/less" type="text/css" >
-<link href="css/animate.css" rel="stylesheet">
 <link href="fontawesome/css/font-awesome.min.css" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Orbitron|Raleway' rel='stylesheet' type='text/css'>
-
- <body ng-controller="updateController" ng-app="myApp">
-    <!-- <div class="preloader" ng-hide="dataLoaded"> -->
-</div>
-  <!--navbar--> 
-<!-- <div class="typing-loader">
-<!-- <div class="preloader">
-<div class="typing-loader">
-  <style>
-  .typed-cursor{
-    font-size:5.5rem;
-  }
-  </style>
-  <p></p>
-</div>
- -->
-</div>
- <!-- <div class="overlay"> -->
-<div id="container"></div>
+<body ng-app="myApp">
+ <div class="overlay" ng-controller="updateController">
  <div ng-include="'partials/header.html'"></div>
-    <div class="bg">
       <div ng-include="'partials/navbar.html'"></div>
-      
       <div ng-view></div> 
-    </div>
-  </div>
+ <div ng-include="'partials/footer.html'"></div>
+ </div>
 
   
 </body>
@@ -44,37 +24,18 @@
 <script type="text/javascript" src="js/typed.min.js"></script>
 <!--angular-->
  <script type="text/javascript" src="js/angular/angular.min.js"></script>
- <script type="text/javascript" src="js/angular/angular-scroll.min.js"></script>
- <script type="text/javascript" src="js/angular/angular-scroll.min.js.map"></script>
- <script type="text/javascript" src="js/angular/ui-bootstrap.min.js"></script>
   <script type="text/javascript" src="js/angular-route/angular-route.js"></script>
  <script type="text/javascript" src="js/angular-sanitize/angular-sanitize.min.js"></script>
- <script type="text/javascript" src="js/angular/angular-animate.min.js"></script>
  <script type="text/javascript" src="appjs/app.js"></script>
- <script type="text/javascript" src="appjs/controller.js"></script>
  <script type="text/javascript" src="appjs/services.js"></script>
+ <script type="text/javascript" src="appjs/controller.js"></script>
  <script type="text/javascript" src="appjs/directives.js"></script>
+<!--loading-->
+ <script type="text/javascript" src="js/loading-bar.min.js"></script>
 
  <!-- Birds -->
  <script type="text/javascript" src="js/birds/three.min.js"></script>
  <script type="text/javascript" src="js/birds/Bird.js"></script>
  <script type="text/javascript" src="js/birds/stats.js"></script>
  <script type="text/javascript" src="js/birds/main.js"></script>
-<script>
-        $(document).ready(function(){
-           $(function(){
-            $(".typing-loader p").typed({
-              strings:['CEG TECH FORUM PRESENTS','KURUKSHETRA 2016','LOADING','5','4','3','2','1'],
-              typeSpeed: 100,
-              loop: false,
-              backDelay: 1000,
-              contentType: 'text',
-              loopCount: false,
-              cursorChar: "|",
-              callback: function() {
-                $(".preloader").fadeOut(1000);
-              },
-            });
-          });
-        });
-</script>
+ 
