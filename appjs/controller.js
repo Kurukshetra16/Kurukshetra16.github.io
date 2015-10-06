@@ -128,18 +128,21 @@ $scope.nodes = [
 	title:'Introduction',
 	icon:'fa fa-info hospi_icon',
 	url:'intro',
+	mclass:'margin-left:-10px',
 	id:1
 },
 {
 	title:'Instructions',
 	icon:'fa fa-file hospi_icon',
 	url:'instr',
+	mclass:'margin-left:-10px',
 	id:2
 },
 {
 	title:'Accommodation',
 	icon:'fa fa-suitcase hospi_icon',
 	url:'accom',
+	mclass:'margin-left:-10px',
 	id:3
 },
 {
@@ -186,7 +189,9 @@ $scope.nodeInfo = [];
 		$scope.clickedNode = "Introduction";
 		$scope.clickedID = "1";
   		$(".longer-line").css({'background':"rgb(250,16,14)",'width':"10%"});
-  		setTimeout(function(){$(".hospi_content").addClass("hospi_animated");},500);
+  		setTimeout(function(){$(".hospi_content").addClass("hospi_animated");
+		$("#1").addClass("node-active");
+  		},500);
 	}
 	$scope.tohospi = function(clicked,clickedid) {
       $scope.clickedNode = clicked;
@@ -394,7 +399,9 @@ $scope.nodeInfo=[
 $scope.clickedName = 'CTF';
 $scope.information = $scope.nodeInfo[3]['desc'];
 $(".longer-line").css({'background':"rgb(250,16,14)",'width':"100%"});
-setTimeout(function(){$(".hospi_content").addClass("hospi_animated");},500);
+setTimeout(function(){$(".hospi_content").addClass("hospi_animated");
+$("#1").addClass("node-active");
+},500);
 
 $scope.clicked = function(clickedid)
 {
