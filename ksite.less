@@ -2,9 +2,10 @@
 html,body{
 overflow-x:hidden !important;
 .transition(0.65s ease);
- background-color:rgb(4,17,52);	
- background-position:0 0 center;
+ background-position:0 0, 0 0;
  background-size: 1000px 1000px;
+background-image:url(images/patterns/constellations.png),url(images/patterns/constellations.png);
+/*.animation(animation5 10s linear infinite);*/
 }
 a:active, a:focus{
 	background:none !important;
@@ -44,11 +45,10 @@ ul{
 	left:0;
 	width:100%;
 	height:100%;
-	/*.transition(0.65s ease);*/
-	 /*background-color:rgb(4,17,52);	*/
-	 /*background-image:url(images/patterns/constellations.png),url(images/patterns/constellations.png);*/
-	 /*background-size: 1000px 1000px;*/
-	/*.animation(animation5 30s linear infinite); */
+	.transition(0.65s ease);
+	 background-image:url(images/patterns/constellations.png),url(images/patterns/constellations.png);
+	 background-size: 1000px 1000px;
+	/*.animation(animation5 10s linear infinite); */
 }
 /* NAVBAR */
 a:focus{
@@ -201,6 +201,7 @@ ul li.eventCircle{
     border-bottom-color:rgb(0,134,132);
     border-right-color:rgb(0,254,252);
 	.animation(animation2 @duration-color linear  infinite );	
+	box-shadow:0px 5px 25px rgba(255,255,255,0.4);
 	color:rgb(252,217,219);
 	text-shadow:0px 3px 15px rgba(255,255,255,0.7),
 				0px -3px 15px rgba(255,255,255,0.7);
@@ -410,15 +411,22 @@ ul li.eventCircleNav{
 }
 
 @media all and (min-width: 960px) {
+.contactContainer{
+	padding-left:80px !important;
+}
 .shape{
 	font-size:5rem !important;
 }
 .tabContainer li{
 	padding:15px;
 }
+
+.badgeEventsContainer{
+	margin-left:30px !important;
+}
 /*hospi*/
 .longer-line{
-.animation(animation3 @duration-color linear  infinite ); 
+/*.animation(animation3 @duration-color linear  infinite ); */
 .transition(all 0.620s ease);
  width:0%;
 }
@@ -441,7 +449,7 @@ ul li.eventCircleNav{
 .zoomIn{
 	transform:scale(1) rotateX(0deg) rotateY(0deg)!important;
 	-webkit-transform:scale(1) rotateX(0deg)  rotateY(0deg)!important;
-	margin-top:-77% !important;
+	margin-top:-120% !important;
 	visibility: visible !important;
 }
 .karBox{
@@ -483,7 +491,10 @@ margin-top:30px;
 margin-left:55px;
 }
 .left{
+	border-top:20px solid rgba(255,247,219,0.03);
+	border-bottom:20px solid rgba(255,247,219,0.03);
 	margin-top:160px;
+	/*.animation(animation5 10s linear infinite);*/
 	}
 .navbar-nav li:hover .fa{
 		visibility:hidden;
@@ -511,14 +522,14 @@ UL.nav.navbar-nav.navbar-right{
 }
 /*events*/
 .eventContainer{
-	padding-top:50px;
-	padding-left:50px;
+	padding-left:60px !important;
 }
 /*jarvis*/
 .jarvisContainer{
 	overflow: hidden;
 	display: block;
 	height: 800px;
+	margin-left:-110px !important;
 	}
 }
 UL.nav.navbar-nav.navbar-right{
@@ -532,18 +543,15 @@ UL.nav.navbar-nav.navbar-right{
 }
 .eventHeader, .wkshopHeader, .loginHeader{
 	z-index:9999;
-	transform:translateY(120px) !important;
+	transform:translateY(130px) !important;
 	position: absolute;
 	visibility:hidden;
 }
 .wkshopHeader{
-	margin-left:40px;
+	margin-left:30px;
 }
 .eventHeader{
 	margin-left:-80px;
-}
-.loginHeader{
-	margin-left:30px;
 }
 .eventCircle:hover .left{
 	background:rgba(0,0,0,0) !important;
@@ -741,7 +749,7 @@ border:none;
   line-height: 1.5;
 }
 .node:hover{
-  background:rgb(250,16,14);
+  background:@border-main;
   .animation(animation3 @duration-color linear  infinite );
   box-shadow: -3px -3px 20px rgba(255,255,255,0.1),
               -3px 3px 20px rgba(255,255,255,0.1),
@@ -751,13 +759,13 @@ border:none;
   -webkit-transform:scale(1.5);
    }
 .node:hover .fa{
-	color:#222; 
+	color:#fff; 
   }
 .node-active{
   -webkit-transform:scale(1.1);
   transform:scale(1.1);
   border:4px solid #fff !important;
-  background:rgba(250,16,14,0.9);
+  background:@border-main;
  .animation(animation3 @duration-color linear  infinite );
     box-shadow: -3px -3px 20px rgba(255,255,255,0.1),
               	-3px 3px 20px rgba(255,255,255,0.1),
@@ -842,7 +850,7 @@ font-family:'Raleway',sans-serif;
 	height: 100%;
 	width: 100%;
 	text-align: center;
-	.animation(animation5 30s linear infinite);
+	/*.animation(animation5 10s linear infinite);*/
 	.transition(all 0.4s linear);
 }
 .shape:hover{
@@ -856,16 +864,6 @@ font-family:'Raleway',sans-serif;
 .flyRight{
 	transform:translateX(-2000px) translateY(1500px) scale(0.8);
 	-webkit-transform:translateX(-2000px) translateY(1500px) scale(0.8);
-	.transition(transform 0.620s ease forwards);
-}
-.flyTop{
-	transform:translateX(600px) translateY(-2500px) scale(0.8);
-	-webkit-transform:translateX(600px) translateY(-2500px) scale(0.8);
-	.transition(transform 0.620s ease forwards);
-}
-.flyBottom{
-	transform:translateX(600px) translateY(2500px) scale(0.8);
-	-webkit-transform:translateX(600px) translateY(2500px) scale(0.8);
 	.transition(transform 0.620s ease forwards);
 }
 /*XCEED*/
@@ -889,6 +887,8 @@ font-family:'Raleway',sans-serif;
 	color:#d62134;
 	-moz-animation:popGlow 1.20s ease-in-out forwards infinite;
 	-webkit-animation:popGlow 1.20s ease-in-out forwards infinite;
+	-o-animation:popGlow 1.20s ease-in-out forwards infinite;
+	animation:popGlow 1.20s ease-in-out forwards infinite;
 }
 .place .btmText{
 	text-align: center;
@@ -1038,36 +1038,34 @@ ul{
   width:100%;
   height:100%;
   background:none;
-  padding:20px;
-  text-align: center;
-  margin-right:100px;
   vertical-align: middle;
   border-radius:50%;
   cursor: pointer;
-  border: 10px solid aqua;
-  border-right-color: teal;
-  border-bottom-color: teal;
   margin-bottom:50px;
  .transition(all 0.4s ease);
 }
-.bucketCircle:hover{
+.bucketCircle:hover img{
   transform:scale(1.1);
  -webkit-transform:scale(1.1);
+ -webkit-animation: rotateC 20s linear infinite;
+	-moz-animation: rotateC 20s linear infinite;
+	-o-animation: rotateC 20s linear infinite;
+	animation: rotateC 20s linear infinite;
+	-webkit-transform-origin: 50% 50%;
+	-moz-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
   background:none;
- .transition(all 0.20s ease);
-  box-shadow: inset 0 0 40px rgba(255,255,255,0.3);
+ .transition(all 0.30s ease);
 }
-.bucketBox:hover .bucketCircle{
-	border-radius:0;
-    .animation(animation1 30s linear infinite);
-}
-.bucketCircle .bucketName{
-  margin-top:38%;
-  line-height:1.6;
-  color:#fff;
-  font-size: 2rem;
-  font-weight: 600;
-  font-family: 'Raleway',sans-serif;
+.bucketCircle .bucketName {
+    line-height: 1.6;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    margin-left: 35px;
+    margin-top: 80%;
 }
 .info{
 	color:#fff !important;
@@ -1088,6 +1086,7 @@ ul{
 .popOut, .popOutFast{
   -webkit-animation:scaleDown 0.220s ease-in-out forwards;
   -moz-animation:scaleDown 0.220s ease-in-out forwards;
+  -o-animation:scaleDown 0.220s ease-in-out forwards;
   animation:scaleDown 0.220s ease-in-out forwards;
   visibility: hidden;
   pointer-events:none;
@@ -1096,6 +1095,7 @@ ul{
 .popOutFast{
   -webkit-animation:scaleDown 0.020s ease-in-out forwards;
   -moz-animation:scaleDown 0.020s ease-in-out forwards;
+  -o-animation:scaleDown 0.020s ease-in-out forwards;
   animation:scaleDown 0.020s ease-in-out forwards;
  .transition(all 0.1s ease);
   
@@ -1189,7 +1189,7 @@ ul{
   .animation(animation1 @duration-color linear  infinite );
 }
 .glBigBorder{
-  border:25px solid @border-main !important;
+  border:15px solid @border-main !important;
   border-right-color:@border-right !important;
   border-bottom-color:@border-right !important;
   box-shadow:0px 10px 10px rgba(255,255,255,0.3);
@@ -1210,7 +1210,7 @@ ul{
   position:relative;
   margin-top: 10px;
   text-align: center;
-  .animation(animation3 @duration-color linear  infinite );
+  /*.animation(animation3 @duration-color linear  infinite );*/
 }
 .glCircleName h5{
 	padding-left:5px;
@@ -1243,25 +1243,25 @@ ul{
 .glbox .glbottom1{
   width:100%;
   margin-left:20px;
-  min-height:530px;
+  min-height:700px;
   max-height:auto;
   background:rgb(198,0,12);
   padding-bottom:20px;
   position:absolute;
   top:0;
   transform:skew(-5deg) rotate(5deg);
-  .animation(animation3 @duration-color linear  infinite );
+  /*.animation(animation3 @duration-color linear  infinite );*/
 }
 .glbox .glbottom2{
   width:100%;
   margin-left:-20px;
-  min-height:530px;
+  min-height:700px;
   max-height:auto;
   background:rgb(220,0,12);
   padding-bottom:20px;
   position:relative;
   transform:skew(5deg) rotate(-5deg);
-  .animation(animation3 @duration-color linear  infinite );
+  /*.animation(animation3 @duration-color linear  infinite );*/
 }
 .glpage1{
   width:100%;
@@ -1307,7 +1307,7 @@ ul{
   text-align: center;
   box-shadow:0px 3px 3px rgba(0,0,0,0.3);
   font-family:'Raleway',sans-serif !important;
-  .animation(animation3 @duration-color linear  infinite );
+  /*.animation(animation3 @duration-color linear  infinite );*/
 }
 .glpage1 .glcontent,.glpage2 .glcontent{
   position: relative;
@@ -1353,8 +1353,8 @@ ul{
 .home-event-circles{
   width:auto;
   height:100%;
-  margin-top:-70px;
-  margin-left:50px;
+  margin-top:-80px;
+  margin-left:60px;
   margin-right:auto;
   display:block;
 }
@@ -1364,7 +1364,7 @@ ul{
   border:8px solid rgba(0,0,0,0.5);
   border-radius:30px;
   box-shadow:0px 6px 10px rgba(255,255,255,0.3);
-  background:rgb(250,16,14);
+  background:@border-main;
 }
 .smaller-icon{
   width:70px;
@@ -1379,8 +1379,8 @@ ul{
 /*outer border*/
 .animation1() {
     0%{
-	border-top-color:rgb(250,16,14);
-	border-left-color:rgb(250,16,14);
+	border-top-color:rgb(130,8,7);
+	border-left-color:rgb(130,8,7);
   	border-right-color:rgb(196,2,0);
   	border-bottom-color:rgb(196,2,0);
 	}
@@ -1391,8 +1391,8 @@ ul{
   	border-bottom-color:rgb(1,85,82);		
 	}
 	100%{
-	border-top-color:rgb(250,16,14);
-	border-left-color:rgb(250,16,14);
+	border-top-color:rgb(130,8,7);
+	border-left-color:rgb(130,8,7);
   	border-right-color:rgb(196,2,0);
   	border-bottom-color:rgb(196,2,0);
 	}
@@ -1413,18 +1413,17 @@ ul{
   
 	}
 	100%{
-border-top-color:rgb(206,3,3);
+  border-top-color:rgb(206,3,3);
   border-left-color:rgb(243,62,75);
   border-bottom-color:rgb(250,16,14);
   border-right-color:rgb(255,63,77);
-  
 	}
 }
 /*bg*/
 .animation3()
 {
 	0%{
-		background-color:rgb(249,16,14);
+		background-color:rgb(130,8,7);
 	}
 	33%{
 		background-color:rgb(54,214,215);
@@ -1433,7 +1432,7 @@ border-top-color:rgb(206,3,3);
 		background-color:rgb(54,214,215);
 	}
 	100%{
-		background-color:rgb(249,16,14);
+		background-color:rgb(130,8,7);
 	}
 }
 /*box shadow*/
@@ -1461,7 +1460,7 @@ border-top-color:rgb(206,3,3);
 /*border*/
 @duration-color: 30s;
 @duration-hover:0.4s;
-@border-main: rgb(250,16,14);
+@border-main: rgb(130,8,7);
 @border-right: rgb(196,2,0);
 @border-bottom: rgb(196,2,0);
 @import '3L/assets/animations/animation1';
@@ -1481,8 +1480,8 @@ border-top-color:rgb(206,3,3);
   background:rgba(255,255,255,0.1);
   margin-bottom:40px;
   cursor: pointer;
-  .transition(transform 0.1s linear 0.6s);
-  .animation(animation1 @duration-color linear  infinite );
+  .transition(transform 0.02s linear 0.6s);
+  /*.animation(animation1 @duration-color linear  infinite );*/
 }
 @small-border-main: rgb(206,3,3);
 @small-border-right: rgb(255,63,77);
@@ -1504,8 +1503,8 @@ border-top-color:rgb(206,3,3);
   border-left-color:rgb(0,254,252);
   border-bottom-color:rgb(0,134,132);
   border-right-color:rgb(0,254,252);
-  .transition(transform 0.2s linear, opacity 0.3s linear 0.3s);
-  .animation(animation2 @duration-color linear  infinite );
+  .transition(transform 0.02s linear, opacity 0.3s linear 0.3s);
+  /*.animation(animation2 @duration-color linear  infinite );*/
 }
 .smaller-icon::before{
   padding:10px;
@@ -1578,20 +1577,20 @@ border-top-color:rgb(206,3,3);
 .animation5()
 {
 0%{
- background-color:rgb(4,17,52);
+ background-position:0 0,0 0;
+
  	}
  25%{
- background-color:rgb(20,6,28);
- 
+ background-position:-25% -25%,-25% -25%;
  	}
  50%{
- background-color:rgb(26,4,41);
+ background-position:-50% -50%,-50% -50%;
  	 }
  75%{
- background-color:rgb(20,6,28);
+ background-position:-75% -75%,-75% -75%;
  	}
  100%{
- background-color:rgb(4,17,52);
+ background-position:-100% -100%,-100% -100%;
  	}
  }
 .mg-lg{
@@ -1633,10 +1632,12 @@ li .list-icon{
   -2px 1px 5px rgba(255,255,255,0.1);
   -webkit-animation:altBorder 30s linear infinite;
   -moz-animation:altBorder 30s linear infinite;
+  -o-animation:altBorder 30s linear infinite;
   animation:altBorder 30s linear infinite;
   .transition(all 0.5s linear);
 }
 .update-box{
+	height:180px;
 	padding:20px;
 	}
 .update-box p{
@@ -1660,6 +1661,7 @@ li .list-icon{
 	position: absolute;
 	-webkit-animation: rotateC 30s linear infinite;
 	-moz-animation: rotateC 30s linear infinite;
+	-o-animation: rotateC 30s linear infinite;
 	animation: rotateC 30s linear infinite;
 	-webkit-transform-origin: 50% 50%;
 	-moz-transform-origin: 50% 50%;
@@ -1736,7 +1738,7 @@ li img{
   -webkit-transform:rotate(45deg);
   position:absolute;
   border-radius:50%;
-  .transition(all 0.4s ease);
+  .transition(all 0.2s ease);
 }
 .overlayContainer .slice2{
   transform:rotate(135deg);
@@ -1778,8 +1780,10 @@ li img{
   transform:rotate(45deg) translate(-50%,-50%);
    -webkit-transform:rotate(45deg) translate(-50%,-50%);
     background:rgba(255,255,255,0.05);
-  -moz-animation:rotate360 0.4s linear;
-  -webkit-animation:rotate360 0.4s linear;
+  -moz-animation:rotate360 0.1s linear;
+  -webkit-animation:rotate360 0.1s linear;
+  -o-animation:rotate360 0.1s linear;
+  animation:rotate360 0.1s linear;
   .transition(background 0.1s linear 0.46s,transform 0.3s ease-in 0.45s);
 }
 .karCircle:hover .slice2{
@@ -1904,6 +1908,7 @@ li img{
     border-right-color:rgb(0,254,252);
 	-webkit-animation:altBorder 30s linear infinite;
 	-moz-animation:altBorder 30s linear infinite;
+	-o-animation:altBorder 30s linear infinite;
 	animation:altBorder 30s linear infinite;
 	.transition(all 0.15s linear);
 	}
@@ -1914,7 +1919,7 @@ li img{
 	-webkit-transform:scale(1.1);
 }
 .badgeEvent:hover .fa{
-	.animation(animation5 10s linear infinite);
+	/*.animation(animation5 10s linear infinite);*/
 }
 .badgeEvent h5{
 	font-family:'Raleway',sans-serif;
@@ -1981,6 +1986,7 @@ li img{
  	font-weight:600;
     -webkit-animation: blink 0.7s infinite;
     -moz-animation: blink 0.7s infinite;
+    -o-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
 }
 @keyframes blink{
@@ -2004,19 +2010,19 @@ li img{
   font-family:'Raleway',sans-serif;
 }
 .tabContainer li{
-  font-size:2rem;
+  font-size:1.8rem;
   cursor: pointer;
   color:#fff;
   display:inline;
   float:left;
   color:#fff;
-  margin-top:-70px;
+  margin-top:-60px;
   padding-top:20px;
   border-bottom:5px solid rgba(115,238,235,1);
   border-top:5px solid rgba(115,238,235,1);
   margin-bottom:10px;
-  .transition(all 0.2s linear);
-  .animation(animation5 15s linear infinite);
+  .transition(all 0.3s linear);
+  /*.animation(animation5 15s linear infinite);*/
   }
 .tabContent {
   padding:20px;
@@ -2028,7 +2034,11 @@ li img{
   line-height: 1.7;
 }
 .tabContainer li:hover{
-	background:rgba(255,255,255,0.1) !important;
+	background:rgba(255,255,255,0.5);
+	-webkit-animation-play-state:paused;
+	-moz-animation-play-state:paused;
+	-o-animation-play-state:paused;
+	animation-play-state:paused;
 }
 .preloader
 {	
@@ -2058,8 +2068,10 @@ li img{
 	/*top:5%;*/
 	/*left:25%;	*/
 	display: inline-block;
-	animation:play 1.5s steps(31) infinite;	
 	-webkit-animation:play 1.5s steps(31) infinite;	
+	-moz-animation:play 1.5s steps(31) infinite;	
+	-o-animation:play 1.5s steps(31) infinite;	
+	animation:play 1.5s steps(31) infinite;	
 }
 	
 @keyframes play {
@@ -2177,4 +2189,20 @@ li img{
 }
 .archives{
 	font-weight:bold;
+}
+.profile{
+	height:100%;
+	background:rgba(0,0,0,0.1);
+	padding:30px;
+	margin-top:30px;
+}
+.profile p{
+	font-size:2.2rem;
+	color:rgb(255,247,219);
+	font-family:'Orbitron',sans-serif;
+	line-height:1.6;
+}
+.detail{
+	font-weight:600;
+	text-shadow:0px 1px 1px rgba(0,0,0,0.3);
 }

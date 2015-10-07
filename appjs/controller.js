@@ -1,6 +1,19 @@
 /*UPDATES*/
 var myApp = angular.module("myAppControllers",[]);
+function findTime($scope, $rootScope) {
+ var date = new Date();
+ var hours = date.getHours();
+ var ampm = hours >= 12 ? 'pm' : 'am';
+ if(ampm == 'am')
+ {	
+ 	$("html,body").css({'background-color':"rgba(1,45,66)"});
+ }
+ else
+ {	$("html,body").css({'background-color':"rgb(0,7,32)"});
+	}
+}
 myApp.controller('updateController',['$scope','$http','$timeout','cfpLoadingBar',function($scope,$http,$timeout,cfpLoadingBar){
+findTime();
 $scope.updates = [];
 // $scope.dataLoaded = false;
 $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/updates.json'}).success(function(data)
@@ -32,6 +45,7 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/updates.json'}).succes
 
 /*EVENTS*/
 myApp.controller('eventsController',['$scope','$http','$location','$timeout','cfpLoadingBar',function($scope,$http,$location,$timeout, cfpLoadingBar){
+findTime();
 $scope.events = [];
 $scope.tabs = [];
 $scope.eventName;
@@ -78,6 +92,7 @@ $scope.showTab = function(tabtitle)
 }]);
 /*WORKSHOPS*/
 myApp.controller('wkshopsController',['$scope','$http','$location','$timeout','cfpLoadingBar',function($scope,$http,$location,$timeout,cfpLoadingBar){
+findTime();
 $scope.events = [];
 $scope.tabs = [];
 $scope.eventName;
@@ -123,6 +138,7 @@ $scope.showTab = function(tabtitle)
 
 /*HOSPI*/
 myApp.controller('hospiController',['$scope','$document','$http','cfpLoadingBar',function($scope,$document,$http,cfpLoadingBar){
+findTime();
 $scope.nodes = [
 {
 	title:'Introduction',
@@ -182,6 +198,9 @@ $scope.nodeInfo = [];
 							console.log($scope.nodeInfo[i]['title']);
 							}
 							init();
+							var top = $("#hospi_content").scrollTop()+180;
+							$('html,body').animate({'scrollTop':top+"px"},500,'easeOutSine');
+							$scope.$apply();
 					});
 	function init()
 	{
@@ -201,8 +220,8 @@ $scope.nodeInfo = [];
 }]);
 // guestlectures
 myApp.controller('glController',['$scope','$http','$timeout','cfpLoadingBar',function($scope,$http,$timeout,cfpLoadingBar){
+findTime();
 $scope.nodes =[];
-
 function init(){
 	$(".glContainer #1").addClass("glBigBorder");
 	var id = 0; 
@@ -223,6 +242,9 @@ function init(){
 							console.log($scope.nodes[i]['title']);
 							}
 				   		$timeout(init, 10);
+				   		var top = $(".anno").scrollTop()+400;
+					    $('html,body').animate({'scrollTop':top+"px"},500,'easeOutSine');
+					    $scope.$apply();
 					});
 $scope.clickedName = '';
 $scope.date = '';
@@ -241,12 +263,17 @@ $scope.clicked = function(name,id)
 	$scope.venue = $scope.nodes[id]['venue'];
 	$scope.desc = $scope.nodes[id]['desc'];
 	$scope.about = $scope.nodes[id]['about'];
+	var top = $(".glContent").scrollTop()+400;
+	$('html,body').animate({'scrollTop':top+"px"},500,'easeOutSine');
+	$scope.$apply();
+
 };
 
 }]);
 
 //karnival
 myApp.controller('karnivalController',['$scope','$http','$timeout','cfpLoadingBar',function($scope,$http,$timeout,cfpLoadingBar){
+findTime();
 $scope.nodes =[];
 
 	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/karnivals.json'}).success(function(data)
@@ -304,12 +331,12 @@ $(".closeme").click(function(){
   
 });
 
-  var anims = ['flyLeft','flyBottom','flyRight','flyTop'];
+  var anims = ['flyLeft','flyRight'];
   var index = 0;
   function popOut(){
   $(".karCircle").each(function(i){
       var ele = $(this);
-      index = (index+1)%4;
+      index = (index+1)%2;
       var currentanim = anims[index];
       setTimeout(function(){ $(ele).addClass(currentanim).fadeOut(100*i+100);},100*i+100);
   });
@@ -349,6 +376,7 @@ function moveKarsDown(){
 
 /*ABOUT*/
 myApp.controller('aboutController',['$scope',function($scope){
+findTime();
 $scope.nodes = [
 {
 	title:'CEG',
@@ -407,12 +435,16 @@ $scope.clicked = function(clickedid)
 {
 	$scope.clickedName = $scope.nodes[clickedid-1]['title'];
 	$scope.information = $scope.nodeInfo[clickedid-1]['desc']; 
+	var top = $("#hospi_content").scrollTop()+180;
+    $('html,body').animate({'scrollTop':top+"px"},500,'easeOutSine');
+    $scope.$apply();
 };
 
 }]);
 /*CONTACTS*/
 /*WORKSHOPS*/
 myApp.controller('contactsController',['$scope','$http','$location','$timeout','cfpLoadingBar',function($scope,$http,$location,$timeout,cfpLoadingBar){
+findTime();
 $scope.buckets = [];
 $scope.members = [];
 $scope.bucketname = '';
@@ -455,7 +487,7 @@ function popIn(){
   });
 }
 function closeall(){
-    $(".left").animate({'marginLeft':"100%"},500,'easeOutElastic');
+    $(".left").animate({'marginLeft':"100%"},500,'easeOutSine');
     popIn();
 }
 	$scope.bucketname = bname;
