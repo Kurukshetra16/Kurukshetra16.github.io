@@ -1,10 +1,11 @@
 <!--put components here -->
-<div ng-controller="contactsController" class="contactsAnim">
-<div class="container col-md-12 col-xs-12 topMargin">
+<div ng-controller="contactsController">
+<div class="container col-md-12 col-xs-12 paddingReset clearfix">
   <h1 class="ribbontitle col-md-12 col-xs-12 text-center">CONTACT US</h1>
-<ul class="container col-md-12 col-xs-12 col-md-push-1 clearfix paddingReset bucketContainer">
+<ul class="contactContainer col-md-12 col-xs-12 clearfix paddingReset">
   <li id="bucket.id" class="bucketBox" ng-repeat="bucket in buckets" ng-click="getBucket(bucket.name,bucket.id)">
     <div class="bucketCircle col-md-4 col-xs-12 ">
+    <img src="images/jarvis.png"/ style="position:absolute;width:240px; height:240px">
       <h5 class="bucketName">{{bucket.name}}</h5>
     </div>
   </li>

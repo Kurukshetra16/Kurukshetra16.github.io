@@ -1,8 +1,8 @@
      <!--Gl starts here-->
-  <div class="container" ng-controller="glController">
+  <div class="paddingReset col-md-12 col-xs-12 container" ng-controller="glController">
   <h1 class="paddingReset ribbontitle text-center">GUEST LECTURES</h1>
 </div>
-<div class="container glContainer col-md-12 col-xs-12" >
+<div class="container glContainer col-md-12 col-xs-12 paddingReset clearfix" >
     <div class="glAnim col-md-2 col-xs-12" ng-repeat="nodeItem in nodes">
       <div class="item paddingReset">
         <div class="anno scrim">
@@ -24,11 +24,10 @@
       <div class="col-md-2 col-xs-2">
         <h4 class="redribbon">{{date}} at {{Time}} in {{venue}}</h4>
       </div>
-      <div class="col-md-2 col-md-push-3 col-xs-12 col-xs-push-4">
+      <div class="col-md-3 col-md-push-3 col-xs-12 col-xs-push-4">
           <img src="images/ceg.jpg"/>
-      <h4 class="glName" style="font-size:2rem;font-family:'Raleway',sans-serif">{{clickedName}}</h4>
+      <h4 class="glName col-md-pull-1 col-md-12" style="font-size:2rem;font-family:'Raleway',sans-serif;text-align:center;margin-left:-5px">{{clickedName}}</h4>
       </div>
-      
       <div class="glcontent col-md-12 col-xs-12" ng-bind-html="about">
       </div>
       <div class="next"><i class="fa fa-angle-right"></i> The Talk</div>
