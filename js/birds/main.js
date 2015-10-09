@@ -236,9 +236,9 @@ var Boid = function() {
 				 var date = new Date();
 				 var hours = date.getHours();
 				 var ampm = hours >= 12 ? 'pm' : 'am';
-				 if(ampm == 'am')
+				 if(ampm == 'pm')
 				 {	
-					renderer.setClearColor( 0x012D42 );
+					renderer.setClearColor( 0x20316e );
 				 }
 				 else
 				 {
