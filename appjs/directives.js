@@ -29,22 +29,13 @@ myApp.directive('compile', ['$compile', function ($compile) {
 
 // GLAnim
 myApp.directive('glAnim', function() {
-  jQuery.fn.swapWith = function(to) {
-    return this.each(function() {
-        var copy_to = $(to).clone(true);//#3
-        var copy_from = $(this).clone(true);//clicked
-        $(this).replaceWith(copy_to);
-        $(to).replaceWith(copy_from);
-    });
-};
        console.log("glAnim");
         return{
         scope:{},
         restrict: 'AEC',
         replace:'true',
         link: function(scope,elem,attrs){
-
-$(".glCircle").on("click",function(){
+  $(".glCircle").on("click",function(){
   $(".glCircle").removeClass("glBigBorder");
   $(this).addClass("glBigBorder");
 });
@@ -70,9 +61,9 @@ myApp.directive('hospiAnim', function() {
   var total = 6;
   if( $(window).width() >= 600)
   {   if(nodeid == total)
-        $(".longer-line").css({'background':"rgb(250,16,14)",'width':"100%"});
+        $(".longer-line").css({'width':"100%"});
       else
-        $(".longer-line").css({'background':"rgb(250,16,14)",'width':(nodeid*85)/total+"%"});
+        $(".longer-line").css({'width':(nodeid*85)/total+"%"});
   }
   setTimeout(function(){$(".hospi_content").addClass("hospi_animated");},500);
 
@@ -89,6 +80,8 @@ myApp.directive('aboutAnim', function() {
         link: function(scope,elem,attrs){
 
   $(".node").click(function(){
+  if($(this).hasClass("node-active"))
+    return;
   $(".node").removeClass("node-active");
   $(this).addClass("node-active");
   $(".hospi_content").removeClass("hospi_animated");
@@ -96,9 +89,9 @@ myApp.directive('aboutAnim', function() {
   var total = 4;
   if( $(window).width() >= 600)
   {   if(nodeid == total)
-        $(".longer-line").css({'background':"rgb(250,16,14)",'width':"100%"});
+        $(".longer-line").css({'width':"100%"});
       else
-      $(".longer-line").css({'background':"rgb(250,16,14)",'width':(nodeid*85)/total+"%"});
+      $(".longer-line").css({'width':(nodeid*85)/total+"%"});
   
   }
 setTimeout(function(){$(".hospi_content").addClass("hospi_animated");},500);
@@ -123,8 +116,13 @@ $(".close").click(function(){
   closeall();
 });
 function closeall(){
+    $(".imagebox").each(function(){
+      var elem = $(this);
+      setTimeout(function(){
+        $(elem).animate({'opacity':"1",'margin-left':"0px"},100);
+      },i*50+50);
+    });
     $(".left").animate({'marginLeft':"-100%"},300,'easeInOutQuad');
-    $(".right").animate({'marginLeft':"-100%"},300,'easeInOutQuad');
 }
 
 $(".navbar-toggle").click(function(){
@@ -146,7 +144,7 @@ myApp.directive('contactsAnim', function() {
         link: function(scope,elem,attrs){
             $(".bucketCircle").click(function(){
                 $(".left").animate({'marginLeft':"0"},1000,'easeInQuad');
-            });
+                });
 
     }
 };

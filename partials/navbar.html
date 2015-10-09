@@ -393,8 +393,8 @@
     hideAllHeaders();
     var ccid = "."+cid+"Header";
     $(ccid).addClass("dropDown");
-    $(".container").children().fadeOut().finish();
-    $(".cd-tabs").children().fadeOut().finish();
+    $(".container").children().fadeOut(0).finish();
+    $(".cd-tabs").children().fadeOut(0).finish();
     $(".left").fadeOut(10).finish();
   }
   function showStuffBelow()
@@ -405,9 +405,9 @@
   }
   function hideAllHeaders()
   {
-        $(".eventHeader").removeClass("dropDown");
-        $(".wkshopHeader").removeClass("dropDown");
-        $(".loginHeader").removeClass("dropDown");
+        $(".eventHeader").removeClass("dropDown").finish();
+        $(".wkshopHeader").removeClass("dropDown").finish();
+        $(".loginHeader").removeClass("dropDown").finish();
   }
 }
 //random page stuff

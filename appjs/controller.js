@@ -6,7 +6,26 @@ function findTime($scope, $rootScope) {
  var ampm = hours >= 12 ? 'pm' : 'am';
  if(ampm == 'am')
  {	
- 	$("html,body").css({'background-color':"rgba(1,45,66)"});
+ 	$("html,body").css({'background-color':"rgb(32,49,110)",'background-image':"none"});
+ 	$(".overlay").css({'background-color':"rgb(32,49,110)",'background-image':"none"});
+ 	less.modifyVars({
+        '@border-main': "rgb(242,165,4)",
+        '@border-right': "rgb(209,31,1)",
+        '@border-bottom': "rgb(159,20,0)",
+        '@border-left':"rgb(209,31,1)",
+        '@border-top':"rgb(239,70,7)",
+
+        '@small-border-main': "#A66C25",
+        '@small-border-top': "rgb(254,175,13)",
+        '@small-border-right': "rgb(253,128,22)",
+        '@small-border-left': "rgb(253,128,22)",
+        '@small-border-bottom': "rgb(245,102,15)",
+        '@font-color':"#EDFEB0",
+        '@font-color-hover':"#EDFEC9",
+        '@line-color':"#aa6625",
+        '@line-progres':"#ffa639"
+
+    });
  }
  else
  {	$("html,body").css({'background-color':"rgb(0,7,32)"});
@@ -63,6 +82,12 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/categories'+path+'.jso
 				  
 				   });
 $scope.getEvent = function(eventname){
+	$(".imagebox").each(function(){
+      var elem = $(this);
+      setTimeout(function(){
+        $(elem).animate({'opacity':"0",'margin-left':"30px"},70);
+      },i*50+50);
+    });
 	$scope.eventName = eventname;
 	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','');
 function init(){
@@ -109,6 +134,12 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/workshopcategories'+pa
 				   		}
 				   });
 $scope.getEvent = function(eventname){
+	$(".imagebox").each(function(){
+      var elem = $(this);
+      setTimeout(function(){
+        $(elem).animate({'opacity':"0",'margin-left':"30px"},70);
+      },i*50+50);
+    });
 	$scope.eventName = eventname;
 	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','');
 function init(){
@@ -199,7 +230,7 @@ $scope.nodeInfo = [];
 							}
 							init();
 							var top = $("#hospi_content").scrollTop()+180;
-							$('html,body').animate({'scrollTop':top+"px"},500,'easeOutSine');
+							$('html,body').delay(100).animate({'scrollTop':top+"px"},1500,'easeOutSine');
 							$scope.$apply();
 					});
 	function init()
@@ -207,7 +238,7 @@ $scope.nodeInfo = [];
 		$scope.nodeData = $scope.nodeInfo[0]['desc'];
 		$scope.clickedNode = "Introduction";
 		$scope.clickedID = "1";
-  		$(".longer-line").css({'background':"rgb(250,16,14)",'width':"10%"});
+  		$(".longer-line").css({'width':"10%"});
   		setTimeout(function(){$(".hospi_content").addClass("hospi_animated");
 		$("#1").addClass("node-active");
   		},500);
@@ -223,6 +254,9 @@ myApp.controller('glController',['$scope','$http','$timeout','cfpLoadingBar',fun
 findTime();
 $scope.nodes =[];
 function init(){
+	setTimeout(function(){
+	$(".glpage1").removeClass("glpageanim1");},500);
+    $(".glpage2").removeClass("glpageanim2");
 	$(".glContainer #1").addClass("glBigBorder");
 	var id = 0; 
 	$scope.clickedName = $scope.nodes[id]['title'];
@@ -242,8 +276,8 @@ function init(){
 							console.log($scope.nodes[i]['title']);
 							}
 				   		$timeout(init, 10);
-				   		var top = $(".anno").scrollTop()+400;
-					    $('html,body').animate({'scrollTop':top+"px"},500,'easeOutSine');
+				   		var top = $(".anno").scrollTop()+450;
+					    $('html,body').delay(100).animate({'scrollTop':top+"px"},1500,'easeOutSine');
 					    $scope.$apply();
 					});
 $scope.clickedName = '';
@@ -254,7 +288,10 @@ $scope.desc = '';
 $scope.about = '';
 $scope.clicked = function(name,id)
 {	
-	$(".glpage1").removeClass("glpageanim1");
+	if($scope.clickedName == name)
+		return;
+	$(".glpage1").addClass("glpageanim1");
+	setTimeout(function(){$(".glpage1").removeClass("glpageanim1");},500);
     $(".glpage2").removeClass("glpageanim2");
 	$scope.clickedName = name;
 	id = id-1;
@@ -263,7 +300,7 @@ $scope.clicked = function(name,id)
 	$scope.venue = $scope.nodes[id]['venue'];
 	$scope.desc = $scope.nodes[id]['desc'];
 	$scope.about = $scope.nodes[id]['about'];
-	var top = $(".glContent").scrollTop()+400;
+	var top = $(".glContent").scrollTop()+450;
 	$('html,body').animate({'scrollTop':top+"px"},500,'easeOutSine');
 	$scope.$apply();
 
@@ -426,7 +463,7 @@ $scope.nodeInfo=[
 }];
 $scope.clickedName = 'CTF';
 $scope.information = $scope.nodeInfo[3]['desc'];
-$(".longer-line").css({'background':"rgb(250,16,14)",'width':"100%"});
+$(".longer-line").css({'width':"100%"});
 setTimeout(function(){$(".hospi_content").addClass("hospi_animated");
 $("#1").addClass("node-active");
 },500);

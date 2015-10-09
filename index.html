@@ -9,10 +9,14 @@
 <body ng-app="myApp">
   <div id="container"></div>
  <div class="overlay" ng-controller="updateController">
- <div ng-include="'partials/header.html'"></div>
-      <div ng-include="'partials/navbar.html'"></div>
-      <div ng-view id="main"></div> 
- <div ng-include="'partials/footer.html'"></div>
+ <div class="row">
+ 	<div ng-include="'partials/header.html'"></div>
+ </div>
+<div class="row">
+    <div ng-include="'partials/navbar.html'"></div>
+</div>
+<div ng-view id="main"></div> 
+<div ng-include="'partials/footer.html'"></div>
  </div>
 
   
