@@ -7,7 +7,7 @@ function findTime($scope, $rootScope) {
  if(ampm == 'am')
  {	
  	$("html,body").css({'background-color':"rgb(32,49,110)",'background-image':"none"});
- 	$(".overlay").css({'background-color':"rgb(32,49,110)",'background-image':"none"});
+ 	$(".overlay").css({'background-color':"rgba(32,49,110,0)",'background-image':"none"});
  	less.modifyVars({
         '@border-main': "rgb(242,165,4)",
         '@border-right': "rgb(209,31,1)",
