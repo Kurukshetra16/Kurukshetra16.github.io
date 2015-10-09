@@ -4,7 +4,7 @@ function findTime($scope, $rootScope) {
  var date = new Date();
  var hours = date.getHours();
  var ampm = hours >= 12 ? 'pm' : 'am';
- if(ampm == 'pm')
+ if(ampm == 'am')
  {	
  	$("html,body").css({'background-color':"#1F4979",'background-image':"none"});
  	$(".overlay").css({'background-color':"rgba(31,73,121,0.3)",'background-image':"none"});
