@@ -29,22 +29,13 @@ myApp.directive('compile', ['$compile', function ($compile) {
 
 // GLAnim
 myApp.directive('glAnim', function() {
-  jQuery.fn.swapWith = function(to) {
-    return this.each(function() {
-        var copy_to = $(to).clone(true);//#3
-        var copy_from = $(this).clone(true);//clicked
-        $(this).replaceWith(copy_to);
-        $(to).replaceWith(copy_from);
-    });
-};
        console.log("glAnim");
         return{
         scope:{},
         restrict: 'AEC',
         replace:'true',
         link: function(scope,elem,attrs){
-
-$(".glCircle").on("click",function(){
+  $(".glCircle").on("click",function(){
   $(".glCircle").removeClass("glBigBorder");
   $(this).addClass("glBigBorder");
 });

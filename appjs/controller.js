@@ -4,7 +4,7 @@ function findTime($scope, $rootScope) {
  var date = new Date();
  var hours = date.getHours();
  var ampm = hours >= 12 ? 'pm' : 'am';
- if(ampm == 'pm')
+ if(ampm == 'am')
  {	
  	$("html,body").css({'background-color':"rgb(32,49,110)",'background-image':"none"});
  	$(".overlay").css({'background-color':"rgb(32,49,110)",'background-image':"none"});
@@ -254,7 +254,8 @@ myApp.controller('glController',['$scope','$http','$timeout','cfpLoadingBar',fun
 findTime();
 $scope.nodes =[];
 function init(){
-	$(".glpage1").removeClass("glpageanim1");
+	setTimeout(function(){
+	$(".glpage1").removeClass("glpageanim1");},500);
     $(".glpage2").removeClass("glpageanim2");
 	$(".glContainer #1").addClass("glBigBorder");
 	var id = 0; 
@@ -287,7 +288,10 @@ $scope.desc = '';
 $scope.about = '';
 $scope.clicked = function(name,id)
 {	
-	$(".glpage1").removeClass("glpageanim1");
+	if($scope.clickedName == name)
+		return;
+	$(".glpage1").addClass("glpageanim1");
+	setTimeout(function(){$(".glpage1").removeClass("glpageanim1");},500);
     $(".glpage2").removeClass("glpageanim2");
 	$scope.clickedName = name;
 	id = id-1;
