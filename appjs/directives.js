@@ -133,7 +133,39 @@ $(".navbar-toggle").click(function(){
            }
         };
     });
+/*xceed anim*/
+myApp.directive('xceedAnim', function() {
+        console.log("xceedAnim");
+        return{
+        scope:{},
+        restrict: 'AEC',
+        replace:'true',
+        link: function(scope,elem,attrs){
+$(document).ready(function(){
+          $(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
+          $(".home-event-circle").removeClass("removeBB");
+          $("#xceed").addClass("selectedNavElem");
+          $("#xceed").parent().parent().addClass("removeBB");
+$(".close").click(function(){
+  closeall();
+});
+function closeall(){
+    $(".place").each(function(){
+      var elem = $(this);
+      setTimeout(function(){
+        $(elem).fadeIn(100*i);
+      },i*50+50);
+    });
+    $(".left").animate({'marginLeft':"-100%",'opacity':"0"},300,'easeInOutQuad');
+}
 
+$(".navbar-toggle").click(function(){
+  closeall();
+});
+});
+           }
+        };
+    });
 /*contacts anim*/
 myApp.directive('contactsAnim', function() {
         console.log("contactsAnim");

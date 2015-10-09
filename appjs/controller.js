@@ -4,10 +4,10 @@ function findTime($scope, $rootScope) {
  var date = new Date();
  var hours = date.getHours();
  var ampm = hours >= 12 ? 'pm' : 'am';
- if(ampm == 'am')
+ if(ampm == 'pm')
  {	
- 	$("html,body").css({'background-color':"rgb(32,49,110)",'background-image':"none"});
- 	$(".overlay").css({'background-color':"rgb(32,49,110)",'background-image':"none"});
+ 	$("html,body").css({'background-color':"#1F4979",'background-image':"none"});
+ 	$(".overlay").css({'background-color':"rgba(31,73,121,0.3)",'background-image':"none"});
  	less.modifyVars({
         '@border-main': "rgb(242,165,4)",
         '@border-right': "rgb(209,31,1)",
@@ -79,7 +79,10 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/categories'+path+'.jso
 				   			$scope.events[i] = jsonstr[i];
 				   			console.log($scope.events[i]);
 				   		}
-				  
+				   		$(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
+						$(".home-event-circle").removeClass("removeBB");
+						$("#eventNav").find(".circle-icon").addClass("selectedNavElem");
+						$("#eventNav").addClass("removeBB");
 				   });
 $scope.getEvent = function(eventname){
 	$(".imagebox").each(function(){
@@ -93,6 +96,7 @@ $scope.getEvent = function(eventname){
 function init(){
 	$(".tabContent li").hide();
 	$(".tabContent").find("li.0").show();
+	
 }
 	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/events/'+eventname+'.json'}).success(function(data)
 				   {
@@ -112,8 +116,6 @@ $scope.showTab = function(tabtitle)
 	$(".tabContent").find("li").hide();
 	$(".tabContent").find("."+tabtitle).show();
 };
-
-
 }]);
 /*WORKSHOPS*/
 myApp.controller('wkshopsController',['$scope','$http','$location','$timeout','cfpLoadingBar',function($scope,$http,$location,$timeout,cfpLoadingBar){
@@ -130,8 +132,12 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/workshopcategories'+pa
 				   	for(i=0;i<jsonstr.length;i++)
 				   		{
 				   			$scope.events[i] = jsonstr[i];
-				   			
 				   		}
+				   			$(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
+	$(".home-event-circle").removeClass("removeBB");
+	$("#wkshopNav").find(".circle-icon").addClass("selectedNavElem");
+	$("#wkshopNav").addClass("removeBB");
+
 				   });
 $scope.getEvent = function(eventname){
 	$(".imagebox").each(function(){
@@ -532,4 +538,109 @@ function closeall(){
 	$scope.members = $scope.buckets[id]['members'];
 };
 
+}]);
+/*PROJECTS*/
+myApp.controller('projectsController',['$scope','$http','$location','$timeout','cfpLoadingBar',function($scope,$http,$location,$timeout, cfpLoadingBar){
+findTime();
+$scope.events = [];
+$scope.tabs = [];
+$scope.eventName;
+var path = '/engineering';
+//path = '/'+path.substr(8,path.length);
+$scope.category = 'PROJECTS';
+$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/categories'+path+'.json'}).success(function(data)
+				   {
+				    jsonstr = data['category']['events']; // response data 
+				   	for(i=0;i<jsonstr.length;i++)
+				   		{
+				   			$scope.events[i] = jsonstr[i];
+				   			console.log($scope.events[i]);
+				   		}
+				  
+				   });
+$scope.getEvent = function(eventname){
+	$(".imagebox").each(function(){
+      var elem = $(this);
+      setTimeout(function(){
+        $(elem).animate({'opacity':"0",'margin-left':"30px"},70);
+      },i*50+50);
+    });
+	$scope.eventName = eventname;
+	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','');
+function init(){
+	$(".tabContent li").hide();
+	$(".tabContent").find("li.0").show();
+}
+	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/events/'+eventname+'.json'}).success(function(data)
+				   {
+				    jsonstr = data['event']['tabs']; // response data 
+				   	for(i=0;i<jsonstr.length;i++)
+				   		{
+			   			$scope.tabs[i] = jsonstr[i];
+				   			$scope.tabs[i]['id']=i;
+				   		}
+					$(".left").animate({'marginLeft':"0px"},500,'easeOutSine');
+				   	$timeout(init, 10);
+});
+}
+$scope.showTab = function(tabtitle)
+{
+	$(".tabContent").show();
+	$(".tabContent").find("li").hide();
+	$(".tabContent").find("."+tabtitle).show();
+};
+
+
+}]);
+/*XCEED*/
+myApp.controller('xceedController',['$scope','$http','$location','$timeout','cfpLoadingBar',function($scope,$http,$location,$timeout, cfpLoadingBar){
+findTime();
+$scope.events1 = [];
+$scope.events2 = [];
+$scope.events3 = [];
+$scope.events4 = [];
+$scope.tabs = [];
+$scope.eventName = '';
+$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/xceeds.json'}).success(function(data)
+				   {
+				   		for(var i=0;i<data.length;i++)
+				   		{
+				   			if(data[i]['city_id'] == 1)
+				   				$scope.events1.push(data[i]['name']);
+				   			if(data[i]['city_id'] == 2)
+				   				$scope.events2.push(data[i]['name']);
+				   			if(data[i]['city_id'] == 3)
+				   				$scope.events3.push(data[i]['name']);
+				   			if(data[i]['city_id'] == 4)
+				   				$scope.events4.push(data[i]['name']);
+				   		console.log(data[i]['name']);
+				   		}
+				   		console.log($scope.events1.length);
+				   });
+$scope.getEvent = function(eventname){
+	$(".place").fadeOut(100);
+	$scope.eventName = eventname;
+	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','');
+function init(){
+	$(".tabContent li").hide();
+	$(".tabContent").find("li.0").show();
+}
+	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/xceeds/'+eventname+'.json'}).success(function(data)
+				   {
+				    jsonstr = data['xceed']['tabs']; // response data 
+				   	for(i=0;i<jsonstr.length;i++)
+				   		{
+			   			$scope.tabs[i] = jsonstr[i];
+				   			$scope.tabs[i]['id']=i;
+				   		}
+					$(".left").animate({'opacity':"1",'marginLeft':"-15px",'margin-top':"3%"},500,'easeOutSine');
+				   	$timeout(init, 10);
+});
+}
+$scope.showTab = function(tabtitle)
+{
+	$(".tabContent").show();
+	$(".tabContent").find("li").hide();
+	$(".tabContent").find("."+tabtitle).show();
+};
 }]);

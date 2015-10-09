@@ -12,5 +12,6 @@ myApp.config(['$routeProvider', function($routeProvider) {
                 $routeProvider.when("/about", {templateUrl: "partials/about.html",controller:"aboutController"});
                 $routeProvider.when("/loginK", {templateUrl: "partials/loginK.html",controller:"loginKController"});
                 $routeProvider.when("/profile", {templateUrl: "partials/profile.html",controller:"updateController"});
+                $routeProvider.when("/projects", {templateUrl: "partials/projects.html",controller:"projectsController"});
                 $routeProvider.otherwise({redirectTo: '/'});
                 }]);
