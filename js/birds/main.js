@@ -236,7 +236,7 @@ var Boid = function() {
 				 var date = new Date();
 				 var hours = date.getHours();
 				 var ampm = hours >= 12 ? 'pm' : 'am';
-				 if(ampm == 'pm')
+				 if(ampm == 'am')
 				 {	
 					renderer.setClearColor( 0x1F4979 );
 				 }
@@ -314,6 +314,7 @@ var Boid = function() {
 
 var SCREEN_WIDTH = window.innerWidth,
     SCREEN_HEIGHT = window.innerHeight,
+    DOCUMENT_HEIGHT = $(document).height(),
     SCREEN_WIDTH_HALF = SCREEN_WIDTH  / 2,
     SCREEN_HEIGHT_HALF = SCREEN_HEIGHT / 2;
 var slope = SCREEN_HEIGHT/SCREEN_WIDTH;
@@ -345,7 +346,7 @@ function moveCam(step){
 	currentx=(finalx-currentx)/step+currentx;
 	currenty=(finaly-currenty)/step+currenty;
 	var deviationx = ((SCREEN_WIDTH/2-currentx)/SCREEN_WIDTH)*450;
-	var deviationy = ((SCREEN_HEIGHT/2-currenty)/SCREEN_HEIGHT)*450;
+	var deviationy = ((DOCUMENT_HEIGHT-currenty)/DOCUMENT_HEIGHT)*450;
 	// camera = new THREE.PerspectiveCamera( 75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
 	// camera.position.z = 450;
 	camera.position.z = +Math.sqrt(450*450-deviationx*deviationx-deviationy*deviationy);
@@ -369,7 +370,30 @@ function init() {
 	stats.domElement.style.left = '0px';
 	stats.domElement.style.top = '0px';
 	document.getElementById( 'container' ).appendChild(stats.domElement);
-	renderer = new THREE.CanvasRenderer();
+
+function webglAvailable() {
+		try {
+			var canvas = document.createElement('canvas');
+			return !!( window.WebGLRenderingContext && (
+				canvas.getContext( 'webgl' ) ||
+				canvas.getContext( 'experimental-webgl' ) )
+			);
+			canvas.remove();
+		} catch ( e ) {
+			return false;
+		}
+	}
+
+	if (webglAvailable() ) {
+		console.log('Using WebGL');
+		renderer = new THREE.WebGLRenderer();
+	} else {
+		console.log('Using Canvas');
+		renderer = new THREE.CanvasRenderer();
+	}
+
+
+	// renderer = new THREE.CanvasRenderer();
 
 	var date = new Date();
 	var hours = date.getHours();
@@ -386,6 +410,7 @@ function init() {
 	else
 	{
 		renderer.setClearColor( 0x000720 );
+		// var canvas = document.createElement('canvas');
 		script = "js/birds/Comet.js"
 		allow_camera_move = true;
 		offsety_start = SCREEN_HEIGHT/2;
@@ -475,4 +500,8 @@ function addBird(i,goal){
 	bird = birds[ i ] = new THREE.Mesh( new Bird(slope) , material);
 	bird.phase = Math.floor( Math.random() * 62.83 );
 	scene.add( bird );
+
 }
+
+}
+
