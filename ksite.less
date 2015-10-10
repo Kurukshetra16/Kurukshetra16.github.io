@@ -249,6 +249,14 @@
 	 }
 	}
 	@media all and (max-width: 640px) and (min-width: 320px) {
+	#eventsBox,.karCircles{
+	margin-left:50px !important;
+	}
+	.ksprite{
+	position:absolute;
+    left:-1% !important;
+	top:5%;
+	}
 	/*footer*/
 	.footer{
 		height:120px !important;
@@ -322,11 +330,10 @@
 	  }
 	/*hospi*/
 	.long-line, .longer-line{
-		background:@line-color !important;
-		position:relative !important;
+		background:rgba(0,0,0,0) !important;
 		}
 	.hospi_content{
-			margin-top:460px;
+			margin-top:480px;
 		}
 	.close{
 		font-size: 50px !important;
@@ -397,7 +404,7 @@
 		margin-top:-35px !important;
 		height:auto !important;
 	}
-	.navbar-toggle{
+	.p{
 		margin-top:30px;
 		margin-right:45px;
 	}
@@ -433,7 +440,7 @@
 	.longer-line{
 	.transition(all 0.620s ease);
 	 width:0%;
-	 background:@line-progres !important;
+	 background:@line-progres;
 	}
 	/*gl*/
 	.glAnim{
@@ -710,14 +717,14 @@
 	}
 	.longer-line{
 	  height:5px; position:absolute;
-	  background:@line-progres !important;
+	  background:@line-progres;
 	}
 	.long-line .node{
 	  width:60px;
 	  height:60px;
 	  background:#111;
 	  border-radius:50%;
-	  margin-bottom:100px;
+	  margin-bottom:130px;
 	  text-align: center;
 	  margin-top:-30px;
 	  position:relative;
@@ -823,7 +830,7 @@
 	  padding-right:25px;
 	  text-align: justify;
 	  color:#333;
-	  font-size:2.4rem !important;
+	  font-size:2.1rem !important;
 	  line-height:1.9;
 	}
 	.hospi_animated{

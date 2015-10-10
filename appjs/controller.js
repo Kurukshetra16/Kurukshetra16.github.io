@@ -416,8 +416,6 @@ function moveKarsDown(){
 };
 
 }]);
-
-
 /*ABOUT*/
 myApp.controller('aboutController',['$scope',function($scope){
 findTime();

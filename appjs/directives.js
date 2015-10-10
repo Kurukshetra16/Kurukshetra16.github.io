@@ -59,12 +59,15 @@ myApp.directive('hospiAnim', function() {
   $(".hospi_content").removeClass("hospi_animated");
   var nodeid = $(this).attr("id");
   var total = 6;
-  if( $(window).width() >= 600)
-  {   if(nodeid == total)
+  if( $(window).width() >= 640)
+  {   
+      if(nodeid == total)
         $(".longer-line").css({'width':"100%"});
       else
         $(".longer-line").css({'width':(nodeid*85)/total+"%"});
   }
+  else
+      $(".longer-line").css({'width':"100%"});
   setTimeout(function(){$(".hospi_content").addClass("hospi_animated");},500);
 
 });       	}
