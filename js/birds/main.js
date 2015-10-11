@@ -330,7 +330,13 @@ animate();
 function render(){}
 var count=0;
 function getRandomColor() {
-	colors = ['#FD8016','#FEAF0D','#FEAF0D','#FFFFFF','#EF4607'];
+	var date = new Date();
+	var hours = date.getHours();
+	var ampm = hours >= 12 ? 'pm' : 'am';
+	if( ampm == 'am' )
+		colors = ['#FD8016','#FEAF0D','#FEAF0D','#FFFFFF','#EF4607'];
+	else
+		colors = ['#00FEFD','#A0FEFD','#D6FEFD','#C4E8E7','#E0FFE9']
 	color = colors[Math.floor(Math.random()*5)];
 	return color;
 }

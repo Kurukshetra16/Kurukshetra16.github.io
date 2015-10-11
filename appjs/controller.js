@@ -29,7 +29,7 @@ function findTime($scope, $rootScope) {
     });
  }
  else
- {	$("html,body").css({'background-color':"rgb(0,7,32)"});
+ {	$("html,body").css({'background-color':"rgb(0,7,32)",'background-image':"url(images/constellations.png)"});
 	}
 }
 myApp.controller('updateController',['$scope','$http','$timeout','cfpLoadingBar',function($scope,$http,$timeout,cfpLoadingBar){
