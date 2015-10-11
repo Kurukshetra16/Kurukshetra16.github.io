@@ -73,35 +73,6 @@ myApp.directive('hospiAnim', function() {
 });       	}
         };
     });
-/*about anim*/
-myApp.directive('aboutAnim', function() {
-        console.log("aboutAnim");
-        return{
-        scope:{},
-        restrict: 'AEC',
-        replace:'true',
-        link: function(scope,elem,attrs){
-
-  $(".node").click(function(){
-  if($(this).hasClass("node-active"))
-    return;
-  $(".node").removeClass("node-active");
-  $(this).addClass("node-active");
-  $(".hospi_content").removeClass("hospi_animated");
-  var nodeid = $(this).attr("id");
-  var total = 4;
-  if( $(window).width() >= 600)
-  {   if(nodeid == total)
-        $(".longer-line").css({'width':"100%"});
-      else
-      $(".longer-line").css({'width':(nodeid*85)/total+"%"});
-  
-  }
-setTimeout(function(){$(".hospi_content").addClass("hospi_animated");},500);
-
-});         }
-        };
-    });
 /*tabs anim*/
 myApp.directive('tabsAnim', function() {
         console.log("tabsAnim");

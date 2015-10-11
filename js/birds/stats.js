@@ -20,7 +20,7 @@ var Stats = function () {
 
 	function createPanel( id, fg, bg ) {
 
-		var div = createElement( 'div', id, 'padding:0 0 3px 3px;text-align:left;background:' + bg );
+		var div = createElement( 'div', id, 'padding:0 0 3px 3px;opacity:0;text-align:left;background:' + bg );
 
 		var text = createElement( 'div', id + 'Text', 'font-family:Helvetica,Arial,sans-serif;font-size:9px;font-weight:bold;line-height:15px;color:' + fg );
 		text.innerHTML = id.toUpperCase();

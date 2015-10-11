@@ -421,53 +421,75 @@ myApp.controller('aboutController',['$scope',function($scope){
 findTime();
 $scope.nodes = [
 {
-	title:'CEG',
-	icon:'fa fa-university hospi_icon',
+	title:'INTRODUCTION',
+	icon:'fa fa-info hospi_icon',
 	url:'intro',
 	mclass:'margin-left:1px',
 	id:1
 },
 {
+	title:'CEG',
+	icon:'fa fa-graduation-cap hospi_icon',
+	url:'ceg',
+	mclass:'margin-left:1px',
+	id:2
+},
+{
 	title:'KURUKSHETRA',
 	icon:'fa fa-diamond hospi_icon',
-	url:'instr',
-	id:2
+	url:'kuruk',
+	id:3
 },
 {
 	title:'CYCLOTRON',
 	icon:'fa fa-empire hospi_icon',
-	url:'accom',
+	url:'logo',
 	mclass:'margin-left:-10px',
-	id:3
+	id:4
+},
+{
+	title:'UNESCO',
+	icon:'fa fa-bank hospi_icon',
+	url:'unesco',
+	mclass:'margin-left:2px',
+	id:5
 },
 {
 	title:'CEG TECH FORUM',
-	icon:'fa fa-graduation-cap hospi_icon',
-	url:'reachceg',
+	icon:'fa fa-shield hospi_icon',
+	url:'ctf',
 	mclass:'margin-left:2px',
-	id:4
+	id:6
 }
 ];
 
 $scope.nodeInfo=[
 {
 	id:1,
-	desc:'Some info about CEG Some info about CEG Some info about CEG'
+	desc:'Be it the battles in the mythology or of history, they have always been fought with a cause. Greed of land, resources and supremacy were always the intention. In an age devoid of the need for those, the next battle, it is said, would be for water. Against all odds, we believe that the battle of the brains is a more indispensable battle for our generation. As Student Directors of CTF, we welcome you to this battle, where wits need to be as sharp as swords and the mind as ready as ever to engage in the battle. We at CTF believe that Kurukshetra is the platform for events that will put to test the versatile ability of logic and smart thinking, hands-on workshops and enthralling experiences through guest lecture series. Make your way to CEG during Kurukshetra and leave a bit smarter, a bit more accomplished and proud of yourselves.'
 },
 {
 	id:2,
-	desc:'Info about kurukshetra Info about kurukshetra Info about kurukshetra'
+	desc:'From being a Survey school in 1794 to a Civil Engineering college in 1858 and finally College of Engineering, Guindy in 1859, the college always strived for excellence in academia and in enriching the students with experience. With the pride of being one of oldest engineering college in India, CEG continues in the path of inspiring engineers to excel at any endeavour.'
 },
 {
 	id:3,
-	desc:'Info about Cyclotron Info about Cyclotron Info about Cyclotron'
+	desc:'Kurukshetra, an International Techno-Management Festival organized by CEG Tech Forum, has embarked on its journey of tenth edition. From its inception in 2007, it aimed at bringing together talents from varied engineering and management domains. Kurukshetra has evolved to act as an effective medium of interface between the academia and the industry. The fest with a vision for future to motivate, to provide opportunity and to identify and analyze societal problems, thereby provides tools to the current generation to solve it.'
 },
 {
 	id:4,
-	desc:'Info about CTF Info about CTF Info about CTF'
+	desc:'The Cyclotron symbolizes the celebration of the indomitable spirit of engineering and innovation. It represents the ever expanding pursuit of knowledge. Just as a cyclotron accelerates a charged particle using high frequency, Kurukshetra provides that extra impetus for the engineer to excel.'
+},
+{
+	id:5,
+	desc:'The UNESCO patronage is the highest form of support granted by the organization, as a moral endorsement of exceptional activity which has a real impact on education, science, cultural or communication. Kurukshetra is the first event of its kind to receive this recognition. This recognition puts Kurukshetra in league with some of the most prestigious endeavors in the world..'
+},
+{
+	id:6,
+	desc:'CEG Tech Forum, the student run organisation, established in the year 2006, has become the technical hub of our college. The Student Directors of CTF work towards uniting the technical activities of CEG under this forum, to nurture and give direction to any student. Through collaborations with industries and academia, we aim to bring out the technological and research curiosity in our students. CTF\’s activities also include its flagship event, Kurukshetra.'
 }];
-$scope.clickedName = 'CTF';
-$scope.information = $scope.nodeInfo[3]['desc'];
+$scope.clickedName = 'INTRODUCTION';
+$scope.information = $scope.nodeInfo[0]['desc'];
 $(".longer-line").css({'width':"100%"});
 setTimeout(function(){$(".hospi_content").addClass("hospi_animated");
 $("#1").addClass("node-active");

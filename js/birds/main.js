@@ -330,7 +330,9 @@ animate();
 function render(){}
 var count=0;
 function getRandomColor() {
-	return '#FFF';
+	colors = ['#FD8016','#FEAF0D','#FEAF0D','#FFFFFF','#EF4607'];
+	color = colors[Math.floor(Math.random()*5)];
+	return color;
 }
 var color;
 
@@ -354,7 +356,7 @@ function moveCam(step){
 	camera.position.y = deviationy;
 	var center = new THREE.Vector3(0,0,0);
 	camera.lookAt(center);
-}
+}//movecam
 var mouse_vector;
 function init() {
 	camera = new THREE.PerspectiveCamera( 75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
@@ -382,7 +384,7 @@ function webglAvailable() {
 		} catch ( e ) {
 			return false;
 		}
-	}
+	}//webglavail
 
 	if (webglAvailable() ) {
 		console.log('Using WebGL');
@@ -428,7 +430,7 @@ function webglAvailable() {
 	document.body.appendChild( renderer.domElement );
 	onWindowResize();
 	window.addEventListener( 'resize', onWindowResize, false );
-}
+}//init
 function onWindowResize() {
 	camera.aspect = window.innerWidth / window.innerHeight;
 	camera.updateProjectionMatrix();
@@ -437,7 +439,7 @@ function onWindowResize() {
 	width = width*1.25*1.23;
 	height = height*1.25*1.23;
 	renderer.setSize( width, height );
-}
+}//winresize
 function onDocumentMouseMove( event ) {
 	mouse_vector = new THREE.Vector3( event.clientX - SCREEN_WIDTH_HALF, - event.clientY + SCREEN_HEIGHT_HALF, 0 );
 	for ( var i = 0, il = boids.length; i < il; i++ ) {
@@ -445,7 +447,7 @@ function onDocumentMouseMove( event ) {
 		mouse_vector.z = boid.position.z;
 		boid.repulse( mouse_vector );
 	}
-}
+}//mousemove
 var oldcount=0;
 var limit=200;
 function animate() {
@@ -465,7 +467,7 @@ function animate() {
 		moveCam(20);
 	requestAnimationFrame( animate );
 	render();
-}
+}//animate
 var toggle = 0;
 var total = 10;
 function updateProgress(){
@@ -491,9 +493,9 @@ function addBird(i,goal){
 	if(goal)
 		boid.setGoal(goal);
 	var materials = [new THREE.MeshBasicMaterial({
-		color : 0xffffff,  side: THREE.DoubleSide 
+		color : 0xFEAF0D,  side: THREE.DoubleSide 
 	}), new THREE.MeshBasicMaterial({
-		color : 0xFFE0A4,  side: THREE.DoubleSide 
+		color : 0xFEAF0D,  side: THREE.DoubleSide 
 	})];
 	material = new THREE.MeshBasicMaterial( { color: color,  side: THREE.DoubleSide } ) ;
 	// bird = birds[ i ] = new THREE.Mesh( new Bird(slope), new THREE.MeshFaceMaterial(materials));
@@ -501,7 +503,8 @@ function addBird(i,goal){
 	bird.phase = Math.floor( Math.random() * 62.83 );
 	scene.add( bird );
 
-}
+};
 
-}
+
+
 
