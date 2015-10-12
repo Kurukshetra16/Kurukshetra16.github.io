@@ -531,7 +531,9 @@ $(".navbar-toggle").click(function(){
 });
 $(".bucketCircle").click(function(){
     popOut($(this));
-    $(".left").delay(100).animate({'marginLeft':"0px"},500,'easeOutSine');
+    $("html,body").animate({'scrollTop':"100px"},1000);
+    $scope.$apply();
+    $(".left").animate({'marginLeft':"0px"},500,'easeOutSine');
   });
 $(".close").click(function(){
   closeall();
@@ -557,7 +559,7 @@ function closeall(){
 	$scope.bucketname = bname;
 	$scope.bucketemail = $scope.buckets[id]['email'];
 	$scope.members = $scope.buckets[id]['members'];
-};
+	};
 
 }]);
 /*PROJECTS*/
