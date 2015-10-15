@@ -9,6 +9,7 @@ function findTime($scope, $rootScope) {
  	$("html,body").css({'background-color':"#1F4979",'background-image':"none"});
  	$("#bs-example-navbar-collapse-1.navbar-collapse.collapse.in").css({'background-color':"#1F4979",'background-image':"none"});
  	$(".overlay").css({'background-color':"rgba(31,73,121,0.3)",'background-image':"none"});
+ 	$(".jarvis").attr("src","images/jarvis_day.png");
  	less.modifyVars({
         '@border-main': "rgb(242,165,4)",
         '@border-right': "rgb(209,31,1)",
@@ -30,6 +31,8 @@ function findTime($scope, $rootScope) {
  }
  else
  {	$("html,body").css({'background-color':"rgb(0,7,32)",'background-image':"url(images/constellations.png)"});
+ 	$(".jarvis").attr("src","images/jarvis.png");
+ 	$(".contactCircle").find("img").attr("src","images/jarvis.png");
 	}
 }
 myApp.controller('updateController',['$scope','$http','$timeout','cfpLoadingBar',function($scope,$http,$timeout,cfpLoadingBar){
@@ -252,7 +255,9 @@ $scope.nodeInfo = [];
 	}
 	$scope.tohospi = function(clicked,clickedid) {
       $scope.clickedNode = clicked;
-      $scope.clickedID = clickedid;
+      $scope.clickedID = clickedid-1;
+      console.log(clickedid);
+      console.log($scope.nodeInfo[$scope.clickedID]['desc']);
       $scope.nodeData = $scope.nodeInfo[$scope.clickedID]['desc'];
     };
 }]);

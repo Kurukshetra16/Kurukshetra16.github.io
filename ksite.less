@@ -559,6 +559,16 @@
 		position: absolute;
 		visibility:hidden;
 	}
+	.headerDesc{
+	margin-top:40px;
+	margin-bottom:10px;
+	color:@font-color;
+	line-height:2.2;
+	font-family:'Orbitron',sans-serif;
+	font-size:2rem;
+	background:rgba(0,0,0,0.15);
+	padding:20px;
+	}
 	.wkshopHeader{
 		margin-left:30px;
 	}
@@ -576,7 +586,7 @@
 	}
 	/* EVENTS */
 	.left{
-	  font-family: 'Raleway',sans-serif;
+	  font-family: 'Orbitron',sans-serif;
 	  position:absolute;
 	  width:100%;
 	  height:auto;
@@ -627,7 +637,7 @@
 		.transition(all 0.50s ease);
 	}
 	.imagebox h5{
-		font-family:'Raleway',sans-serif;
+		font-family:'Orbitron',sans-serif;
 		font-size:22px;
 		position:relative;
 		margin-top:48%;
@@ -819,11 +829,11 @@
 	.hospi_content .title{
 	  border-bottom:2px solid #333;
 	  padding-bottom:15px;
-	  font-family:'Raleway',sans-serif;
+	  font-family:'Orbitron',sans-serif;
 	  font-size: 3rem ;
 	}
 	.hospi_desc{
-	font-family:'Raleway',sans-serif;
+	font-family:'Orbitron',sans-serif;
 	  margin-top:20px;
 	  padding-left:25px;
 	  padding-right:25px;
@@ -1026,6 +1036,9 @@
 			}
 	}
 	/* CONTACTS */
+	.contactCircle{
+	position:absolute;width:240px; height:240px;
+	}
 	.topMargin{
 	  margin-top: 30px;
 	}
@@ -1085,7 +1098,7 @@
 	    color: @font-color;
 	    font-size: 2rem;
 	    font-weight: 600;
-	    font-family: 'Raleway', sans-serif;
+	    font-family: 'Orbitron', sans-serif;
 	    text-align: center;
 	    margin-left: 35px;
 	    margin-top: 80%;
@@ -1094,6 +1107,7 @@
 		color:@font-color !important;
 		text-align:center;
 		font-size:2rem;
+		margin-top:10px;
 	}
 	.info p{
 		line-height:1.6;
@@ -1322,7 +1336,7 @@
 	  color:@font-color;
 	  text-align: center;
 	  box-shadow:0px 3px 3px rgba(0,0,0,0.3);
-	  font-family:'Raleway',sans-serif !important;
+	  font-family:'Orbitron',sans-serif !important;
 	}
 	.glpage1 .glcontent,.glpage2 .glcontent{
 	  position: relative;
@@ -1332,7 +1346,7 @@
 	  line-height:1.6;
 	  font-size:2rem;
 	  text-align: center;
-	  font-family:'Raleway',sans-serif !important;
+	  font-family:'Orbitron',sans-serif !important;
 	}
 	.next, .prev{
 	  position:absolute;
@@ -1565,7 +1579,7 @@
 	  color:@font-color;
 	  font-size:2rem;
 	  line-height:1.3;
-	  font-family:'Raleway',sans-serif;
+	  font-family:'Orbitron',sans-serif;
 	  box-shadow:2px 1px 5px rgba(255,255,255,0.1),
 	  2px -1px 5px rgba(255,255,255,0.1),
 	  -2px -1px 5px rgba(255,255,255,0.1),
@@ -1744,19 +1758,19 @@
 	  .transition(background 0.1s linear 0.46s,transform 0.3s ease-in 0.45s);
 	}
 	.overlayContainer .karTitle{
-	  position:absolute;
-	  top:50%;
-	  display: block;
-	  margin-left:auto;
-	  margin-right:auto;
-	  padding:10px;
-	  background:rgba(0,0,0,0.8);
-	  color:@font-color;
-	  font-family:'Raleway',sans-serif;
-	  font-size:2rem;
-	  width:100%;
-	  border-bottom-left-radius:50%;
-	  border-bottom-right-radius:50%;
+	  position: absolute;
+    top: 50%;
+    display: block;
+    margin-left: 5%;
+    margin-right: auto;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #edfeb0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    width: 90%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
 	 }
 	.karTitle p{
 	  text-align:center;
@@ -1776,7 +1790,7 @@
 		margin-top:-40px;
 	}
 	.topPage{
-		font-family:'Raleway',sans-serif;
+		font-family:'Orbitron',sans-serif;
 	}
 	.topPage .karDetails{
 		margin-bottom:10px;
@@ -1854,7 +1868,7 @@
 		-webkit-transform:scale(1.1);
 	}
 	.badgeEvent h5{
-		font-family:'Raleway',sans-serif;
+		font-family:'Orbitron',sans-serif;
 		margin-top:50%;
 		text-align:center;
 	}
@@ -1894,7 +1908,7 @@
 	/*EVENT TABS*/
 	.tabContainer{
 	  width:100%;
-	  font-family:'Raleway',sans-serif;
+	  font-family:'Orbitron',sans-serif;
 	}
 	.tabContainer li{
 	  font-size:1.8rem;
@@ -2038,7 +2052,7 @@
 		color:@font-color-hover;
 		font-size:1.8rem;
 		line-height:3;
-		font-family:'Raleway',sans-serif;
+		font-family:'Orbitron',sans-serif;
 		clear:both;
 		margin-top:-50px;
 	}
@@ -2080,3 +2094,17 @@
 		font-weight:600;
 		text-shadow:0px 1px 1px rgba(0,0,0,0.3);
 	}
+/*eventDesc*/
+.eventDesc{
+	font-family:'Orbitron',sans-serif;
+	margin-top:150px;
+	margin-left:-100px;
+	padding:10px;
+	color:@font-color;
+	background-color:rgba(255,255,255,0.1);
+	text-align:center;
+}
+.eventDesc h4{
+	font-size:2rem;
+	line-height:1.8;
+}
