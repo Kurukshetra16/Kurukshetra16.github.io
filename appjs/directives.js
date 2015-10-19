@@ -90,6 +90,8 @@ $(".close").click(function(){
   closeall();
 });
 function closeall(){
+    
+  console.log("closing...");
     $(".imagebox").each(function(){
       var elem = $(this);
       setTimeout(function(){
