@@ -236,7 +236,7 @@ var Boid = function() {
 				 var date = new Date();
 				 var hours = date.getHours();
 				 var ampm = hours >= 12 ? 'pm' : 'am';
-				 if(ampm == 'am')
+				 if( hours <= 18 ) 
 				 {	
 					renderer.setClearColor( 0x1F4979 );
 				 }
@@ -407,7 +407,7 @@ function webglAvailable() {
 	var hours = date.getHours();
 	var ampm = hours >= 12 ? 'pm' : 'am';
 	var script = "js/birds/Comet.js"
-	if(ampm == 'am')
+	if(hours<=18)
 	{	
 		renderer.setClearColor( 0x1F4979 );
 		script = "js/birds/Bird.js"

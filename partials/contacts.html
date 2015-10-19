@@ -5,7 +5,7 @@
 <ul class="contactContainer col-md-12 col-xs-12 clearfix paddingReset">
   <li id="bucket.id" class="bucketBox" ng-repeat="bucket in buckets" ng-click="getBucket(bucket.name,bucket.id)">
     <div class="bucketCircle col-md-4 col-xs-12 ">
-    <img src="images/jarvis.png" class="contactCircle"/>
+    <img src="images/contact_night.png" class="contactCircle"/>
       <h5 class="bucketName">{{bucket.name}}</h5>
     </div>
   </li>
@@ -17,7 +17,7 @@
     <h5 class='text-center col-md-12 ribbontitle col-xs-12' style="font-family:Orbitron;font-size:20px; margin-bottom:15px">{{bucketemail}}</h5>
            <i class="close fa fa-times fa-4x fa-fw" style="margin-top:-6%;color:#fff;"></i>
   
-    <div class="container paddingReset col-md-12 col-md-push-2 col-xs-12">
+    <div class="container paddingReset col-md-12 col-xs-12 {{push}}">
           <div class="col-md-2 col-xs-12" ng-repeat="member in members">
           <div class="ih-item circle colored effect1">
            <!-- <a href="#"> -->
@@ -41,12 +41,5 @@ $(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
 $(".home-event-circle").removeClass("removeBB");
 $("#contact").addClass("selectedNavElem");
 $("#contact").parent().parent().addClass("removeBB");
- var date = new Date();
- var hours = date.getHours();
- var ampm = hours >= 12 ? 'pm' : 'am';
- if(ampm == 'am')
-    $(".contactCircle").attr("src","images/jarvis_day.png");
-  else
-    $(".contactCircle").attr("src","images/jarvis.png");
 });
 </script>

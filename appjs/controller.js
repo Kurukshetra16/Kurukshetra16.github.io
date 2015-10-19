@@ -4,12 +4,13 @@ function findTime($scope, $rootScope) {
  var date = new Date();
  var hours = date.getHours();
  var ampm = hours >= 12 ? 'pm' : 'am';
- if(ampm == 'am')
+ if( hours <= 18 )
  {	
  	$("html,body").css({'background-color':"#1F4979",'background-image':"none"});
  	$("#bs-example-navbar-collapse-1.navbar-collapse.collapse.in").css({'background-color':"#1F4979",'background-image':"none"});
  	$(".overlay").css({'background-color':"rgba(31,73,121,0.3)",'background-image':"none"});
  	$(".jarvis").attr("src","images/jarvis_day.png");
+ 	$(".contactCircle").attr("src","images/contact_day.png");
  	less.modifyVars({
         '@border-main': "rgb(242,165,4)",
         '@border-right': "rgb(209,31,1)",
@@ -289,7 +290,7 @@ function init(){
 							}
 				   		$timeout(init, 10);
 				   		var top = $(".anno").scrollTop()+450;
-					    $('html,body').delay(100).animate({'scrollTop':top+"px"},1500,'easeOutSine');
+					   // $('html,body').delay(100).animate({'scrollTop':top+"px"},1500,'easeOutSine');
 					    $scope.$apply();
 					});
 $scope.clickedName = '';
@@ -460,7 +461,7 @@ $scope.nodes = [
 	id:5
 },
 {
-	title:'CEG TECH FORUM',
+	title:'CTF',
 	icon:'fa fa-shield hospi_icon',
 	url:'ctf',
 	mclass:'margin-left:2px',
@@ -518,7 +519,8 @@ $scope.buckets = [];
 $scope.members = [];
 $scope.bucketname = '';
 $scope.bucketemail = '';
-
+var pushclass = [];
+$scope.push = '';
 $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/teams.json'}).success(function(data)
 				   {
 				    jsonstr = data['teams'];
@@ -526,10 +528,17 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/teams.json'}).success(
 				   		{
 				   			$scope.buckets[i] = jsonstr[i];
 				   			$scope.buckets[i]['id'] = i;
+				   			if(jsonstr[i]['members'].length == 2)
+				   				pushclass[i]= 'col-md-push-4';
+				   			else if(jsonstr[i]['members'].length == 3)
+				   				pushclass[i] = 'col-md-push-3';
+				   			else if(jsonstr[i]['members'].length == 1)
+				   				pushclass[i] = 'col-md-push-5';
+				   			else
+				   				pushclass[i] = 'col-md-push-2';
 				   		}
 				   });
 $scope.getBucket = function(bname,id){
-
 //function
 $(".navbar-toggle").click(function(){
   closeall();
@@ -564,6 +573,7 @@ function closeall(){
 	$scope.bucketname = bname;
 	$scope.bucketemail = $scope.buckets[id]['email'];
 	$scope.members = $scope.buckets[id]['members'];
+	$scope.push = pushclass[id];
 	};
 
 }]);
