@@ -52,7 +52,8 @@
 		position:absolute;
 		left:0;
 		width:100%;
-		height:100%;
+		min-height:2000px;
+		max-height:auto;
 		.transition(0.65s ease);
 		 background-image:url(images/patterns/constellations.png),url(images/patterns/constellations.png);
 		 background-size: 1000px 1000px;
@@ -277,19 +278,19 @@
 	}
 	.jarvisContainer .jarvis{
 		position:relative;
-		width:500px !important;
-		height:500px !important;
+		width:430px !important;
+		height:410px !important;
 		margin-left:-14% !important;
 	}
 	.jarvisContainer .allImages{
-	  width:390px !important;
-	  height:390px !important;
+	  width:325px !important;
+	  height:310px !important;
 	  margin-top: -13%;
-	  margin-left: -11% !important;
+	  margin-left: -9% !important;
 	  }
 	img.slide {
-	  width:390px !important;
-	  height:390px !important;
+	  width:325px !important;
+	  height:310px !important;
 	  margin-top: -100%;
 	}
 	/*gl*/
@@ -1623,11 +1624,11 @@
 		margin-top: -30px;
 		z-index: 1;
 		position: absolute;
-		-webkit-animation: rotateC 30s linear infinite;
+	/*	-webkit-animation: rotateC 30s linear infinite;
 		-moz-animation: rotateC 30s linear infinite;
 		-o-animation: rotateC 30s linear infinite;
 		animation: rotateC 30s linear infinite;
-		-webkit-transform-origin: 50% 50%;
+	*/	-webkit-transform-origin: 50% 50%;
 		-moz-transform-origin: 50% 50%;
 		transform-origin: 50% 50%;
 	}
@@ -1639,7 +1640,7 @@
 		-webkit-transform:rotate(180deg);
 		}
 		66%{
-		-webkit-transform:rotate(360deg);
+		-webkit-transform:rotate(180deg);
 		}
 		100%{
 		-webkit-transform:rotate(0deg);
@@ -1653,7 +1654,7 @@
 		transform:rotate(180deg);
 		}
 		66%{
-		transform:rotate(360deg);
+		transform:rotate(180deg);
 		}
 		100%{
 		transform:rotate(0deg);
@@ -1661,16 +1662,16 @@
 	}
 	.jarvisContainer .allImages{
 	  position:absolute;
-	  margin-left:5%;
+	  margin-left:5.3%;
 	  }
 	.allImages li{
 	  position: absolute;
 	}
 	li img{
-	  width:530px;
-	  height:530px;
+	  width:533px;
+	  height:515px;
 	  border-radius:50%;
-	  margin-top:50px;
+	  margin-top:73px;
 	}
 	/*karnival page*/
 	.karCircles{
@@ -2100,14 +2101,14 @@
 		margin-top:30px;
 	}
 	.profile p{
-		font-size:2.2rem;
+		font-size:3rem;
 		color:@font-color-hover;
 		font-family:'Orbitron',sans-serif;
 		line-height:1.6;
 	}
 	.detail{
-		font-weight:600;
 		text-shadow:0px 1px 1px rgba(0,0,0,0.3);
+		margin-bottom:10px;
 	}
 /*eventDesc*/
 .eventDesc{
@@ -2123,3 +2124,49 @@
 	font-size:2rem;
 	line-height:1.8;
 }
+input[type="text"]
+{
+	background:rgba(255,255,255,0.06);
+	padding:10px;
+	font-family:'Orbitron',sans-serif;
+	font-size:2.8rem;
+	width:100%;
+	color:@font-color;
+	outline:none;
+	border:none;
+	margin-bottom:10px;
+	margin-top:10px;
+	letter-spacing: 2.5px;
+	border-bottom:3px solid @font-color-hover;
+	.transition(all 0.1s linear);
+}
+input[type="text"]:focus{
+border-top:3px solid @font-color-hover;
+box-shadow:0px 1px 1px #d2d2d2;
+}
+input[type="text"]:focus::-webkit-input-placeholder{
+	color:transparent;
+}
+input[type="text"]:focus::-moz-placeholder{
+	color:transparent;
+}
+input[type="radio"]
+{
+	transform:scale(2);
+	-webkit-transform:scale(2);
+}
+.profile .gender{
+font-size:2.6rem;
+background:rgba(255,255,255,0.06);
+padding:5px;
+margin-bottom:15px;	
+}
+.profile .btn{
+	background:@small-border-left;
+	color:#000;
+	.transition(all 0.3s linear);
+}
+.profile .btn:hover{
+	background:@small-border-top;
+	color:#fff;
+	}

@@ -8,7 +8,7 @@ function findTime($scope, $rootScope) {
  {	
  	$("html,body").css({'background-color':"#1F4979",'background-image':"none"});
  	$("#bs-example-navbar-collapse-1.navbar-collapse.collapse.in").css({'background-color':"#1F4979",'background-image':"none"});
- 	$(".overlay").css({'background-color':"rgba(31,73,121,0.3)",'background-image':"none"});
+ 	$(".overlay").css({'background-color':"rgba(31,73,121,0.3)",'background-image':"url(images/clouds.png)",'background-size':"300px 300px"});
  	$(".jarvis").attr("src","images/jarvis_day.png");
  	$(".contactCircle").attr("src","images/contact_day.png");
  	less.modifyVars({
@@ -441,9 +441,10 @@ $scope.nodes = [
 	id:2
 },
 {
-	title:'KURUKSHETRA',
-	icon:'fa fa-diamond hospi_icon',
-	url:'kuruk',
+	title:'CTF',
+	icon:'fa fa-shield hospi_icon',
+	url:'ctf',
+	mclass:'margin-left:2px',
 	id:3
 },
 {
@@ -461,10 +462,9 @@ $scope.nodes = [
 	id:5
 },
 {
-	title:'CTF',
-	icon:'fa fa-shield hospi_icon',
-	url:'ctf',
-	mclass:'margin-left:2px',
+	title:'KURUKSHETRA',
+	icon:'fa fa-diamond hospi_icon',
+	url:'kuruk',
 	id:6
 }
 ];
@@ -480,7 +480,7 @@ $scope.nodeInfo=[
 },
 {
 	id:3,
-	desc:'Kurukshetra, an International Techno-Management Festival organized by CEG Tech Forum, has embarked on its journey of tenth edition. From its inception in 2007, it aimed at bringing together talents from varied engineering and management domains. Kurukshetra has evolved to act as an effective medium of interface between the academia and the industry. The fest with a vision for future to motivate, to provide opportunity and to identify and analyze societal problems, thereby provides tools to the current generation to solve it.'
+	desc:'CEG Tech Forum, the student run organisation, established in the year 2006, has become the technical hub of our college. The Student Directors of CTF work towards uniting the technical activities of CEG under this forum, to nurture and give direction to any student. Through collaborations with industries and academia, we aim to bring out the technological and research curiosity in our students. CTF\’s activities also include its flagship event, Kurukshetra.'
 },
 {
 	id:4,
@@ -492,7 +492,8 @@ $scope.nodeInfo=[
 },
 {
 	id:6,
-	desc:'CEG Tech Forum, the student run organisation, established in the year 2006, has become the technical hub of our college. The Student Directors of CTF work towards uniting the technical activities of CEG under this forum, to nurture and give direction to any student. Through collaborations with industries and academia, we aim to bring out the technological and research curiosity in our students. CTF\’s activities also include its flagship event, Kurukshetra.'
+	desc:'Kurukshetra, an International Techno-Management Festival organized by CEG Tech Forum, has embarked on its journey of tenth edition. From its inception in 2007, it aimed at bringing together talents from varied engineering and management domains. Kurukshetra has evolved to act as an effective medium of interface between the academia and the industry. The fest with a vision for future to motivate, to provide opportunity and to identify and analyze societal problems, thereby provides tools to the current generation to solve it.'
+	
 }];
 $scope.clickedName = 'INTRODUCTION';
 $scope.information = $scope.nodeInfo[0]['desc'];

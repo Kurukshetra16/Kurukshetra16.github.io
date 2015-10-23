@@ -1,21 +1,30 @@
 <div class="updateController">
 	<div class="glContainer container paddingReset clearfix">
-		<h1 class="ribbontitle col-md-12 col-xs-12 text-center">
-			Hey there, [NAME]
+		<h1 class="ribbontitle col-md-12 col-xs-12">
+			Hey there, <input type="text" style="font-size:4rem; width:auto;" placeholder="[Your Name]" />
 		</h1>
-		<div class="profile col-md-6 col-md-push-3 col-xs-12 clearfix">
-			<p>I'm <span class="detail">[name]</span> and other
-			   profile stuff goes here...
+		<div class="profile col-md-8 col-md-push-2 col-xs-12 clearfix">
+			<p>  Gender <span class="detail">
+				<br/>
+			<input name = "gender" type="radio" value="Female" /> <span class="gender">Female</span>
+				<br/>
+			<input name = "gender" type="radio" value="Male" /> <span class="gender">Male</span>
+				<br/>
+			<input name = "gender" type="radio" value="Other" /> <span class="gender">Other</span> 
+				<br/>
+				<br/>
+			</span> Email Id<input type="text" placeholder="[email id]">
 			 </p>
-			 <p>I'm <span class="detail">[name]</span> and other
-			   profile stuff goes here...
+			 <p> Address<span class="detail"><input type="text" placeholder="[address]"/>City <input type="text" placeholder="[City]"/> State <input type="text" placeholder="[State]"/>Country <input type="text" placeholder="[Country]"/></span> Phone Number<input type="text" placeholder="Phone Number"/>
 			 </p>
-			 <p>I'm <span class="detail">[name]</span> and other
-			   profile stuff goes here...
+			 <p>College/School/Working<span class="detail"><input type="text" placeholder="[College student/School student/Working]"/></span> 
 			 </p>
-			 <p>I'm <span class="detail">[name]</span> and other
-			   profile stuff goes here...
+			 <p>Year<input type="text" placeholder="[Year]"/>Degree <span class="detail"><input type="text" placeholder="[Degree]"/>Course <input type="text" placeholder="[Course]"/>College <input type="text" placeholder="[College]"/> </span>
 			 </p> 
+			 <p class="text-center">I'm ready to pit my wits against the best and the craziest minds at Kurukshetra 2016! Give me all you've got!
+			 	<br/>
+			 <button class="btn btn-success btn-lg">UPDATE</button>
+			 </p>
 		</div>
 	</div>
 </div>
