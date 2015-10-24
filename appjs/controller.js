@@ -1,3 +1,4 @@
+
 /*UPDATES*/
 var myApp = angular.module("myAppControllers",[]);
 function findTime($scope, $rootScope) {
@@ -36,10 +37,16 @@ function findTime($scope, $rootScope) {
  	$(".contactCircle").find("img").attr("src","images/jarvis.png");
 	}
 }
-myApp.controller('updateController',['$scope','$http','$timeout','cfpLoadingBar',function($scope,$http,$timeout,cfpLoadingBar){
+
+myApp.controller('updateController',['$scope','$http','$timeout' , '$auth','$route','cfpLoadingBar','Account',
+					function($scope,$http,$timeout,$auth,$route, cfpLoadingBar, Account){
 findTime();
 $scope.updates = [];
 // $scope.dataLoaded = false;
+$scope.isLoggedin = $auth.isAuthenticated();
+
+$scope.kid = "";
+$scope.name = "";
 $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/updates.json'}).success(function(data)
 				   {
 				    jsonstr = data; // response data 
@@ -64,6 +71,53 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/updates.json'}).succes
 				  });
 
 				   });
+
+    $scope.authenticate = function(provider) {
+    	console.log("authenticate")
+      $auth.authenticate(provider)
+        .then(function(response) {
+          console.log('You have successfully signed in with ' + provider);
+          console.log(response.data.kid);
+          console.log(response.data.name);
+          $scope.kid = response.data.kid;
+          $scope.name = response.data.name;	
+       $scope.isLoggedin = true;
+        $route.reload();
+        })
+        .catch(function(response) {
+   		  console.log('Error signing in');
+        });
+    };
+
+    $scope.logout = function(argument) {
+    if (!$auth.isAuthenticated()) { return; }
+    $auth.logout()
+      .then(function() {
+        console.log('You have been logged out');
+              $scope.isLoggedin = false;
+       		  $route.reload();
+      	
+      });
+   };
+    $scope.getProfile = function() {
+      Account.getProfile()
+        .then(function(response) {
+          $scope.user = response.data;
+        })
+        .catch(function(response) {
+          console.log(response.data.message, response.status);
+        });
+    };
+    $scope.updateProfile = function() {
+      Account.updateProfile($scope.user)
+        .then(function() {
+          console.log('Profile has been updated');
+        })
+        .catch(function(response) {
+          toastr.error(response.data.message, response.status);
+        });
+    };
+    $scope.getProfile();
 
 }]);
 
@@ -629,7 +683,6 @@ $scope.showTab = function(tabtitle)
 	$(".tabContent").find("."+tabtitle).show();
 };
 
-
 }]);
 /*XCEED*/
 myApp.controller('xceedController',['$scope','$http','$location','$timeout','cfpLoadingBar',function($scope,$http,$location,$timeout, cfpLoadingBar){
@@ -683,3 +736,59 @@ $scope.showTab = function(tabtitle)
 	$(".tabContent").find("."+tabtitle).show();
 };
 }]);
+/*XCEED*/
+myApp.controller('xceedController',['$scope','$http','$location','$timeout','cfpLoadingBar',function($scope,$http,$location,$timeout, cfpLoadingBar){
+findTime();
+$scope.events1 = [];
+$scope.events2 = [];
+$scope.events3 = [];
+$scope.events4 = [];
+$scope.tabs = [];
+$scope.eventName = '';
+$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/xceeds.json'}).success(function(data)
+				   {
+				   		for(var i=0;i<data.length;i++)
+				   		{
+				   			if(data[i]['city_id'] == 1)
+				   				$scope.events1.push(data[i]['name']);
+				   			if(data[i]['city_id'] == 2)
+				   				$scope.events2.push(data[i]['name']);
+				   			if(data[i]['city_id'] == 3)
+				   				$scope.events3.push(data[i]['name']);
+				   			if(data[i]['city_id'] == 4)
+				   				$scope.events4.push(data[i]['name']);
+				   		console.log(data[i]['name']);
+				   		}
+				   		console.log($scope.events1.length);
+				   });
+$scope.getEvent = function(eventname){
+	$(".place").fadeOut(100);
+	$scope.eventName = eventname;
+	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','');
+function init(){
+	$(".tabContent li").hide();
+	$(".tabContent").find("li.0").show();
+}
+	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/xceeds/'+eventname+'.json'}).success(function(data)
+				   {
+				    jsonstr = data['xceed']['tabs']; // response data 
+				   	for(i=0;i<jsonstr.length;i++)
+				   		{
+			   			$scope.tabs[i] = jsonstr[i];
+				   			$scope.tabs[i]['id']=i;
+				   		}
+					$(".left").animate({'opacity':"1",'marginLeft':"-15px",'margin-top':"3%"},500,'easeOutSine');
+				   	$timeout(init, 10);
+});
+}
+$scope.showTab = function(tabtitle)
+{
+	$(".tabContent").show();
+	$(".tabContent").find("li").hide();
+	$(".tabContent").find("."+tabtitle).show();
+};
+}]);
+
+myApp.controller('ProfileCtrl', function($scope, $auth, Account) {
+
+  });

@@ -29,4 +29,23 @@
 //          };
 
 //          return challengeService;
-//         });
+//         });z
+
+var myApp = angular.module("myAppServices",[]);
+
+myApp.factory('Account', function($http) {
+    return {
+      getProfile: function() {
+        var response =  $http.get('http://localhost:3000/api/me');
+        console.log(response)
+        return response;
+      },
+      updateProfile: function(profileData) {
+        return $http.put('http://localhost:3000/api/me', profileData);
+      },
+      getKidandName: function() {
+        return $http.get('http://localhost:3000/api/id');
+      }
+    };
+
+  });
