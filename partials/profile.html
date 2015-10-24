@@ -1,7 +1,8 @@
 <div class="updateController">
+	<form method="post" ng-submit="updateProfile()">
 	<div class="glContainer container paddingReset clearfix">
 		<h1 class="ribbontitle col-md-12 col-xs-12">
-	Hey there, <input type="text" style="font-size:4rem; width:auto;" placeholder="[Your Name]" value="{{user.name}}"> </input>
+	Hey there, <input type="text" style="font-size:4rem; width:auto;" placeholder="[Your Name]" ng-model="user.displayName"> </input>
 		</h1>
 		<div class="profile col-md-8 col-md-push-2 col-xs-12 clearfix">
 			<p>  Gender <span class="detail">
@@ -13,13 +14,13 @@
 			<input name = "gender" type="radio" value="Other" /> <span class="gender">Other</span> 
 				<br/>
 				<br/>
-			</span> Email Id<input type="text" placeholder="[email id]" value="{{user.email}}" disabled/>
+			</span> Email Id<input type="email" placeholder="[email id]" ng-model="user.email" disabled/>
 			 </p>
-			 <p> Address<span class="detail"><input type="text" placeholder="[address]"/>City <input type="text" placeholder="[City]"/> State <input type="text" placeholder="[State]"/>Country <input type="text" placeholder="[Country]"/></span> Phone Number<input type="text" placeholder="Phone Number"/>
+			 <p> Address<span class="detail"><input type="text" placeholder="[address]" ng-model="user.address"/>City <input type="text" placeholder="[City]" ng-model="user.city"/> State <input type="text" placeholder="[State]" ng-model="user.state"/>Country <input type="text" placeholder="[Country]" ng-model="user.country"/></span> Phone Number<input type="text" placeholder="Phone Number" ng-model="user.contact"/>
 			 </p>
-			 <p>College/School/Working<span class="detail"><input type="text" placeholder="[College student/School student/Working]"/></span> 
+			 <p>College/School/Working<span class="detail"><input type="text" placeholder="[College student/School student/Working]" ng-model="user.typeOfUser"/></span> 
 			 </p>
-			 <p>Year<input type="text" placeholder="[Year]"/>Degree <span class="detail"><input type="text" placeholder="[Degree]"/>Course <input type="text" placeholder="[Course]"/>College <input type="text" placeholder="[College]"/> </span>
+			 <p>Year<input type="text" placeholder="[Year]" ng-model="user.year"/>Degree <span class="detail"><input type="text" placeholder="[Degree]" ng-model="user.degree"/>Course <input type="text" placeholder="[Course]" ng-model="user.course"/>College <input type="text" placeholder="[College]" ng-model="user.college"/> </span>
 			 </p> 
 			 <p class="text-center">I'm ready to pit my wits against the best and the craziest minds at Kurukshetra 2016! Give me all you've got!
 			 	<br/>
@@ -27,6 +28,7 @@
 			 </p>
 		</div>
 	</div>
+</form>
 </div>
 <script>
 $(document).ready(function(){
