@@ -1,25 +1,24 @@
-
 var Boid = function() {
-
 	var vector = new THREE.Vector3(),
 	_acceleration, _width = 500, _height = 500, _depth = 200, _goal, _neighborhoodRadius = 100,
-		_maxSpeed = 4, _maxSteerForce = 0.1, _avoidWalls = false;
+	_maxSpeed = SCREEN_WIDTH/(Math.random()*200+360), _maxSteerForce = 0.1, _avoidWalls = true, _mouse_pos=null;
 
 	this.position = new THREE.Vector3();
 	this.velocity = new THREE.Vector3();
 	_acceleration = new THREE.Vector3();
+	var _moving = true;
 
 	this.setGoal = function ( target ) {
 
 		_goal = target;
 
-	};
+	}
 
 	this.setAvoidWalls = function ( value ) {
 
 		_avoidWalls = value;
 
-	};
+	}
 
 	this.setWorldSize = function ( width, height, depth ) {
 
@@ -27,72 +26,50 @@ var Boid = function() {
 		_height = height;
 		_depth = depth;
 
-	};
+	}
+	this.moving = function(){
+		return _moving;
+	}
 
 	this.run = function ( boids ) {
 
-		if ( _avoidWalls ) {
+		speed = SCREEN_WIDTH/5;
 
-			vector.set( - _width, this.position.y, this.position.z );
-			vector = this.avoid( vector );
-			vector.multiplyScalar( 5 );
-			_acceleration.add( vector );
-
-			vector.set( _width, this.position.y, this.position.z );
-			vector = this.avoid( vector );
-			vector.multiplyScalar( 5 );
-			_acceleration.add( vector );
-
-			vector.set( this.position.x, - _height, this.position.z );
-			vector = this.avoid( vector );
-			vector.multiplyScalar( 5 );
-			_acceleration.add( vector );
-
-			vector.set( this.position.x, _height, this.position.z );
-			vector = this.avoid( vector );
-			vector.multiplyScalar( 5 );
-			_acceleration.add( vector );
-
-			vector.set( this.position.x, this.position.y, - _depth );
-			vector = this.avoid( vector );
-			vector.multiplyScalar( 5 );
-			_acceleration.add( vector );
-
-			vector.set( this.position.x, this.position.y, _depth );
-			vector = this.avoid( vector );
-			vector.multiplyScalar( 5 );
-			_acceleration.add( vector );
-
-		}/* else {
-
-		    this.checkBounds();
-
-		    }
-		    */
-
-		if ( Math.random() > 0.5 ) {
-
-			this.flock( boids );
-
-		}
+		vector.set( -speed, -speed*slope, -10 );
+		// vector = this.avoid( vector );
+		vector.multiplyScalar( 0.001 );
+		_acceleration.add( vector );
 
 		this.move();
+		if(this.position.x<0 || this.position.y<0){
+			// 	// console.log('Outside')
+			// 	// console.log(boids.indexOf(this));
+			// 	// index = boids.indexOf(this);
+			// 	// console.log(index+' '+birds.length);
 
-	};
+			// 	// boids.splice(index,1);
+
+			// 	// birds.splice(index,1);
+			// 	// console.log('a '+index+' '+birds.length);
+			if(_moving){
+				limit++;
+			}
+			_moving = false;
+
+
+		}
+		// console.log(this.position.x);
+
+	}
 
 	this.flock = function ( boids ) {
 
 		if ( _goal ) {
 
-			_acceleration.add( this.reach( _goal, 0.005 ) );
+			_acceleration.add( this.reach( _goal, 0.5 ) );
 
 		}
-
-		_acceleration.add( this.alignment( boids ) );
-		_acceleration.add( this.cohesion( boids ) );
-		_acceleration.add( this.separation( boids ) );
-
-	};
+	}
 
 	this.move = function () {
 
@@ -108,22 +85,9 @@ var Boid = function() {
 
 		this.position.add( this.velocity );
 		_acceleration.set( 0, 0, 0 );
+		this.repulse(_mouse_pos);
 
-	};
-
-	this.checkBounds = function () {
-
-		if ( this.position.x >   _width ) this.position.x = - _width;
-		if ( this.position.x < - _width ) this.position.x =   _width;
-		if ( this.position.y >   _height ) this.position.y = - _height;
-		if ( this.position.y < - _height ) this.position.y =  _height;
-		if ( this.position.z >  _depth ) this.position.z = - _depth;
-		if ( this.position.z < - _depth ) this.position.z =  _depth;
-
-	};
-
-	//
-
+	}
 	this.avoid = function ( target ) {
 
 		var steer = new THREE.Vector3();
@@ -135,26 +99,27 @@ var Boid = function() {
 
 		return steer;
 
-	};
+	}
 
 	this.repulse = function ( target ) {
+		if(!target)
+			return
+				_mouse_pos = target;
+		var distance = this.position.distanceTo( target );
+		// console.log('hmm');
+		if ( distance < SCREEN_WIDTH/10 ) {
 
-		if(target){
-			var distance = this.position.distanceTo( target );
+			var steer = new THREE.Vector3();
 
-			if ( distance < 150 ) {
+			// steer.subVectors(  target, this.position );
+			steer.subVectors(  this.position, target );
+			steer.multiplyScalar( -0.1 / distance );
 
-				var steer = new THREE.Vector3();
+			_acceleration.add( steer );
 
-				steer.subVectors( this.position, target );
-				steer.multiplyScalar( 0.5 / distance );
-
-				_acceleration.add( steer );
-
-			}
 		}
 
-	};
+	}
 
 	this.reach = function ( target, amount ) {
 
@@ -162,144 +127,91 @@ var Boid = function() {
 
 		steer.subVectors( target, this.position );
 		steer.multiplyScalar( amount );
-
 		return steer;
-
-	};
-
+	}
 	this.alignment = function ( boids ) {
-
 		var boid, velSum = new THREE.Vector3(),
 		count = 0;
-
 		for ( var i = 0, il = boids.length; i < il; i++ ) {
-
 			if ( Math.random() > 0.6 ) continue;
-
 			boid = boids[ i ];
-
 			distance = boid.position.distanceTo( this.position );
-
 			if ( distance > 0 && distance <= _neighborhoodRadius ) {
-
 				velSum.add( boid.velocity );
 				count++;
-
 			}
-
 		}
-
 		if ( count > 0 ) {
-
 			velSum.divideScalar( count );
-
 			var l = velSum.length();
-
 			if ( l > _maxSteerForce ) {
-
 				velSum.divideScalar( l / _maxSteerForce );
-
 			}
-
 		}
-
 		return velSum;
-
-	};
-
+	}
 	this.cohesion = function ( boids ) {
-
 		var boid, distance,
 		posSum = new THREE.Vector3(),
-			steer = new THREE.Vector3(),
+		steer = new THREE.Vector3(),
 			count = 0;
-
 		for ( var i = 0, il = boids.length; i < il; i ++ ) {
-
 			if ( Math.random() > 0.6 ) continue;
-
 			boid = boids[ i ];
 			distance = boid.position.distanceTo( this.position );
-
 			if ( distance > 0 && distance <= _neighborhoodRadius ) {
-
 				posSum.add( boid.position );
 				count++;
-
 			}
-
 		}
-
 		if ( count > 0 ) {
-
 			posSum.divideScalar( count );
-
 		}
-
 		steer.subVectors( posSum, this.position );
-
 		var l = steer.length();
-
 		if ( l > _maxSteerForce ) {
-
 			steer.divideScalar( l / _maxSteerForce );
-
 		}
-
 		return steer;
-
-	};
-
-	this.separation = function ( boids ) {
-
-		var boid, distance,
-		posSum = new THREE.Vector3(),
-			repulse = new THREE.Vector3();
-
-		for ( var i = 0, il = boids.length; i < il; i ++ ) {
-
-			if ( Math.random() > 0.6 ) continue;
-
-			boid = boids[ i ];
-			distance = boid.position.distanceTo( this.position );
-
-			if ( distance > 0 && distance <= _neighborhoodRadius ) {
-
-				repulse.subVectors( this.position, boid.position );
-				repulse.normalize();
-				repulse.divideScalar( distance );
-				posSum.add( repulse );
-
-			}
-
-		}
-
-		return posSum;
-
 	}
-
+	this.separation = function ( boids ) {
+		return posSum;
+	}
 }
-var Bird = function () {
+
+
+
+var Bird = function (slope) {
 
 	var scope = this;
 
 	THREE.Geometry.call( this );
 
-	v(   5,   0,   0 );
-	v( - 5, - 2,   1 );
-	v( - 5,   0,   0 );
-	v( - 5, - 2, - 1 );
+	v( 1, 0, 0 );//0
+	v( 0, 1, 0 );//1
+	v( 0.8, 0.8, 1 );//2
+	v( -10, -10*slope*slope, 0.5 );//3
+	v( 5, 5*slope*slope, 0.5 );//4
+	// console.log(slope);
 
-	v(   0,   2, - 6 );
-	v(   0,   2,   6 );
-	v(   2,   0,   0 );
-	v( - 3,   0,   0 );
+	// v(   0,   2, - 6 );
+	// v(   0,   2,   6 );
+	// v(   2,   0,   0 );
+	// v( - 3,   0,   0 );
 
-	f3( 0, 2, 1 );
-	// f3( 0, 3, 2 );
 
-	f3( 4, 7, 6 );
-	f3( 5, 6, 7 );
+
+	// f3( 0, 2, 1 , 0);
+	f3( 0, 3, 2 , 1);
+
+	f3( 3, 2, 1 , 1);
+	f3( 3, 1, 0 , 1);
+
+	f3( 0, 2, 1 , 0);
+	f3( 0, 4, 2 , 0);
+
+	f3( 4, 2, 1 , 0);
+	f3( 4, 1, 0 , 0);
 
 	this.computeFaceNormals();
 
@@ -309,17 +221,18 @@ var Bird = function () {
 
 	}
 
-	function f3( a, b, c ) {
-
-		scope.faces.push( new THREE.Face3( a, b, c ) );
-
+	function f3( a, b, c , i) {
+		var face = new THREE.Face3( a, b, c );
+		face.materialIndex = i;
+		scope.faces.push( face );
 	}
+
+	
 
 }
 
 Bird.prototype = Object.create( THREE.Geometry.prototype );
 Bird.prototype.constructor = Bird;
-
 
 function render() {
 	if(!stop){
@@ -338,8 +251,8 @@ function render() {
 			bird.rotation.y = Math.atan2( - boid.velocity.z, boid.velocity.x );
 			bird.rotation.z = Math.asin( boid.velocity.y / boid.velocity.length() );
 			
-			bird.phase = ( bird.phase + ( Math.max( 0, bird.rotation.z ) + 0.1 )  ) % 62.83;
-			bird.geometry.vertices[ 5 ].y = bird.geometry.vertices[ 4 ].y = Math.sin( bird.phase ) * 5;
+			// bird.phase = ( bird.phase + ( Math.max( 0, bird.rotation.z ) + 0.1 )  ) % 62.83;
+			// bird.geometry.vertices[ 5 ].y = bird.geometry.vertices[ 4 ].y = Math.sin( bird.phase ) * 5;
 
 		}
 	}

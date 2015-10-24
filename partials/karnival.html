@@ -1,5 +1,5 @@
-<div class="container karContainer" ng-controller="karnivalController">
-    <div class="col-md-12 col-xs-12">
+<div class="paddingReset col-md-12 col-xs-12 container karContainer" ng-controller="karnivalController">
+    <div class="col-md-12 col-xs-12 paddingReset clearfix">
       <h1 class="col-md-12 col-xs-12 text-center"><span class="shape ribbontitle">K</span>
           <span class="shape ribbontitle">!</span>
           <span class="shape ribbontitle">A</span>
@@ -11,9 +11,9 @@
           <span class="shape ribbontitle">L</span>
       </h1>
       <ul class="karCircles">
-        <div class="col-md-4 col-xs-12" ng-repeat="node in nodes">
+        <div class="col-md-3 col-xs-12" ng-repeat="node in nodes">
           <li ng-click="clicked(node.title,node.id)" class="karCircle" >
-            <img src="images/ceg.jpg" />
+            <img src="images/patterns/bluesparks1.png"/>
             <div class="overlayContainer">
               <div class="karTitle"><p>{{node.title}}</p></div>
               <div class="slice slice1"></div>

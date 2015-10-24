@@ -1,13 +1,13 @@
 <!--image boxes start -->
 <div ng-controller="wkshopsController">
-<div class="eventContainer container" >
+<div class="eventContainer container col-md-12 col-xs-12 paddingReset clearfix" >
 <h2 class="col-md-12 col-xs-12 ribbontitle text-center">{{category}}</h2>
-<div class="bottom col-md-12 col-xs-12 boxes">
-<div class=" col-md-4 col-xs-12" ng-repeat="event in events">
+<div class="bottom col-md-12 col-xs-12 paddingReset clearfix boxes">
+<div class=" col-md-3 col-xs-12" ng-repeat="event in events">
   <div class="imagebox imageboxl" ng-click="getEvent(event.name);">
-    <img src="images/patterns/lightspace.png"/>
+    <img src="images/patterns/bluesparks1.png"/>
     <div class="title">
-    <div class="overlay"><h5>{{event.name}}</h5></div>
+    <h5>{{event.name}}</h5>
     </div>
   </div>
 </div>
@@ -17,7 +17,7 @@
 
 <!--navbar ends-->
 <div class="container tabsAnim left col-md-12 col-xs-12">
-<h1 class="col-md-12 col-xs-12 ribbontitle">{{eventName}}</h1>
+<h1 class="col-md-12 col-xs-12 ribbontitle" style="font-size:3.2rem;color:rgb(255,247,219)">{{eventName}}</h1>
  <i class="close fa fa-times fa-4x fa-fw" style="color:#fff;"></i>
   <div class="col-md-12 col-xs-12">
    <ul class="tabContainer">
@@ -30,7 +30,7 @@
  </div>
 
  <div class="col-md-12 col-xs-12">
- <button class="btn btn-danger subscribe"><i class="fa fa-paw"></i> SUBSCRIBE</button>
+ <button class="btn subscribe"><i class="fa fa-paw"></i> SUBSCRIBE</button>
 
   <ul class="tabContent">
     <li ng-repeat="tabc in tabs" class="{{tabc.id}}" ng-bind-html="tabc.content"></li>

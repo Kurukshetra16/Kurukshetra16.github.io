@@ -36,7 +36,9 @@ var myApp = angular.module("myAppServices",[]);
 myApp.factory('Account', function($http) {
     return {
       getProfile: function() {
-        return $http.get('http://localhost:3000/api/me');
+        var response =  $http.get('http://localhost:3000/api/me');
+        console.log(response)
+        return response;
       },
       updateProfile: function(profileData) {
         return $http.put('http://localhost:3000/api/me', profileData);
