@@ -3,7 +3,7 @@
 <div class="eventContainer container col-md-12 col-xs-12 paddingReset clearfix" >
 <h2 class="col-md-12 col-xs-12 ribbontitle text-center">{{category}}</h2>
 <div class="bottom col-md-12 col-xs-12 paddingReset clearfix boxes">
-<div class=" col-md-3 col-xs-12" ng-repeat="event in events">
+<div class=" col-md-3 col-xs-12" ng-repeat="event in events|  orderObjectBy:'name':false">
   <div class="imagebox imageboxl" ng-click="getEvent(event.name);">
     <img src="images/patterns/bluesparks1.png"/>
     <div class="title">
@@ -22,7 +22,7 @@
   <div class="col-md-12 col-xs-12">
    <ul class="tabContainer">
     <div class="col-md-12 col-xs-12">
-      <li class="tab {{tab.title}}" ng-repeat="tab in tabs" ng-click="showTab(tab.id);">{{tab.title}}
+      <li class="tab {{tab.title}}" ng-repeat="tab in tabs|orderBy:tab.title" ng-click="showTab(tab.id);">{{tab.title}}
         <i class="fa fa-chevron-down fa-fw"></i>
       </li>
     </div>

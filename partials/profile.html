@@ -18,10 +18,29 @@
 			 </p>
 			 <p> Address<span class="detail"><input type="text" placeholder="[address]" ng-model="user.address"/>City <input type="text" placeholder="[City]" ng-model="user.city"/> State <input type="text" placeholder="[State]" ng-model="user.state"/>Country <input type="text" placeholder="[Country]" ng-model="user.country"/></span> Phone Number<input type="text" placeholder="Phone Number" ng-model="user.contact"/>
 			 </p>
-			 <p>College/School/Working<span class="detail"><input type="text" placeholder="[College student/School student/Working]" ng-model="user.typeOfUser"/></span> 
+			 
+			 <p>
+			 	Participant Type
+			 	<br/>
+			 	<input id='student' class="participant" name="student" type="radio" value="college"/><span class="gender">College</span>
+			 	<br/>
+			 	<input id='school' class="participant" name="student" type="radio" value="school"/><span class="gender">School</span>
+			 	<br/>
+			 	<input id='working' class="participant" name="student" type="radio" value="working"/><span class="gender">Working</span>
+			 	<br/>
 			 </p>
-			 <p>Year<input type="text" placeholder="[Year]" ng-model="user.year"/>Degree <span class="detail"><input type="text" placeholder="[Degree]" ng-model="user.degree"/>Course <input type="text" placeholder="[Course]" ng-model="user.course"/>College <input type="text" placeholder="[College]" ng-model="user.college"/> </span>
-			 </p> 
+			<div class="details student-details">
+				 <p>Year<input type="text" placeholder="[Year]"/>Degree <span class="detail"><input type="text" placeholder="[Degree]"/>Course <input type="text" placeholder="[Course]"/>College <input type="text" placeholder="[College]"/> </span>
+				 </p>
+			</div> 
+			<div class="details school-details">
+				 <p>School<input type="text" placeholder="[School Name]"/>Grade <span class="detail"><input type="text" placeholder="[Which grade are you in?]"/>
+				 </p>
+			</div> 
+			<div class="details working-details">
+				 <p>Company<input type="text" placeholder="[Comapny Name]"/>Designation <span class="detail"><input type="text" placeholder="[Enter your designation]"/>
+				 </p>
+			</div> 
 			 <p class="text-center">I'm ready to pit my wits against the best and the craziest minds at Kurukshetra 2016! Give me all you've got!
 			 	<br/>
 			 <button class="btn btn-success btn-lg">UPDATE</button>
@@ -36,5 +55,11 @@ $(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
 $(".home-event-circle").removeClass("removeBB");
 $("#loginNav").find(".circle-icon").addClass("selectedNavElem");
 $("#loginNav").addClass("removeBB");
+$(".details").fadeOut(0);
+$(".participant").click(function(){
+	var pid = $(this).attr("id");
+	$(".details").fadeOut(0);
+	$("."+pid+"-details").fadeIn(100); 
+});
 });
 </script>

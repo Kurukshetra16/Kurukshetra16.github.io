@@ -8,7 +8,7 @@ myApp.config(['$routeProvider','$authProvider', function($routeProvider, $authPr
                 $routeProvider.when("/contacts", {templateUrl: "partials/contacts.html", controller: "contactsController"});
                 $routeProvider.when("/hospi", {templateUrl: "partials/hospi.html", controller: "hospiController"});
                 $routeProvider.when("/sponsors", {templateUrl: "partials/comingsoon.html"/*, controller:"sponsorsController"*/});
-                $routeProvider.when("/gl", {templateUrl: "partials/comingsoon.html"/*, controller:"glController"*/});
+                $routeProvider.when("/gl", {templateUrl: "partials/comingsoongl.html"/*, controller:"glController"*/});
                 $routeProvider.when("/about", {templateUrl: "partials/about.html",controller:"aboutController"});
                 $routeProvider.when("/loginK", {templateUrl: "partials/loginK.html",controller:"loginKController"});
                 $routeProvider.when("/logout", {template: null,controller:"LogoutCtrl"});

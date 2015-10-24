@@ -3,11 +3,21 @@
 <div class="eventContainer container col-md-12 col-xs-12 paddingReset clearfix" >
 <h2 class="col-md-12 col-xs-12 ribbontitle text-center">{{category}}</h2>
 <div class="bottom col-md-12 col-xs-12 boxes paddingReset clearfix">
-<div class=" col-md-3 col-xs-12" id="eventsBox" ng-repeat="event in events">
+<div class=" col-md-3 col-xs-12" id="eventsBox" ng-repeat="event in events|  orderObjectBy:'name':false">
   <div class="imagebox imageboxl" ng-click="getEvent(event.name);">
     <img src="images/patterns/bluesparks1.png"/>
     <div class="title">
-    <h5>{{event.name}}</h5>
+      <div ng-switch on="event.name">
+        <div ng-switch-when="Enigma"><h5> {{event.name}} <br>[New] </h5></div>
+        <div ng-switch-when="How Stuff Works"><h5> {{event.name}} <br>[New] </h5></div>
+        <div ng-switch-when="Fully Doped"><h5> {{event.name}} <br>[New] </h5></div>
+        <div ng-switch-when="k! Wallet"><h5> {{event.name}} <br>[New] </h5></div>
+        <div ng-switch-when="Mock G20"><h5> {{event.name}} <br>[New] </h5></div>
+        <div ng-switch-when=" k! Spell Bee"><h5> {{event.name}} <br>[New] </h5></div>
+        <div ng-switch-when="Bank Robbery"><h5> {{event.name}} <br>[New] </h5></div>
+        <div ng-switch-when="Ninja Coding"><h5> {{event.name}} <br>[New] </h5></div>
+        <div ng-switch-default><h5>{{event.name}}</h5></div>
+      </div>      
     </div>
   </div>
 </div>
@@ -31,7 +41,7 @@
  <button class="btn subscribe"><i class="fa fa-paw"></i> SUBSCRIBE</button>
 
   <ul class="tabContent">
-    <li ng-repeat="tabc in tabs" class="{{tabc.id}}" ng-bind-html="tabc.content"></li>
+    <li ng-repeat="tabc in tabs" class="{{tabc.id}}" ng-bind-html="toTrustedHTML(tabc.content)"></li>
   </ul>
 </div>
 </div>       

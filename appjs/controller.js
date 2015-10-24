@@ -1,6 +1,20 @@
 
 /*UPDATES*/
 var myApp = angular.module("myAppControllers",[]);
+myApp.filter('orderObjectBy', function() {
+  return function(items, field, reverse) {
+    var filtered = [];
+    angular.forEach(items, function(item) {
+      filtered.push(item);
+    });
+    filtered.sort(function (a, b) {
+      return (a[field] > b[field] ? 1 : -1);
+    });
+    if(reverse) filtered.reverse();
+    return filtered;
+  };
+});
+
 function findTime($scope, $rootScope) {
  var date = new Date();
  var hours = date.getHours();
@@ -9,9 +23,9 @@ function findTime($scope, $rootScope) {
  {	
  	$("html,body").css({'background-color':"#1F4979",'background-image':"none"});
  	$("#bs-example-navbar-collapse-1.navbar-collapse.collapse.in").css({'background-color':"#1F4979",'background-image':"none"});
- 	$(".overlay").css({'background-color':"rgba(31,73,121,0.3)",'background-image':"url(images/clouds.png)",'background-size':"300px 300px"});
- 	$(".jarvis").attr("src","images/jarvis_day.png");
+ 	$(".overlay").css({'background-color':"rgba(31,73,121,0.3)",'background-image':"url(images/clouds.png)",'background-size':"400px 400px"});
  	$(".contactCircle").attr("src","images/contact_day.png");
+ 	$(".jarvis").attr("src","images/jarvis_day.png");
  	less.modifyVars({
         '@border-main': "rgb(242,165,4)",
         '@border-right': "rgb(209,31,1)",
@@ -122,7 +136,7 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/updates.json'}).succes
 }]);
 
 /*EVENTS*/
-myApp.controller('eventsController',['$scope','$http','$location','$timeout','cfpLoadingBar',function($scope,$http,$location,$timeout, cfpLoadingBar){
+myApp.controller('eventsController',['$scope','$http','$location','$timeout','$sce','cfpLoadingBar',function($scope,$http,$location,$timeout,$sce, cfpLoadingBar){
 findTime();
 $scope.events = [];
 $scope.tabs = [];
@@ -155,6 +169,7 @@ $scope.getEvent = function(eventname){
 function init(){
 	$(".tabContent li").hide();
 	$(".tabContent").find("li.0").show();
+	$(".tabContainer li.tab:eq(1)").addClass("tabActive");
 	
 }
 	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/events/'+eventname+'.json'}).success(function(data)
@@ -169,11 +184,16 @@ function init(){
 				   	$timeout(init, 10);
 });
 }
+$scope.toTrustedHTML = function( html ){
+    return $sce.trustAsHtml( html );
+}
 $scope.showTab = function(tabtitle)
 {
 	$(".tabContent").show();
 	$(".tabContent").find("li").hide();
 	$(".tabContent").find("."+tabtitle).show();
+	$(".tabContainer li.tab").removeClass("tabActive");
+	$(".tabContainer li.tab:eq("+tabtitle+")").addClass("tabActive");
 };
 }]);
 /*WORKSHOPS*/
@@ -434,6 +454,13 @@ $(".closeme").click(function(){
   popIn();
   
 });
+$(document).keyup(function(e) {
+     if (e.keyCode == 27) { 
+         moveKarsDown();
+  		 popIn();
+
+    }
+});
 
   var anims = ['flyLeft','flyRight'];
   var index = 0;
@@ -484,7 +511,7 @@ $scope.nodes = [
 	title:'INTRODUCTION',
 	icon:'fa fa-info hospi_icon',
 	url:'intro',
-	mclass:'margin-left:1px',
+	mclass:'margin-left:-25px',
 	id:1
 },
 {
@@ -505,21 +532,22 @@ $scope.nodes = [
 	title:'CYCLOTRON',
 	icon:'fa fa-empire hospi_icon',
 	url:'logo',
-	mclass:'margin-left:-10px',
+	mclass:'margin-left:-20px',
 	id:4
 },
 {
 	title:'UNESCO',
 	icon:'fa fa-bank hospi_icon',
 	url:'unesco',
-	mclass:'margin-left:2px',
+	mclass:'margin-left:-8px',
 	id:5
 },
 {
 	title:'KURUKSHETRA',
 	icon:'fa fa-diamond hospi_icon',
 	url:'kuruk',
-	id:6
+	mclass:'margin-left:-28px',
+	id:6,
 }
 ];
 
@@ -607,6 +635,11 @@ $(".bucketCircle").click(function(){
 $(".close").click(function(){
   closeall();
 });
+$(document).keyup(function(e) {
+     if (e.keyCode == 27) { 
+      closeall();
+    }
+});    
 function popOut(thisele){
   $(thisele).addClass("popOutFast");
   $(".bucketCircle").each(function(i){
@@ -618,7 +651,7 @@ function popIn(){
   $(".bucketCircle").each(function(i){
       var ele = $(this);
       $timeout(function(){ $(ele).removeClass("popOut").removeClass("popOutFast");
-       }, i*20);
+       }, i*80+60);
   });
 }
 function closeall(){
@@ -725,7 +758,7 @@ function init(){
 			   			$scope.tabs[i] = jsonstr[i];
 				   			$scope.tabs[i]['id']=i;
 				   		}
-					$(".left").animate({'opacity':"1",'marginLeft':"-15px",'margin-top':"3%"},500,'easeOutSine');
+					$(".left").animate({'opacity':"1",'marginLeft':"-15px",'margin-top':"4%"},500,'easeOutSine');
 				   	$timeout(init, 10);
 });
 }
