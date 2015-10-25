@@ -18,6 +18,7 @@ function findTime($scope, $rootScope) {
  var date = new Date();
  var hours = date.getHours();
  //var ampm = hours >= 12 ? 'pm' : 'am';
+  console.log('time'+hours);
  if( hours>=7 && hours <= 17)
  {	
  	$("html,body").css({'background-color':"#1F4979",'background-image':"none"});
