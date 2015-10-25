@@ -3,7 +3,7 @@
   <h1 class="paddingReset ribbontitle text-center">GUEST LECTURES</h1>
 </div>
 <div class="container glContainer col-md-12 col-xs-12 paddingReset clearfix" >
-    <div class="glAnim col-md-2 col-xs-12" ng-repeat="nodeItem in nodes">
+    <div class="glAnim col-md-2 col-xs-12" ng-repeat="nodeItem in nodes|  orderObjectBy:'title':false">
       <div class="item paddingReset">
         <div class="anno scrim">
           <img ng-click="clicked(nodeItem.title,nodeItem.id)" class="glCircle" src="{{nodeItem.avatar}}" id="{{nodeItem.id}}">
