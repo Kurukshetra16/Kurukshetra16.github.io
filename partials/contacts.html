@@ -3,7 +3,7 @@
 <div class="container col-md-12 col-xs-12 paddingReset clearfix">
   <h1 class="ribbontitle col-md-12 col-xs-12 text-center">CONTACT US</h1>
 <ul class="contactContainer col-md-12 col-xs-12 clearfix paddingReset">
-  <li id="bucket.id" class="bucketBox" ng-repeat="bucket in buckets|  orderObjectBy:'name':true" ng-click="getBucket(bucket.name,bucket.id)">
+  <li id="bucket.id" class="bucketBox" ng-repeat="bucket in buckets|  orderObjectBy:'name':false" ng-click="getBucket(bucket.name,bucket.id)">
     <div class="bucketCircle col-md-4 col-xs-12 ">
     <img src="images/contact_day.png" class="contactCircle"/>
       <h5 class="bucketName">{{bucket.name}}</h5>
