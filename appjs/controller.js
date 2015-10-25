@@ -155,6 +155,7 @@ $scope.getEvent = function(eventname){
 function init(){
 	$(".tabContent li").hide();
 	$(".tabContent").find("li.0").show();
+	$(".tabContainer li.tab:eq(1)").addClass("tabActive");
 	
 }
 	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/events/'+eventname+'.json'}).success(function(data)
@@ -177,6 +178,8 @@ $scope.showTab = function(tabtitle)
 	$(".tabContent").show();
 	$(".tabContent").find("li").hide();
 	$(".tabContent").find("."+tabtitle).show();
+	$(".tabContainer li.tab").removeClass("tabActive");
+	$(".tabContainer li.tab:eq("+tabtitle+")").addClass("tabActive");
 };
 }]);
 /*WORKSHOPS*/
@@ -436,6 +439,13 @@ $(".closeme").click(function(){
   moveKarsDown();
   popIn();
   
+});
+$(document).keyup(function(e) {
+     if (e.keyCode == 27) { 
+         moveKarsDown();
+  		 popIn();
+
+    }
 });
 
   var anims = ['flyLeft','flyRight'];

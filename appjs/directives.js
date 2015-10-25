@@ -89,8 +89,12 @@ $("#eventsNav").addClass("removeBB");
 $(".close").click(function(){
   closeall();
 });
+$(document).keyup(function(e) {
+     if (e.keyCode == 27) { 
+      closeall();
+    }
+});    
 function closeall(){
-    
   console.log("closing...");
     $(".imagebox").each(function(){
       var elem = $(this);
