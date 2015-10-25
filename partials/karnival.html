@@ -11,7 +11,7 @@
           <span class="shape ribbontitle">L</span>
       </h1>
       <ul class="karCircles">
-        <div class="col-md-3 col-xs-12" ng-repeat="node in nodes">
+        <div class="col-md-3 col-xs-12" ng-repeat="node in nodes|  orderObjectBy:'title':false">
           <li ng-click="clicked(node.title,node.id)" class="karCircle" >
             <img src="images/patterns/bluesparks1.png"/>
             <div class="overlayContainer">

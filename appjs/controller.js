@@ -1,4 +1,3 @@
-
 /*UPDATES*/
 var myApp = angular.module("myAppControllers",[]);
 myApp.filter('orderObjectBy', function() {
@@ -50,6 +49,7 @@ function findTime($scope, $rootScope) {
  	$(".jarvis").attr("src","images/jarvis.png");
  	$(".contactCircle").find("img").attr("src","images/jarvis.png");
 	}
+$("html,body").animate({'scrollTop':"0px"});
 }
 
 myApp.controller('updateController',['$scope','$http','$timeout' , '$auth','$route','cfpLoadingBar','Account',
