@@ -22,7 +22,7 @@
   <div class="col-md-12 col-xs-12">
    <ul class="tabContainer">
     <div class="col-md-12 col-xs-12">
-      <li class="tab {{tab.title}}" ng-repeat="tab in tabs" ng-click="showTab(tab.id);">{{tab.title}}
+      <li class="tab {{tab.title}}" ng-repeat="tab in tabs|orderBy:tab.title" ng-click="showTab(tab.id);">{{tab.title}}
         <i class="fa fa-chevron-down fa-fw"></i>
       </li>
     </div>

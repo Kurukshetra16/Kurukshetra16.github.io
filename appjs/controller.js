@@ -9,9 +9,9 @@ function findTime($scope, $rootScope) {
  {	
  	$("html,body").css({'background-color':"#1F4979",'background-image':"none"});
  	$("#bs-example-navbar-collapse-1.navbar-collapse.collapse.in").css({'background-color':"#1F4979",'background-image':"none"});
- 	$(".overlay").css({'background-color':"rgba(31,73,121,0.3)",'background-image':"url(images/clouds.png)",'background-size':"300px 300px"});
- 	$(".jarvis").attr("src","images/jarvis_day.png");
+ 	$(".overlay").css({'background-color':"rgba(31,73,121,0.3)",'background-image':"url(images/clouds.png)",'background-size':"400px 400px"});
  	$(".contactCircle").attr("src","images/contact_day.png");
+ 	$(".jarvis").attr("src","images/jarvis_day.png");
  	less.modifyVars({
         '@border-main': "rgb(242,165,4)",
         '@border-right': "rgb(209,31,1)",
@@ -122,7 +122,7 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/updates.json'}).succes
 }]);
 
 /*EVENTS*/
-myApp.controller('eventsController',['$scope','$http','$location','$timeout','cfpLoadingBar',function($scope,$http,$location,$timeout, cfpLoadingBar){
+myApp.controller('eventsController',['$scope','$http','$location','$timeout','$sce','cfpLoadingBar',function($scope,$http,$location,$timeout,$sce, cfpLoadingBar){
 findTime();
 $scope.events = [];
 $scope.tabs = [];
@@ -168,6 +168,9 @@ function init(){
 					$(".left").animate({'marginLeft':"0px"},500,'easeOutSine');
 				   	$timeout(init, 10);
 });
+}
+$scope.toTrustedHTML = function( html ){
+    return $sce.trustAsHtml( html );
 }
 $scope.showTab = function(tabtitle)
 {
@@ -725,7 +728,7 @@ function init(){
 			   			$scope.tabs[i] = jsonstr[i];
 				   			$scope.tabs[i]['id']=i;
 				   		}
-					$(".left").animate({'opacity':"1",'marginLeft':"-15px",'margin-top':"3%"},500,'easeOutSine');
+					$(".left").animate({'opacity':"1",'marginLeft':"-15px",'margin-top':"4%"},500,'easeOutSine');
 				   	$timeout(init, 10);
 });
 }
