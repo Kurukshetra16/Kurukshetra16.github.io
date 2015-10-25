@@ -8,8 +8,15 @@
     <img src="images/patterns/bluesparks1.png"/>
     <div class="title">
       <div ng-switch on="event.name">
-        <div ng-switch-when="Enigma"><h5> New </h5></div>
-        <div ng-switch-default><h5>{{event.name}} N </h5></div>
+        <div ng-switch-when="Enigma"><h5> {{event.name}} <br>[New] </h5></div>
+        <div ng-switch-when="How Stuff Works"><h5> {{event.name}} <br>[New] </h5></div>
+        <div ng-switch-when="Fully Doped"><h5> {{event.name}} <br>[New] </h5></div>
+        <div ng-switch-when="k! Wallet"><h5> {{event.name}} <br>[New] </h5></div>
+        <div ng-switch-when="Mock G20"><h5> {{event.name}} <br>[New] </h5></div>
+        <div ng-switch-when=" k! Spell Bee"><h5> {{event.name}} <br>[New] </h5></div>
+        <div ng-switch-when="Bank Robbery"><h5> {{event.name}} <br>[New] </h5></div>
+        <div ng-switch-when="Ninja Coding"><h5> {{event.name}} <br>[New] </h5></div>
+        <div ng-switch-default><h5>{{event.name}}</h5></div>
       </div>      
     </div>
   </div>
