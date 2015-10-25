@@ -620,6 +620,11 @@ $(".bucketCircle").click(function(){
 $(".close").click(function(){
   closeall();
 });
+$(document).keyup(function(e) {
+     if (e.keyCode == 27) { 
+      closeall();
+    }
+});    
 function popOut(thisele){
   $(thisele).addClass("popOutFast");
   $(".bucketCircle").each(function(i){
@@ -631,7 +636,7 @@ function popIn(){
   $(".bucketCircle").each(function(i){
       var ele = $(this);
       $timeout(function(){ $(ele).removeClass("popOut").removeClass("popOutFast");
-       }, i*20);
+       }, i*80+60);
   });
 }
 function closeall(){

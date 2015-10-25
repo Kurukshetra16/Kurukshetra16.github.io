@@ -129,6 +129,12 @@ $(document).ready(function(){
 $(".close").click(function(){
   closeall();
 });
+$(document).keyup(function(e) {
+     if (e.keyCode == 27) { 
+      closeall();
+    }
+});    
+
 function closeall(){
     $(".place").each(function(){
       var elem = $(this);
