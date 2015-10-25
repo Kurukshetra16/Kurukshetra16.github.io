@@ -194,7 +194,7 @@
 </div>
 <div class="col-md-1 mg-lg col-xs-6">
   <div id="eventNav" class="home-event-circle">
-    <i class="fa fa-hourglass circle-icon" style="margin-left:26px"></i>
+    <i class="fa fa-hourglass circle-icon" style="margin-left:25px"></i>
     <div class="text">EVENTS</div>
     </div>
 </div>
@@ -344,16 +344,19 @@ If you possess a childlike curiosity to explore new ideas, turn dreams to realit
   <!--login header -->
   <div class="col-md-4 col-md-push-6 col-xs-12 loginHeader  Header" >
    <ul class="eventCats col-md-12 col-xs-12 col-md-push-8">
-              <li class="eventCircle"><a href="#/profile"><i class="fa fa-user"></i></a>
+              <li class="eventCircle" ng-show="isLoggedIn"><a href="#/profile"><i class="fa fa-user"></i></a>
                   <div class="btmText">Profile</div>
               </li>
-              <li class="eventCircle" style="margin-right:20px">
+              <li class="eventCircle" ng-show="isLoggedIn"><a href="#"><i class="fa fa-sign-out"></i></a>
+                  <div class="btmText">Log Out</div>
+              </li>
+              <li class="eventCircle" ng-hide="isLoggedIn" style="margin-right:20px">
               <a href="" ng-click="authenticate('facebook')">
                 <i class="fa fa-facebook"></i>
                 <div class="btmText">Facebook</div>
               </a>
               </li>
-              <li class="eventCircle">
+              <li class="eventCircle" ng-hide="isLoggedIn">
                 <a href="" ng-click="authenticate('google')">
                   <i class="fa fa-google"></i>
                   <div class="btmText">Google+</div>
@@ -437,12 +440,14 @@ If you possess a childlike curiosity to explore new ideas, turn dreams to realit
     $(".container").children().fadeIn();
     $(".cd-tabs").children().fadeIn(); 
     $(".left").fadeIn(10);
+    $(".footer").fadeIn(0).finish();
   }
   function hideAllHeaders()
   {
         $(".eventHeader").removeClass("dropDown").finish();
         $(".wkshopHeader").removeClass("dropDown").finish();
         $(".loginHeader").removeClass("dropDown").finish();
+        $(".footer").fadeOut(0).finish();
   }
 }
 //random page stuff
