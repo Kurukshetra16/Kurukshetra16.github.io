@@ -18,7 +18,7 @@ function findTime($scope, $rootScope) {
  var date = new Date();
  var hours = date.getHours();
  var ampm = hours >= 12 ? 'pm' : 'am';
- if( hours <= 18 )
+ if( hours <= 17)
  {	
  	$("html,body").css({'background-color':"#1F4979",'background-image':"none"});
  	$("#bs-example-navbar-collapse-1.navbar-collapse.collapse.in").css({'background-color':"#1F4979",'background-image':"none"});
@@ -364,7 +364,7 @@ function init(){
 							}
 				   		$timeout(init, 10);
 				   		var top = $(".anno").scrollTop()+450;
-					   // $('html,body').delay(100).animate({'scrollTop':top+"px"},1500,'easeOutSine');
+					   $('html,body').animate({'scrollTop':top+"px"},1500,'easeOutSine');
 					    $scope.$apply();
 					});
 $scope.clickedName = '';
@@ -579,7 +579,7 @@ $scope.nodeInfo=[
 }];
 $scope.clickedName = 'INTRODUCTION';
 $scope.information = $scope.nodeInfo[0]['desc'];
-$(".longer-line").css({'width':"100%"});
+$(".longer-line").css({'width':"10%"});
 setTimeout(function(){$(".hospi_content").addClass("hospi_animated");
 $("#1").addClass("node-active");
 },500);
