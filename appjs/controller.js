@@ -497,7 +497,7 @@ $scope.nodes = [
 	title:'INTRODUCTION',
 	icon:'fa fa-info hospi_icon',
 	url:'intro',
-	mclass:'margin-left:1px',
+	mclass:'margin-left:-25px',
 	id:1
 },
 {
@@ -518,21 +518,22 @@ $scope.nodes = [
 	title:'CYCLOTRON',
 	icon:'fa fa-empire hospi_icon',
 	url:'logo',
-	mclass:'margin-left:-10px',
+	mclass:'margin-left:-20px',
 	id:4
 },
 {
 	title:'UNESCO',
 	icon:'fa fa-bank hospi_icon',
 	url:'unesco',
-	mclass:'margin-left:2px',
+	mclass:'margin-left:-8px',
 	id:5
 },
 {
 	title:'KURUKSHETRA',
 	icon:'fa fa-diamond hospi_icon',
 	url:'kuruk',
-	id:6
+	mclass:'margin-left:-28px',
+	id:6,
 }
 ];
 
