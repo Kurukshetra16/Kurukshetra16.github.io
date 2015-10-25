@@ -1,6 +1,23 @@
 
 /*UPDATES*/
 var myApp = angular.module("myAppControllers",[]);
+myApp.filter('orderObjectBy', function(){
+ return function(input, attribute) {
+    if (!angular.isObject(input)) return input;
+
+    var array = [];
+    for(var objectKey in input) {
+        array.push(input[objectKey]);
+    }
+
+    array.sort(function(a, b){
+        a = parseInt(a[attribute]);
+        b = parseInt(b[attribute]);
+        return a - b;
+    });
+    return array;
+ }
+});
 function findTime($scope, $rootScope) {
  var date = new Date();
  var hours = date.getHours();
