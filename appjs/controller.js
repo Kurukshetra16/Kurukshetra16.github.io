@@ -17,8 +17,8 @@ myApp.filter('orderObjectBy', function() {
 function findTime($scope, $rootScope) {
  var date = new Date();
  var hours = date.getHours();
- var ampm = hours >= 12 ? 'pm' : 'am';
- if( hours <= 17)
+ //var ampm = hours >= 12 ? 'pm' : 'am';
+ if( hours>=7 && hours <= 17)
  {	
  	$("html,body").css({'background-color':"#1F4979",'background-image':"none"});
  	$("#bs-example-navbar-collapse-1.navbar-collapse.collapse.in").css({'background-color':"#1F4979",'background-image':"none"});
