@@ -1,7 +1,7 @@
 var myApp = angular.module('myApp',['ngRoute','ngSanitize','angular-loading-bar','myAppControllers','myAppServices','myAppDirectives', 'satellizer']);
 myApp.config(['$routeProvider','$authProvider', function($routeProvider, $authProvider) {
                 $routeProvider.when("/", {templateUrl: "partials/home.html"});
-                $routeProvider.when("/xceed", {templateUrl: "partials/xceed.html", controller: "xceedController"});
+                $routeProvider.when("/xceed", {templateUrl: "partials/comingsoonx.html"/*, controller: "xceedController"*/});
                 $routeProvider.when("/events/:category", {templateUrl: "partials/events.html", controller: "eventsController"});
                 $routeProvider.when("/workshops/:category", {templateUrl: "partials/comingsoon.html"/*, controller: "wkshopsController"*/});
                 $routeProvider.when("/karnival", {templateUrl: "partials/comingsoon.html"/*, controller: "karnivalController"*/});
