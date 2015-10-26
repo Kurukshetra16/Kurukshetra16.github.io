@@ -13,7 +13,9 @@ myApp.config(['$routeProvider','$authProvider', function($routeProvider, $authPr
                 $routeProvider.when("/loginK", {templateUrl: "partials/loginK.html",controller:"loginKController"});
                 $routeProvider.when("/logout", {template: null,controller:"LogoutCtrl"});
                 $routeProvider.when("/profile", {templateUrl: "partials/profile.html",controller:"updateController"});
-                $routeProvider.when("/projects", {templateUrl: "partials/projects.html",controller:"projectsController"});
+                $routeProvider.when("/projects", {templateUrl: "partials/comingsoon.html"/*,controller:"projectsController"*/});
+                $routeProvider.when("/sa", {templateUrl: "partials/comingsoonsa.html"/*,controller:"projectsController"*/});
+                $routeProvider.when("/comingsoon", {templateUrl: "partials/comingsoon.html"/*,controller:"projectsController"*/});
                 $routeProvider.otherwise({redirectTo: '/'});
 
 

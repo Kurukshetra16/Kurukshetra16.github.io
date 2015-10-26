@@ -236,7 +236,7 @@ var Boid = function() {
 				 var date = new Date();
 				 var hours = date.getHours();
 				 var ampm = hours >= 12 ? 'pm' : 'am';
-				 if( hours <= 17 ) 
+				 if( hours>=7 && hours <= 17 ) 
 				 {	
 					renderer.setClearColor( 0x1F4979 );
 				 }
@@ -333,7 +333,7 @@ function getRandomColor() {
 	var date = new Date();
 	var hours = date.getHours();
 	var ampm = hours >= 12 ? 'pm' : 'am';
-	if( ampm == 'am' )
+	if( hours>=7 && hours <= 17 )
 		colors = ['#FD8016','#FEAF0D','#FEAF0D','#FFFFFF','#EF4607'];
 	else
 		colors = ['#00FEFD','#A0FEFD','#D6FEFD','#C4E8E7','#E0FFE9']
@@ -407,7 +407,7 @@ function webglAvailable() {
 	var hours = date.getHours();
 	var ampm = hours >= 12 ? 'pm' : 'am';
 	var script = "js/birds/Comet.js"
-	if(hours<=17)
+	if(hours>=7 && hours <= 17)
 	{	
 		renderer.setClearColor( 0x1F4979 );
 		script = "js/birds/Bird.js"

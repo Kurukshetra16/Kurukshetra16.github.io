@@ -826,3 +826,35 @@ $scope.showTab = function(tabtitle)
 myApp.controller('ProfileCtrl', function($scope, $auth, Account) {
 
   });
+/*SPONSORS*/
+myApp.controller('sponsorsController',['$scope','$http','$location','$timeout','$sce','cfpLoadingBar',function($scope,$http,$location,$timeout,$sce, cfpLoadingBar){
+findTime();
+$scope.levels = [];
+// $scope.sponsors = [];
+$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/levels.json'}).success(function(data)
+				   {
+				    	jsonstr = data['levels'];
+				    	for(i=0;i<jsonstr.length;i++)
+				    	{
+				    		$scope.levels[i] = jsonstr[i];
+				    	}
+				   });
+
+// $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/sponsors.json'}).success(function(data)
+// 				   {
+// 				    	$scope.sponsors = data;
+// 				    	$(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
+// 						$(".home-event-circle").removeClass("removeBB");
+// 						$("#sponsors").find(".circle-icon").addClass("selectedNavElem");
+// 						$("#sponsors").addClass("removeBB");
+// 				   });
+// 	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/sponsordata.json'}).success(function(data)
+// 				   {
+// 				    jsonstr = data['sponsors'];
+// 				   	for(i=0;i<jsonstr.length;i++)
+// 				   		{
+// 			   			$scope.sponsors[i]['link'] = jsonstr[i]['link'];
+// 			   			$scope.sponsors[i]['avatar'] = jsonstr[i]['avatar'];
+// 				   		}
+// 					});
+}]);

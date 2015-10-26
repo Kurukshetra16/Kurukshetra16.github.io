@@ -1,77 +1,16 @@
 <!--put components here -->
+<div ng-controller="sponsorsController">
 <div class="col-md-12 col-xs-12 container sponsorContainer">
-<ul class="sponsor-list col-md-12 col-xs-12 paddingReset">
-<li class="col-md-12 col-xs-12 paddingReset clearfix">
-<div class="col-md-12 col-xs-12">
 <h1 class="ribbontitle col-md-12 col-xs-12 text-center">SPONSORS</h1>
-<div class="col-md-3 col-xs-12 sponsor-img">
-  <img src="images/ceg.jpg" />
-</div>
-<div class="col-md-3 col-xs-12 sponsor-img">
-  <img src="images/ceg.jpg"/>
-</div>
-<div class="col-md-3 col-xs-12 sponsor-img">
-  <img src="images/ceg.jpg"/>
-</div>
-<div class="col-md-3 col-xs-12 sponsor-img">
-  <img src="images/ceg.jpg"/>
-</div>
-
+<ul class="sponsor-list col-md-12 col-xs-12 paddingReset" ng-repeat="level in levels">
+<h1 class="ribbontitle col-md-12 col-xs-12 text-center" style="font-size:2.5rem; text-transform:uppercase;margin-bottom:20px" ng-show="level.sponsors.length > 0">{{level.name}}</h1>
+<li class="sponsor-img" ng-repeat="sponsor in level.sponsors">
+  <a href="{{sponsor.link}}" target="_blank"><img src="{{sponsor.avatar}}" /></a>
 </li>
 </ul>
 </div>
-
 </div>
-
-</div><!-- overlay -->
-
-
-</div>
-
 <!--navbar ends-->
-
-
-<script>
-$(document).ready(function(){
-
-$(".navbar-toggle").click(function(){
-  closeall();
-  
-});
-
-$(".node").click(function(){
-
-//scroll down in mobile
-if($(window).width()>=320 && $(window).width()<=960)
-  $('html,body').animate({'scrollTop':"450px"},800);
-else
-  $('html,body').animate({'scrollTop':"200px"},800);
-
-  $(".node").removeClass("node-active");
-  $(this).addClass("node-active");
-  $(".hospi_content").removeClass("hospi_animated");
-
-  var nodeid = $(this).attr("id");
-  if(nodeid == 'intro')
-  $(".longer-line").css({'background':"rgb(255,200,0)",'width':"8%"});
-  else if(nodeid == 'instr')
-  $(".longer-line").css({'background':"rgb(255,200,0)",'width':"24%"});
-  else if(nodeid == 'accom')
-  $(".longer-line").css({'background':"rgb(255,200,0)",'width':"40%"});
-  else if(nodeid == 'reachceg')
-  $(".longer-line").css({'background':"rgb(255,200,0)",'width':"57%"});
-  else if(nodeid == 'faq')
-  $(".longer-line").css({'background':"rgb(255,200,0)",'width':"74%"});
-  else if(nodeid == 'contact')
-  $(".longer-line").css({'background':"rgb(255,200,0)",'width':"100%"});
-
-setTimeout(function(){$(".hospi_content").addClass("hospi_animated");},500);
-
-});
-
-});
-
-</script>
 <script>
 $(document).ready(function(){
 $(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
