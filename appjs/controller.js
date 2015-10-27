@@ -23,7 +23,7 @@ function findTime($scope, $rootScope) {
  {	
  	$("html,body").css({'background-color':"#1F4979",'background-image':"none"});
  	$("#bs-example-navbar-collapse-1.navbar-collapse.collapse.in").css({'background-color':"#1F4979",'background-image':"none"});
- 	$(".overlay").css({'background-color':"rgba(31,73,121,0.3)",'background-image':"url(images/clouds.png)",'background-size':"400px 400px"});
+ 	$(".overlay").css({'background-color':"rgba(31,73,121,0.3)"/*,'background-image':"url(images/clouds.png)"*/,'background-size':"400px 400px"});
  	$(".contactCircle").attr("src","images/contact_day.png");
  	$(".jarvis").attr("src","images/jarvis_day.png");
  	less.modifyVars({

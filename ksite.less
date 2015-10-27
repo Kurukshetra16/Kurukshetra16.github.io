@@ -49,7 +49,7 @@
 		position:absolute;
 		left:0;
 		width:100%;
-		min-height:2000px;
+		min-height:600px;
 		max-height:auto;
 		.transition(0.65s ease);
 		 background-image:url(images/patterns/constellations.png),url(images/patterns/constellations.png);
@@ -259,9 +259,6 @@
 		height:120px !important;
 	}
 		/*sponsors*/
-	.sponsor-img{
-			padding-left:50px;
-		}
 		.tabContainer{
 			margin-top:60px !important;
 		}
@@ -277,13 +274,13 @@
 		position:relative;
 		width:430px !important;
 		height:410px !important;
-		margin-left:-14% !important;
 	}
 	.jarvisContainer .allImages{
 	  width:325px !important;
 	  height:310px !important;
 	  margin-top: -13%;
 	  margin-left: -9% !important;
+	  position:absolute;
 	  }
 	img.slide {
 	  width:325px !important;
@@ -546,7 +543,7 @@
 		overflow: hidden;
 		display: block;
 		height: 800px;
-		margin-left:-110px !important;
+		padding-left:60px;
 		}
 	}
 	UL.nav.navbar-nav.navbar-right{
@@ -1585,10 +1582,10 @@
 	/*updates*/
 	.update-box,.sponsor-box img{
 	  width:250px;
-	  height:250px;
+	  height:180px;
 	  border:7px solid @border-main;
 	  margin-top:50px;
-	  margin-left:15%;
+	  margin-left:20%;
 	  border-radius:30px;
 	  color:@font-color;
 	  font-size:2rem;
@@ -1604,16 +1601,18 @@
 	  animation:altBorder 30s linear infinite;
 	  .transition(all 0.5s linear);
 	}
+	.sponsor-box{
+		position: relative;
+		margin-left:-58px;
+	}
+	.sponsor-box img{
+		position:absolute;
+	}
 	.update-box{
-		height:180px;
 		padding:20px;
 		}
 	.update-box p{
 		display:inline;
-	}
-	.sponsor-box img{
-		position:absolute;
-		margin-left:2%;
 	}
 	.sponsorAnim{
 		-webkit-transform:rotateX(180deg);
@@ -1626,7 +1625,6 @@
 		margin-left: 0px;
 		margin-top: -30px;
 		z-index: 1;
-		position: absolute;
 	/*	-webkit-animation: rotateC 30s linear infinite;
 		-moz-animation: rotateC 30s linear infinite;
 		-o-animation: rotateC 30s linear infinite;
@@ -1664,17 +1662,19 @@
 		}
 	}
 	.jarvisContainer .allImages{
-	  position:absolute;
-	  margin-left:5.3%;
+	  position:absolute !important;
+	  margin-left:5%;
+	  margin-top:-670px;
 	  }
 	.allImages li{
 	  position: absolute;
 	}
 	li img{
-	  width:533px;
-	  height:515px;
+	  width:529px;
+	  height:513px;
 	  border-radius:50%;
 	  margin-top:73px;
+	  margin-left:5px;
 	}
 	/*karnival page*/
 	.karCircles{
@@ -1969,7 +1969,7 @@
 		background:@small-border-top;
 		color:#000!important;
 	}
-	.preloader
+	/*.preloader
 	{	
 		position:absolute;
 		top:0;
@@ -1995,7 +1995,7 @@
 		-o-animation:play 1.5s steps(31) infinite;	
 		animation:play 1.5s steps(31) infinite;	
 	}
-		
+	*/	
 	@keyframes play {
 	   100% { background-position: -22320px; }
 	}
@@ -2076,7 +2076,7 @@
 		width:100%;
 		height:80px;
 		position:relative;
-		top:1500px;
+		top:600px;
 		padding:5px;
 		background-color: rgba(0,0,0,0.2);
 		color:@font-color-hover;
