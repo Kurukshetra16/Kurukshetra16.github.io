@@ -5,7 +5,7 @@
 <ul class="sponsor-list col-md-12 col-xs-12 paddingReset" ng-repeat="level in levels">
 <h1 class="ribbontitle col-md-12 col-xs-12 text-center" style="font-size:2.5rem; text-transform:uppercase;margin-bottom:20px" ng-show="level.sponsors.length > 0">{{level.name}}</h1>
 <li class="sponsor-img" ng-repeat="sponsor in level.sponsors">
-  <a href="{{sponsor.link}}" target="_blank"><img src="{{sponsor.avatar}}" /></a>
+  <a href="{{sponsor.link}}" class="text-center" target="_blank"><img src="{{sponsor.avatar}}" /></a>
 </li>
 </ul>
 </div>
