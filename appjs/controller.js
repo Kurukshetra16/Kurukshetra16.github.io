@@ -170,7 +170,7 @@ $scope.getEvent = function(eventname){
 function init(){
 	$(".tabContent li").hide();
 	$(".tabContent").find("li.0").show();
-	$(".tabContainer li.tab:eq(1)").addClass("tabActive");
+	$(".tabContainer li.tab:eq(0)").addClass("tabActive");
 	
 }
 	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/events/'+eventname+'.json'}).success(function(data)
@@ -229,8 +229,9 @@ $scope.getEvent = function(eventname){
 	$scope.eventName = eventname;
 	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','');
 function init(){
-	$(".tabContent li").hide();
+$(".tabContent li").hide();
 	$(".tabContent").find("li.0").show();
+	$(".tabContainer li.tab:eq(0)").addClass("tabActive");
 }
 	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/workshops/'+eventname+'.json'}).success(function(data)
 				   {
@@ -559,7 +560,7 @@ $scope.nodeInfo=[
 },
 {
 	id:2,
-	desc:'From being a Survey school in 1794 to a Civil Engineering college in 1858 and finally College of Engineering, Guindy in 1859, the college always strived for excellence in academia and in enriching the students with experience. With the pride of being one of oldest engineering college in India, CEG continues in the path of inspiring engineers to excel at any endeavour.'
+	desc:'From being a Survey school in 1794 to a Civil Engineering college in 1858 and finally College of Engineering, Guindy in 1859, the college always strives for excellence in academia and in enriching the students with experience. With the pride of being one of the oldest engineering colleges in India, CEG continues in the path of inspiring engineers to excel at any endeavour.'
 },
 {
 	id:3,
@@ -696,7 +697,7 @@ $scope.getEvent = function(eventname){
 	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','');
 function init(){
 	$(".tabContent li").hide();
-	$(".tabContent").find("li.0").show();
+	$(".tabContent").find("li:eq(0)").show();
 }
 	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/events/'+eventname+'.json'}).success(function(data)
 				   {
@@ -749,7 +750,7 @@ $scope.getEvent = function(eventname){
 	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','');
 function init(){
 	$(".tabContent li").hide();
-	$(".tabContent").find("li.0").show();
+	$(".tabContent").find("li:eq(0)").show();
 }
 	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/xceeds/'+eventname+'.json'}).success(function(data)
 				   {
