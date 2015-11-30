@@ -201,21 +201,21 @@
 <div class="col-md-1 mg-lg col-xs-6 col-lg-1">
   <div id="wkshopNav" class="home-event-circle " >
     <i class="fa fa-wrench circle-icon"></i>
-    <div class="text" style="margin-left:-14px">WORKSHOPS</div>
+    <div class="text">WORKSHOPS</div>
 </div>
 </div>
 
 <div class="col-md-1 mg-lg col-xs-6 col-lg-1">
   <div class="home-event-circle ">
   <a href="#/hospi"><i id="hospi" class="fa fa-map circle-icon"></i>
-    <div class="text" style="margin-left:-12.5px">HOSPITALITY</div>
+    <div class="text">HOSPITALITY</div>
   </a>
   </div>
 </div>
 <div class="col-md-1 mg-lg col-xs-6 col-lg-1">
   <div class="home-event-circle ">
   <a href="#/sponsors"><i id="sponsors" class="fa fa-inr circle-icon" style="margin-left:30px"\></i>
-    <div class="text" style="margin-left:-10px">SPONSORS</div>
+    <div class="text" style="margin-left:4px">SPONSORS</div>
   </a>
   </div>
 </div> 
@@ -229,17 +229,17 @@
 <div class="col-md-1 mg-lg col-xs-6 col-lg-1">
   <div class="home-event-circle ">
   <a href="#/contacts"><i id="contact" class="fa fa-comment-o circle-icon"></i>
-    <div class="text">CONTACT</div>
+    <div class="text" style="margin-left:5px">CONTACT</div>
   </a>
   </div>
 </div>
 <div class="col-md-1 mg-lg col-xs-6">
-  <div ng-show="!isLoggedin" id="loginNav" class="home-event-circle">
+  <div ng-show="!isLoggedin" id="loginNav1" class="login-circle home-event-circle">
     <i class="fa fa-key circle-icon"></i>
     <div class="text">LOGIN</div>
   </div>
   <a href="" ng-click="logout()">
-  <div ng-show="isLoggedin" id="loginNav" class="home-event-circle">
+  <div ng-show="isLoggedin" id="loginNav2" class="login-circle home-event-circle">
     <i class="fa fa-key circle-icon"></i>
     <div class="text">ACCOUNT</div>
   </div>
@@ -404,12 +404,13 @@ become bearers of the torch of invention &amp; innovation. </p>
         {
           hideStuffBelow("wkshop");
         }
-        else if( cid == "loginNav")
+        else if( cid == "loginNav1" || cid == "loginNav2" )
         {
           hideStuffBelow("login");
         }
         else
         {
+          console.log("entering other")
           hideAllHeaders();
           showStuffBelow();
         }
@@ -426,7 +427,8 @@ become bearers of the torch of invention &amp; innovation. </p>
       hideAllHeaders();
       showStuffBelow();
       $("#eventNav").removeClass("selectedNavElem");
-      $("#loginNav").removeClass("selectedNavElem");
+      $("#loginNav1").removeClass("selectedNavElem");
+      $("#loginNav2").removeClass("selectedNavElem");
       $("#wkshopNav").removeClass("selectedNavElem");
 
     });
@@ -445,6 +447,7 @@ become bearers of the torch of invention &amp; innovation. </p>
   }
   function showStuffBelow()
   {
+    // alert("here");
     $(".container").children().fadeIn();
     $(".cd-tabs").children().fadeIn(); 
     $(".left").fadeIn(10);

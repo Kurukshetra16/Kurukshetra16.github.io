@@ -82,14 +82,9 @@
         <p></p>        
       </div>
   <div class="col-md-12 col-xs-12">
-    <ul class="sponsor-box">
-      <li><img src="images/ceg.jpg" /></li>
-      <li><img src="images/patterns/bluekar.jpg" /></li>
-      <li><img src="images/patterns/redkarnival.jpg" /></li>
-      <li><img src="images/ceg.jpg" /></li>
-      <li><img src="images/patterns/bluekar.jpg" /></li>
-      <li><img src="images/patterns/redkarnival.jpg" /></li>
-    </ul>
+    <div class="sponsor-box">
+      <img ng-repeat="sponsor in sponsors" src="http://cms.kurukshetra.org.in{{sponsor.avatar}}" />
+    </div>
 </div>
 </div>
 </div>
@@ -98,7 +93,7 @@
 $(document).ready(function(){
 var index = 1;
 var tot1 = $(".slide").length;
-var tot2 = $(".sponsor-box img").length;
+var tot2 = 2;
 var slide_time_in = 5125*tot1;
 var slide_time_out = 4500*tot1;
 var spons_time_in = 5125*tot2;
@@ -138,19 +133,6 @@ function sliderout(){
   });
 
   setTimeout(sliderin,slide_time_out);}
-//sponsorin
-$(".sponsor-box img").animate({'opacity':"0"},'easeOutBounce');
-sponsorin();
-function sponsorin()
-{
- $(".sponsor-box img").each(function(i){
-      var elem = $(this);
-      setTimeout(function(){
-        $(elem).animate({'opacity':"1"},500,'easeInOutSine');
-      },i*1000+1000);
-  });
-setTimeout(sponsorin,10500);
-}
 //typed.js
 });
 

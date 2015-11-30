@@ -1,102 +1,67 @@
-<!--put components here -->
-<div ng-controller="xceedController" class="container col-md-12 col-xs-12 xceedContainer">
-<h1 class="ribbontitle col-md-12 col-xs-12 text-center">XCEED</h1>
-  <div class="places xceedAnim hidden-xs">
-    <div class="col-md-1 col-xs-1">
-      <div class="place" id="place1">
-        <i class="fa fa-map-marker fa-2x fa-fw"></i>
-        <h5 class="btmText">Mumbai</h5>
-        <div class="tooltips tooltip1">
-          <h5 ng-click="getEvent(event)" ng-repeat="event in events1"><i class="fa fa-angle-right"></i>{{event}}</h5>
+  <!--put components here -->
+  <div ng-controller="xceedController">
+  <div class="container col-md-12 col-xs-12 xceedContainer">
+  <h1 class="ribbontitle col-md-12 col-xs-12 text-center">XCEED</h1>
+    <div class="places xceedAnim">
+      <div class='row'>
+        <div class="col-md-6  col-md-push-2 col-xs-6 col-xs-push-1">
+          <div class="place" id="place1">
+            <i class="fa fa-map-marker fa-2x fa-fw"></i>
+            <h5 class="btmText">Ahmedabad</h5>
+            <div class="tooltips tooltip1">
+              <h5 ng-click="getEvent(event)" ng-repeat="event in events1"><i class="fa fa-angle-right"></i>{{event}}</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-md-push-3 col-xs-6 col-xs-push-2">
+          <div class="place" id="place3">
+            <i class="fa fa-map-marker fa-2x fa-fw"></i>
+            <h5 class="btmText">Bangalore</h5>
+            <div class="tooltips tooltip1">
+              <h5 ng-click="getEvent(event)" ng-repeat="event in events3"><i class="fa fa-angle-right"></i>{{event}}</h5>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="place" id="place2">
-        <i class="fa fa-map-marker fa-2x fa-fw"></i>
-        <h5 class="btmText">Trichy</h5>
-        <div class="tooltips tooltip1">
-          <h5 ng-click="getEvent(event)" ng-repeat="event in events2"><i class="fa fa-angle-right"></i>{{event}}</h5>
-        </div>
-      </div>
-      <div class="place" id="place3">
-        <i class="fa fa-map-marker fa-2x fa-fw"></i>
-        <h5 class="btmText">Kanpur</h5>
-        <div class="tooltips tooltip1">
-          <h5 ng-click="getEvent(event)" ng-repeat="event in events3"><i class="fa fa-angle-right"></i>{{event}}</h5>
-        </div>
-      </div>
-      <div class="place" id="place4">
-        <i class="fa fa-map-marker fa-2x fa-fw"></i>
-        <h5 class="btmText">Kochi</h5>
-        <div class="tooltips tooltip1">
-          <h5 ng-click="getEvent(event)" ng-repeat="event in events4"><i class="fa fa-angle-right"></i>{{event}}</h5>
-         </div>
+      <br/><br/>
+        <div class="col-md-6 col-md-push-6 col-xs-6 col-xs-push-4">
+          <div class="place" id="place4">
+            <i class="fa fa-map-marker fa-2x fa-fw"></i>
+            <h5 class="btmText">Kochi</h5>
+            <div class="tooltips tooltip1">
+              <h5 ng-click="getEvent(event)" ng-repeat="event in events4"><i class="fa fa-angle-right"></i>{{event}}</h5>
+             </div>
+          </div>
       </div>
     </div>
-  </div>
-<!--mobile -->
-<div class="container col-md-12 col-xs-12 xceedContainer">
-<div class="places xceedAnim hidden-md hidden-lg">
-  <div class="col-md-1 col-xs-1">
-    <div class="place" id="place1m">
-      <i class="fa fa-map-marker fa-2x fa-fw"></i>
-      <h5 class="btmText">Mumbai</h5>
-      <div class="tooltips tooltip1">
-        <h5 ng-click="getEvent(event)" ng-repeat="event in events1"><i class="fa fa-angle-right"></i>{{event}}</h5>
-      </div>
-    </div>
-    <div class="place" id="place2m">
-      <i class="fa fa-map-marker fa-2x fa-fw"></i>
-      <h5 class="btmText">Trichy</h5>
-      <div class="tooltips tooltip1">
-        <h5 ng-click="getEvent(event)" ng-repeat="event in events2"><i class="fa fa-angle-right"></i>{{event}}</h5>
-      </div>
-    </div>
-    <div class="place" id="place3m">
-      <i class="fa fa-map-marker fa-2x fa-fw"></i>
-      <h5 class="btmText">Kanpur</h5>
-      <div class="tooltips tooltip1">
-        <h5 ng-click="getEvent(event)" ng-repeat="event in events3"><i class="fa fa-angle-right"></i>{{event}}</h5>
-      </div>
-    </div>
-    <div class="place" id="place4m">
-      <i class="fa fa-map-marker fa-2x fa-fw"></i>
-      <h5 class="btmText">Kochi</h5>
-      <div class="tooltips tooltip1">
-        <h5 ng-click="getEvent(event)" ng-repeat="event in events4"><i class="fa fa-angle-right"></i>{{event}}</h5>
-        </div>
-    </div>
-  </div>
-</div>
-</div>
-<!--left -->
-<div class="container tabsAnim left col-md-12 col-xs-12">
-<h1 class="text-center col-md-12 col-xs-12 ribbontitle" style="font-size:3.2rem;color:rgb(255,247,219)">{{eventName}}</h1>
- <i class="close fa fa-times fa-4x fa-fw" style="color:#fff;"></i>
-  <div class="col-md-12 col-xs-12">
-   <ul class="tabContainer">
+  <!--mobile -->
+  <!--left -->
+  <div class="container tabsAnim left col-md-12 col-xs-12" style="margin-top:-2%">
+  <h1 class="text-center col-md-12 col-xs-12 ribbontitle" style="font-size:3.2rem;color:rgb(255,247,219)">{{eventName}}</h1>
+   <i class="close fa fa-times fa-4x fa-fw" style="color:#fff;"></i>
     <div class="col-md-12 col-xs-12">
-      <li class="tab {{tab.title}}" ng-repeat="tab in tabs" ng-click="showTab(tab.id);">{{tab.title}}
-        <i class="fa fa-chevron-down fa-fw"></i>
-      </li>
-    </div>
-   </ul>
- </div>
- <div class="col-md-12 col-xs-12">
- <button class="btn subscribe"><i class="fa fa-paw"></i> SUBSCRIBE</button>
-  <ul class="tabContent">
-    <li ng-repeat="tabc in tabs" class="{{tabc.id}}" ng-bind-html="tabc.content"></li>
-  </ul>
-</div>
-</div> 
-</div><!-- overlay -->
-</div>
-</div>
-<!--navbar ends-->
+     <ul class="tabContainer">
+      <div class="col-md-12 col-xs-12">
+        <li class="tab {{tab.title}}" ng-repeat="tab in tabs" ng-click="showTab(tab.id);">{{tab.title}}
+          <i class="fa fa-chevron-down fa-fw"></i>
+        </li>
+      </div>
+     </ul>
+   </div>
+   <div class="col-md-12 col-xs-12">
+   <button class="btn subscribe"><i class="fa fa-paw"></i> SUBSCRIBE</button>
+    <ul class="tabContent">
+      <li ng-repeat="tabc in tabs" class="{{tabc.id}}" ng-bind-html="tabc.content"></li>
+    </ul>
+  </div>
+  </div> 
+  </div>
+  </div>
 <script>
 $(document).ready(function(){
-  $(".tooltips").fadeOut(0);
+  $(".tooltips").animate({'opacity':"0"},0)
     $(".place").hover(function(){
-      $(this).find(".tooltips").fadeIn(100);  
-    }, function(){$(this).find(".tooltips").fadeOut(100);});
+      $(this).find(".tooltips").animate({'opacity':"1"},100).finish();  
+    }, function(){$(this).find(".tooltips").animate({'opacity':"0"},100).finish();});
 });
 </script>

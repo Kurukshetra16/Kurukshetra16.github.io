@@ -21,18 +21,15 @@ function findTime($scope, $rootScope) {
   console.log('time'+hours);
  if( hours>=7 && hours <= 17)
  {	
- 	$("html,body").css({'background-color':"#1F4979",'background-image':"none"});
- 	$("#bs-example-navbar-collapse-1.navbar-collapse.collapse.in").css({'background-color':"#1F4979",'background-image':"none"});
- 	$(".overlay").css({'background-color':"rgba(31,73,121,0.3)"/*,'background-image':"url(images/clouds.png)"*/,'background-size':"400px 400px"});
+ 	$("html,body").css({'background-color':"#1F4979"});
+ 	$("#bs-example-navbar-collapse-1.navbar-collapse.collapse.in").css({'background-color':"#1F4979"});
+ 	$(".overlay").css({'background-color':"rgba(31,73,121,0.3)"});
  	$(".contactCircle").attr("src","images/contact_day.png");
- 	$(".jarvis").attr("src","images/jarvis_day.png");
  	less.modifyVars({
         '@border-main': "rgb(242,165,4)",
-        '@border-right': "rgb(209,31,1)",
-        '@border-bottom': "rgb(159,20,0)",
+        '@border-right': "rgb(209,31,1)",'@border-bottom': "rgb(159,20,0)",
         '@border-left':"rgb(209,31,1)",
         '@border-top':"rgb(239,70,7)",
-
         '@small-border-main': "#A66C25",
         '@small-border-top': "rgb(254,175,13)",
         '@small-border-right': "rgb(253,128,22)",
@@ -46,26 +43,22 @@ function findTime($scope, $rootScope) {
     });
  }
  else
- {	$("html,body").css({'background-color':"rgb(0,7,32)",'background-image':"url(images/constellations.png)"});
- 	$(".jarvis").attr("src","images/jarvis.png");
- 	$(".contactCircle").find("img").attr("src","images/jarvis.png");
+ {	$("html,body").css({'background-color':"rgb(0,7,32)"});
 	}
 $("html,body").animate({'scrollTop':"0px"});
 }
 
-myApp.controller('updateController',['$scope','$http','$timeout' , '$auth','$route','cfpLoadingBar','Account',
-					function($scope,$http,$timeout,$auth,$route, cfpLoadingBar, Account){
+myApp.controller('updateController',['$rootScope','$scope','$http','$timeout' , '$auth','$route','cfpLoadingBar','Account','$location','SAAccessFac','$cookieStore',
+					function($rootScope,$scope,$http,$timeout,$auth,$route, cfpLoadingBar, Account,$location,SAAccessFac, $cookieStore){
 findTime();
 $scope.updates = [];
-// $scope.dataLoaded = false;
 $scope.isLoggedin = $auth.isAuthenticated();
 
-$scope.kid = "";
-$scope.name = "";
+
 $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/updates.json'}).success(function(data)
 				   {
 				    jsonstr = data; // response data 
-				   	console.log("updates"+jsonstr.length);
+				   //	console.log("updates"+jsonstr.length);
 				   	
 				   	// $timeout(function(){$scope.dataLoaded = true;},1000);
 				   	
@@ -86,53 +79,101 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/updates.json'}).succes
 				  });
 
 				   });
-
-    $scope.authenticate = function(provider) {
-    	console.log("authenticate")
+$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/sponsordata.json'}).success(function(data)
+				   {
+				    	$scope.sponsors = data['sponsors'];
+//sponsorin
+$(".sponsor-box img").animate({'opacity':"0"},0);
+sponsorin();
+function sponsorin()
+	{
+timetot = 0;
+ $(".sponsor-box img").each(function(i){
+      var elem = $(this);
+      timetot += (i+1)*1800;
+     	$timeout(function(){
+        $(elem).animate({'opacity':"1"},500,'easeInOutSine');
+      },(i+1)*1800);
+  });
+$timeout(sponsorout,timetot);
+	}
+function sponsorout()
+	{
+		timetot = 0;
+ $(".sponsor-box img").each(function(i){
+      var elem = $(this);
+      timetot += (i+1)*1800;
+     	$timeout(function(){
+        $(elem).animate({'opacity':"0"},500,'easeInOutSine');
+      },(i+1)*1800);
+  });
+$timeout(sponsorin,timetot);
+	}
+});
+   $scope.authenticate = function(provider) {
+    	
+var now = new Date();
+var exp = new Date(now.getFullYear()+1,now.getMonth(),now.getDate()+5);
+//console.log(exp);
       $auth.authenticate(provider)
         .then(function(response) {
-          console.log('You have successfully signed in with ' + provider);
-          console.log(response.data.kid);
-          console.log(response.data.name);
+                            toastr.options.closeButton = true;
+                            toastr.options.timeOut =3000 ; // How long the toast will display without user interaction
+                            toastr.options.extendedTimeOut = 1500;               //redirect user to home if it does not have permission.
+          
+       //   console.log(response.data.kid);
+        //  console.log(response.data.name);
+         // console.log(response.data.sa_id);
+          $scope.sa_id = response.data.sa_id;
           $scope.kid = response.data.kid;
           $scope.name = response.data.name;	
-       $scope.isLoggedin = true;
+          toastr.success('Signed in successfully','Welcome '+$scope.name);
+          $cookieStore.put('name',$scope.name,{expires: exp});
+          $cookieStore.put('sa_id',$scope.sa_id,{expires: exp});
+          $cookieStore.put('kid',$scope.kid,{expires: exp});
+          $scope.isLoggedin = true;
         $route.reload();
+SAAccessFac.getPermission();
         })
-        .catch(function(response) {
-   		  console.log('Error signing in');
-        });
+        .catch(function(response) { toastr.options.closeButton = true;
+                            toastr.options.timeOut =3000 ; // How long the toast will display without user interaction
+                            toastr.options.extendedTimeOut = 1500; 
+                              toastr.error("Error Signing in",response.status);
+       });
     };
 
-    $scope.logout = function(argument) {
+    $scope.logout = function(showToast) {
+    showToast = showToast !== false;
     if (!$auth.isAuthenticated()) { return; }
     $auth.logout()
       .then(function() {
-        console.log('You have been logged out');
-              $scope.isLoggedin = false;
+                           if(showToast){
+                            toastr.options.closeButton = true;
+                            toastr.options.timeOut =3000 ; // How long the toast will display without user interaction
+                            toastr.options.extendedTimeOut = 1500; 
+                              toastr.info("Logged out successfully"); }
+                           $scope.isLoggedin = false;
+              $cookieStore.remove('name');
+              $cookieStore.remove('kid');
+       $location.path('/');
        		  $route.reload();
       	
       });
    };
-    $scope.getProfile = function() {
-      Account.getProfile()
-        .then(function(response) {
-          $scope.user = response.data;
-        })
-        .catch(function(response) {
-          console.log(response.data.message, response.status);
-        });
-    };
-    $scope.updateProfile = function() {
-      Account.updateProfile($scope.user)
-        .then(function() {
-          console.log('Profile has been updated');
-        })
-        .catch(function(response) {
-          toastr.error(response.data.message, response.status);
-        });
-    };
-    $scope.getProfile();
+if($scope.isLoggedin)
+{
+$scope.name = $cookieStore.get('name');
+$scope.kid = $cookieStore.get('kid');
+if(!$scope.name){
+$scope.logout(false);
+}
+SAAccessFac.getPermission();
+}
+else
+{
+SAAccessFac.removePermission();
+}
+ 
 
 }]);
 
@@ -151,28 +192,35 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/categories'+path+'.jso
 				   	for(i=0;i<jsonstr.length;i++)
 				   		{
 				   			$scope.events[i] = jsonstr[i];
-				   			console.log($scope.events[i]);
+				   			//console.log($scope.events[i]);
 				   		}
 				   		$(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
 						$(".home-event-circle").removeClass("removeBB");
 						$("#eventNav").find(".circle-icon").addClass("selectedNavElem");
 						$("#eventNav").addClass("removeBB");
+                                                
+                                                
+	
 				   });
 $scope.getEvent = function(eventname){
+       
 	$(".imagebox").each(function(){
       var elem = $(this);
       setTimeout(function(){
         $(elem).animate({'opacity':"0",'margin-left':"30px"},70);
       },i*50+50);
     });
+    $(".footer").hide(0);
 	$scope.eventName = eventname;
-	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','');
+	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','-').replace(/\-\-+/g, '-') ;
+	 $('html,body').delay(100).animate({'scrollTop':"100px"},1500,'easeOutSine');
 function init(){
-	$(".tabContent li").hide();
+        $(".tabContent li").hide();
 	$(".tabContent").find("li.0").show();
 	$(".tabContainer li.tab:eq(0)").addClass("tabActive");
 	
 }
+$scope.tabs = [];
 	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/events/'+eventname+'.json'}).success(function(data)
 				   {
 				    jsonstr = data['event']['tabs']; // response data 
@@ -195,6 +243,8 @@ $scope.showTab = function(tabtitle)
 	$(".tabContent").find("."+tabtitle).show();
 	$(".tabContainer li.tab").removeClass("tabActive");
 	$(".tabContainer li.tab:eq("+tabtitle+")").addClass("tabActive");
+	 $('html,body').delay(100).animate({'scrollTop':"200px"},1500,'easeOutSine');
+
 };
 }]);
 /*WORKSHOPS*/
@@ -222,12 +272,16 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/workshopcategories'+pa
 $scope.getEvent = function(eventname){
 	$(".imagebox").each(function(){
       var elem = $(this);
+      $(".footer").hide(0);
       setTimeout(function(){
         $(elem).animate({'opacity':"0",'margin-left':"30px"},70);
       },i*50+50);
     });
 	$scope.eventName = eventname;
 	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','');
+		 $('html,body').delay(100).animate({'scrollTop':"100px"},1500,'easeOutSine');
+	// $scope.$apply();
+
 function init(){
 $(".tabContent li").hide();
 	$(".tabContent").find("li.0").show();
@@ -251,6 +305,7 @@ $scope.showTab = function(tabtitle)
 	$(".tabContent").show();
 	$(".tabContent").find("li").hide();
 	$(".tabContent").find("."+tabtitle).show();
+	 $('html,body').delay(100).animate({'scrollTop':"200px"},1500,'easeOutSine');
 };
 }]);
 
@@ -313,12 +368,12 @@ $scope.nodeInfo = [];
 							{
 							$scope.nodeInfo[i] = jsonstr[i];
 							$scope.nodeInfo[i]['id'] = i+1;
-							console.log($scope.nodeInfo[i]['title']);
+							//console.log($scope.nodeInfo[i]['title']);
 							}
 							init();
-							var top = $("#hospi_content").scrollTop()+180;
+							var top = $("#hospi_content").scrollTop()+280;
 							$('html,body').delay(100).animate({'scrollTop':top+"px"},1500,'easeOutSine');
-							$scope.$apply();
+							// $scope.$apply();
 					});
 	function init()
 	{
@@ -333,9 +388,10 @@ $scope.nodeInfo = [];
 	$scope.tohospi = function(clicked,clickedid) {
       $scope.clickedNode = clicked;
       $scope.clickedID = clickedid-1;
-      console.log(clickedid);
-      console.log($scope.nodeInfo[$scope.clickedID]['desc']);
-      $scope.nodeData = $scope.nodeInfo[$scope.clickedID]['desc'];
+     $scope.nodeData = $scope.nodeInfo[$scope.clickedID]['desc'];
+     var top = $("#hospi_content").scrollTop()+280;
+	$('html,body').delay(100).animate({'scrollTop':top+"px"},1500,'easeOutSine');
+					
     };
 }]);
 // guestlectures
@@ -362,13 +418,19 @@ function init(){
 							{
 							$scope.nodes[i] = jsonstr[i];
 							$scope.nodes[i]['id'] = i+1;
-							console.log($scope.nodes[i]['title']);
+							//console.log($scope.nodes[i]['title']);
 							}
 				   		$timeout(init, 10);
-				   		var top = $(".anno").scrollTop()+450;
+$(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
+$(".home-event-circle").removeClass("removeBB");
+$("#gl").addClass("selectedNavElem");
+$("#gl").parent().parent().addClass("removeBB");
+
+				   		var top = $(".anno").scrollTop()+250;
 					   $('html,body').animate({'scrollTop':top+"px"},1500,'easeOutSine');
 					    $scope.$apply();
 					});
+
 $scope.clickedName = '';
 $scope.date = '';
 $scope.Time = '';
@@ -389,7 +451,7 @@ $scope.clicked = function(name,id)
 	$scope.venue = $scope.nodes[id]['venue'];
 	$scope.desc = $scope.nodes[id]['desc'];
 	$scope.about = $scope.nodes[id]['about'];
-	var top = $(".glContent").scrollTop()+450;
+	var top = $(".glContent").scrollTop()+250;
 	$('html,body').animate({'scrollTop':top+"px"},500,'easeOutSine');
 	$scope.$apply();
 
@@ -402,6 +464,12 @@ myApp.controller('karnivalController',['$scope','$http','$timeout','cfpLoadingBa
 findTime();
 $scope.nodes =[];
 
+//select node
+$(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
+$(".home-event-circle").removeClass("removeBB");
+$("#karnival").addClass("selectedNavElem");
+$("#karnival").parent().parent().addClass("removeBB");
+
 	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/karnivals.json'}).success(function(data)
 				   {	
 						var jsonstr = data['karnivals'];
@@ -409,9 +477,14 @@ $scope.nodes =[];
 							{
 							$scope.nodes[i] = jsonstr[i];
 							$scope.nodes[i]['id'] = i+1;
-							console.log($scope.nodes[i]['title']);
+							//console.log($scope.nodes[i]['title']);
 							}
 					});
+$(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
+$(".home-event-circle").removeClass("removeBB");
+$("#karnival").addClass("selectedNavElem");
+$("#karnival").parent().parent().addClass("removeBB");
+
 $scope.clickedName = '';
 $scope.date = '';
 $scope.Time = '';
@@ -564,7 +637,7 @@ $scope.nodeInfo=[
 },
 {
 	id:3,
-	desc:'CEG Tech Forum, the student run organisation, established in the year 2006, has become the technical hub of our college. The Student Directors of CTF work towards uniting the technical activities of CEG under this forum, to nurture and give direction to any student. Through collaborations with industries and academia, we aim to bring out the technological and research curiosity in our students. CTF\’s activities also include its flagship event, Kurukshetra.'
+	desc:'CEG Tech Forum, the student run organisation, established in the year 2006, has become the technical hub of our college. The Student Directors of CTF work towards uniting the technical activities of CEG under this forum, to nurture and give direction to any student. Through collaborations with industries and academia, we aim to bring out the technological and research curiosity in our students. CTF\â€™s activities also include its flagship event, Kurukshetra.'
 },
 {
 	id:4,
@@ -585,14 +658,16 @@ $(".longer-line").css({'width':"10%"});
 setTimeout(function(){$(".hospi_content").addClass("hospi_animated");
 $("#1").addClass("node-active");
 },500);
-
+ var top = $("#hospi_content").scrollTop()+280;
+$('html,body').delay(100).animate({'scrollTop':top+"px"},1500,'easeOutSine');
+	
 $scope.clicked = function(clickedid)
 {
 	$scope.clickedName = $scope.nodes[clickedid-1]['title'];
 	$scope.information = $scope.nodeInfo[clickedid-1]['desc']; 
-	var top = $("#hospi_content").scrollTop()+180;
+	var top = $("#hospi_content").scrollTop()+280;
     $('html,body').animate({'scrollTop':top+"px"},500,'easeOutSine');
-    $scope.$apply();
+    //$scope.$apply();
 };
 
 }]);
@@ -606,7 +681,7 @@ $scope.bucketname = '';
 $scope.bucketemail = '';
 var pushclass = [];
 $scope.push = '';
-$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/teams.json'}).success(function(data)
+$http({method: 'GET', url: 'http://www.kurukshetra.org.in/teams.json'}).success(function(data)
 				   {
 				    jsonstr = data['teams'];
 				   	for(i=0;i<jsonstr.length;i++)
@@ -682,7 +757,7 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/categories'+path+'.jso
 				   	for(i=0;i<jsonstr.length;i++)
 				   		{
 				   			$scope.events[i] = jsonstr[i];
-				   			console.log($scope.events[i]);
+				   			//console.log($scope.events[i]);
 				   		}
 				  
 				   });
@@ -716,6 +791,9 @@ $scope.showTab = function(tabtitle)
 	$(".tabContent").show();
 	$(".tabContent").find("li").hide();
 	$(".tabContent").find("."+tabtitle).show();
+	 $('html,body').delay(100).animate({'scrollTop':"200px"},1500,'easeOutSine');
+	 $scope.$apply();
+
 };
 
 }]);
@@ -746,6 +824,7 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/xceeds.json'}).success
 				   });
 $scope.getEvent = function(eventname){
 	$(".place").fadeOut(100);
+	$(".footer").fadeOut(0);
 	$scope.eventName = eventname;
 	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','');
 function init(){
@@ -760,7 +839,7 @@ function init(){
 			   			$scope.tabs[i] = jsonstr[i];
 				   			$scope.tabs[i]['id']=i;
 				   		}
-					$(".left").animate({'opacity':"1",'marginLeft':"-15px",'margin-top':"4%"},500,'easeOutSine');
+					$(".left").animate({'opacity':"1",'marginLeft':"-15px",'margin-top':"16%"},500,'easeOutSine');
 				   	$timeout(init, 10);
 });
 }
@@ -769,69 +848,122 @@ $scope.showTab = function(tabtitle)
 	$(".tabContent").show();
 	$(".tabContent").find("li").hide();
 	$(".tabContent").find("."+tabtitle).show();
+	$('html,body').delay(100).animate({'scrollTop':"200px"},1500,'easeOutSine');
 };
 }]);
-/*XCEED*/
-myApp.controller('xceedController',['$scope','$http','$location','$timeout','cfpLoadingBar',function($scope,$http,$location,$timeout, cfpLoadingBar){
-findTime();
-$scope.events1 = [];
-$scope.events2 = [];
-$scope.events3 = [];
-$scope.events4 = [];
-$scope.tabs = [];
-$scope.eventName = '';
-$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/xceeds.json'}).success(function(data)
+
+myApp.controller('ProfileCtrl', ['$rootScope','$http','$location','$scope','$auth', 'Account',function($rootScope,$http,$location,$scope, $auth, Account) {
+    
+$http({method: 'GET', url: 'http://www.kurukshetra.org.in/colleges.json'}).success(function(data)
 				   {
-				   		for(var i=0;i<data.length;i++)
-				   		{
-				   			if(data[i]['city_id'] == 1)
-				   				$scope.events1.push(data[i]['name']);
-				   			if(data[i]['city_id'] == 2)
-				   				$scope.events2.push(data[i]['name']);
-				   			if(data[i]['city_id'] == 3)
-				   				$scope.events3.push(data[i]['name']);
-				   			if(data[i]['city_id'] == 4)
-				   				$scope.events4.push(data[i]['name']);
-				   		console.log(data[i]['name']);
-				   		}
-				   		console.log($scope.events1.length);
+				     $scope.colleges = data;
 				   });
-$scope.getEvent = function(eventname){
-	$(".place").fadeOut(100);
-	$scope.eventName = eventname;
-	eventname = eventname.toLowerCase().replace(/[ ']/g,'-').replace('!','');
-function init(){
-	$(".tabContent li").hide();
-	$(".tabContent").find("li.0").show();
-}
-	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/xceeds/'+eventname+'.json'}).success(function(data)
+$http({method: 'GET', url: 'http://www.kurukshetra.org.in/courses.json'}).success(function(data)
 				   {
-				    jsonstr = data['xceed']['tabs']; // response data 
-				   	for(i=0;i<jsonstr.length;i++)
-				   		{
-			   			$scope.tabs[i] = jsonstr[i];
-				   			$scope.tabs[i]['id']=i;
-				   		}
-					$(".left").animate({'opacity':"1",'marginLeft':"-15px",'margin-top':"3%"},500,'easeOutSine');
-				   	$timeout(init, 10);
-});
-}
-$scope.showTab = function(tabtitle)
-{
-	$(".tabContent").show();
-	$(".tabContent").find("li").hide();
-	$(".tabContent").find("."+tabtitle).show();
-};
-}]);
+				     $scope.courses = data;
+				   });
+$http({method: 'GET', url: 'http://www.kurukshetra.org.in/degrees.json'}).success(function(data)
+				   {
+				     $scope.degrees = data;
+				   });
+    $scope.getProfile = function() {
+      Account.getProfile()
+        .then(function(response) {
+          $scope.user = response.data;
+        })
+        .catch(function(response) {
+       //   console.log(response.data.message, response.status);
+        });
+    };
+    $scope.updateProfile = function() {
+      Account.updateProfile($scope.user)
+        .then(function() {
+        flag = 0;
+        type = $("input[name=student]:checked").val();
+       
+	if( type == 'college' )
+	{
+		yr = $("#student-year").val();
+		college = $("#student-college").val();
+		course = $("#student-course").val();
+                
+                if( yr == '' || college == '' || course == '' )//not selected reqd fields!
+                 {flag = 0;
+                            toastr.options.closeButton = true;
+                            //toastr.options.timeOut =3000 ; // How long the toast will display without user interaction
+                            //toastr.options.extendedTimeOut = 1500; 
+                            toastr.error("Fill in Year, College and Course");
+                            flag = 1;
+                    
+                 }
+                
+                   
+	}
 
-myApp.controller('ProfileCtrl', function($scope, $auth, Account) {
+         else if( type == 'school' )
+	{flag = 0;
+		name = $("#school-name").val();
+		grade = $("#school-grade").val();
+		
+                
+                if( name == '' || grade == '' )//not selected reqd fields!
+                 {
+                            toastr.options.closeButton = true;
+                            //toastr.options.timeOut =3000 ; // How long the toast will display without user interaction
+                            //toastr.options.extendedTimeOut = 1500; 
+                            toastr.error("Fill in School Name and Grade!");
+                            flag = 1;
+                    
+                 }
+                   
+	}
+        
+        else if( type == 'working' )
+	{flag = 0;
+		name = $("#company-name").val();
+		des = $("#company-des").val();
+		
+                
+                if( name == '' || des == '' )//not selected reqd fields!
+                 {
+                            toastr.options.closeButton = true;
+                            //toastr.options.timeOut =3000 ; // How long the toast will display without user interaction
+                            //toastr.options.extendedTimeOut = 1500; 
+                            toastr.error("Fill in Company Name and Designation!");
+                            flag = 1;
+                    
+                 }
+                   
+	}
+        
+        if( flag == 0 )
+        {
+                            toastr.options.closeButton = true;
+                            toastr.options.timeOut =3000 ; // How long the toast will display without user interaction
+                            toastr.options.extendedTimeOut = 1500; 
+                            toastr.success('Booyah! Profile has been updated!',"Success");
+        
+        }
 
-  });
+
+        })
+        .catch(function(response) {
+                            toastr.options.closeButton = true;
+                            toastr.options.timeOut =3000 ; // How long the toast will display without user interaction
+                            toastr.options.extendedTimeOut = 1500; 
+                            toastr.error("Error in updating", response.status);
+        });
+    };
+    if(!$auth.isAuthenticated()){
+    	$location.path('#');
+    }
+    $scope.getProfile();
+  }]);
 /*SPONSORS*/
 myApp.controller('sponsorsController',['$scope','$http','$location','$timeout','$sce','cfpLoadingBar',function($scope,$http,$location,$timeout,$sce, cfpLoadingBar){
 findTime();
 $scope.levels = [];
-// $scope.sponsors = [];
+$scope.sponsors = [];
 $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/levels.json'}).success(function(data)
 				   {
 				    	jsonstr = data['levels'];
@@ -841,21 +973,83 @@ $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/levels.json'}).success
 				    	}
 				   });
 
-// $http({method: 'GET', url: 'http://cms.kurukshetra.org.in/sponsors.json'}).success(function(data)
-// 				   {
-// 				    	$scope.sponsors = data;
-// 				    	$(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
-// 						$(".home-event-circle").removeClass("removeBB");
-// 						$("#sponsors").find(".circle-icon").addClass("selectedNavElem");
-// 						$("#sponsors").addClass("removeBB");
-// 				   });
-// 	$http({method: 'GET', url: 'http://cms.kurukshetra.org.in/sponsordata.json'}).success(function(data)
-// 				   {
-// 				    jsonstr = data['sponsors'];
-// 				   	for(i=0;i<jsonstr.length;i++)
-// 				   		{
-// 			   			$scope.sponsors[i]['link'] = jsonstr[i]['link'];
-// 			   			$scope.sponsors[i]['avatar'] = jsonstr[i]['avatar'];
-// 				   		}
-// 					});
 }]);
+
+
+myApp.controller('SAInfoController',['$scope','$auth','$cookieStore',function($scope,$auth,$cookieStore){
+
+if($auth.isAuthenticated()){
+$scope.isSa = false;
+$scope.sa_id = $cookieStore.get('sa_id');
+if(!$scope.sa_id){
+   $scope.isSa = false; 
+  // console.log("no");
+}
+else{
+   $scope.isSa = true;
+//   console.log("yes "+$scope.sa_id);
+   
+}
+}
+
+}]);
+myApp.controller('SAController', ['$rootScope','$http','$location','$scope','$auth', 'Account','$cookieStore',function($rootScope,$http,$location,$scope, $auth, Account,$cookieStore) {
+    
+$http({method: 'GET', url: 'http://www.kurukshetra.org.in/colleges.json'}).success(function(data)
+				   {
+				     $scope.colleges = data;
+				   });
+$http({method: 'GET', url: 'http://www.kurukshetra.org.in/courses.json'}).success(function(data)
+				   {
+				     $scope.courses = data;
+				   });
+$http({method: 'GET', url: 'http://www.kurukshetra.org.in/degrees.json'}).success(function(data)
+				   {
+				     $scope.degrees = data;
+				   });
+$scope.getProfile = function() {
+//console.log("Gowtham : profile fetch");
+      Account.getProfile()
+        .then(function(response) {
+          $scope.user1 = response.data;
+$scope.user={};
+$scope.user.name=$scope.user1.displayName;
+
+$scope.user.phno=$scope.user1.contact;
+$scope.user.college=$scope.user1.college;
+$scope.user.contact_email=$scope.user1.email;
+$scope.user.course=$scope.user1.course;
+
+//console.log("Gowtham",$scope.user);
+        })
+        .catch(function(response) {
+          console.log(response.data.message, response.status);
+        });
+    };
+ $scope.registerSa = function() {
+ 		$scope.user.k_id = $rootScope.kid;
+ 	    Account.registerSa($scope.user)
+        .then(function(response) {
+                            
+var now = new Date();
+var exp = new Date(now.getFullYear()+1,now.getMonth(),now.getDate()+5);
+                            console.log("response "+ response);
+                            $cookieStore.put('sa_id',response.data.sa_id,{expires: exp});
+                            toastr.clear();
+                            toastr.options.closeButton = true;
+                            toastr.options.timeOut =3000 ; // How long the toast will display without user interaction
+                            toastr.options.extendedTimeOut = 1500;               //redirect user to home if it does not have permission.
+                            toastr.success('You have registered as Student Ambassador','Success');
+                             $location.path('/sa');
+        })
+        .catch(function(response) {
+console.log("error", $scope.user);
+                            toastr.options.closeButton = true;
+                            toastr.options.timeOut =3000 ; // How long the toast will display without user interaction
+                            toastr.options.extendedTimeOut = 1500;               //redirect user to home if it does not have permission.
+          
+                           toastr.info(response.data.message, response.status);
+        });
+ };
+$scope.getProfile();
+  }]);											

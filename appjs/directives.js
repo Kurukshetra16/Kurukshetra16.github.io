@@ -1,29 +1,29 @@
 var myApp = angular.module('myAppDirectives',[]);
 myApp.directive('compile', ['$compile', function ($compile) {
 
-				return function(scope, element, attrs) {
+        return function(scope, element, attrs) {
 
-				var ensureCompileRunsOnce = scope.$watch(
+        var ensureCompileRunsOnce = scope.$watch(
 
-						function(scope) {
+            function(scope) {
 
-						return scope.$eval(attrs.compile);
+            return scope.$eval(attrs.compile);
 
-						},
+            },
 
-						function(value) {
+            function(value) {
 
-						console.log(value);
+            console.log(value);
 
-						element.html(value);
+            element.html(value);
 
-						$compile(element.contents())(scope);
+            $compile(element.contents())(scope);
 
-						}
+            }
 
-				);
+        );
 
-				};
+        };
 
 }]);
 
@@ -50,7 +50,7 @@ myApp.directive('hospiAnim', function() {
         restrict: 'AEC',
         replace:'true',
         link: function(scope,elem,attrs){
-        		
+            
   $(".node").click(function(){
   if($(this).hasClass("node-active"))
     return;
@@ -70,7 +70,7 @@ myApp.directive('hospiAnim', function() {
       $(".longer-line").css({'width':"100%"});
   setTimeout(function(){$(".hospi_content").addClass("hospi_animated");},500);
 
-});       	}
+});         }
         };
     });
 /*tabs anim*/
@@ -95,9 +95,12 @@ $(document).keyup(function(e) {
     }
 });    
 function closeall(){
-  console.log("closing...");
-    $(".imagebox").each(function(){
+  console.log("closing..."+"booyaaaaaah");
+  $(".footer").fadeIn(0);
+$(".tab").hide();
+    $(".imagebox").each(function(i){
       var elem = $(this);
+      $(".footer").show(0);
       setTimeout(function(){
         $(elem).animate({'opacity':"1",'margin-left':"0px"},100);
       },i*50+50);
@@ -136,7 +139,7 @@ $(document).keyup(function(e) {
 });    
 
 function closeall(){
-    $(".place").each(function(){
+    $(".place").each(function(i){
       var elem = $(this);
       setTimeout(function(){
         $(elem).fadeIn(100*i);

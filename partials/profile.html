@@ -46,6 +46,9 @@
 				 <p>Company<input type="text" placeholder="[Comapny Name]"/>Designation <span class="detail"><input type="text" placeholder="[Enter your designation]"/>
 				 </p>
 			</div> 
+			<p>
+				</span> Student Ambassador Referral ( if any ) <input type="text" placeholder="[SA name]"/></span>
+			</p>
 			 <p class="text-center" style="font-size:2.5rem">I'm ready to pit my wits against the best and the craziest minds at Kurukshetra 2016! Give me all you've got!
 			 	<br/>
 			 <button class="updatebtn btn btn-success btn-lg">UPDATE</button>
@@ -56,6 +59,18 @@
 </div>
 <script>
 $(document).ready(function(){
+//check required fields before submission
+$(".updatebtn").click(function(){
+var type = $("input[name=student]:checked").val();
+alert(type)
+	if( type == 'college' )
+	{
+		yr = $(".student-year").val();
+		alert(yr);
+	}
+});
+
+
 $(".home-event-circle").find(".circle-icon").removeClass("selectedNavElem");
 $(".home-event-circle").removeClass("removeBB");
 $("#loginNav").find(".circle-icon").addClass("selectedNavElem");
